@@ -12,15 +12,12 @@ Ce dépôt est la **source**. La mise en ligne se fait en copiant `site/` dans l
 training/
 ├── site/
 │   ├── index.html            # Page FR (autonome, aucune dépendance externe)
-│   └── index-en.html         # Page EN
+│   ├── index-en.html         # Page EN
 │   └── arx-logo.png          # Logo Arx (nav + pied de page)
 ├── docs/
 │   ├── kit-formateur.md      # 12 fiches d'animation + mapping des slides existants
 │   ├── attestation.md        # Émargement, attestation de fin, registre de suivi
-│   └── liens.md              # Table de correspondance sujet → lien profond
-├── db/
-│   ├── 01-setup-training.js  # Schéma Oracle TRAINING : SUJET, LIEN, vues
-│   └── 02-run-training.sh    # Exécution sur le serveur OCI
+│   └── liens.md              # Table de correspondance sujet → lien profond (source de vérité)
 ├── deploy/
 │   └── publish.ps1           # Copie site/ dans arxWeb/AITraining/ puis commit + push
 └── README.md
@@ -34,7 +31,7 @@ cartes en `border-radius: 18px`, nav translucide `backdrop-filter`. Pas de build
 | Parcours | Modules | Public |
 |---|---|---|
 | Découverte | 12 modules, 4 semaines, 15–20 min chacun | Débutants complets, non techniques |
-| Avancé | 6 modules, 45–60 min chacun | Uniquement après le module 07 du parcours découverte |
+| Avancé | 7 modules, 45–60 min chacun | Uniquement après le module 07 du parcours découverte |
 | Kit formateur | 12 fiches d'animation | Animateur interne |
 
 Principe directeur : chaque module se termine par un **livrable réel** apporté par le participant.
@@ -61,9 +58,8 @@ curl -sI https://arx-consulting.com/AITraining/ | head -1
 - **Le chemin `/AITraining` sans slash final** dépend du serveur statique de Coolify. Si `/AITraining`
   renvoie une 404 alors que `/AITraining/` répond 200, communiquer l'URL avec le slash.
 - **Liens externes.** Chaque module pointe vers la page exacte de son sujet, pas vers un catalogue.
-  La liste, la source et la date de vérification sont dans [`docs/liens.md`](docs/liens.md) et dans la
-  table `TRAINING.LIEN` sur Oracle ATP. À revérifier deux fois par an (`V_LIEN_A_REVERIFIER`) —
-  les catalogues bougent : `skills.google/paths/2336` a déjà disparu.
+  La liste, la source et la date de vérification sont dans [`docs/liens.md`](docs/liens.md), qui fait
+  foi. À revérifier deux fois par an — les catalogues bougent : `skills.google/paths/2336` a déjà disparu.
 - **Mention réglementaire.** L'encart sur l'article 4 du règlement (UE) 2024/1689 est une information
   générale, pas un conseil juridique. À faire valider avant toute diffusion commerciale.
 - **Marques.** Claude est une marque d'Anthropic. Le pied de page précise qu'il s'agit d'un support
@@ -74,24 +70,6 @@ curl -sI https://arx-consulting.com/AITraining/ | head -1
 Tout le contenu pédagogique est dans les tableaux JavaScript en bas de chaque page :
 `decouverte`, `avance`, `reflexes`, `gardefous`, `fiches`. Modifier ces tableaux suffit — aucune
 retouche du HTML ou du CSS. Répercuter dans les deux langues.
-
-## Base de données
-
-Le schéma `TRAINING` sur Oracle ATP `arxdb01` porte la correspondance sujet → lien :
-
-- `SUJET` — un module (code, parcours, titres FR/EN, marche de l'escalier, durée)
-- `LIEN` — un lien par sujet et par langue, avec fournisseur, type (`principal` / `complement`),
-  dernier statut HTTP et date de vérification
-- `V_MODULE_LIEN` — la jointure lisible, ordonnée par parcours et module
-- `V_LIEN_A_REVERIFIER` — ce qui a plus de 180 jours ou n'a pas répondu 200
-
-```bash
-scp db/01-setup-training.js db/02-run-training.sh ubuntu@145.241.174.15:/tmp/
-ssh ubuntu@145.241.174.15 "sudo sh /tmp/02-run-training.sh"
-```
-
-Le mot de passe `TRAINING` est généré au premier passage dans `/root/.ora_training` (chmod 600),
-jamais affiché ni versionné. Script idempotent.
 
 ## Références
 

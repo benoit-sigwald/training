@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>AI Training — Apprendre Claude | Arx Consulting</title>
-<meta name="description" content="Programme de formation Claude en deux parcours : découverte en 12 modules et avancé en 6 modules, avec le kit formateur et l'attestation de fin.">
+<meta name="description" content="Programme de formation Claude en deux parcours : découverte en 12 modules et avancé en 7 modules, avec le kit formateur et l'attestation de fin.">
 <meta name="theme-color" content="#fbfbfd">
 <meta name="robots" content="noindex, nofollow">
 <link rel="alternate" hreflang="fr" href="/AITraining/index.html">
@@ -61,6 +61,12 @@
   @media(max-width:520px){.nav-links a:not(.nav-cta):not(.lang){display:none}}
 
   .flogo{height:44px;width:auto;display:block;margin-bottom:14px;opacity:.75}
+
+  code{
+    font-family:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+    font-size:.88em;background:rgba(120,120,128,.12);padding:1px 6px;border-radius:6px;
+    white-space:nowrap;
+  }
 
   /* ---------- hero ---------- */
   .hero{text-align:center;padding:88px 0 64px}
@@ -296,7 +302,7 @@
 
     <div class="seg" role="tablist" aria-label="Choisir un parcours">
       <button role="tab" id="tab-d" aria-controls="panel-d" aria-selected="true">Découverte · 12 modules</button>
-      <button role="tab" id="tab-a" aria-controls="panel-a" aria-selected="false">Avancé · 6 modules</button>
+      <button role="tab" id="tab-a" aria-controls="panel-a" aria-selected="false">Avancé · 7 modules</button>
     </div>
 
     <div id="panel-d" role="tabpanel" aria-labelledby="tab-d">
@@ -331,6 +337,32 @@
         <p>Ce parcours ne s'ouvre qu'après le module 07 du parcours découverte — « Vérifier avant d'envoyer » — et après un livrable réel. Un agent ne fait pas moins d'erreurs : il en fait plus vite et sans témoin.</p>
       </div>
       <div class="grid" id="grid-a"></div>
+
+      <div class="sec-head" style="margin:52px auto 0;max-width:680px">
+        <h2 style="font-size:clamp(24px,3.2vw,34px)">Le slash, deux natures.</h2>
+        <p style="font-size:17px">Le cœur du module 00. Tout ce qui commence par « / » n'est pas de même nature.</p>
+      </div>
+      <div class="craft" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
+        <div class="reveal">
+          <b><span>1</span>Commande intégrée</b>
+          <p>Logique fixe, codée en dur dans le CLI. Elle fait une chose précise, sans raisonnement du modèle, et n'est pas personnalisable. <code>/clear</code>, <code>/compact</code>, <code>/model</code>, <code>/cost</code>, <code>/help</code>.</p>
+        </div>
+        <div class="reveal">
+          <b><span>2</span>Skill</b>
+          <p>Capacité à base de prompt : l'invocation charge un fichier Markdown d'instructions dans le contexte, que Claude exécute — avec arguments, outils dédiés et sous-agents possibles. <code>.claude/commands/</code> fonctionne toujours, <code>.claude/skills/</code> est l'approche recommandée.</p>
+        </div>
+      </div>
+
+      <div class="anim" style="margin-top:18px">
+        <p class="kicker" style="margin-bottom:10px">Trois environnements, trois comportements</p>
+        <table>
+          <tr><td>Claude Code</td><td>La palette complète : contexte (<code>/clear</code>, <code>/compact</code>, <code>/context</code>), navigation (<code>/resume</code>, <code>/branch</code>, <code>/rewind</code>), modèle (<code>/model</code>, <code>/effort</code>), code (<code>/plan</code>, <code>/diff</code>, <code>/security-review</code>).</td></tr>
+          <tr><td>Connecteurs</td><td>Un serveur MCP branché expose ses prompts sous <code>/mcp__serveur__prompt</code>. Les plugins exposent les leurs sous <code>/plugin:commande</code>.</td></tr>
+          <tr><td>claude.ai</td><td>Palette très réduite : <code>/new</code> vide le contexte, <code>/help</code> liste ce qui existe. Tout le reste après un « / » est soit le nom d'une skill, soit du texte ordinaire.</td></tr>
+        </table>
+        <p style="margin:16px 0 0;font-size:15px;color:var(--text-2)">Deux nuances qui coûtent cher : <code>/cd</code> déplace la session — un <code>/resume</code> la retrouvera depuis le nouveau répertoire — alors que <code>/add-dir</code> donne l'accès sans déplacer, ce qui sert pour les monorepos. Et <code>/branch</code> bascule dans une copie de la conversation en préservant l'originale, sur laquelle on revient par <code>/resume</code>.</p>
+      </div>
+
       <div class="rules" id="rules-a"></div>
     </div>
   </div>
@@ -411,7 +443,7 @@
 
 <script>
 // Un lien par module, vers la page exacte du sujet. Miroir de la table
-// TRAINING.MODULE_LIEN (Oracle ATP) — voir docs/liens.md.
+// docs/liens.md, qui fait foi.
 const PROMPTING="https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices";
 
 const decouverte=[
@@ -434,6 +466,7 @@ const decouverte=[
 ];
 
 const avance=[
+ {n:"00",t:"Le slash : trois environnements, deux natures",d:"Le / ne fait pas la même chose dans le chat claude.ai, dans Claude Code et via les connecteurs. C'est la première source de confusion.",task:"Taper / dans son terminal, puis classer les 5 commandes qu'on utilise le plus : intégrée, skill, préfixée MCP ou plugin.",m:"45 min",l:"Slash commands — Claude Code",u:"https://code.claude.com/docs/en/slash-commands"},
  {n:"01",t:"Ce qu'est un agent — et quand ne pas en faire",d:"La différence réelle entre une conversation, une automatisation et un agent. Le critère : qui décide de l'étape suivante.",task:"Lister 3 tâches de l'équipe et les classer : conversation, script ou agent. La plupart ne sont pas des agents.",m:"45 min",l:"Building Effective Agents",u:"https://www.anthropic.com/engineering/building-effective-agents"},
  {n:"02",t:"Donner des outils",d:"Appels de fonctions : lire un fichier, interroger une API, envoyer un mail. Décrire un outil pour qu'il soit bien utilisé.",task:"Exposer un seul outil en lecture seule et observer quand le modèle choisit de l'appeler.",m:"60 min",l:"Tool use — vue d'ensemble",u:"https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview"},
  {n:"03",t:"De Projects à Skills",d:"Capitaliser : transformer des instructions qui marchent en compétence réutilisable par toute l'équipe.",task:"Convertir son meilleur modèle de prompt en Skill et le faire tester par quelqu'un d'autre.",m:"45 min",l:"Introduction to Agent Skills",u:"https://anthropic.skilljar.com/introduction-to-agent-skills"},
@@ -449,6 +482,7 @@ const reflexes=[
  "Tu signes ce que tu envoies. Relis les chiffres."
 ];
 const gardefous=[
+ "La seule liste vraie de tes commandes, c'est /help dans ton propre terminal. Beaucoup de listes qui circulent sont inventées.",
  "Lecture seule d'abord. L'écriture et l'envoi viennent après des semaines de preuve.",
  "Un agent, une tâche. Le périmètre large est la cause n°1 des dérapages.",
  "Toute action irréversible passe par une validation humaine explicite.",

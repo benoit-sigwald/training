@@ -270,6 +270,10 @@ Volontairement exclus pour ce public : l'API, les appels de fonctions, Zapier/Ma
 
 Piste avancée, si besoin :
 
+- Son **module 00 — « Le slash : trois environnements, deux natures »** : ce que fait `/` dans le chat
+  claude.ai, dans Claude Code et via les connecteurs, et la différence entre une commande intégrée
+  (logique fixe, non personnalisable) et une skill (fichier Markdown chargé dans le contexte).
+  [Slash commands](https://code.claude.com/docs/en/slash-commands)
 - [Building with the Claude API](https://anthropic.skilljar.com/claude-with-the-anthropic-api)
 - [Introduction to Model Context Protocol](https://anthropic.skilljar.com/introduction-to-model-context-protocol)
 - [Claude Code 101](https://anthropic.skilljar.com/claude-code-101)
@@ -305,4 +309,4 @@ Le jeu de slides interne (`G:\My Drive\Dev\IA\*.png`) est réutilisable tel quel
 | [Bonnes pratiques de prompting](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices) | EN | — | Référence prompting, à jour en continu. Source des modules 02, 04 et 05. |
 
 Le détail module par module, avec la date de dernière vérification HTTP, est dans
-[`docs/liens.md`](liens.md) et dans la table `TRAINING.LIEN` sur Oracle ATP.
+[`docs/liens.md`](liens.md), qui fait foi.

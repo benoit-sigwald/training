@@ -2,9 +2,8 @@
 
 Un lien par module, vers **la page exacte du sujet** — plus aucun lien générique vers un catalogue.
 
-Source de vérité : schéma **`TRAINING`** sur Oracle ATP `arxdb01` (tables `SUJET` et `LIEN`,
-vue `V_MODULE_LIEN`). Les deux pages du site en sont le miroir.
-Script de création et de chargement : `db/01-setup-training.js`.
+Ce fichier est la source de vérité. Les tableaux JavaScript en bas de `site/index.html` et
+`site/index-en.html` en sont le miroir : toute modification ici doit être répercutée dans les deux pages.
 
 Tous les liens ci-dessous ont été appelés en HTTP le **9 août 2026** et ont répondu **200**.
 
@@ -32,6 +31,8 @@ Tous les liens ci-dessous ont été appelés en HTTP le **9 août 2026** et ont 
 
 | Module | Sujet | Fournisseur | Lien exact |
 |---|---|---|---|
+| 00 | Le slash : trois environnements, deux natures | Doc Claude Code | [Slash commands](https://code.claude.com/docs/en/slash-commands) |
+| 00 | *complément* | Doc Claude Code | [Skills](https://code.claude.com/docs/en/skills) · [MCP](https://code.claude.com/docs/en/mcp) · [Plugins](https://code.claude.com/docs/en/plugins) |
 | 01 | Ce qu'est un agent | Anthropic | [Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents) |
 | 01 | *complément* | Anthropic Academy | [Introduction to subagents](https://anthropic.skilljar.com/introduction-to-subagents) |
 | 02 | Donner des outils | Doc Claude | [Tool use — vue d'ensemble](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) |
@@ -52,11 +53,15 @@ Tous les liens ci-dessous ont été appelés en HTTP le **9 août 2026** et ont 
 
 ## Revérifier
 
-La vue `V_LIEN_A_REVERIFIER` remonte les liens jamais vérifiés, vérifiés il y a plus de 180 jours,
-ou dont le dernier statut HTTP n'était pas 200 :
+Deux fois par an. Extraire toutes les URL du dépôt et les appeler :
 
-```sql
-SELECT * FROM TRAINING.V_LIEN_A_REVERIFIER;
+```powershell
+Get-ChildItem . -Recurse -Include *.html,*.md | ForEach-Object { (Get-Content $_ -Raw) } |
+  ForEach-Object { [regex]::Matches($_, 'https://[^\s"''<>)\]]+') } |
+  ForEach-Object { $_.Value -replace '#.*$','' } | Sort-Object -Unique |
+  ForEach-Object { try { "$((Invoke-WebRequest $_ -TimeoutSec 25 -UseBasicParsing).StatusCode) $_" }
+                   catch { "ERR $_" } }
 ```
 
-Les catalogues bougent : à repasser deux fois par an, puis mettre à jour `HTTP_STATUT` et `VERIFIE_LE`.
+Les catalogues bougent : `skills.google/paths/2336` a disparu en moins d'un an. Mettre à jour la date
+en tête de fichier après chaque passage.
