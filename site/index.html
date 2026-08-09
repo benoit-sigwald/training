@@ -380,21 +380,21 @@
       <p>Gratuit, officiel, à jour.</p>
     </div>
     <div class="res">
-      <a href="https://anthropic.skilljar.com" target="_blank" rel="noopener">
-        <h3>Anthropic Academy</h3>
-        <p>Les cours officiels Claude, du débutant au développeur. Gratuits, avec certificat.</p>
-        <span>Commencer par Claude 101</span></a>
+      <a href="https://anthropic.skilljar.com/claude-101" target="_blank" rel="noopener">
+        <h3>Claude 101</h3>
+        <p>Le cours officiel d'entrée, gratuit, avec certificat. Le catalogue complet est sur Anthropic Academy.</p>
+        <span>Commencer le cours</span></a>
       <a href="https://www.coursera.org/fr-FR/specializations/ai-essentials-google" target="_blank" rel="noopener">
         <h3>Google · Principes essentiels de l'IA</h3>
-        <p>En français, niveau débutant, environ 4 heures, certificat partageable.</p>
-        <span>Voir sur Coursera</span></a>
-      <a href="https://openclassrooms.com/us/courses/6417031-objectif-ia-initiez-vous-a-l-intelligence-artificielle" target="_blank" rel="noopener">
+        <p>Cinq cours en français, niveau débutant, environ 4 heures, certificat partageable.</p>
+        <span>Voir la spécialisation</span></a>
+      <a href="https://openclassrooms.com/fr/courses/6417031-objectif-ia-initiez-vous-a-l-intelligence-artificielle" target="_blank" rel="noopener">
         <h3>Objectif IA</h3>
         <p>Six heures en français pour comprendre l'IA avant de l'utiliser.</p>
         <span>Voir sur OpenClassrooms</span></a>
-      <a href="https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview" target="_blank" rel="noopener">
-        <h3>Documentation Claude</h3>
-        <p>La référence sur la rédaction des demandes, mise à jour en continu.</p>
+      <a href="https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices" target="_blank" rel="noopener">
+        <h3>Bonnes pratiques de prompting</h3>
+        <p>La référence sur la rédaction des demandes, mise à jour en continu. Source du module 02.</p>
         <span>Lire la documentation</span></a>
     </div>
   </div>
@@ -410,37 +410,36 @@
 </footer>
 
 <script>
-const ACADEMY="https://anthropic.skilljar.com";
-const DOCS="https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview";
-const GOOGLE="https://www.coursera.org/fr-FR/specializations/ai-essentials-google";
-const SKILLS="https://www.skills.google/paths/2336";
+// Un lien par module, vers la page exacte du sujet. Miroir de la table
+// TRAINING.MODULE_LIEN (Oracle ATP) — voir docs/liens.md.
+const PROMPTING="https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices";
 
 const decouverte=[
  {w:"Semaine 1 — Prendre en main"},
- {n:"00",t:"Chronomètre : où part ton temps",d:"Avant de toucher à quoi que ce soit : mesurer. Trois tâches récurrentes, minutées à la montre.",task:"Noter 3 tâches, leur fréquence et leur durée réelle. Cette feuille est le point de comparaison du module 11.",m:"15 min",l:"Aucun prérequis",u:ACADEMY},
- {n:"01",t:"Ce que Claude fait et ne fait pas",d:"L'interface, la conversation, les limites. Pourquoi il se trompe parfois avec assurance.",task:"Poser 3 questions sur son propre métier et repérer la réponse la plus faible.",m:"15 min",l:"Claude 101",u:ACADEMY},
- {n:"02",t:"Écrire une demande qui marche — CRAFT",d:"Les 5 ingrédients : Contexte, Rôle, Action, Format, Tonalité. Rien de plus.",task:"Reprendre une demande ratée et la réécrire avec les 5 ingrédients CRAFT.",m:"20 min",l:"Guide prompting",u:DOCS},
- {n:"03",t:"Ce qu'on ne colle jamais",d:"Données clients, RH, contrats, identifiants. Anonymiser en trente secondes.",task:"Écrire la règle de son équipe en une phrase et l'afficher.",m:"15 min",l:"Usage responsable",u:GOOGLE},
+ {n:"00",t:"Chronomètre : où part ton temps",d:"Avant de toucher à quoi que ce soit : mesurer. Trois tâches récurrentes, minutées à la montre.",task:"Noter 3 tâches, leur fréquence et leur durée réelle. Cette feuille est le point de comparaison du module 11.",m:"15 min",l:"Productivité et outils d'IA",u:"https://www.coursera.org/fr-FR/learn/google-maximize-productivity-with-ai-tools"},
+ {n:"01",t:"Ce que Claude fait et ne fait pas",d:"L'interface, la conversation, les limites. Pourquoi il se trompe parfois avec assurance.",task:"Poser 3 questions sur son propre métier et repérer la réponse la plus faible.",m:"15 min",l:"Capacités et limites de l'IA",u:"https://anthropic.skilljar.com/ai-capabilities-and-limitations"},
+ {n:"02",t:"Écrire une demande qui marche — CRAFT",d:"Les 5 ingrédients : Contexte, Rôle, Action, Format, Tonalité. Rien de plus.",task:"Reprendre une demande ratée et la réécrire avec les 5 ingrédients CRAFT.",m:"20 min",l:"Être clair et direct",u:PROMPTING+"#be-clear-and-direct"},
+ {n:"03",t:"Ce qu'on ne colle jamais",d:"Données clients, RH, contrats, identifiants. Anonymiser en trente secondes.",task:"Écrire la règle de son équipe en une phrase et l'afficher.",m:"15 min",l:"Utiliser l'IA de manière responsable",u:"https://www.coursera.org/fr-FR/learn/google-use-ai-responsibly"},
  {w:"Semaine 2 — Écrire et comprendre"},
- {n:"04",t:"Rédiger et reformuler",d:"Mail délicat, compte-rendu, note interne. Changer le ton sans changer le fond.",task:"Produire 3 versions du même mail : ferme, neutre, chaleureuse.",m:"20 min",l:"Claude 101",u:ACADEMY},
- {n:"05",t:"Lire un document à ta place",d:"Déposer un PDF ou un contrat, demander les points d'attention plutôt qu'un résumé.",task:"Soumettre un document de 20+ pages et en tirer 5 questions à poser en réunion.",m:"20 min",l:"Claude 101",u:ACADEMY},
- {n:"06",t:"Photo, capture, schéma",d:"Un courrier papier photographié, une capture d'écran d'erreur, un tableau blanc de réunion.",task:"Photographier un document papier et le transformer en texte exploitable.",m:"15 min",l:"Claude 101",u:ACADEMY},
- {n:"07",t:"Vérifier avant d'envoyer",d:"Chiffres, noms, dates, citations : les quatre endroits où ça casse. Demander les sources.",task:"Chasser volontairement une erreur dans une réponse et la faire corriger.",m:"20 min",l:"Esprit critique",u:GOOGLE},
+ {n:"04",t:"Rédiger et reformuler",d:"Mail délicat, compte-rendu, note interne. Changer le ton sans changer le fond.",task:"Produire 3 versions du même mail : ferme, neutre, chaleureuse.",m:"20 min",l:"Guider par l'exemple",u:PROMPTING+"#use-examples-effectively"},
+ {n:"05",t:"Lire un document à ta place",d:"Déposer un PDF ou un contrat, demander les points d'attention plutôt qu'un résumé.",task:"Soumettre un document de 20+ pages et en tirer 5 questions à poser en réunion.",m:"20 min",l:"Demander sur un long document",u:PROMPTING+"#long-context-prompting"},
+ {n:"06",t:"Photo, capture, schéma",d:"Un courrier papier photographié, une capture d'écran d'erreur, un tableau blanc de réunion.",task:"Photographier un document papier et le transformer en texte exploitable.",m:"15 min",l:"Vision — images et PDF",u:"https://platform.claude.com/docs/en/build-with-claude/vision"},
+ {n:"07",t:"Vérifier avant d'envoyer",d:"Chiffres, noms, dates, citations : les quatre endroits où ça casse. Demander les sources.",task:"Chasser volontairement une erreur dans une réponse et la faire corriger.",m:"20 min",l:"Réduire les hallucinations",u:"https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations"},
  {w:"Semaine 3 — Travailler sur ses fichiers"},
- {n:"08",t:"Tableurs et données",d:"Déposer un Excel ou un CSV, nettoyer, comparer, sortir un tableau ou un graphique.",task:"Transformer un export brut en tableau lisible par son responsable.",m:"20 min",l:"Google Skills",u:SKILLS},
- {n:"09",t:"Projects et instructions",d:"Niveau 2 de l'escalier : arrêter de réexpliquer son contexte. Un espace par sujet récurrent.",task:"Créer un Project pour son dossier le plus fréquent, avec 5 lignes d'instructions.",m:"20 min",l:"Anthropic Academy",u:ACADEMY},
+ {n:"08",t:"Tableurs et données",d:"Déposer un Excel ou un CSV, nettoyer, comparer, sortir un tableau ou un graphique.",task:"Transformer un export brut en tableau lisible par son responsable.",m:"20 min",l:"Créer et modifier des fichiers",u:"https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude"},
+ {n:"09",t:"Projects et instructions",d:"Niveau 2 de l'escalier : arrêter de réexpliquer son contexte. Un espace par sujet récurrent.",task:"Créer un Project pour son dossier le plus fréquent, avec 5 lignes d'instructions.",m:"20 min",l:"Qu'est-ce qu'un Project",u:"https://support.claude.com/en/articles/9517075-what-are-projects"},
  {w:"Semaine 4 — Devenir autonome"},
- {n:"10",t:"Ta tâche répétitive, une fois pour toutes",d:"Reprendre la feuille du module 00 et transformer la pire corvée en modèle réutilisable.",task:"Écrire son modèle, le tester deux fois, le partager à l'équipe.",m:"20 min",l:"AI Fluency",u:ACADEMY},
- {n:"11",t:"Démo de 5 minutes",d:"Chacun montre un livrable réel produit pendant les quatre semaines. C'est ça, la validation.",task:"Présenter l'avant (module 00), l'après et le temps gagné, chiffré. Attestation remise le jour même.",m:"30 min",l:"Certificat",u:ACADEMY}
+ {n:"10",t:"Ta tâche répétitive, une fois pour toutes",d:"Reprendre la feuille du module 00 et transformer la pire corvée en modèle réutilisable.",task:"Écrire son modèle, le tester deux fois, le partager à l'équipe.",m:"20 min",l:"AI Fluency — les 4D",u:"https://anthropic.skilljar.com/ai-fluency-framework-foundations"},
+ {n:"11",t:"Démo de 5 minutes",d:"Chacun montre un livrable réel produit pendant les quatre semaines. C'est ça, la validation.",task:"Présenter l'avant (module 00), l'après et le temps gagné, chiffré. Attestation remise le jour même.",m:"30 min",l:"Claude 101 — certificat",u:"https://anthropic.skilljar.com/claude-101"}
 ];
 
 const avance=[
- {n:"01",t:"Ce qu'est un agent — et quand ne pas en faire",d:"La différence réelle entre une conversation, une automatisation et un agent. Le critère : qui décide de l'étape suivante.",task:"Lister 3 tâches de l'équipe et les classer : conversation, script ou agent. La plupart ne sont pas des agents.",m:"45 min",l:"Intro to Subagents",u:ACADEMY},
- {n:"02",t:"Donner des outils",d:"Appels de fonctions : lire un fichier, interroger une API, envoyer un mail. Décrire un outil pour qu'il soit bien utilisé.",task:"Exposer un seul outil en lecture seule et observer quand le modèle choisit de l'appeler.",m:"60 min",l:"Claude API",u:ACADEMY},
- {n:"03",t:"De Projects à Skills",d:"Capitaliser : transformer des instructions qui marchent en compétence réutilisable par toute l'équipe.",task:"Convertir son meilleur modèle de prompt en Skill et le faire tester par quelqu'un d'autre.",m:"45 min",l:"Intro to Agent Skills",u:ACADEMY},
- {n:"04",t:"MCP et connecteurs",d:"Brancher l'agent sur les données réelles de l'entreprise plutôt que sur du copier-coller. Périmètre, droits, jetons.",task:"Connecter une source interne en lecture seule et documenter ce à quoi l'agent a accès.",m:"60 min",l:"Intro to MCP",u:ACADEMY},
- {n:"05",t:"Un agent, de bout en bout",d:"Objectif, périmètre, outils, critère d'arrêt, point de reprise humaine. Sur une tâche volontairement étroite.",task:"Construire l'agent qui traite une seule tâche hebdomadaire réelle, sans jamais écrire en base.",m:"60 min",l:"MCP Advanced",u:ACADEMY},
- {n:"06",t:"Tester, chiffrer, encadrer",d:"Jeu de cas de test, coût par exécution, journalisation, validation humaine, procédure d'arrêt.",task:"Faire échouer son agent volontairement, puis écrire la règle qui empêche que ça recommence.",m:"60 min",l:"Documentation",u:"https://docs.claude.com"}
+ {n:"01",t:"Ce qu'est un agent — et quand ne pas en faire",d:"La différence réelle entre une conversation, une automatisation et un agent. Le critère : qui décide de l'étape suivante.",task:"Lister 3 tâches de l'équipe et les classer : conversation, script ou agent. La plupart ne sont pas des agents.",m:"45 min",l:"Building Effective Agents",u:"https://www.anthropic.com/engineering/building-effective-agents"},
+ {n:"02",t:"Donner des outils",d:"Appels de fonctions : lire un fichier, interroger une API, envoyer un mail. Décrire un outil pour qu'il soit bien utilisé.",task:"Exposer un seul outil en lecture seule et observer quand le modèle choisit de l'appeler.",m:"60 min",l:"Tool use — vue d'ensemble",u:"https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview"},
+ {n:"03",t:"De Projects à Skills",d:"Capitaliser : transformer des instructions qui marchent en compétence réutilisable par toute l'équipe.",task:"Convertir son meilleur modèle de prompt en Skill et le faire tester par quelqu'un d'autre.",m:"45 min",l:"Introduction to Agent Skills",u:"https://anthropic.skilljar.com/introduction-to-agent-skills"},
+ {n:"04",t:"MCP et connecteurs",d:"Brancher l'agent sur les données réelles de l'entreprise plutôt que sur du copier-coller. Périmètre, droits, jetons.",task:"Connecter une source interne en lecture seule et documenter ce à quoi l'agent a accès.",m:"60 min",l:"Introduction to MCP",u:"https://anthropic.skilljar.com/introduction-to-model-context-protocol"},
+ {n:"05",t:"Un agent, de bout en bout",d:"Objectif, périmètre, outils, critère d'arrêt, point de reprise humaine. Sur une tâche volontairement étroite.",task:"Construire l'agent qui traite une seule tâche hebdomadaire réelle, sans jamais écrire en base.",m:"60 min",l:"MCP — Advanced Topics",u:"https://anthropic.skilljar.com/model-context-protocol-advanced-topics"},
+ {n:"06",t:"Tester, chiffrer, encadrer",d:"Jeu de cas de test, coût par exécution, journalisation, validation humaine, procédure d'arrêt.",task:"Faire échouer son agent volontairement, puis écrire la règle qui empêche que ça recommence.",m:"60 min",l:"Développer des tests",u:"https://platform.claude.com/docs/en/test-and-evaluate/develop-tests"}
 ];
 
 const reflexes=[

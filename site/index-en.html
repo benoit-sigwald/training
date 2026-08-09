@@ -329,21 +329,21 @@
       <p>Free, official, up to date.</p>
     </div>
     <div class="res">
-      <a href="https://anthropic.skilljar.com" target="_blank" rel="noopener">
-        <h3>Anthropic Academy</h3>
-        <p>The official Claude courses, from beginner to developer. Free, with certificates.</p>
-        <span>Start with Claude 101</span></a>
+      <a href="https://anthropic.skilljar.com/claude-101" target="_blank" rel="noopener">
+        <h3>Claude 101</h3>
+        <p>The official entry course, free, with a certificate. The full catalogue is on Anthropic Academy.</p>
+        <span>Start the course</span></a>
       <a href="https://www.coursera.org/specializations/ai-essentials-google" target="_blank" rel="noopener">
         <h3>Google · AI Essentials</h3>
-        <p>Beginner level, around 4 hours, shareable certificate.</p>
-        <span>View on Coursera</span></a>
-      <a href="https://www.skills.google/paths/2336" target="_blank" rel="noopener">
-        <h3>Google Skills</h3>
-        <p>Hands-on labs to complement the programme.</p>
-        <span>View the path</span></a>
-      <a href="https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview" target="_blank" rel="noopener">
-        <h3>Claude documentation</h3>
-        <p>The reference on writing requests, continuously updated.</p>
+        <p>Five courses, beginner level, around 4 hours, shareable certificate.</p>
+        <span>View the specialization</span></a>
+      <a href="https://support.claude.com/en/articles/8241126-upload-files-to-claude" target="_blank" rel="noopener">
+        <h3>Upload files to Claude</h3>
+        <p>Accepted formats, size limits and how documents are handled. Source of module 05.</p>
+        <span>Read the article</span></a>
+      <a href="https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices" target="_blank" rel="noopener">
+        <h3>Prompting best practices</h3>
+        <p>The reference on writing requests, continuously updated. Source of module 02.</p>
         <span>Read the docs</span></a>
     </div>
   </div>
@@ -359,37 +359,36 @@
 </footer>
 
 <script>
-const ACADEMY="https://anthropic.skilljar.com";
-const DOCS="https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview";
-const GOOGLE="https://www.coursera.org/specializations/ai-essentials-google";
-const SKILLS="https://www.skills.google/paths/2336";
+// One link per module, pointing at the exact page for that topic. Mirrors the
+// TRAINING.MODULE_LIEN table (Oracle ATP) — see docs/liens.md.
+const PROMPTING="https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices";
 
 const decouverte=[
  {w:"Week 1 — Getting started"},
- {n:"00",t:"Stopwatch: where your time goes",d:"Before touching anything: measure. Three recurring tasks, timed with a watch.",task:"Write down 3 tasks, their frequency and their real duration. This sheet is the yardstick for module 11.",m:"15 min",l:"No prerequisite",u:ACADEMY},
- {n:"01",t:"What Claude does and does not do",d:"The interface, the conversation, the limits. Why it is sometimes confidently wrong.",task:"Ask 3 questions about your own job and spot the weakest answer.",m:"15 min",l:"Claude 101",u:ACADEMY},
- {n:"02",t:"Writing a request that works — CRAFT",d:"The 5 ingredients: Context, Role, Action, Format, Tone. Nothing more.",task:"Take a failed request and rewrite it with the 5 CRAFT ingredients.",m:"20 min",l:"Prompting guide",u:DOCS},
- {n:"03",t:"What you never paste",d:"Customer data, HR, contracts, credentials. Anonymise in thirty seconds.",task:"Write your team's rule in one sentence and pin it up.",m:"15 min",l:"Responsible use",u:GOOGLE},
+ {n:"00",t:"Stopwatch: where your time goes",d:"Before touching anything: measure. Three recurring tasks, timed with a watch.",task:"Write down 3 tasks, their frequency and their real duration. This sheet is the yardstick for module 11.",m:"15 min",l:"Maximise productivity with AI tools",u:"https://www.coursera.org/learn/google-maximize-productivity-with-ai-tools"},
+ {n:"01",t:"What Claude does and does not do",d:"The interface, the conversation, the limits. Why it is sometimes confidently wrong.",task:"Ask 3 questions about your own job and spot the weakest answer.",m:"15 min",l:"AI Capabilities and Limitations",u:"https://anthropic.skilljar.com/ai-capabilities-and-limitations"},
+ {n:"02",t:"Writing a request that works — CRAFT",d:"The 5 ingredients: Context, Role, Action, Format, Tone. Nothing more.",task:"Take a failed request and rewrite it with the 5 CRAFT ingredients.",m:"20 min",l:"Be clear and direct",u:PROMPTING+"#be-clear-and-direct"},
+ {n:"03",t:"What you never paste",d:"Customer data, HR, contracts, credentials. Anonymise in thirty seconds.",task:"Write your team's rule in one sentence and pin it up.",m:"15 min",l:"Use AI responsibly",u:"https://www.coursera.org/learn/google-use-ai-responsibly"},
  {w:"Week 2 — Writing and understanding"},
- {n:"04",t:"Drafting and rephrasing",d:"A difficult email, minutes, an internal note. Change the tone without changing the substance.",task:"Produce 3 versions of the same email: firm, neutral, warm.",m:"20 min",l:"Claude 101",u:ACADEMY},
- {n:"05",t:"Reading a document for you",d:"Drop a PDF or a contract, ask for the points of attention rather than a summary.",task:"Submit a 20+ page document and pull 5 questions to raise in the meeting.",m:"20 min",l:"Claude 101",u:ACADEMY},
- {n:"06",t:"Photo, screenshot, diagram",d:"A paper letter photographed, an error screenshot, a meeting whiteboard.",task:"Photograph a paper document and turn it into usable text.",m:"15 min",l:"Claude 101",u:ACADEMY},
- {n:"07",t:"Check before you send",d:"Numbers, names, dates, quotes: the four places where it breaks. Ask for sources.",task:"Deliberately hunt for an error in an answer and have it corrected.",m:"20 min",l:"Critical thinking",u:GOOGLE},
+ {n:"04",t:"Drafting and rephrasing",d:"A difficult email, minutes, an internal note. Change the tone without changing the substance.",task:"Produce 3 versions of the same email: firm, neutral, warm.",m:"20 min",l:"Use examples effectively",u:PROMPTING+"#use-examples-effectively"},
+ {n:"05",t:"Reading a document for you",d:"Drop a PDF or a contract, ask for the points of attention rather than a summary.",task:"Submit a 20+ page document and pull 5 questions to raise in the meeting.",m:"20 min",l:"Long context prompting",u:PROMPTING+"#long-context-prompting"},
+ {n:"06",t:"Photo, screenshot, diagram",d:"A paper letter photographed, an error screenshot, a meeting whiteboard.",task:"Photograph a paper document and turn it into usable text.",m:"15 min",l:"Vision — images and PDFs",u:"https://platform.claude.com/docs/en/build-with-claude/vision"},
+ {n:"07",t:"Check before you send",d:"Numbers, names, dates, quotes: the four places where it breaks. Ask for sources.",task:"Deliberately hunt for an error in an answer and have it corrected.",m:"20 min",l:"Reduce hallucinations",u:"https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations"},
  {w:"Week 3 — Working on your files"},
- {n:"08",t:"Spreadsheets and data",d:"Drop an Excel or a CSV, clean it, compare, produce a table or a chart.",task:"Turn a raw export into a table your manager can read.",m:"20 min",l:"Google Skills",u:SKILLS},
- {n:"09",t:"Projects and instructions",d:"Level 2 of the staircase: stop re-explaining your context. One space per recurring topic.",task:"Create a Project for your most frequent case, with 5 lines of instructions.",m:"20 min",l:"Anthropic Academy",u:ACADEMY},
+ {n:"08",t:"Spreadsheets and data",d:"Drop an Excel or a CSV, clean it, compare, produce a table or a chart.",task:"Turn a raw export into a table your manager can read.",m:"20 min",l:"Create and edit files",u:"https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude"},
+ {n:"09",t:"Projects and instructions",d:"Level 2 of the staircase: stop re-explaining your context. One space per recurring topic.",task:"Create a Project for your most frequent case, with 5 lines of instructions.",m:"20 min",l:"What are Projects",u:"https://support.claude.com/en/articles/9517075-what-are-projects"},
  {w:"Week 4 — Becoming autonomous"},
- {n:"10",t:"Your repetitive task, once and for all",d:"Go back to the module 00 sheet and turn the worst chore into a reusable template.",task:"Write your template, test it twice, share it with the team.",m:"20 min",l:"AI Fluency",u:ACADEMY},
- {n:"11",t:"Five-minute demo",d:"Everyone shows a real deliverable produced over the four weeks. That is the validation.",task:"Present the before (module 00), the after and the time saved, in figures. Certificate handed out the same day.",m:"30 min",l:"Certificate",u:ACADEMY}
+ {n:"10",t:"Your repetitive task, once and for all",d:"Go back to the module 00 sheet and turn the worst chore into a reusable template.",task:"Write your template, test it twice, share it with the team.",m:"20 min",l:"AI Fluency — the 4Ds",u:"https://anthropic.skilljar.com/ai-fluency-framework-foundations"},
+ {n:"11",t:"Five-minute demo",d:"Everyone shows a real deliverable produced over the four weeks. That is the validation.",task:"Present the before (module 00), the after and the time saved, in figures. Certificate handed out the same day.",m:"30 min",l:"Claude 101 — certificate",u:"https://anthropic.skilljar.com/claude-101"}
 ];
 
 const avance=[
- {n:"01",t:"What an agent is — and when not to build one",d:"The real difference between a conversation, an automation and an agent. The criterion: who decides the next step.",task:"List 3 team tasks and classify them: conversation, script or agent. Most are not agents.",m:"45 min",l:"Intro to Subagents",u:ACADEMY},
- {n:"02",t:"Giving it tools",d:"Function calls: read a file, query an API, send an email. Describing a tool so it gets used well.",task:"Expose a single read-only tool and watch when the model chooses to call it.",m:"60 min",l:"Claude API",u:ACADEMY},
- {n:"03",t:"From Projects to Skills",d:"Capitalise: turn instructions that work into a capability the whole team can reuse.",task:"Convert your best prompt template into a Skill and have someone else test it.",m:"45 min",l:"Intro to Agent Skills",u:ACADEMY},
- {n:"04",t:"MCP and connectors",d:"Plug the agent into real company data instead of copy-paste. Scope, permissions, tokens.",task:"Connect one internal source read-only and document what the agent can reach.",m:"60 min",l:"Intro to MCP",u:ACADEMY},
- {n:"05",t:"An agent, end to end",d:"Goal, scope, tools, stop criterion, human hand-back. On a deliberately narrow task.",task:"Build the agent that handles one real weekly task, never writing to a database.",m:"60 min",l:"MCP Advanced",u:ACADEMY},
- {n:"06",t:"Test, cost, control",d:"Test set, cost per run, logging, human approval, kill switch.",task:"Make your agent fail on purpose, then write the rule that stops it happening again.",m:"60 min",l:"Documentation",u:"https://docs.claude.com"}
+ {n:"01",t:"What an agent is — and when not to build one",d:"The real difference between a conversation, an automation and an agent. The criterion: who decides the next step.",task:"List 3 team tasks and classify them: conversation, script or agent. Most are not agents.",m:"45 min",l:"Building Effective Agents",u:"https://www.anthropic.com/engineering/building-effective-agents"},
+ {n:"02",t:"Giving it tools",d:"Function calls: read a file, query an API, send an email. Describing a tool so it gets used well.",task:"Expose a single read-only tool and watch when the model chooses to call it.",m:"60 min",l:"Tool use overview",u:"https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview"},
+ {n:"03",t:"From Projects to Skills",d:"Capitalise: turn instructions that work into a capability the whole team can reuse.",task:"Convert your best prompt template into a Skill and have someone else test it.",m:"45 min",l:"Introduction to Agent Skills",u:"https://anthropic.skilljar.com/introduction-to-agent-skills"},
+ {n:"04",t:"MCP and connectors",d:"Plug the agent into real company data instead of copy-paste. Scope, permissions, tokens.",task:"Connect one internal source read-only and document what the agent can reach.",m:"60 min",l:"Introduction to MCP",u:"https://anthropic.skilljar.com/introduction-to-model-context-protocol"},
+ {n:"05",t:"An agent, end to end",d:"Goal, scope, tools, stop criterion, human hand-back. On a deliberately narrow task.",task:"Build the agent that handles one real weekly task, never writing to a database.",m:"60 min",l:"MCP — Advanced Topics",u:"https://anthropic.skilljar.com/model-context-protocol-advanced-topics"},
+ {n:"06",t:"Test, cost, control",d:"Test set, cost per run, logging, human approval, kill switch.",task:"Make your agent fail on purpose, then write the rule that stops it happening again.",m:"60 min",l:"Develop tests",u:"https://platform.claude.com/docs/en/test-and-evaluate/develop-tests"}
 ];
 
 const reflexes=[

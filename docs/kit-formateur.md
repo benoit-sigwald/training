@@ -84,7 +84,7 @@ administratives, elles sont la preuve**. Voir `docs/attestation.md`.
 
 **Message à faire retenir :** ce n'est pas un moteur de recherche, c'est un collègue rapide qui n'a jamais raison par défaut.
 
-**Aller plus loin :** Claude 101 — https://anthropic.skilljar.com
+**Aller plus loin :** AI Capabilities and Limitations — https://anthropic.skilljar.com/ai-capabilities-and-limitations
 
 ---
 
@@ -108,7 +108,7 @@ administratives, elles sont la preuve**. Voir `docs/attestation.md`.
 
 **Message à faire retenir :** donne le contexte que tu donnerais à un nouveau collègue.
 
-**Aller plus loin :** Guide de rédaction des prompts — https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview
+**Aller plus loin :** Être clair et direct — https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#be-clear-and-direct
 
 ---
 
@@ -124,7 +124,9 @@ administratives, elles sont la preuve**. Voir `docs/attestation.md`.
 
 **Message à faire retenir :** dans le doute, anonymise. Ça prend 30 secondes.
 
-**Aller plus loin :** volet usage responsable — https://www.coursera.org/fr-FR/specializations/ai-essentials-google
+**Aller plus loin :** Utiliser l'IA de manière responsable — https://www.coursera.org/fr-FR/learn/google-use-ai-responsibly
+
+**Confidentialité :** Centre de confidentialité Claude — https://privacy.claude.com/en/
 
 ---
 
@@ -142,7 +144,7 @@ administratives, elles sont la preuve**. Voir `docs/attestation.md`.
 
 **Message à faire retenir :** Claude fait le premier jet, jamais la version envoyée.
 
-**Aller plus loin :** Claude 101 — https://anthropic.skilljar.com
+**Aller plus loin :** Guider par l'exemple — https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#use-examples-effectively
 
 ---
 
@@ -158,7 +160,7 @@ administratives, elles sont la preuve**. Voir `docs/attestation.md`.
 
 **Message à faire retenir :** un bon résumé répond à une question. Pose la question.
 
-**Aller plus loin :** Claude 101 — https://anthropic.skilljar.com
+**Aller plus loin :** Demander sur un long document — https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#long-context-prompting
 
 ---
 
@@ -174,7 +176,7 @@ administratives, elles sont la preuve**. Voir `docs/attestation.md`.
 
 **Message à faire retenir :** si tu peux le photographier, tu peux le traiter.
 
-**Aller plus loin :** Claude 101 — https://anthropic.skilljar.com
+**Aller plus loin :** Vision — images et PDF — https://platform.claude.com/docs/en/build-with-claude/vision
 
 ---
 
@@ -190,7 +192,7 @@ administratives, elles sont la preuve**. Voir `docs/attestation.md`.
 
 **Message à faire retenir :** tu signes ce que tu envoies.
 
-**Aller plus loin :** module esprit critique — https://www.coursera.org/fr-FR/specializations/ai-essentials-google
+**Aller plus loin :** Réduire les hallucinations — https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations
 
 ---
 
@@ -208,7 +210,7 @@ administratives, elles sont la preuve**. Voir `docs/attestation.md`.
 
 **Message à faire retenir :** l'IA met en forme, toi tu contrôles les chiffres.
 
-**Aller plus loin :** parcours Google Skills — https://www.skills.google/paths/2336
+**Aller plus loin :** Créer et modifier des fichiers — https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude
 
 ---
 
@@ -224,7 +226,7 @@ administratives, elles sont la preuve**. Voir `docs/attestation.md`.
 
 **Message à faire retenir :** un Project bien réglé, c'est 10 minutes gagnées à chaque usage.
 
-**Aller plus loin :** Anthropic Academy — https://anthropic.skilljar.com
+**Aller plus loin :** Qu'est-ce qu'un Project — https://support.claude.com/en/articles/9517075-what-are-projects
 
 ---
 
@@ -242,7 +244,7 @@ administratives, elles sont la preuve**. Voir `docs/attestation.md`.
 
 **Message à faire retenir :** ce que tu fais deux fois, écris-le une fois.
 
-**Aller plus loin :** parcours AI Fluency — https://anthropic.skilljar.com
+**Aller plus loin :** AI Fluency — les 4D — https://anthropic.skilljar.com/ai-fluency-framework-foundations
 
 ---
 
@@ -258,7 +260,7 @@ administratives, elles sont la preuve**. Voir `docs/attestation.md`.
 
 **Clôture :** remettre l'**attestation de fin** (modèle dans `docs/attestation.md`) et les liens de certification officielle. Ceux qui veulent continuer s'inscrivent à Anthropic Academy le jour même — l'élan retombe en 48 h.
 
-**Aller plus loin :** certificats gratuits — https://anthropic.skilljar.com
+**Aller plus loin :** Claude 101 — certificat gratuit — https://anthropic.skilljar.com/claude-101
 
 ---
 
@@ -266,7 +268,11 @@ administratives, elles sont la preuve**. Voir `docs/attestation.md`.
 
 Volontairement exclus pour ce public : l'API, les appels de fonctions, Zapier/Make, la construction d'agents, MCP. Ce sont des sujets de **piste avancée** (marche 3 de l'escalier), à ouvrir seulement pour les 10 à 20 % qui redemandent après le module 10.
 
-Piste avancée, si besoin : *Building with the Claude API*, *Introduction to Model Context Protocol*, *Claude Code 101* — tous sur https://anthropic.skilljar.com
+Piste avancée, si besoin :
+
+- [Building with the Claude API](https://anthropic.skilljar.com/claude-with-the-anthropic-api)
+- [Introduction to Model Context Protocol](https://anthropic.skilljar.com/introduction-to-model-context-protocol)
+- [Claude Code 101](https://anthropic.skilljar.com/claude-code-101)
 
 ---
 
@@ -291,8 +297,12 @@ Le jeu de slides interne (`G:\My Drive\Dev\IA\*.png`) est réutilisable tel quel
 
 | Ressource | Langue | Durée | Pour qui |
 |---|---|---|---|
-| [Anthropic Academy](https://anthropic.skilljar.com) | EN | variable | Référence Claude, du débutant au développeur. Certificat gratuit. |
-| [Google · Principes essentiels de l'IA](https://www.coursera.org/fr-FR/specializations/ai-essentials-google) | FR | ~4 h | Culture IA générative + prompting, certificat partageable. |
-| [Objectif IA — OpenClassrooms](https://openclassrooms.com/us/courses/6417031-objectif-ia-initiez-vous-a-l-intelligence-artificielle) | FR | 6 h | Comprendre l'IA avant de l'utiliser. |
-| [Documentation Claude](https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview) | EN | — | Référence prompting, à jour en continu. |
-| [Google Skills](https://www.skills.google/paths/2336) | EN/FR | variable | Ateliers pratiques complémentaires. |
+| [Claude 101](https://anthropic.skilljar.com/claude-101) | EN | ~1 h | Le cours d'entrée officiel. Certificat gratuit. |
+| [AI Capabilities and Limitations](https://anthropic.skilljar.com/ai-capabilities-and-limitations) | EN | ~1 h | Ce que l'IA sait faire et ne sait pas faire. Source du module 01. |
+| [AI Fluency: Framework & Foundations](https://anthropic.skilljar.com/ai-fluency-framework-foundations) | EN | ~2 h | Les 4D. Source du module 10. |
+| [Google · Principes essentiels de l'IA](https://www.coursera.org/fr-FR/specializations/ai-essentials-google) | FR | ~4 h | Cinq cours. Modules 00 et 03 pointent sur deux d'entre eux. |
+| [Objectif IA — OpenClassrooms](https://openclassrooms.com/fr/courses/6417031-objectif-ia-initiez-vous-a-l-intelligence-artificielle) | FR | 6 h | Comprendre l'IA avant de l'utiliser. |
+| [Bonnes pratiques de prompting](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices) | EN | — | Référence prompting, à jour en continu. Source des modules 02, 04 et 05. |
+
+Le détail module par module, avec la date de dernière vérification HTTP, est dans
+[`docs/liens.md`](liens.md) et dans la table `TRAINING.LIEN` sur Oracle ATP.

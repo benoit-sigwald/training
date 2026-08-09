@@ -13,9 +13,14 @@ training/
 ├── site/
 │   ├── index.html            # Page FR (autonome, aucune dépendance externe)
 │   └── index-en.html         # Page EN
+│   └── arx-logo.png          # Logo Arx (nav + pied de page)
 ├── docs/
 │   ├── kit-formateur.md      # 12 fiches d'animation + mapping des slides existants
-│   └── attestation.md        # Émargement, attestation de fin, registre de suivi
+│   ├── attestation.md        # Émargement, attestation de fin, registre de suivi
+│   └── liens.md              # Table de correspondance sujet → lien profond
+├── db/
+│   ├── 01-setup-training.js  # Schéma Oracle TRAINING : SUJET, LIEN, vues
+│   └── 02-run-training.sh    # Exécution sur le serveur OCI
 ├── deploy/
 │   └── publish.ps1           # Copie site/ dans arxWeb/AITraining/ puis commit + push
 └── README.md
@@ -55,8 +60,10 @@ curl -sI https://arx-consulting.com/AITraining/ | head -1
 
 - **Le chemin `/AITraining` sans slash final** dépend du serveur statique de Coolify. Si `/AITraining`
   renvoie une 404 alors que `/AITraining/` répond 200, communiquer l'URL avec le slash.
-- **Liens externes.** Les cours pointent vers Anthropic Academy, Coursera, OpenClassrooms et Google Skills.
-  À revérifier deux fois par an — les catalogues bougent.
+- **Liens externes.** Chaque module pointe vers la page exacte de son sujet, pas vers un catalogue.
+  La liste, la source et la date de vérification sont dans [`docs/liens.md`](docs/liens.md) et dans la
+  table `TRAINING.LIEN` sur Oracle ATP. À revérifier deux fois par an (`V_LIEN_A_REVERIFIER`) —
+  les catalogues bougent : `skills.google/paths/2336` a déjà disparu.
 - **Mention réglementaire.** L'encart sur l'article 4 du règlement (UE) 2024/1689 est une information
   générale, pas un conseil juridique. À faire valider avant toute diffusion commerciale.
 - **Marques.** Claude est une marque d'Anthropic. Le pied de page précise qu'il s'agit d'un support
@@ -68,10 +75,27 @@ Tout le contenu pédagogique est dans les tableaux JavaScript en bas de chaque p
 `decouverte`, `avance`, `reflexes`, `gardefous`, `fiches`. Modifier ces tableaux suffit — aucune
 retouche du HTML ou du CSS. Répercuter dans les deux langues.
 
+## Base de données
+
+Le schéma `TRAINING` sur Oracle ATP `arxdb01` porte la correspondance sujet → lien :
+
+- `SUJET` — un module (code, parcours, titres FR/EN, marche de l'escalier, durée)
+- `LIEN` — un lien par sujet et par langue, avec fournisseur, type (`principal` / `complement`),
+  dernier statut HTTP et date de vérification
+- `V_MODULE_LIEN` — la jointure lisible, ordonnée par parcours et module
+- `V_LIEN_A_REVERIFIER` — ce qui a plus de 180 jours ou n'a pas répondu 200
+
+```bash
+scp db/01-setup-training.js db/02-run-training.sh ubuntu@145.241.174.15:/tmp/
+ssh ubuntu@145.241.174.15 "sudo sh /tmp/02-run-training.sh"
+```
+
+Le mot de passe `TRAINING` est généré au premier passage dans `/root/.ora_training` (chmod 600),
+jamais affiché ni versionné. Script idempotent.
+
 ## Références
 
 - Anthropic Academy — https://anthropic.skilljar.com
-- Documentation Claude — https://docs.claude.com
+- Documentation Claude — https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices
 - Google, Principes essentiels de l'IA — https://www.coursera.org/fr-FR/specializations/ai-essentials-google
-- Objectif IA, OpenClassrooms — https://openclassrooms.com/us/courses/6417031-objectif-ia-initiez-vous-a-l-intelligence-artificielle
-- Google Skills — https://www.skills.google/paths/2336
+- Objectif IA, OpenClassrooms — https://openclassrooms.com/fr/courses/6417031-objectif-ia-initiez-vous-a-l-intelligence-artificielle
