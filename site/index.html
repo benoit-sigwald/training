@@ -217,6 +217,26 @@
   .svgbar .fill.alt{fill:#8e8e93}
   .svgbar .val{fill:var(--text);font-size:15px;font-weight:600;font-family:var(--sf)}
 
+  /* ---------- genèse : références ---------- */
+  .ref{font-size:11px;font-weight:600;line-height:0}
+  .ref a{color:var(--blue);text-decoration:none}
+  .ref a:hover{text-decoration:underline}
+  .refs{list-style:none;counter-reset:r;margin:0;padding:0;display:grid;gap:12px}
+  .refs li{
+    counter-increment:r;position:relative;background:var(--white);border-radius:var(--radius);
+    padding:20px 24px 20px 64px;box-shadow:0 2px 12px rgba(0,0,0,.045);
+    font-size:15px;color:var(--text-2);line-height:1.5;scroll-margin-top:80px;
+  }
+  .refs li::before{
+    content:"[" counter(r) "]";position:absolute;left:20px;top:20px;
+    font-weight:600;color:var(--blue);font-size:14px;
+  }
+  .refs li b{color:var(--text);font-weight:600}
+  .refs li a{color:var(--blue)}
+  .refs .use{display:block;margin-top:10px;padding-top:10px;border-top:1px solid var(--hair);font-size:13.5px}
+  .refs .warn{display:block;margin-top:8px;font-size:13.5px;color:#b85c00}
+  @media(max-width:560px){.refs li{padding:44px 20px 20px}.refs li::before{top:18px;left:20px}}
+
   /* ---------- genèse : mythes ---------- */
   .myths{display:grid;gap:12px;margin-top:8px}
   .myth{background:var(--white);border-radius:var(--radius);box-shadow:0 2px 12px rgba(0,0,0,.045);
@@ -396,7 +416,7 @@
           <span class="yr">1805 — 1900</span>
           <h3>Prédire avec des chiffres <em>· les vrais ancêtres</em></h3>
           <p>Avant toute machine, la statistique invente les outils qu'utilise encore l'IA d'aujourd'hui. Legendre publie la <b>méthode des moindres carrés</b> en 1805, Gauss l'applique pour retrouver dans le ciel la planète naine Cérès, perdue de vue : première prédiction quantitative vérifiée par l'observation.</p>
-          <p>À la fin du siècle, Francis Galton étudie la taille des familles et forge le mot <b>régression</b> — la « régression vers la moyenne » —, puis la <b>corrélation</b>, reprise et formalisée par Karl Pearson. Un siècle plus tard, entraîner un modèle, c'est toujours minimiser une erreur au carré.</p>
+          <p>À la fin du siècle, Francis Galton étudie la taille des familles et forge le mot <b>régression</b> — la « régression vers la moyenne » —, puis la <b>corrélation</b>, reprise et formalisée par Karl Pearson.<sup class="ref"><a href="#r13">[13]</a></sup> Un siècle plus tard, entraîner un modèle, c'est toujours minimiser une erreur au carré.</p>
           <span class="nom">Moindres carrés · régression · corrélation</span>
         </div>
 
@@ -404,8 +424,8 @@
           <span class="yr">1904 — 1950</span>
           <h3>La météo, première machine à prédire <em>· le véritable ancêtre</em></h3>
           <p>En 1904, Vilhelm Bjerknes pose une idée décisive : prévoir le temps est un <b>problème aux conditions initiales</b>. Si l'on connaît l'état de l'atmosphère maintenant et les équations qui la régissent, on peut calculer son état de demain. C'est la définition même d'un modèle prédictif.</p>
-          <p>En 1922, Lewis Fry Richardson essaie pour de vrai, à la main, dans <i>Weather Prediction by Numerical Process</i>. Il découpe l'atmosphère en cellules et résout les équations case par case. Il lui faut des semaines de calcul pour quelques heures de prévision — et le résultat est faux. Il imagine alors une « usine à prévisions » : un amphithéâtre de <b>64 000 calculateurs humains</b> travaillant en parallèle sous la direction d'un chef d'orchestre. C'est, mot pour mot, la description d'un centre de calcul moderne, trente ans avant qu'il existe.</p>
-          <p>En mars 1950, Charney, Fjørtoft et von Neumann réussissent la <b>première prévision numérique du temps sur ordinateur</b>, sur l'ENIAC. Vingt-quatre heures de prévision cohérente, mais des semaines pour la produire. Les premiers services opérationnels suivent au début des années 1960.</p>
+          <p>En 1922, Lewis Fry Richardson essaie pour de vrai, à la main, dans <i>Weather Prediction by Numerical Process</i>. Il découpe l'atmosphère en cellules et résout les équations case par case. Il lui faut des semaines de calcul pour quelques heures de prévision — et le résultat est faux. Il imagine alors une « usine à prévisions » : un amphithéâtre de <b>64 000 calculateurs humains</b> travaillant en parallèle sous la direction d'un chef d'orchestre. C'est, mot pour mot, la description d'un centre de calcul moderne, trente ans avant qu'il existe.<sup class="ref"><a href="#r8">[8]</a></sup></p>
+          <p>En mars 1950, Charney, Fjørtoft et von Neumann réussissent la <b>première prévision numérique du temps sur ordinateur</b>, sur l'ENIAC. Vingt-quatre heures de prévision cohérente, mais des semaines pour la produire. Les premiers services opérationnels suivent au début des années 1960.<sup class="ref"><a href="#r9">[9]</a></sup></p>
           <span class="nom">Prévision numérique · modélisation · simulation</span>
         </div>
 
@@ -413,29 +433,29 @@
           <span class="yr">1963</span>
           <h3>Lorenz découvre la limite <em>· par accident</em></h3>
           <p>Edward Lorenz relance une simulation météo en saisissant ses valeurs de départ arrondies à trois décimales au lieu de six. La trajectoire diverge complètement. Il vient de découvrir la <b>sensibilité aux conditions initiales</b> — l'effet papillon —, et avec elle une vérité qui vaut pour tous les modèles : même parfait, même avec une puissance de calcul infinie, un modèle a un <b>horizon de prédictibilité</b> au-delà duquel il ne dit plus rien.</p>
-          <p>C'est la réponse la plus honnête à donner quand on demande à un modèle ce qu'il ne peut pas faire. Ce n'est pas une question de version suivante.</p>
+          <p>C'est la réponse la plus honnête à donner quand on demande à un modèle ce qu'il ne peut pas faire. Ce n'est pas une question de version suivante.<sup class="ref"><a href="#r10">[10]</a></sup></p>
           <span class="nom">Chaos · effet papillon · limite de prédictibilité</span>
         </div>
 
         <div class="era reveal">
           <span class="yr">1943 — 1955</span>
           <h3>La cybernétique <em>· avant même le mot « IA »</em></h3>
-          <p>McCulloch et Pitts proposent en 1943 un modèle mathématique du neurone. En 1948, Norbert Wiener publie <i>Cybernetics</i> et pose l'idée de machines qui se régulent par rétroaction. En 1950, Alan Turing écrit <i>Computing Machinery and Intelligence</i> et remplace la question « une machine peut-elle penser ? » par un test observable : le jeu de l'imitation.</p>
+          <p>McCulloch et Pitts proposent en 1943 un modèle mathématique du neurone. En 1948, Norbert Wiener publie <i>Cybernetics</i> et pose l'idée de machines qui se régulent par rétroaction. En 1950, Alan Turing écrit <i>Computing Machinery and Intelligence</i> et remplace la question « une machine peut-elle penser ? » par un test observable : le jeu de l'imitation.<sup class="ref"><a href="#r12">[12]</a></sup></p>
           <span class="nom">Cybernétique · machines pensantes</span>
         </div>
 
         <div class="era reveal">
           <span class="yr">1956 — 1973</span>
           <h3>L'invention du nom <em>· et les premières promesses</em></h3>
-          <p>Été 1956, conférence de Dartmouth : John McCarthy forge l'expression <b>artificial intelligence</b>, en partie pour se démarquer de la cybernétique. Rosenblatt présente le perceptron en 1957, premier réseau de neurones apprenant. En 1966, ELIZA imite un psychothérapeute avec quelques règles — et convainc déjà des utilisateurs, ce qui reste la plus vieille leçon du domaine sur notre tendance à prêter une intention à une machine.</p>
-          <p>Les promesses dépassent largement les résultats. En 1969, Minsky et Papert démontrent les limites du perceptron simple : le connexionnisme est gelé pour quinze ans.</p>
+          <p>Été 1956, conférence de Dartmouth : John McCarthy forge l'expression <b>artificial intelligence</b>, en partie pour se démarquer de la cybernétique. Rosenblatt présente le perceptron en 1957, premier réseau de neurones apprenant. En 1966, ELIZA imite un psychothérapeute avec quelques règles — et convainc déjà des utilisateurs, ce qui reste la plus vieille leçon du domaine sur notre tendance à prêter une intention à une machine.<sup class="ref"><a href="#r12">[12]</a></sup></p>
+          <p>Les promesses dépassent largement les résultats. En 1969, Minsky et Papert démontrent les limites du perceptron simple : le connexionnisme est gelé pour quinze ans.<sup class="ref"><a href="#r12">[12]</a></sup></p>
           <span class="nom">Intelligence artificielle · connexionnisme</span>
         </div>
 
         <div class="era cold reveal">
           <span class="yr">1974 — 1980</span>
           <h3>Premier hiver de l'IA</h3>
-          <p>Le rapport Lighthill (1973) juge les résultats décevants au regard des financements. Crédits coupés au Royaume-Uni puis aux États-Unis. Le mot « intelligence artificielle » devient difficile à prononcer devant un financeur — première dévaluation d'étiquette.</p>
+          <p>Le rapport Lighthill (1973) juge les résultats décevants au regard des financements. Crédits coupés au Royaume-Uni puis aux États-Unis. Le mot « intelligence artificielle » devient difficile à prononcer devant un financeur — première dévaluation d'étiquette.<sup class="ref"><a href="#r12">[12]</a></sup></p>
           <span class="nom">On évite le mot</span>
         </div>
 
@@ -465,7 +485,7 @@
         <div class="era reveal">
           <span class="yr">1974 · 2001 · 2008</span>
           <h3>Le mot « data science » <em>· trois naissances</em></h3>
-          <p>Peter Naur, en <b>1974</b>, propose « data science » comme autre nom pour l'informatique, dans <i>Concise Survey of Computer Methods</i>. En <b>2001</b>, le statisticien William S. Cleveland publie <i>Data Science: An Action Plan for Expanding the Technical Areas of the Field of Statistics</i> et en fait une discipline à part entière. Vers <b>2008</b>, chez LinkedIn et Facebook, le titre de <b>data scientist</b> apparaît pour des profils qui n'étaient ni statisticiens ni informaticiens.</p>
+          <p>Peter Naur, en <b>1974</b>, propose « data science » comme autre nom pour l'informatique, dans <i>Concise Survey of Computer Methods</i>. En <b>2001</b>, le statisticien William S. Cleveland publie <i>Data Science: An Action Plan for Expanding the Technical Areas of the Field of Statistics</i> et en fait une discipline à part entière. Vers <b>2008</b>, chez LinkedIn et Facebook, le titre de <b>data scientist</b> apparaît pour des profils qui n'étaient ni statisticiens ni informaticiens.<sup class="ref"><a href="#r11">[11]</a></sup></p>
           <p>À retenir pour la suite : la data science n'est pas l'ancêtre de l'IA générative, c'est sa <b>cousine</b>. L'une explique et prédit à partir de vos données ; l'autre génère du texte à partir d'un modèle pré-entraîné sur des données qui ne sont pas les vôtres. Confondre les deux est l'erreur de cadrage la plus fréquente en entreprise.</p>
           <span class="nom">Data science · data scientist</span>
         </div>
@@ -480,15 +500,15 @@
         <div class="era reveal">
           <span class="yr">2017 — 2022</span>
           <h3>Les transformeurs <em>· et l'accès grand public</em></h3>
-          <p>2017 : l'article <i>Attention Is All You Need</i> introduit l'architecture Transformer, qui permet d'entraîner sur des textes à une échelle inédite. Suivent BERT, puis la famille GPT. Le 30 novembre 2022, ChatGPT ouvre la technologie au grand public — et c'est cette date, pas une percée scientifique, qui fait basculer les entreprises.</p>
+          <p>2017 : l'article <i>Attention Is All You Need</i> introduit l'architecture Transformer, qui permet d'entraîner sur des textes à une échelle inédite. Suivent BERT, puis la famille GPT. Le 30 novembre 2022, ChatGPT ouvre la technologie au grand public — et c'est cette date, pas une percée scientifique, qui fait basculer les entreprises.<sup class="ref"><a href="#r12">[12]</a></sup></p>
           <span class="nom">Grands modèles de langue · LLM · IA générative</span>
         </div>
 
         <div class="era reveal">
           <span class="yr">2023 — 2026</span>
           <h3>Les agents <em>· là où nous en sommes</em></h3>
-          <p>Les modèles cessent de seulement répondre : ils appellent des outils, lisent des fichiers, enchaînent des étapes. Le vocabulaire se démultiplie encore — <b>IA agentique</b>, <b>agents experts</b>, <b>copilotes</b>. Le Hub France IA relève que chaque entreprise choisit sa propre terminologie selon sa stratégie de déploiement.</p>
-          <p>En parallèle, le cadre arrive : le règlement européen sur l'IA (UE 2024/1689) est adopté, et son article 4 rend la maîtrise de l'IA obligatoire pour les employeurs depuis le 2 février 2025.</p>
+          <p>Les modèles cessent de seulement répondre : ils appellent des outils, lisent des fichiers, enchaînent des étapes. Le vocabulaire se démultiplie encore — <b>IA agentique</b>, <b>agents experts</b>, <b>copilotes</b>. Le Hub France IA relève que chaque entreprise choisit sa propre terminologie selon sa stratégie de déploiement.<sup class="ref"><a href="#r3">[3]</a></sup></p>
+          <p>En parallèle, le cadre arrive : le règlement européen sur l'IA (UE 2024/1689) est adopté, et son article 4 rend la maîtrise de l'IA obligatoire pour les employeurs depuis le 2 février 2025.<sup class="ref"><a href="#r7">[7]</a></sup></p>
           <span class="nom">IA agentique · agents experts · copilotes</span>
         </div>
 
@@ -496,7 +516,7 @@
 
       <div class="notice legal" style="margin-top:26px;margin-bottom:0">
         <h4>La boucle est bouclée</h4>
-        <p>En 2023, GraphCast, un modèle d'apprentissage produit par DeepMind et publié dans <i>Science</i>, bat le meilleur système de prévision opérationnel au monde sur la grande majorité des mesures — et sort une prévision à dix jours en moins d'une minute, là où un modèle physique demande des heures de supercalculateur. Entre 2025 et 2026, ces modèles sont passés de l'expérimentation à la production.</p>
+        <p>En 2023, GraphCast, un modèle d'apprentissage produit par DeepMind et publié dans <i>Science</i>, bat le meilleur système de prévision opérationnel au monde sur la grande majorité des mesures — et sort une prévision à dix jours en moins d'une minute, là où un modèle physique demande des heures de supercalculateur. Entre 2025 et 2026, ces modèles sont passés de l'expérimentation à la production.<sup class="ref"><a href="#r6">[6]</a></sup><sup class="ref"><a href="#r1">[1]</a></sup></p>
         <p>Autrement dit : la première application de la modélisation prédictive par ordinateur, celle qui a justifié la construction des premiers centres de calcul, vient d'être reprise par l'apprentissage automatique. Richardson avait raison sur la méthode. Il lui manquait la machine, et cent ans.</p>
       </div>
 
@@ -518,7 +538,7 @@
 
       <div class="chart">
         <h4>Ce que les entreprises françaises en font déjà</h4>
-        <p class="src">Part des projets d'IA générative qui vont jusqu'en production. Enquête Hub France IA, quatrième trimestre 2024.</p>
+        <p class="src">Part des projets d'IA générative qui vont jusqu'en production. Enquête Hub France IA, quatrième trimestre 2024.<sup class="ref"><a href="#r2">[2]</a></sup></p>
         <svg class="svgbar" viewBox="0 0 720 210" role="img" aria-label="Part des projets d'IA générative allant en production : TPE 52 %, PME 64 %, ETI 91 %.">
           <line class="gd" x1="150" y1="20" x2="150" y2="160"></line>
           <line class="gd" x1="278" y1="20" x2="278" y2="160"></line>
@@ -549,7 +569,7 @@
 
       <div class="chart">
         <h4>Gouvernance : c'est là que le retard est réel</h4>
-        <p class="src">Part des entreprises ayant mis en place une feuille de route IA. Même enquête.</p>
+        <p class="src">Part des entreprises ayant mis en place une feuille de route IA. Même enquête.<sup class="ref"><a href="#r2">[2]</a></sup></p>
         <svg class="svgbar" viewBox="0 0 720 210" role="img" aria-label="Part des entreprises ayant une feuille de route IA : TPE 19 %, PME 45 %, ETI 73 %.">
           <line class="gd" x1="150" y1="20" x2="150" y2="160"></line>
           <line class="gd" x1="278" y1="20" x2="278" y2="160"></line>
@@ -587,7 +607,7 @@
         <article class="mod reveal">
           <span class="idx">LIMITE 01</span>
           <h3>Il ne sait pas qu'il ne sait pas</h3>
-          <p>Un modèle produit le texte le plus plausible, pas le plus vrai. Il n'a aucun mécanisme interne pour signaler qu'il invente. C'est ce qu'on appelle une hallucination — et c'est le risque n°1 cité par les TPE, les PME et les ETI dans l'enquête Hub France IA.</p>
+          <p>Un modèle produit le texte le plus plausible, pas le plus vrai. Il n'a aucun mécanisme interne pour signaler qu'il invente. C'est ce qu'on appelle une hallucination — et c'est le risque n°1 cité par les TPE, les PME et les ETI dans l'enquête Hub France IA.<sup class="ref"><a href="#r2">[2]</a></sup></p>
           <p class="task"><b>Conséquence —</b> tout chiffre, nom, date ou citation doit être vérifié. C'est le module 07.</p>
         </article>
         <article class="mod reveal">
@@ -611,7 +631,7 @@
         <article class="mod reveal">
           <span class="idx">LIMITE 05</span>
           <h3>Il reproduit les biais de ses données</h3>
-          <p>Ce qui est surreprésenté dans le corpus d'entraînement est surreprésenté dans les réponses. Les ETI citent la reproduction de biais parmi leurs deux principaux risques.</p>
+          <p>Ce qui est surreprésenté dans le corpus d'entraînement est surreprésenté dans les réponses. Les ETI citent la reproduction de biais parmi leurs deux principaux risques.<sup class="ref"><a href="#r2">[2]</a></sup></p>
           <p class="task"><b>Conséquence —</b> méfiance particulière sur tout ce qui touche aux personnes : recrutement, évaluation, sélection.</p>
         </article>
         <article class="mod reveal">
@@ -622,6 +642,88 @@
         </article>
       </div>
 
+      <div class="sec-head" style="max-width:700px;margin:56px auto 20px">
+        <h2 style="font-size:clamp(24px,3.2vw,34px)">Ce que l'IA fait gagner, et où.</h2>
+        <p style="font-size:17px">Des chiffres mesurés, pas des promesses de fournisseur. Chaque ligne renvoie à sa source, en bas de page.</p>
+      </div>
+
+      <div class="tbl">
+        <table>
+          <thead>
+            <tr><th>Domaine</th><th>Gain mesuré</th><th>Ce qui est mesuré</th><th>Source</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Service client</td>
+              <td><b>+14 %</b> de productivité<br><b>+34 %</b> pour les débutants</td>
+              <td>Tickets résolus par heure, sur 5 179 agents d'un centre de support. L'effet est quasi nul sur les agents les plus expérimentés : l'outil diffuse les pratiques des meilleurs vers les moins aguerris.</td>
+              <td><sup class="ref"><a href="#r5">[5]</a></sup></td>
+            </tr>
+            <tr>
+              <td>Développement logiciel</td>
+              <td><b>+26 %</b></td>
+              <td>Productivité des développeurs, agrégat de plusieurs études.</td>
+              <td><sup class="ref"><a href="#r1">[1]</a></sup></td>
+            </tr>
+            <tr>
+              <td>Marketing</td>
+              <td><b>+50 %</b></td>
+              <td>Volume de production de contenu. Le gain porte sur la quantité produite, pas sur son efficacité commerciale.</td>
+              <td><sup class="ref"><a href="#r1">[1]</a></sup></td>
+            </tr>
+            <tr>
+              <td>Médecine — écriture clinique</td>
+              <td>jusqu'à <b>−83 %</b> de temps<br><b>+112 %</b> de retour sur investissement</td>
+              <td>Temps passé par les médecins à rédiger leurs comptes rendus de consultation, dans plusieurs systèmes hospitaliers, avec une baisse significative de l'épuisement professionnel. Le retour sur investissement est celui déclaré par un système hospitalier.</td>
+              <td><sup class="ref"><a href="#r1">[1]</a></sup></td>
+            </tr>
+            <tr>
+              <td>Médecine — diagnostic complexe</td>
+              <td><b>85,5 %</b> contre <b>20 %</b></td>
+              <td>Cas cliniques difficiles tirés de la littérature. Un système multi-agents contre des médecins privés de leurs outils habituels — la comparaison n'est donc pas celle d'une consultation réelle.</td>
+              <td><sup class="ref"><a href="#r1">[1]</a></sup></td>
+            </tr>
+            <tr>
+              <td>Médecine — suivi du diabète</td>
+              <td><b>71 %</b> des patients</td>
+              <td>Essai randomisé sur 150 patients : glycémie ramenée à un niveau sain sur un an, avec réduction des médicaments. Effectif faible, résultat à confirmer.</td>
+              <td><sup class="ref"><a href="#r1">[1]</a></sup></td>
+            </tr>
+            <tr>
+              <td>Météorologie</td>
+              <td><b>8 à 60 ×</b> plus rapide</td>
+              <td>FourCastNet 3 produit une prévision mondiale à 60 jours en moins de 4 minutes. En 2025, un système a pour la première fois remplacé toute la chaîne de prévision numérique.</td>
+              <td><sup class="ref"><a href="#r1">[1]</a></sup></td>
+            </tr>
+            <tr>
+              <td>Recherche scientifique</td>
+              <td><b>+26 %</b> de publications</td>
+              <td>Publications liées à l'IA en sciences naturelles en 2025. L'IA représente désormais 5,8 % à 8,8 % de la production scientifique selon les disciplines, contre moins de 1 % en 2010.</td>
+              <td><sup class="ref"><a href="#r1">[1]</a></sup></td>
+            </tr>
+            <tr>
+              <td>TPE et PME françaises</td>
+              <td><b>0 à 3 mois</b></td>
+              <td>Délai entre l'idée et la mise en production, contre 6 mois pour les ETI. Bénéfices déclarés : gain de temps et gain de productivité.</td>
+              <td><sup class="ref"><a href="#r2">[2]</a></sup></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="notice" style="margin-top:22px">
+        <h4>Trois précautions avant de citer ces chiffres</h4>
+        <p><b>Les gains se concentrent là où le travail est structuré et mesurable.</b> Ils sont nettement plus faibles sur les tâches qui demandent un raisonnement approfondi. Une même étude peut donc afficher +50 % sur un métier et rien du tout sur un autre.<sup class="ref"><a href="#r1">[1]</a></sup></p>
+        <p><b>Le gain n'est pas également réparti.</b> L'effet le plus fort porte sur les personnes les moins expérimentées ; il est quasi nul sur les plus aguerries. Ce n'est pas un détail : cela change qui, dans une équipe, a le plus à gagner à être formé en premier.<sup class="ref"><a href="#r5">[5]</a></sup></p>
+        <p><b>Il y a un revers documenté.</b> L'emploi des développeurs de 22 à 25 ans a chuté de près de 20 % depuis 2024, et un tiers des organisations s'attendent à réduire leurs effectifs dans l'année. Des travaux récents signalent aussi qu'un recours massif à l'IA peut freiner l'acquisition de compétences sur le long terme.<sup class="ref"><a href="#r1">[1]</a></sup></p>
+      </div>
+
+      <div class="notice legal" style="margin-top:16px">
+        <h4>Un chiffre que je ne vous donnerai pas</h4>
+        <p>On lit partout que l'IA réduirait de 20, 40 ou 75 % le temps de développement d'un médicament. <b>Je n'ai trouvé aucune source solide pour l'étayer.</b> Ces pourcentages circulent d'article de blog en article de blog, sans étude publiée derrière.</p>
+        <p>Ce qui est établi, en revanche : la FDA a autorisé <b>258 dispositifs médicaux à base d'IA en 2025</b>, mais seuls <b>2,4 %</b> de ceux qui s'appuient sur des études cliniques le font sur la base d'essais randomisés — la grande majorité passe par des procédures de modification s'appuyant sur des preuves existantes.<sup class="ref"><a href="#r1">[1]</a></sup> C'est exactement le genre de nuance qu'un chiffre rond fait disparaître.</p>
+        <p>La règle vaut au-delà de cet exemple : quand un pourcentage n'est rattaché à aucune étude nommée, ne le reprenez pas. C'est le module 07 appliqué à votre propre communication.</p>
+      </div>
       <div class="sec-head" style="max-width:700px;margin:56px auto 20px">
         <h2 style="font-size:clamp(24px,3.2vw,34px)">Mythes et réalité.</h2>
         <p style="font-size:17px">Six affirmations qu'on entend en réunion, et ce que disent les chiffres.</p>
@@ -634,19 +736,19 @@
         </div>
         <div class="myth reveal">
           <div class="m1"><b>Le mythe</b><p>« C'est une bulle, ça va passer comme la blockchain. »</p></div>
-          <div class="m2"><b>La réalité</b><p>Le domaine a déjà connu deux hivers, en 1974 et en 1987 — donc l'objection est légitime. La différence tient à l'usage : entre 52 % et 91 % des projets d'IA générative vont jusqu'en production selon la taille d'entreprise, et les utilisateurs déclarent une satisfaction de 3,5 à 4 sur 5. Ce n'est pas le profil d'une technologie qu'on n'utilise pas.</p></div>
+          <div class="m2"><b>La réalité</b><p>Le domaine a déjà connu deux hivers, en 1974 et en 1987 — donc l'objection est légitime. La différence tient à l'usage : entre 52 % et 91 % des projets d'IA générative vont jusqu'en production selon la taille d'entreprise, et les utilisateurs déclarent une satisfaction de 3,5 à 4 sur 5. Ce n'est pas le profil d'une technologie qu'on n'utilise pas.<sup class="ref"><a href="#r2">[2]</a></sup></p></div>
         </div>
         <div class="myth reveal">
           <div class="m1"><b>Le mythe</b><p>« Il faut être une grande entreprise pour s'y mettre. »</p></div>
-          <div class="m2"><b>La réalité</b><p>Les TPE et PME passent de l'idée à la production en 0 à 3 mois, contre 6 mois pour les ETI. Leur difficulté n'est pas la taille, c'est le manque d'expertise technique — cité en tête par les TPE comme par les PME.</p></div>
+          <div class="m2"><b>La réalité</b><p>Les TPE et PME passent de l'idée à la production en 0 à 3 mois, contre 6 mois pour les ETI. Leur difficulté n'est pas la taille, c'est le manque d'expertise technique — cité en tête par les TPE comme par les PME.<sup class="ref"><a href="#r2">[2]</a></sup></p></div>
         </div>
         <div class="myth reveal">
           <div class="m1"><b>Le mythe</b><p>« Les agents vont tout automatiser tout seuls. »</p></div>
-          <div class="m2"><b>La réalité</b><p>Gartner prévoit que plus de 40 % des projets d'IA agentique seront annulés d'ici fin 2027. Beaucoup de produits présentés comme des agents sont en réalité des assistants sans outils, sans droits d'action et sans orchestration. L'autonomie n'est pas l'absence de supervision.</p></div>
+          <div class="m2"><b>La réalité</b><p>Gartner prévoit que plus de 40 % des projets d'IA agentique seront annulés d'ici fin 2027. Beaucoup de produits présentés comme des agents sont en réalité des assistants sans outils, sans droits d'action et sans orchestration. L'autonomie n'est pas l'absence de supervision.<sup class="ref"><a href="#r3">[3]</a></sup></p></div>
         </div>
         <div class="myth reveal">
           <div class="m1"><b>Le mythe</b><p>« Le meilleur modèle du classement est le bon choix. »</p></div>
-          <div class="m2"><b>La réalité</b><p>Passer de 51 à 61 points d'intelligence multiplie le coût par tâche par environ sept. Pour la plupart des usages de rédaction, de support ou de synthèse, l'écart de qualité ne justifie pas l'écart de facture. La bonne question est le score minimum acceptable pour votre tâche.</p></div>
+          <div class="m2"><b>La réalité</b><p>Passer de 51 à 61 points d'intelligence multiplie le coût par tâche par environ sept. Pour la plupart des usages de rédaction, de support ou de synthèse, l'écart de qualité ne justifie pas l'écart de facture. La bonne question est le score minimum acceptable pour votre tâche.<sup class="ref"><a href="#r4">[4]</a></sup></p></div>
         </div>
         <div class="myth reveal">
           <div class="m1"><b>Le mythe</b><p>« L'IA comprend ce qu'elle dit. »</p></div>
@@ -656,7 +758,7 @@
 
       <div class="sec-head" style="max-width:700px;margin:56px auto 20px">
         <h2 style="font-size:clamp(24px,3.2vw,34px)">Qui fait quoi, aujourd'hui.</h2>
-        <p style="font-size:17px">Le paysage au 2 août 2026. Il bougera : la méthode de lecture compte plus que le classement.</p>
+        <p style="font-size:17px">Le paysage au 2 août 2026. Il bougera : la méthode de lecture compte plus que le classement.<sup class="ref"><a href="#r4">[4]</a></sup></p>
       </div>
 
       <div class="tbl">
@@ -679,7 +781,7 @@
 
       <div class="chart">
         <h4>Intelligence contre coût, au 2 août 2026</h4>
-        <p class="src">Chaque point est un modèle. Plus il est haut, plus il réussit de tâches difficiles du premier coup ; plus il est à droite, plus il coûte cher. L'axe des coûts est logarithmique — d'un bout à l'autre, le prix est multiplié par cinquante.</p>
+        <p class="src">Chaque point est un modèle. Plus il est haut, plus il réussit de tâches difficiles du premier coup ; plus il est à droite, plus il coûte cher. L'axe des coûts est logarithmique — d'un bout à l'autre, le prix est multiplié par cinquante.<sup class="ref"><a href="#r4">[4]</a></sup></p>
 
         <svg class="scatter" viewBox="0 0 720 372" role="img" aria-label="Nuage de points : score d'intelligence en fonction du coût par tâche. DeepSeek V4 Pro atteint 44 points pour 0,04 $ ; Claude Opus 5 atteint 61 points pour 2,03 $.">
           <rect class="zone" x="330" y="30" width="140" height="290"></rect>
@@ -738,7 +840,7 @@
 
       <div class="notice" style="margin-top:26px;margin-bottom:0">
         <h4>Deux classements, deux questions différentes</h4>
-        <p>Artificial Analysis fait passer des examens aux modèles ; Arena fait voter des humains sur des réponses anonymisées. Le premier mesure une capacité, le second une préférence. Si votre usage est conversationnel — support, rédaction, assistance —, regardez Arena. S'il est technique ou agentique — code, analyse de documents, extraction —, regardez Artificial Analysis. Et rappelez-vous qu'aucun classement ne mesure votre métier.</p>
+        <p>Artificial Analysis fait passer des examens aux modèles ; Arena fait voter des humains sur des réponses anonymisées. Le premier mesure une capacité, le second une préférence. Si votre usage est conversationnel — support, rédaction, assistance —, regardez Arena. S'il est technique ou agentique — code, analyse de documents, extraction —, regardez Artificial Analysis. Et rappelez-vous qu'aucun classement ne mesure votre métier.<sup class="ref"><a href="#r4">[4]</a></sup></p>
         <p>Dernier réflexe, appris en juin 2026 quand un modèle de tête a été suspendu pendant deux semaines pour des raisons de contrôle à l'export : prévoyez toujours un modèle de repli avant d'en avoir besoin.</p>
       </div>
 
@@ -749,9 +851,65 @@
         <div class="rule reveal"><span class="n">4</span><p>Deux hivers ont déjà eu lieu. Ce qui compte, c'est l'usage réel, pas la promesse.</p></div>
       </div>
 
-      <p class="kicker" style="text-align:center;margin-top:34px">
-        Sources : Hub France IA — enquête sur l'adoption de l'IA générative par les TPE et PME, Q4 2024, et livre blanc « Les agents experts d'IA » (chiffres Capgemini et Gartner cités) · Artificial Analysis Intelligence Index v4.1, relevé le 2 août 2026 · règlement (UE) 2024/1689.
-      </p>
+      <div class="sec-head" style="max-width:700px;margin:56px auto 20px">
+        <h2 style="font-size:clamp(24px,3.2vw,34px)">Sources et références.</h2>
+        <p style="font-size:17px">Toute affirmation chiffrée ou datée de cette page renvoie à l'une des références ci-dessous. Si un énoncé n'a pas d'appel de note, c'est qu'il s'agit d'une interprétation pédagogique et non d'un fait sourcé.</p>
+      </div>
+
+      <ol class="refs">
+        <li id="r1"><b>Stanford HAI — <i>The 2026 AI Index Report</i></b>, neuvième édition. Chapitres <i>Technical Performance</i>, <i>Economy</i>, <i>Science</i> et <i>Medicine</i>. Consulté le 9 août 2026.<br>
+          <a href="https://hai.stanford.edu/ai-index/2026-ai-index-report" target="_blank" rel="noopener">hai.stanford.edu/ai-index/2026-ai-index-report</a><br>
+          <span class="use">Adoption organisationnelle 88 % · adoption grand public 53 % en trois ans · gains de 14-15 % en service client, 26 % en développement logiciel, 50 % en marketing · −83 % de temps de rédaction clinique et 112 % de retour sur investissement · 85,5 % contre 20 % en diagnostic · essai diabète sur 150 patients · 258 dispositifs médicaux autorisés par la FDA en 2025 et 2,4 % appuyés sur des essais randomisés · FourCastNet 3 et prévision météo de bout en bout · +26 % de publications scientifiques · emploi des développeurs de 22-25 ans en baisse de près de 20 % · un tiers des organisations anticipant une réduction d'effectifs · frontière déchiquetée (médaille d'or à l'Olympiade de mathématiques, 50,1 % de lecture d'horloge) · 362 incidents documentés.</span></li>
+
+        <li id="r2"><b>Hub France IA — <i>Adoption de l'IA générative par les TPE et PME, résultats clés de l'enquête</i></b>, Pierre Monget, 4 décembre 2024. 43 réponses retenues (21 TPE, 11 PME, 11 ETI de référence), diffusion du 28 octobre au 27 novembre 2024.<br>
+          <span class="use">52 % / 64 % / 91 % de projets allant en production · délai idée-production de 0 à 3 mois (TPE-PME) et 6 mois (ETI) · feuille de route 19 % / 45 % / 73 % · charte d'usage 14 % (TPE) et 73 % (ETI) · hallucinations citées comme risque principal par les trois catégories · reproduction de biais citée par les ETI · bénéfices obtenus : gain de temps et de productivité · satisfaction 3,5 à 4 sur 5.</span>
+          <span class="warn">Attention à l'effectif : 43 répondants. Ces chiffres décrivent une tendance, ils n'ont pas valeur statistique nationale.</span></li>
+
+        <li id="r3"><b>Hub France IA — <i>Livre blanc : les agents experts d'IA</i></b>, 115 pages, janvier 2026.<br>
+          <span class="use">Pluralité des appellations selon les entreprises · distinction assistants conversationnels / copilotes bureautiques / agents experts · échelle d'autonomie · 450 milliards de dollars de valeur d'ici 2028 (source citée : Capgemini Research Institute, 16 juillet 2025) · 33 % des applications d'entreprise intégrant l'IA agentique d'ici 2028 contre moins de 1 % en 2024, et plus de 40 % des projets d'IA agentique annulés d'ici fin 2027 (source citée : Gartner, 25 juin 2025).</span></li>
+
+        <li id="r4"><b>Artificial Analysis — <i>LLM Leaderboard</i>, Intelligence Index v4.1</b>, relevé le 2 août 2026, repris et commenté par LeptiDigital. Index composite sur neuf évaluations indépendantes notées au premier essai, uniquement textuel et en anglais.<br>
+          <a href="https://www.leptidigital.fr/intelligence-artificielle-ia/meilleurs-modeles-ia-llm-55427/" target="_blank" rel="noopener">Classement des 20 meilleurs modèles d'IA en août 2026</a><br>
+          <span class="use">Scores et coûts par tâche de l'ensemble du nuage de points · positions des acteurs · écart entre Artificial Analysis et Arena · suspension d'un modèle de tête en juin 2026.</span>
+          <span class="warn">Mesures recalculées en continu : les valeurs bougent de quelques points d'une semaine à l'autre. Un classement public ne mesure jamais votre métier.</span></li>
+
+        <li id="r5"><b>Erik Brynjolfsson, Danielle Li, Lindsey R. Raymond — <i>Generative AI at Work</i></b>, National Bureau of Economic Research, document de travail n° 31161. Étude sur 5 179 agents de support client.<br>
+          <a href="https://www.nber.org/papers/w31161" target="_blank" rel="noopener">nber.org/papers/w31161</a><br>
+          <span class="use">+14 % de problèmes résolus par heure en moyenne, +34 % pour les agents débutants et peu qualifiés, effet minime sur les plus expérimentés.</span></li>
+
+        <li id="r6"><b>Remi Lam <i>et al.</i> (Google DeepMind) — <i>Learning skillful medium-range global weather forecasting</i></b>, <i>Science</i>, 2023. Modèle GraphCast.<br>
+          <a href="https://deepmind.google/blog/graphcast-ai-model-for-faster-and-more-accurate-global-weather-forecasting/" target="_blank" rel="noopener">Annonce DeepMind</a><br>
+          <span class="use">Modèle d'apprentissage dépassant le meilleur système opérationnel de prévision à moyen terme sur la grande majorité des mesures, prévision à dix jours produite en moins d'une minute.</span></li>
+
+        <li id="r7"><b>Règlement (UE) 2024/1689 du Parlement européen et du Conseil</b> établissant des règles harmonisées concernant l'intelligence artificielle. Article 4, maîtrise de l'IA.<br>
+          <span class="use">Obligation applicable depuis le 2 février 2025, sans seuil de taille et quel que soit le niveau de risque ; contrôles et sanctions possibles à partir du 2 août 2026.</span>
+          <span class="warn">Information générale, sans valeur de conseil juridique.</span></li>
+
+        <li id="r8"><b>Lewis Fry Richardson — <i>Weather Prediction by Numerical Process</i></b>, Cambridge University Press, 1922.<br>
+          <span class="use">Première tentative de prévision numérique du temps, calcul manuel par découpage de l'atmosphère en cellules ; « usine à prévisions » de 64 000 calculateurs humains.</span></li>
+
+        <li id="r9"><b>Jule Charney, Ragnar Fjørtoft, John von Neumann — première prévision numérique du temps sur ordinateur</b>, ENIAC, mars 1950, modèle barotrope.<br>
+          <a href="https://fr.wikipedia.org/wiki/Prévision_numérique_du_temps" target="_blank" rel="noopener">Synthèse : Prévision numérique du temps</a><br>
+          <span class="use">Prévision à 24 heures cohérente mais demandant des semaines de production ; premiers services opérationnels au début des années 1960. Antériorité : Vilhelm Bjerknes formule en 1904 la prévision comme problème aux conditions initiales.</span></li>
+
+        <li id="r10"><b>Edward N. Lorenz — <i>Deterministic Nonperiodic Flow</i></b>, <i>Journal of the Atmospheric Sciences</i>, vol. 20, 1963.<br>
+          <span class="use">Sensibilité aux conditions initiales, effet papillon, existence d'un horizon de prédictibilité.</span></li>
+
+        <li id="r11"><b>Origines du terme « data science »</b> : Peter Naur, <i>Concise Survey of Computer Methods</i>, 1974 ; William S. Cleveland, <i>Data Science: An Action Plan for Expanding the Technical Areas of the Field of Statistics</i>, 2001 ; apparition du titre de <i>data scientist</i> vers 2008 chez LinkedIn et Facebook.<br>
+          <span class="use">Les trois naissances du terme.</span></li>
+
+        <li id="r12"><b>Jalons fondateurs de l'IA</b> : Warren McCulloch et Walter Pitts, neurone formel, 1943 · Norbert Wiener, <i>Cybernetics</i>, 1948 · Alan Turing, <i>Computing Machinery and Intelligence</i>, <i>Mind</i>, 1950 · conférence de Dartmouth et forge du terme <i>artificial intelligence</i> par John McCarthy, 1956 · Frank Rosenblatt, perceptron, 1957 · Joseph Weizenbaum, ELIZA, 1966 · Marvin Minsky et Seymour Papert, <i>Perceptrons</i>, 1969 · rapport Lighthill, 1973 · Ashish Vaswani <i>et al.</i>, <i>Attention Is All You Need</i>, 2017 · ouverture de ChatGPT au public, 30 novembre 2022.<br>
+          <span class="use">Trame chronologique de la frise.</span></li>
+
+        <li id="r13"><b>Origines statistiques</b> : Adrien-Marie Legendre, méthode des moindres carrés, 1805 ; Carl Friedrich Gauss, application au calcul de l'orbite de Cérès, 1809 ; Francis Galton, régression et corrélation, années 1880 ; Karl Pearson, formalisation du coefficient de corrélation.<br>
+          <span class="use">Généalogie des outils mathématiques encore utilisés pour entraîner un modèle.</span></li>
+      </ol>
+
+      <div class="notice" style="margin-top:22px;margin-bottom:0">
+        <h4>Comment cette page a été vérifiée</h4>
+        <p>Les chiffres d'adoption française viennent de documents que l'entreprise possède déjà et dont le texte a été extrait directement. Les chiffres internationaux viennent du rapport annuel de Stanford, consulté en ligne. Le classement des modèles a été relevé à une date précise et affichée, parce qu'il change toutes les semaines.</p>
+        <p>Deux affirmations ont été écartées faute de source : la réduction chiffrée du temps de développement d'un médicament, et la répartition exacte des bénévoles par statut dans certaines organisations. Quand une source manque, la page le dit plutôt que d'arrondir.</p>
+      </div>
     </div>
 
     <div id="panel-d" role="tabpanel" aria-labelledby="tab-d" hidden>
