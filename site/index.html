@@ -217,6 +217,57 @@
   .svgbar .fill.alt{fill:#8e8e93}
   .svgbar .val{fill:var(--text);font-size:15px;font-weight:600;font-family:var(--sf)}
 
+  /* ---------- genèse : chemin des données ---------- */
+  .flow{display:grid;gap:14px}
+  .ph{background:var(--white);border-radius:var(--radius);padding:20px 22px;box-shadow:0 2px 12px rgba(0,0,0,.045)}
+  .ph-h{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+  .ph-h b{font-size:17px;font-weight:600;letter-spacing:-.02em}
+  .ph-h span{font-size:13px;color:var(--text-2)}
+  .ph-s{display:flex;gap:10px;flex-wrap:wrap;align-items:stretch}
+  .stp{
+    font-family:var(--sf);position:relative;flex:1 1 130px;min-width:120px;
+    background:var(--bg-alt);border:1px solid transparent;border-radius:14px;
+    padding:14px 14px 13px;cursor:pointer;text-align:left;
+    display:flex;flex-direction:column;gap:5px;transition:background .18s,border-color .18s,transform .18s;
+  }
+  .stp:hover{background:#ececee;transform:translateY(-1px)}
+  .stp:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+  .stp i{font-style:normal;font-size:12px;font-weight:600;color:var(--blue);letter-spacing:.04em}
+  .stp span{font-size:15px;font-weight:600;letter-spacing:-.01em;color:var(--text);line-height:1.25}
+  .stp::after{
+    content:"›";position:absolute;right:11px;bottom:9px;
+    color:var(--text-2);font-size:15px;opacity:.55;
+  }
+  .stp.on{background:rgba(0,113,227,.10);border-color:rgba(0,113,227,.25)}
+  .stp.on i{color:var(--blue)}
+  @media(max-width:560px){.stp{flex:1 1 100%}}
+
+  .dlg{
+    border:0;padding:0;background:transparent;max-width:640px;width:calc(100% - 32px);
+    color:var(--text);
+  }
+  .dlg::backdrop{background:rgba(0,0,0,.35);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
+  .dlg-in{
+    background:var(--white);border-radius:var(--radius);padding:30px 32px 28px;position:relative;
+    box-shadow:0 18px 48px rgba(0,0,0,.22);
+  }
+  .dlg-x{
+    position:absolute;top:16px;right:16px;width:30px;height:30px;border:0;border-radius:50%;
+    background:var(--bg-alt);color:var(--text-2);font-size:14px;cursor:pointer;line-height:1;
+    font-family:var(--sf);
+  }
+  .dlg-x:hover{background:#e3e3e5}
+  .dlg-k{font-size:12px;font-weight:600;color:var(--blue);letter-spacing:.06em;text-transform:uppercase}
+  .dlg h3{font-size:26px;line-height:1.16;font-weight:600;letter-spacing:-.02em;margin:6px 0 18px}
+  .dlg dl{margin:0;display:grid;gap:14px}
+  .dlg dt{font-size:12px;font-weight:600;color:var(--text-2);text-transform:uppercase;letter-spacing:.05em}
+  .dlg dd{margin:5px 0 0;font-size:16px;color:var(--text);line-height:1.45}
+  .dlg-m{
+    margin:20px 0 0;padding:12px 14px;background:var(--bg-alt);border-radius:12px;
+    font-size:14px;color:var(--text-2);
+  }
+  @media(max-width:560px){.dlg-in{padding:26px 22px 24px}.dlg h3{font-size:22px}}
+
   /* ---------- genèse : références ---------- */
   .ref{font-size:11px;font-weight:600;line-height:0}
   .ref a{color:var(--blue);text-decoration:none}
@@ -598,6 +649,64 @@
         <p class="src" style="margin:14px 0 0">Comparez les deux graphiques : une TPE sur deux met de l'IA en production, mais moins d'une sur cinq a écrit une feuille de route — et seulement <b>14 %</b> ont une charte d'usage, contre 73 % des ETI. C'est exactement le trou que comble le module 03 du parcours découverte.</p>
       </div>
 
+      <div class="sec-head" style="max-width:700px;margin:56px auto 20px">
+        <h2 style="font-size:clamp(24px,3.2vw,34px)">Le chemin de vos données.</h2>
+        <p style="font-size:17px">De votre fichier jusqu'à la réponse, puis jusqu'à la trace qu'il en reste. Cliquez sur une étape : ce qui s'y passe, où vont vos données, et ce qui casse.</p>
+      </div>
+
+      <div class="flow" id="flow">
+
+        <div class="ph">
+          <div class="ph-h"><b>Une fois</b><span>Préparation, hors ligne</span></div>
+          <div class="ph-s">
+            <button class="stp" data-s="0"><i>01</i><span>Vos sources</span></button>
+            <button class="stp" data-s="1"><i>02</i><span>Extraction</span></button>
+            <button class="stp" data-s="2"><i>03</i><span>Découpage</span></button>
+            <button class="stp" data-s="3"><i>04</i><span>Vectorisation</span></button>
+            <button class="stp" data-s="4"><i>05</i><span>Index</span></button>
+          </div>
+        </div>
+
+        <div class="ph">
+          <div class="ph-h"><b>À chaque demande</b><span>Quelques secondes</span></div>
+          <div class="ph-s">
+            <button class="stp" data-s="5"><i>06</i><span>Votre demande</span></button>
+            <button class="stp" data-s="6"><i>07</i><span>Recherche</span></button>
+            <button class="stp" data-s="7"><i>08</i><span>Contexte assemblé</span></button>
+            <button class="stp" data-s="8"><i>09</i><span>Tokens</span></button>
+            <button class="stp on" data-s="9"><i>10</i><span>Génération</span></button>
+          </div>
+        </div>
+
+        <div class="ph">
+          <div class="ph-h"><b>Autour</b><span>Ce qui encadre</span></div>
+          <div class="ph-s">
+            <button class="stp" data-s="10"><i>11</i><span>Outils &amp; actions</span></button>
+            <button class="stp" data-s="11"><i>12</i><span>Vérification humaine</span></button>
+            <button class="stp" data-s="12"><i>13</i><span>Journal &amp; coûts</span></button>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="notice legal" style="margin-top:22px;margin-bottom:0">
+        <h4>Ce que ce schéma change dans une conversation</h4>
+        <p>La question « est-ce que mes données servent à entraîner le modèle ? » n'a pas de réponse unique : elle dépend de l'étape. Aux étapes 01 à 05, vos données sont copiées et stockées chez quelqu'un. À l'étape 08, elles partent dans la demande. À l'étape 10, elles ne modifient pas le modèle — sauf si le contrat le prévoit. Savoir de quelle étape on parle est ce qui distingue une règle d'usage sérieuse d'une interdiction générale et inapplicable.</p>
+      </div>
+
+      <dialog class="dlg" id="dlg">
+        <div class="dlg-in">
+          <button class="dlg-x" id="dlgx" aria-label="Fermer">✕</button>
+          <span class="dlg-k" id="dlgk"></span>
+          <h3 id="dlgt"></h3>
+          <dl>
+            <div><dt>Ce qui se passe</dt><dd id="dlg1"></dd></div>
+            <div><dt>Où vont vos données</dt><dd id="dlg2"></dd></div>
+            <div><dt>Ce qui casse ici</dt><dd id="dlg3"></dd></div>
+          </dl>
+          <p class="dlg-m" id="dlgm"></p>
+        </div>
+      </dialog>
       <div class="sec-head" style="max-width:700px;margin:56px auto 20px">
         <h2 style="font-size:clamp(24px,3.2vw,34px)">Ce qu'un modèle ne sait pas faire.</h2>
         <p style="font-size:17px">Les limites ne sont pas des bugs à corriger dans la prochaine version. Elles découlent de la façon dont ces modèles sont construits.</p>
@@ -1136,6 +1245,105 @@ document.getElementById("grid-a").innerHTML=avance.map(modCard).join("");
 document.getElementById("rules-d").innerHTML=reflexes.map(ruleCard).join("");
 document.getElementById("rules-a").innerHTML=gardefous.map(ruleCard).join("");
 document.getElementById("fiches").innerHTML=fiches.map(ficheEl).join("");
+
+/* Chemin des données : détail de chaque étape, ouvert au clic. */
+const etapes=[
+ {k:"Étape 01 · Préparation",t:"Vos sources",
+  a:"Tout part de ce que vous possédez déjà : fichiers bureautiques, PDF, courriels, tableurs, base métier, notes de réunion. Rien n'est \"dans l'IA\" à ce stade — ce sont vos documents, là où ils sont.",
+  b:"Nulle part encore. C'est le seul moment où vos données ne sont qu'à vous. Tout ce qui suit consiste à les déplacer ou à les copier.",
+  c:"Le tri. On embarque tout \"pour voir\", y compris les dossiers RH, les contrats et les exports clients. Une source mal choisie ici contamine toute la chaîne, et personne ne la retrouve six mois plus tard.",
+  m:"Module 03 — ce qu'on ne colle jamais"},
+
+ {k:"Étape 02 · Préparation",t:"Extraction",
+  a:"Chaque document est ouvert et converti en texte brut. Un PDF scanné passe par une reconnaissance de caractères, un tableur perd sa mise en forme, une image devient une description.",
+  b:"Vers l'outil qui fait l'extraction. S'il s'agit d'un service en ligne, une copie complète de vos documents y transite — et souvent y reste, au moins temporairement.",
+  c:"La qualité de sortie. Un tableau mal reconnu produit des colonnes mélangées, un scan de travers produit du charabia. L'erreur est invisible : elle ne réapparaît qu'à la fin, sous forme de réponse fausse.",
+  m:"Module 06 — photo, capture, schéma"},
+
+ {k:"Étape 03 · Préparation",t:"Découpage",
+  a:"Le texte est coupé en morceaux de quelques centaines de mots. Un modèle ne peut pas tout lire d'un coup : il faut lui présenter des fragments de taille exploitable.",
+  b:"Les fragments restent au même endroit que l'extraction. Attention : un découpage mal placé peut séparer une donnée de la phrase qui la rendait confidentielle.",
+  c:"La coupure au mauvais endroit. Un montant séparé de son intitulé, une clause coupée en deux, un tableau tranché au milieu — et le fragment devient trompeur plutôt qu'incomplet.",
+  m:"Module 05 — lire un document à ta place"},
+
+ {k:"Étape 04 · Préparation",t:"Vectorisation",
+  a:"Chaque fragment est transformé en une longue liste de nombres qui représente son sens. Deux textes qui parlent de la même chose obtiennent des listes proches, même sans mot commun.",
+  b:"Le texte est envoyé à un modèle d'encodage — souvent chez un fournisseur — qui renvoie les nombres. Le texte d'origine y est donc passé.",
+  c:"L'idée fausse que les nombres seraient anonymes. Ce ne sont pas des données chiffrées : dans certains cas, on peut reconstituer une partie du texte d'origine à partir d'eux.",
+  m:"Module 03 — ce qu'on ne colle jamais"},
+
+ {k:"Étape 05 · Préparation",t:"Index",
+  a:"Les nombres et les fragments sont rangés dans une base spécialisée, qui sait retrouver très vite les morceaux les plus proches d'une question.",
+  b:"Dans cette base. C'est elle qui contient réellement votre patrimoine documentaire : sa localisation, son chiffrement et ses droits d'accès sont la vraie question de souveraineté.",
+  c:"Les droits. Si l'index ignore qui a le droit de voir quoi, un salarié peut obtenir par une simple question ce qu'il ne pourrait pas ouvrir dans le dossier partagé.",
+  m:"Parcours avancé, module 04 — MCP et connecteurs"},
+
+ {k:"Étape 06 · À chaque demande",t:"Votre demande",
+  a:"Vous écrivez une question. Elle est traitée exactement comme le reste : convertie en nombres pour être comparée aux fragments indexés.",
+  b:"Chez le fournisseur du modèle, systématiquement. Ce que vous tapez part, y compris ce que vous avez collé sans y penser dans la question elle-même.",
+  c:"Le copier-coller réflexe. La fuite ne vient presque jamais de l'index savamment sécurisé : elle vient d'un extrait de contrat collé dans la fenêtre de conversation.",
+  m:"Module 02 — la matrice CRAFT"},
+
+ {k:"Étape 07 · À chaque demande",t:"Recherche",
+  a:"Le système compare votre question à tout l'index et remonte les quelques fragments les plus proches — en général cinq à vingt.",
+  b:"Rien ne sort à cette étape : la comparaison se fait dans l'index. C'est un calcul, pas un envoi.",
+  c:"Le silence en cas d'absence. Si l'information n'existe nulle part dans l'index, le système remonte quand même les fragments \"les moins éloignés\" — et le modèle répondra à partir de documents hors sujet, sans jamais signaler le problème.",
+  m:"Module 07 — vérifier avant d'envoyer"},
+
+ {k:"Étape 08 · À chaque demande",t:"Contexte assemblé",
+  a:"On fabrique le texte final envoyé au modèle : les consignes générales, les fragments retrouvés, l'historique de la conversation, puis votre question. C'est ce paquet, et rien d'autre, que le modèle verra.",
+  b:"Tout ce paquet part chez le fournisseur du modèle. C'est le point de sortie réel de vos données — pas l'index, pas la vectorisation : ici.",
+  c:"La place disponible. La fenêtre est limitée : au-delà, les éléments les plus anciens sont écartés. Un long échange peut faire disparaître silencieusement la consigne de départ.",
+  m:"Module 09 — Projects et instructions"},
+
+ {k:"Étape 09 · À chaque demande",t:"Tokens",
+  a:"Le paquet est découpé en jetons — des morceaux de mots. Un texte français fait environ un jeton pour trois caractères. C'est l'unité de mesure de la fenêtre, et l'unité de facturation.",
+  b:"Rien de plus qu'à l'étape précédente : c'est le même contenu, écrit autrement pour la machine.",
+  c:"Le budget. Envoyer trente pages à chaque question multiplie la facture sans améliorer la réponse. Le coût par tâche du nuage de points plus haut se joue en grande partie ici.",
+  m:"Parcours avancé, module 06 — tester, chiffrer, encadrer"},
+
+ {k:"Étape 10 · À chaque demande",t:"Génération",
+  a:"Le modèle produit la réponse jeton par jeton, chacun choisi en fonction de tous les précédents. Il ne consulte aucune base : il ne dispose que du paquet reçu à l'étape 08 et de ce qu'il a appris à l'entraînement.",
+  b:"Vos données ne modifient pas le modèle. Elles ont servi d'entrée, pas d'apprentissage — sauf si le contrat de votre fournisseur prévoit l'inverse, ce qu'il faut vérifier une fois pour toutes.",
+  c:"L'assurance. C'est ici que naissent les hallucinations : le modèle produit le texte le plus plausible, sans mécanisme interne pour signaler qu'il invente. Et deux fois la même question peut donner deux réponses différentes.",
+  m:"Module 07 — vérifier avant d'envoyer"},
+
+ {k:"Étape 11 · Autour",t:"Outils et actions",
+  a:"Si le système est agentique, le modèle peut demander l'exécution d'une action : lire un fichier, interroger une base, calculer, envoyer un message. C'est ce qui sépare un agent d'un assistant.",
+  b:"Vers les systèmes que vous avez branchés, avec les droits que vous leur avez donnés. Un agent n'a pas d'autres limites que celles inscrites dans son périmètre.",
+  c:"Le périmètre trop large, cause principale des dérapages. Lecture seule d'abord ; l'écriture et l'envoi viennent après des semaines de preuve.",
+  m:"Parcours avancé, module 02 — donner des outils"},
+
+ {k:"Étape 12 · Autour",t:"Vérification humaine",
+  a:"Quelqu'un relit et décide. Quatre zones concentrent les erreurs : les chiffres, les noms propres, les dates et les citations.",
+  b:"Rien ne bouge. C'est la seule étape où l'on retire de la valeur au système plutôt qu'on en ajoute — et c'est celle qui rend tout le reste utilisable.",
+  c:"La confiance acquise après trois bonnes réponses. Statistiquement, c'est le moment précis où l'on cesse de vérifier, donc le moment où l'erreur passe.",
+  m:"Module 07 — tu signes ce que tu envoies"},
+
+ {k:"Étape 13 · Autour",t:"Journal et coûts",
+  a:"Chaque échange laisse une trace : qui a demandé quoi, quels documents ont été remontés, quels jetons ont été consommés, combien ça a coûté.",
+  b:"Dans vos journaux, et chez le fournisseur. Cette trace est autant un outil de pilotage qu'une pièce de conformité.",
+  c:"L'absence. Sans journal, impossible de comprendre une réponse aberrante, d'estimer un coût, ou de démontrer quoi que ce soit en cas de contrôle. Sans mesure, pas de mise en production.",
+  m:"Article 4 du règlement (UE) 2024/1689 — trace de la formation et de l'usage"}
+];
+
+(function(){
+  const dlg=document.getElementById("dlg");
+  if(!dlg) return;
+  const set=(id,v)=>{document.getElementById(id).textContent=v;};
+  document.querySelectorAll("#flow .stp").forEach(b=>{
+    b.addEventListener("click",()=>{
+      const e=etapes[+b.dataset.s];
+      set("dlgk",e.k); set("dlgt",e.t);
+      set("dlg1",e.a); set("dlg2",e.b); set("dlg3",e.c); set("dlgm","→ "+e.m);
+      document.querySelectorAll("#flow .stp").forEach(x=>x.classList.remove("on"));
+      b.classList.add("on");
+      if(typeof dlg.showModal==="function"){dlg.showModal();}else{dlg.setAttribute("open","");}
+    });
+  });
+  document.getElementById("dlgx").addEventListener("click",()=>dlg.close());
+  dlg.addEventListener("click",ev=>{if(ev.target===dlg) dlg.close();});
+})();
 
 const tabs=[["tab-g","panel-g"],["tab-d","panel-d"],["tab-a","panel-a"]];
 tabs.forEach(([tid,pid])=>{
