@@ -12,11 +12,12 @@ if (-not (Test-Path $ArxWeb)) { throw "Depot arxWeb introuvable : $ArxWeb" }
 
 $dst = Join-Path $ArxWeb "AITraining"
 New-Item -ItemType Directory -Force $dst | Out-Null
-Copy-Item (Join-Path $src "*.html") $dst -Force
+Copy-Item (Join-Path $src "*") $dst -Recurse -Force
 Write-Host "Copie -> $dst"
 
 git -C $ArxWeb add "AITraining"
-if (git -C $ArxWeb diff --cached --quiet; $LASTEXITCODE -eq 0) {
+git -C $ArxWeb diff --cached --quiet
+if ($LASTEXITCODE -eq 0) {
   Write-Host "Rien a commiter."
   exit 0
 }

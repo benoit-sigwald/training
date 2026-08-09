@@ -38,12 +38,28 @@
     border-bottom:1px solid rgba(0,0,0,.08);
   }
   .nav .wrap{display:flex;align-items:center;height:100%;gap:26px}
-  .brand{font-size:21px;font-weight:600;letter-spacing:-.02em;text-decoration:none;color:var(--text);white-space:nowrap}
+  .brand{
+    font-size:21px;font-weight:600;letter-spacing:-.02em;text-decoration:none;color:var(--text);
+    white-space:nowrap;display:flex;align-items:center;gap:9px;
+  }
+  .brand img{height:30px;width:auto;display:block}
   .nav-links{margin-left:auto;display:flex;gap:24px;align-items:center}
   .nav-links a{font-size:12px;color:var(--text);text-decoration:none;opacity:.85;white-space:nowrap}
   .nav-links a:hover{opacity:1}
   .nav-links a.lang{font-weight:600;color:var(--blue);opacity:1}
-  @media(max-width:640px){.nav-links{gap:14px}.nav-links a{font-size:11px}}
+  .nav-cta{
+    font-size:12px;font-weight:500;background:var(--blue);color:#fff!important;opacity:1!important;
+    padding:6px 14px;border-radius:980px;transition:background .2s;
+  }
+  .nav-cta:hover{background:var(--blue-dark)}
+  @media(max-width:640px){
+    .nav-links{gap:12px}.nav-links a{font-size:11px}
+    .brand{font-size:17px}.brand img{height:24px}
+    .nav-cta{padding:5px 11px}
+  }
+  @media(max-width:520px){.nav-links a:not(.nav-cta):not(.lang){display:none}}
+
+  .flogo{height:44px;width:auto;display:block;margin-bottom:14px;opacity:.75}
 
   .hero{text-align:center;padding:88px 0 64px}
   .hero .eyebrow{font-size:19px;color:var(--blue);font-weight:600;margin:0 0 6px;letter-spacing:-.02em}
@@ -166,7 +182,7 @@
 
 <nav class="nav">
   <div class="wrap">
-    <a class="brand" href="#top">AI Training</a>
+    <a class="brand" href="#top"><img src="arx-logo.png" alt="Arx Consulting" width="242" height="264" decoding="async">AI Training</a>
     <div class="nav-links">
       <a href="#levels">Levels</a>
       <a href="#tracks">Tracks</a>
@@ -174,6 +190,7 @@
       <a href="#kit">Facilitator kit</a>
       <a href="#resources">Resources</a>
       <a class="lang" href="index.html" hreflang="fr">FR</a>
+      <a class="nav-cta" href="https://arx-consulting.com/index.html">Arx Consulting</a>
     </div>
   </div>
 </nav>
@@ -334,7 +351,8 @@
 
 <footer>
   <div class="wrap">
-    <p>Arx Consulting · internal training programme · revision 2</p>
+    <a href="https://arx-consulting.com/index.html"><img class="flogo" src="arx-logo.png" alt="Arx Consulting" width="242" height="264" loading="lazy" decoding="async"></a>
+    <p><a href="https://arx-consulting.com/index.html">Arx Consulting</a> · internal training programme · revision 2</p>
     <p>Claude is a trademark of Anthropic. This programme is an independent teaching resource and is not an official certification.</p>
     <p>The regulatory note refers to Article 4 of Regulation (EU) 2024/1689. It is provided for information only and is not legal advice.</p>
   </div>
