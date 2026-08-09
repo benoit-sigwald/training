@@ -282,7 +282,7 @@ Piste avancée, si besoin :
 
 ## Supports visuels existants
 
-Le jeu de slides interne (`G:\My Drive\Dev\IA\*.png`) est réutilisable tel quel, module par module :
+Le jeu de slides interne (`G:\My Drive\Dev\IA\Research\*.png`) est réutilisable tel quel, module par module :
 
 | Slide | Module |
 |---|---|

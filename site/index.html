@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>AI Training — Apprendre l'IA, l'exemple de Claude | Arx Consulting</title>
-<meta name="description" content="Programme de formation Claude en deux parcours : découverte en 12 modules et avancé en 7 modules, avec le kit formateur et l'attestation de fin.">
+<meta name="description" content="Programme de formation Claude en deux parcours : la genèse de l'IA, découverte en 12 modules et avancé en 7 modules, avec le kit formateur et l'attestation de fin.">
 <meta name="theme-color" content="#fbfbfd">
 <meta name="robots" content="noindex, nofollow">
 <link rel="alternate" hreflang="fr" href="/AITraining/index.html">
@@ -177,6 +177,62 @@
   .rule .n{font-size:34px;font-weight:600;color:var(--blue);letter-spacing:-.02em;line-height:1;display:block;margin-bottom:8px}
   .rule p{margin:0;font-size:15px;color:var(--text-2)}
 
+  /* ---------- genèse : frise ---------- */
+  .tl{position:relative;margin-top:8px;padding-left:34px}
+  .tl::before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:2px;background:var(--hair)}
+  .era{position:relative;margin-bottom:16px;background:var(--white);border-radius:var(--radius);
+    padding:22px 24px;box-shadow:0 2px 12px rgba(0,0,0,.045)}
+  .era::before{content:"";position:absolute;left:-30px;top:28px;width:12px;height:12px;
+    border-radius:50%;background:var(--blue);border:3px solid var(--bg)}
+  .era .yr{font-size:13px;font-weight:600;color:var(--blue);letter-spacing:.02em}
+  .era h3{font-size:21px;line-height:1.2;font-weight:600;letter-spacing:-.02em;margin:4px 0 8px}
+  .era h3 em{font-style:normal;color:var(--text-2);font-weight:400}
+  .era p{margin:0;font-size:15px;color:var(--text-2)}
+  .era p + p{margin-top:8px}
+  .era .nom{
+    display:inline-block;margin-top:12px;font-size:13px;font-weight:600;
+    background:var(--bg-alt);color:var(--text);padding:5px 12px;border-radius:980px;
+  }
+  .era.cold::before{background:#8e8e93}
+  .era.cold{background:var(--bg-alt);box-shadow:none;border:1px dashed var(--hair)}
+  @media(max-width:560px){.tl{padding-left:26px}.tl::before{left:5px}.era::before{left:-27px}}
+
+  /* ---------- genèse : barres ---------- */
+  .chart{background:var(--white);border-radius:var(--radius);padding:26px 26px 22px;
+    box-shadow:0 2px 12px rgba(0,0,0,.045);margin-top:18px}
+  .chart h4{margin:0 0 4px;font-size:17px;font-weight:600;letter-spacing:-.02em}
+  .chart .src{margin:0 0 18px;font-size:13px;color:var(--text-2)}
+  .bar{display:grid;grid-template-columns:minmax(96px,150px) 1fr auto;gap:12px;align-items:center;margin-bottom:9px}
+  .bar .lb{font-size:14px;color:var(--text-2)}
+  .bar .tr{background:var(--bg-alt);border-radius:980px;height:22px;overflow:hidden}
+  .bar .fl{height:100%;background:var(--blue);border-radius:980px}
+  .bar .fl.alt{background:#8e8e93}
+  .bar .vl{font-size:14px;font-weight:600;min-width:44px;text-align:right}
+  @media(max-width:560px){.bar{grid-template-columns:78px 1fr auto;gap:8px}.bar .lb{font-size:13px}}
+
+  /* ---------- genèse : mythes ---------- */
+  .myths{display:grid;gap:12px;margin-top:8px}
+  .myth{background:var(--white);border-radius:var(--radius);box-shadow:0 2px 12px rgba(0,0,0,.045);
+    padding:22px 24px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .myth .m1 b,.myth .m2 b{display:block;font-size:12px;font-weight:600;text-transform:uppercase;
+    letter-spacing:.06em;margin-bottom:6px}
+  .myth .m1 b{color:#b85c00}
+  .myth .m2 b{color:var(--blue)}
+  .myth p{margin:0;font-size:15px;color:var(--text-2)}
+  .myth .m2 p{color:var(--text)}
+  @media(max-width:640px){.myth{grid-template-columns:1fr;gap:14px}}
+
+  /* ---------- genèse : acteurs ---------- */
+  .tbl{background:var(--white);border-radius:var(--radius);box-shadow:0 2px 12px rgba(0,0,0,.045);
+    padding:8px 4px;margin-top:18px;overflow-x:auto}
+  .tbl table{width:100%;border-collapse:collapse;font-size:15px;min-width:560px}
+  .tbl th{text-align:left;font-size:12px;font-weight:600;color:var(--text-2);text-transform:uppercase;
+    letter-spacing:.05em;padding:12px 16px;border-bottom:1px solid var(--hair)}
+  .tbl td{padding:12px 16px;border-bottom:1px solid var(--hair);vertical-align:top;color:var(--text-2)}
+  .tbl tr:last-child td{border-bottom:0}
+  .tbl td:first-child{color:var(--text);font-weight:600;white-space:nowrap}
+  .tbl td b{color:var(--text);font-weight:600}
+
   /* ---------- craft ---------- */
   .craft{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:14px;margin-top:20px}
   .craft div{background:var(--white);border-radius:14px;padding:18px 18px;box-shadow:0 2px 12px rgba(0,0,0,.045)}
@@ -306,16 +362,270 @@
 <section id="parcours">
   <div class="wrap">
     <div class="sec-head">
-      <h2>Deux parcours, dans l'ordre.</h2>
-      <p>Le premier s'adresse à tout le monde. Le second ne s'ouvre qu'après.</p>
+      <h2>Trois parcours, dans l'ordre.</h2>
+      <p>On commence par comprendre d'où vient l'IA. Le deuxième s'adresse à tout le monde. Le troisième ne s'ouvre qu'après.</p>
     </div>
 
     <div class="seg" role="tablist" aria-label="Choisir un parcours">
-      <button role="tab" id="tab-d" aria-controls="panel-d" aria-selected="true">Découverte · 12 modules</button>
+      <button role="tab" id="tab-g" aria-controls="panel-g" aria-selected="true">La genèse de l'IA</button>
+      <button role="tab" id="tab-d" aria-controls="panel-d" aria-selected="false">Découverte · 12 modules</button>
       <button role="tab" id="tab-a" aria-controls="panel-a" aria-selected="false">Avancé · 7 modules</button>
     </div>
 
-    <div id="panel-d" role="tabpanel" aria-labelledby="tab-d">
+    <div id="panel-g" role="tabpanel" aria-labelledby="tab-g">
+      <div class="sec-head" style="margin-bottom:28px">
+        <p class="kicker">Une séance de 45 min · à faire avant le module 00 · aucun prérequis</p>
+        <p style="font-size:17px;color:var(--text-2);margin-top:10px">Comprendre d'où vient l'IA évite deux erreurs symétriques : croire que tout est nouveau, et croire que rien n'a changé. Cette séance ne sert pas à réciter des dates. Elle sert à savoir ce qu'un modèle peut faire, ce qu'il ne peut pas faire, et pourquoi.</p>
+      </div>
+
+      <div class="sec-head" style="max-width:700px;margin:0 auto 24px">
+        <h2 style="font-size:clamp(24px,3.2vw,34px)">Soixante-dix ans, une douzaine de noms.</h2>
+        <p style="font-size:17px">Le même projet — faire faire à une machine ce qui demande de l'intelligence — a changé d'étiquette à chaque fois que la précédente s'est dévaluée.</p>
+      </div>
+
+      <div class="tl">
+
+        <div class="era reveal">
+          <span class="yr">1943 — 1955</span>
+          <h3>La cybernétique <em>· avant même le mot « IA »</em></h3>
+          <p>McCulloch et Pitts proposent en 1943 un modèle mathématique du neurone. En 1948, Norbert Wiener publie <i>Cybernetics</i> et pose l'idée de machines qui se régulent par rétroaction. En 1950, Alan Turing écrit <i>Computing Machinery and Intelligence</i> et remplace la question « une machine peut-elle penser ? » par un test observable : le jeu de l'imitation.</p>
+          <span class="nom">Cybernétique · machines pensantes</span>
+        </div>
+
+        <div class="era reveal">
+          <span class="yr">1956 — 1973</span>
+          <h3>L'invention du nom <em>· et les premières promesses</em></h3>
+          <p>Été 1956, conférence de Dartmouth : John McCarthy forge l'expression <b>artificial intelligence</b>, en partie pour se démarquer de la cybernétique. Rosenblatt présente le perceptron en 1957, premier réseau de neurones apprenant. En 1966, ELIZA imite un psychothérapeute avec quelques règles — et convainc déjà des utilisateurs, ce qui reste la plus vieille leçon du domaine sur notre tendance à prêter une intention à une machine.</p>
+          <p>Les promesses dépassent largement les résultats. En 1969, Minsky et Papert démontrent les limites du perceptron simple : le connexionnisme est gelé pour quinze ans.</p>
+          <span class="nom">Intelligence artificielle · connexionnisme</span>
+        </div>
+
+        <div class="era cold reveal">
+          <span class="yr">1974 — 1980</span>
+          <h3>Premier hiver de l'IA</h3>
+          <p>Le rapport Lighthill (1973) juge les résultats décevants au regard des financements. Crédits coupés au Royaume-Uni puis aux États-Unis. Le mot « intelligence artificielle » devient difficile à prononcer devant un financeur — première dévaluation d'étiquette.</p>
+          <span class="nom">On évite le mot</span>
+        </div>
+
+        <div class="era reveal">
+          <span class="yr">1980 — 1987</span>
+          <h3>Les systèmes experts <em>· l'IA qui rapporte enfin</em></h3>
+          <p>Retour par l'industrie : des règles écrites à la main par des experts, dans un domaine étroit. MYCIN diagnostique des infections, XCON configure des ordinateurs chez DEC et fait économiser des dizaines de millions de dollars. Le Japon lance son programme « cinquième génération ». C'est la première IA réellement déployée en entreprise.</p>
+          <p>Sa faiblesse est structurelle : chaque règle est écrite à la main, et le système ne sait rien faire hors de son domaine.</p>
+          <span class="nom">Systèmes experts · IA symbolique · ingénierie de la connaissance</span>
+        </div>
+
+        <div class="era cold reveal">
+          <span class="yr">1987 — 1993</span>
+          <h3>Second hiver de l'IA</h3>
+          <p>Le marché des machines spécialisées s'effondre, les systèmes experts se révèlent coûteux à maintenir. Deuxième dévaluation du mot. Les chercheurs se rebaptisent : on ne fait plus de l'IA, on fait de l'<b>apprentissage automatique</b>, de la <b>reconnaissance de formes</b>, des <b>systèmes à base de connaissances</b>.</p>
+          <span class="nom">Le mot devient un repoussoir</span>
+        </div>
+
+        <div class="era reveal">
+          <span class="yr">1993 — 2011</span>
+          <h3>Les données prennent le pouvoir <em>· et la statistique change de nom</em></h3>
+          <p>Le paradigme s'inverse : au lieu d'écrire les règles, on les fait apprendre à partir d'exemples. C'est la décennie du <b>machine learning</b>, de la <b>fouille de données</b> et du <b>KDD</b>. En 1997, Deep Blue bat Kasparov — par la force de calcul, pas par la compréhension.</p>
+          <p>Côté métier, la lignée est parallèle : <b>informatique décisionnelle</b> dans les années 1990, puis <b>big data</b> à partir de 2008 quand le volume devient le problème central.</p>
+          <span class="nom">Machine learning · data mining · business intelligence · big data</span>
+        </div>
+
+        <div class="era reveal">
+          <span class="yr">1974 · 2001 · 2008</span>
+          <h3>Le mot « data science » <em>· trois naissances</em></h3>
+          <p>Peter Naur, en <b>1974</b>, propose « data science » comme autre nom pour l'informatique, dans <i>Concise Survey of Computer Methods</i>. En <b>2001</b>, le statisticien William S. Cleveland publie <i>Data Science: An Action Plan for Expanding the Technical Areas of the Field of Statistics</i> et en fait une discipline à part entière. Vers <b>2008</b>, chez LinkedIn et Facebook, le titre de <b>data scientist</b> apparaît pour des profils qui n'étaient ni statisticiens ni informaticiens.</p>
+          <p>À retenir pour la suite : la data science n'est pas l'ancêtre de l'IA générative, c'est sa <b>cousine</b>. L'une explique et prédit à partir de vos données ; l'autre génère du texte à partir d'un modèle pré-entraîné sur des données qui ne sont pas les vôtres. Confondre les deux est l'erreur de cadrage la plus fréquente en entreprise.</p>
+          <span class="nom">Data science · data scientist</span>
+        </div>
+
+        <div class="era reveal">
+          <span class="yr">2012 — 2016</span>
+          <h3>L'apprentissage profond <em>· le moment où ça marche</em></h3>
+          <p>2012, AlexNet pulvérise le concours ImageNet grâce à des cartes graphiques. Trois ingrédients convergent enfin : des <b>données</b> en masse, de la <b>puissance de calcul</b> abordable, et des <b>algorithmes</b> connus depuis les années 1980 mais jusque-là inexploitables. En 2016, AlphaGo bat Lee Sedol au go, dix ans plus tôt que prévu.</p>
+          <span class="nom">Deep learning · apprentissage profond · réseaux de neurones</span>
+        </div>
+
+        <div class="era reveal">
+          <span class="yr">2017 — 2022</span>
+          <h3>Les transformeurs <em>· et l'accès grand public</em></h3>
+          <p>2017 : l'article <i>Attention Is All You Need</i> introduit l'architecture Transformer, qui permet d'entraîner sur des textes à une échelle inédite. Suivent BERT, puis la famille GPT. Le 30 novembre 2022, ChatGPT ouvre la technologie au grand public — et c'est cette date, pas une percée scientifique, qui fait basculer les entreprises.</p>
+          <span class="nom">Grands modèles de langue · LLM · IA générative</span>
+        </div>
+
+        <div class="era reveal">
+          <span class="yr">2023 — 2026</span>
+          <h3>Les agents <em>· là où nous en sommes</em></h3>
+          <p>Les modèles cessent de seulement répondre : ils appellent des outils, lisent des fichiers, enchaînent des étapes. Le vocabulaire se démultiplie encore — <b>IA agentique</b>, <b>agents experts</b>, <b>copilotes</b>. Le Hub France IA relève que chaque entreprise choisit sa propre terminologie selon sa stratégie de déploiement.</p>
+          <p>En parallèle, le cadre arrive : le règlement européen sur l'IA (UE 2024/1689) est adopté, et son article 4 rend la maîtrise de l'IA obligatoire pour les employeurs depuis le 2 février 2025.</p>
+          <span class="nom">IA agentique · agents experts · copilotes</span>
+        </div>
+
+      </div>
+
+      <div class="notice legal" style="margin-top:26px;margin-bottom:0">
+        <h4>La leçon de la frise</h4>
+        <p>Le domaine a changé de nom une douzaine de fois en soixante-dix ans, presque toujours après une déception. Quand vous entendez un mot nouveau — agentique, copilote, IA souveraine — la bonne question n'est pas « qu'est-ce que ça veut dire ? » mais « qu'est-ce que ça fait que le précédent ne faisait pas ? ». Souvent, rien.</p>
+      </div>
+
+      <div class="sec-head" style="max-width:700px;margin:56px auto 20px">
+        <h2 style="font-size:clamp(24px,3.2vw,34px)">Pourquoi maintenant, et pas en 1990.</h2>
+        <p style="font-size:17px">Les idées avaient trente ans d'avance sur les moyens. Trois courbes se sont croisées.</p>
+      </div>
+
+      <div class="craft" style="grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr))">
+        <div class="reveal"><b><span>1</span>Les données</b><p>Le web, puis les smartphones, puis les capteurs. La rétropropagation était connue en 1986 ; ce qui manquait, c'étaient des milliards d'exemples à lui donner.</p></div>
+        <div class="reveal"><b><span>2</span>Le calcul</b><p>Les cartes graphiques, conçues pour le jeu vidéo, se révèlent parfaites pour entraîner des réseaux de neurones. AlexNet en 2012 tourne sur deux GPU grand public.</p></div>
+        <div class="reveal"><b><span>3</span>L'architecture</b><p>Le Transformer, en 2017, permet enfin de paralléliser l'entraînement sur du texte. Sans lui, pas de modèle à des centaines de milliards de paramètres.</p></div>
+      </div>
+
+      <div class="chart">
+        <h4>Ce que les entreprises françaises en font déjà</h4>
+        <p class="src">Part des projets d'IA générative qui vont jusqu'en production, par taille d'entreprise. Enquête Hub France IA, quatrième trimestre 2024.</p>
+        <div class="bar"><span class="lb">TPE (0-10)</span><span class="tr"><span class="fl" style="width:52%"></span></span><span class="vl">52 %</span></div>
+        <div class="bar"><span class="lb">PME (11-250)</span><span class="tr"><span class="fl" style="width:64%"></span></span><span class="vl">64 %</span></div>
+        <div class="bar"><span class="lb">ETI (251-5000)</span><span class="tr"><span class="fl" style="width:91%"></span></span><span class="vl">91 %</span></div>
+        <p class="src" style="margin:16px 0 0">Délai entre l'idée et la mise en production : <b>0 à 3 mois</b> pour les TPE et PME, <b>6 mois</b> pour les ETI. Les petites structures ne sont pas en retard sur ce sujet — elles vont plus vite, parce qu'elles décident plus vite.</p>
+      </div>
+
+      <div class="chart">
+        <h4>Gouvernance : c'est là que le retard est réel</h4>
+        <p class="src">Part des entreprises ayant mis en place une charte d'utilisation de l'IA. Même enquête.</p>
+        <div class="bar"><span class="lb">TPE</span><span class="tr"><span class="fl alt" style="width:14%"></span></span><span class="vl">14 %</span></div>
+        <div class="bar"><span class="lb">ETI</span><span class="tr"><span class="fl" style="width:73%"></span></span><span class="vl">73 %</span></div>
+        <p class="src" style="margin:16px 0 0">Autrement dit : une TPE sur deux met de l'IA en production, mais moins d'une sur six a écrit une règle d'usage. C'est exactement le trou que comble le module 03 du parcours découverte.</p>
+      </div>
+
+      <div class="sec-head" style="max-width:700px;margin:56px auto 20px">
+        <h2 style="font-size:clamp(24px,3.2vw,34px)">Ce qu'un modèle ne sait pas faire.</h2>
+        <p style="font-size:17px">Les limites ne sont pas des bugs à corriger dans la prochaine version. Elles découlent de la façon dont ces modèles sont construits.</p>
+      </div>
+
+      <div class="grid">
+        <article class="mod reveal">
+          <span class="idx">LIMITE 01</span>
+          <h3>Il ne sait pas qu'il ne sait pas</h3>
+          <p>Un modèle produit le texte le plus plausible, pas le plus vrai. Il n'a aucun mécanisme interne pour signaler qu'il invente. C'est ce qu'on appelle une hallucination — et c'est le risque n°1 cité par les TPE, les PME et les ETI dans l'enquête Hub France IA.</p>
+          <p class="task"><b>Conséquence —</b> tout chiffre, nom, date ou citation doit être vérifié. C'est le module 07.</p>
+        </article>
+        <article class="mod reveal">
+          <span class="idx">LIMITE 02</span>
+          <h3>Il ne connaît pas votre entreprise</h3>
+          <p>Il a été entraîné sur des données publiques arrêtées à une date. Vos tarifs, vos contrats, vos procédures, vos clients : il n'en sait rien. S'il répond quand même précisément, c'est qu'il invente.</p>
+          <p class="task"><b>Conséquence —</b> il faut lui donner le contexte, ou le brancher sur vos données. C'est les modules 09 et avancé 04.</p>
+        </article>
+        <article class="mod reveal">
+          <span class="idx">LIMITE 03</span>
+          <h3>Il ne calcule pas, il imite du calcul</h3>
+          <p>Un modèle de langue prédit des mots. Un total, un pourcentage ou une date calculée sont produits par ressemblance, pas par arithmétique — sauf s'il dispose d'un outil qui, lui, calcule vraiment.</p>
+          <p class="task"><b>Conséquence —</b> recalculez toujours un total. C'est le module 08.</p>
+        </article>
+        <article class="mod reveal">
+          <span class="idx">LIMITE 04</span>
+          <h3>Il n'a pas de mémoire par défaut</h3>
+          <p>Hors d'un espace configuré, chaque conversation repart de zéro. Ce qui ressemble à de la mémoire est en réalité du contexte qu'on lui redonne à chaque fois, dans une fenêtre limitée.</p>
+          <p class="task"><b>Conséquence —</b> un espace de travail par sujet récurrent. C'est le module 09.</p>
+        </article>
+        <article class="mod reveal">
+          <span class="idx">LIMITE 05</span>
+          <h3>Il reproduit les biais de ses données</h3>
+          <p>Ce qui est surreprésenté dans le corpus d'entraînement est surreprésenté dans les réponses. Les ETI citent la reproduction de biais parmi leurs deux principaux risques.</p>
+          <p class="task"><b>Conséquence —</b> méfiance particulière sur tout ce qui touche aux personnes : recrutement, évaluation, sélection.</p>
+        </article>
+        <article class="mod reveal">
+          <span class="idx">LIMITE 06</span>
+          <h3>Il n'est pas déterministe</h3>
+          <p>La même demande peut donner deux réponses différentes. C'est une propriété, pas un défaut — mais elle interdit de bâtir un processus critique sur une réponse unique non contrôlée.</p>
+          <p class="task"><b>Conséquence —</b> pour un usage répétable, il faut un modèle de demande figé et une vérification. C'est le module 10.</p>
+        </article>
+      </div>
+
+      <div class="sec-head" style="max-width:700px;margin:56px auto 20px">
+        <h2 style="font-size:clamp(24px,3.2vw,34px)">Mythes et réalité.</h2>
+        <p style="font-size:17px">Six affirmations qu'on entend en réunion, et ce que disent les chiffres.</p>
+      </div>
+
+      <div class="myths">
+        <div class="myth reveal">
+          <div class="m1"><b>Le mythe</b><p>« L'IA va remplacer les emplois de mon équipe. »</p></div>
+          <div class="m2"><b>La réalité</b><p>Les bénéfices réellement obtenus par les entreprises interrogées sont le gain de temps et le gain de productivité — pas la suppression de postes. Ce qui disparaît, ce sont des tâches : mise en forme, première rédaction, synthèse. Le travail se déplace vers la vérification et la décision.</p></div>
+        </div>
+        <div class="myth reveal">
+          <div class="m1"><b>Le mythe</b><p>« C'est une bulle, ça va passer comme la blockchain. »</p></div>
+          <div class="m2"><b>La réalité</b><p>Le domaine a déjà connu deux hivers, en 1974 et en 1987 — donc l'objection est légitime. La différence tient à l'usage : entre 52 % et 91 % des projets d'IA générative vont jusqu'en production selon la taille d'entreprise, et les utilisateurs déclarent une satisfaction de 3,5 à 4 sur 5. Ce n'est pas le profil d'une technologie qu'on n'utilise pas.</p></div>
+        </div>
+        <div class="myth reveal">
+          <div class="m1"><b>Le mythe</b><p>« Il faut être une grande entreprise pour s'y mettre. »</p></div>
+          <div class="m2"><b>La réalité</b><p>Les TPE et PME passent de l'idée à la production en 0 à 3 mois, contre 6 mois pour les ETI. Leur difficulté n'est pas la taille, c'est le manque d'expertise technique — cité en tête par les TPE comme par les PME.</p></div>
+        </div>
+        <div class="myth reveal">
+          <div class="m1"><b>Le mythe</b><p>« Les agents vont tout automatiser tout seuls. »</p></div>
+          <div class="m2"><b>La réalité</b><p>Gartner prévoit que plus de 40 % des projets d'IA agentique seront annulés d'ici fin 2027. Beaucoup de produits présentés comme des agents sont en réalité des assistants sans outils, sans droits d'action et sans orchestration. L'autonomie n'est pas l'absence de supervision.</p></div>
+        </div>
+        <div class="myth reveal">
+          <div class="m1"><b>Le mythe</b><p>« Le meilleur modèle du classement est le bon choix. »</p></div>
+          <div class="m2"><b>La réalité</b><p>Passer de 51 à 61 points d'intelligence multiplie le coût par tâche par environ sept. Pour la plupart des usages de rédaction, de support ou de synthèse, l'écart de qualité ne justifie pas l'écart de facture. La bonne question est le score minimum acceptable pour votre tâche.</p></div>
+        </div>
+        <div class="myth reveal">
+          <div class="m1"><b>Le mythe</b><p>« L'IA comprend ce qu'elle dit. »</p></div>
+          <div class="m2"><b>La réalité</b><p>Elle prédit la suite la plus probable. ELIZA convainquait déjà des utilisateurs en 1966 avec quelques règles de réécriture : notre tendance à prêter une intention à une machine est plus vieille que la technologie. C'est utile de le savoir avant de lui faire confiance.</p></div>
+        </div>
+      </div>
+
+      <div class="sec-head" style="max-width:700px;margin:56px auto 20px">
+        <h2 style="font-size:clamp(24px,3.2vw,34px)">Qui fait quoi, aujourd'hui.</h2>
+        <p style="font-size:17px">Le paysage au 2 août 2026. Il bougera : la méthode de lecture compte plus que le classement.</p>
+      </div>
+
+      <div class="tbl">
+        <table>
+          <thead>
+            <tr><th>Acteur</th><th>Modèles phares</th><th>Ce sur quoi il est bon</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Anthropic</td><td>Claude Opus 5, Fable 5, Sonnet 5</td><td>Tête du classement d'intelligence et huit places sur vingt. Avantage net sur les tâches agentiques et le code ; moins net dès qu'on regarde le coût.</td></tr>
+            <tr><td>OpenAI</td><td>GPT-5.6 Sol, Terra, Luna</td><td>Segmentation en trois lignes : la plus intelligente, la plus rapide, la moins chère. Trois arbitrages différents là où d'autres poussent un seul haut de gamme.</td></tr>
+            <tr><td>Google</td><td>Gemini 3.5 Flash</td><td>Joue le débit et la latence plutôt que le score brut. Pensé pour le volume.</td></tr>
+            <tr><td>Moonshot (Kimi)</td><td>Kimi K3</td><td>7<sup>e</sup> du classement pour environ deux fois moins cher que le 2<sup>e</sup>. Les laboratoires chinois ne sont plus dans le peloton.</td></tr>
+            <tr><td>Z AI</td><td>GLM-5.2</td><td>Meilleur modèle à poids ouverts du classement. Pertinent si vous voulez héberger vous-même.</td></tr>
+            <tr><td>DeepSeek</td><td>DeepSeek V4 Pro</td><td>Environ 72 % du score du leader pour à peu près cinquante fois moins cher. Casse la courbe intelligence-prix.</td></tr>
+            <tr><td>Meta</td><td>Muse Spark 1.1</td><td>Réponses très appréciées des votants humains, scores d'examen plus modestes. L'écart typique entre préférence et capacité.</td></tr>
+            <tr><td>Mistral</td><td>Large 3</td><td>Option européenne, à considérer d'abord pour des raisons de souveraineté et d'hébergement.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="chart">
+        <h4>Intelligence contre coût, au 2 août 2026</h4>
+        <p class="src">Score d'intelligence sur 100 (Artificial Analysis Intelligence Index v4.1, neuf évaluations, premier essai) et coût moyen par tâche.</p>
+        <div class="bar"><span class="lb">Claude Opus 5 (max)</span><span class="tr"><span class="fl" style="width:100%"></span></span><span class="vl">61 · 2,03 $</span></div>
+        <div class="bar"><span class="lb">GPT-5.6 Sol (max)</span><span class="tr"><span class="fl" style="width:96.7%"></span></span><span class="vl">59 · 1,54 $</span></div>
+        <div class="bar"><span class="lb">Kimi K3</span><span class="tr"><span class="fl" style="width:93.4%"></span></span><span class="vl">57 · 0,72 $</span></div>
+        <div class="bar"><span class="lb">Grok 4.5 (high)</span><span class="tr"><span class="fl" style="width:88.5%"></span></span><span class="vl">54 · 0,35 $</span></div>
+        <div class="bar"><span class="lb">GLM-5.2 (max)</span><span class="tr"><span class="fl alt" style="width:83.6%"></span></span><span class="vl">51 · 0,32 $</span></div>
+        <div class="bar"><span class="lb">GPT-5.6 Luna (max)</span><span class="tr"><span class="fl alt" style="width:83.6%"></span></span><span class="vl">51 · 0,28 $</span></div>
+        <div class="bar"><span class="lb">DeepSeek V4 Pro (max)</span><span class="tr"><span class="fl alt" style="width:72.1%"></span></span><span class="vl">44 · 0,04 $</span></div>
+        <p class="src" style="margin:16px 0 0">Lecture : les dix derniers points d'intelligence multiplient la facture par sept environ. En bleu clair, les modèles dont le rapport qualité-prix est le meilleur pour un usage courant.</p>
+      </div>
+
+      <div class="notice" style="margin-top:26px;margin-bottom:0">
+        <h4>Deux classements, deux questions différentes</h4>
+        <p>Artificial Analysis fait passer des examens aux modèles ; Arena fait voter des humains sur des réponses anonymisées. Le premier mesure une capacité, le second une préférence. Si votre usage est conversationnel — support, rédaction, assistance —, regardez Arena. S'il est technique ou agentique — code, analyse de documents, extraction —, regardez Artificial Analysis. Et rappelez-vous qu'aucun classement ne mesure votre métier.</p>
+        <p>Dernier réflexe, appris en juin 2026 quand un modèle de tête a été suspendu pendant deux semaines pour des raisons de contrôle à l'export : prévoyez toujours un modèle de repli avant d'en avoir besoin.</p>
+      </div>
+
+      <div class="rules" style="margin-top:34px">
+        <div class="rule reveal"><span class="n">1</span><p>Quand un mot nouveau apparaît, demandez ce qu'il fait que le précédent ne faisait pas.</p></div>
+        <div class="rule reveal"><span class="n">2</span><p>Une limite n'est pas un bug : elle vient de la façon dont le modèle est construit.</p></div>
+        <div class="rule reveal"><span class="n">3</span><p>Le modèle numéro un n'est presque jamais le bon choix par défaut.</p></div>
+        <div class="rule reveal"><span class="n">4</span><p>Deux hivers ont déjà eu lieu. Ce qui compte, c'est l'usage réel, pas la promesse.</p></div>
+      </div>
+
+      <p class="kicker" style="text-align:center;margin-top:34px">
+        Sources : Hub France IA — enquête sur l'adoption de l'IA générative par les TPE et PME, Q4 2024, et livre blanc « Les agents experts d'IA » (chiffres Capgemini et Gartner cités) · Artificial Analysis Intelligence Index v4.1, relevé le 2 août 2026 · règlement (UE) 2024/1689.
+      </p>
+    </div>
+
+    <div id="panel-d" role="tabpanel" aria-labelledby="tab-d" hidden>
       <div class="notice legal">
         <h4>Obligation de maîtrise de l'IA</h4>
         <p>L'article 4 du règlement européen sur l'IA (UE 2024/1689) impose aux organisations qui déploient un système d'IA de garantir un niveau suffisant de maîtrise de l'IA pour leur personnel. L'obligation s'applique depuis le 2 février 2025, sans seuil de taille et quel que soit le niveau de risque — un simple assistant conversationnel suffit à la déclencher.</p>
@@ -445,7 +755,7 @@
 <footer>
   <div class="wrap">
     <a href="https://arx-consulting.com/index-fr.html"><img class="flogo" src="arx-logo.png" alt="Arx Consulting" width="242" height="264" loading="lazy" decoding="async"></a>
-    <p><a href="https://arx-consulting.com/index-fr.html">Arx Consulting</a> · programme de formation interne · révision 2</p>
+    <p><a href="https://arx-consulting.com/index-fr.html">Arx Consulting</a> · programme de formation interne · révision 3</p>
     <p>Claude est une marque d'Anthropic. Ce programme est un support pédagogique indépendant et ne constitue pas une certification officielle.</p>
     <p>Le rappel réglementaire porte sur l'article 4 du règlement (UE) 2024/1689. Il est fourni à titre d'information et ne constitue pas un conseil juridique.</p>
   </div>
@@ -540,7 +850,7 @@ document.getElementById("rules-d").innerHTML=reflexes.map(ruleCard).join("");
 document.getElementById("rules-a").innerHTML=gardefous.map(ruleCard).join("");
 document.getElementById("fiches").innerHTML=fiches.map(ficheEl).join("");
 
-const tabs=[["tab-d","panel-d"],["tab-a","panel-a"]];
+const tabs=[["tab-g","panel-g"],["tab-d","panel-d"],["tab-a","panel-a"]];
 tabs.forEach(([tid,pid])=>{
   document.getElementById(tid).addEventListener("click",()=>{
     tabs.forEach(([t,p])=>{
