@@ -163,6 +163,16 @@
   .anim td{padding:9px 0;border-bottom:1px solid var(--hair);vertical-align:top}
   .anim tr:last-child td{border-bottom:0}
   .anim td:first-child{width:74px;color:var(--blue);font-weight:600;font-size:15px}
+  /* On mobile the left column crushes the content: stack instead. */
+  @media(max-width:640px){
+    .anim{padding:22px 20px}
+    .anim table,.anim tbody,.anim tr,.anim td{display:block;width:auto}
+    .anim tr{padding:12px 0;border-bottom:1px solid var(--hair)}
+    .anim tr:first-child{padding-top:0}
+    .anim tr:last-child{border-bottom:0;padding-bottom:0}
+    .anim td{border-bottom:0;padding:0}
+    .anim td:first-child{width:auto;margin-bottom:5px}
+  }
 
   .res{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
   .res a{background:var(--white);border-radius:var(--radius);padding:24px;text-decoration:none;color:var(--text);box-shadow:0 2px 12px rgba(0,0,0,.045);display:block;transition:transform .2s}
