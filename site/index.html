@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AI Training — Apprendre Claude | Arx Consulting</title>
+<meta name="description" content="Programme de formation Claude en deux parcours : découverte en 12 modules et avancé en 6 modules, avec le kit formateur et l'attestation de fin.">
+<meta name="theme-color" content="#fbfbfd">
+<link rel="alternate" hreflang="fr" href="/AITraining/index.html">
+<link rel="alternate" hreflang="en" href="/AITraining/index-en.html">
+<style>
+  :root{
+    --text:#1d1d1f;
+    --text-2:#6e6e73;
+    --bg:#fbfbfd;
+    --bg-alt:#f5f5f7;
+    --white:#ffffff;
+    --blue:#0071e3;
+    --blue-dark:#0077ed;
+    --hair:#d2d2d7;
+    --radius:18px;
+    --sf:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue","Segoe UI",Roboto,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;-webkit-font-smoothing:antialiased}
+  html{scroll-behavior:smooth;scroll-padding-top:76px}
+  body{
+    margin:0;background:var(--bg);color:var(--text);
+    font-family:var(--sf);font-size:17px;line-height:1.47;letter-spacing:-.022em;
+  }
+  .wrap{max-width:980px;margin:0 auto;padding:0 22px}
+
+  /* ---------- nav ---------- */
+  .nav{
+    position:sticky;top:0;z-index:50;height:52px;
+    background:rgba(251,251,253,.72);
+    -webkit-backdrop-filter:saturate(180%) blur(20px);
+    backdrop-filter:saturate(180%) blur(20px);
+    border-bottom:1px solid rgba(0,0,0,.08);
+  }
+  .nav .wrap{display:flex;align-items:center;height:100%;gap:26px}
+  .brand{font-size:21px;font-weight:600;letter-spacing:-.02em;text-decoration:none;color:var(--text);white-space:nowrap}
+  .nav-links{margin-left:auto;display:flex;gap:24px;align-items:center}
+  .nav-links a{font-size:12px;color:var(--text);text-decoration:none;opacity:.85;white-space:nowrap}
+  .nav-links a:hover{opacity:1}
+  .nav-links a.lang{font-weight:600;color:var(--blue);opacity:1}
+  @media(max-width:640px){.nav-links{gap:14px}.nav-links a{font-size:11px}}
+
+  /* ---------- hero ---------- */
+  .hero{text-align:center;padding:88px 0 64px}
+  .hero .eyebrow{
+    font-size:19px;color:var(--blue);font-weight:600;margin:0 0 6px;letter-spacing:-.02em;
+  }
+  h1{
+    font-size:clamp(40px,7vw,72px);line-height:1.05;font-weight:600;
+    letter-spacing:-.015em;margin:0 0 18px;
+  }
+  .lead{
+    font-size:clamp(19px,2.4vw,24px);line-height:1.38;color:var(--text-2);
+    max-width:640px;margin:0 auto 26px;font-weight:400;
+  }
+  .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .btn{
+    display:inline-block;background:var(--blue);color:#fff;text-decoration:none;
+    font-size:17px;line-height:1.2;padding:12px 22px;border-radius:980px;
+    border:1px solid var(--blue);transition:background .2s;
+  }
+  .btn:hover{background:var(--blue-dark)}
+  .btn.ghost{background:transparent;color:var(--blue);border-color:transparent;padding:12px 6px}
+  .btn.ghost::after{content:" ›"}
+  .btn:focus-visible,a:focus-visible,button:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:8px}
+
+  /* ---------- sections ---------- */
+  section{padding:72px 0}
+  section.alt{background:var(--bg-alt)}
+  .sec-head{text-align:center;max-width:680px;margin:0 auto 44px}
+  h2{font-size:clamp(30px,4.4vw,48px);line-height:1.08;font-weight:600;letter-spacing:-.015em;margin:0 0 12px}
+  .sec-head p{font-size:19px;color:var(--text-2);margin:0}
+  .kicker{font-size:15px;color:var(--text-2);margin:0 0 8px;font-weight:400}
+
+  /* ---------- escalier ---------- */
+  .stairs{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;align-items:end}
+  .step{
+    background:var(--white);border-radius:var(--radius);padding:26px 24px;
+    box-shadow:0 2px 12px rgba(0,0,0,.045);
+  }
+  .step:nth-child(1){margin-top:56px}
+  .step:nth-child(2){margin-top:28px}
+  .step .lvl{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:26px;height:26px;border-radius:50%;background:var(--bg-alt);
+    color:var(--blue);font-size:13px;font-weight:600;margin-bottom:12px;
+  }
+  .step h3{font-size:21px;font-weight:600;letter-spacing:-.02em;margin:0 0 6px}
+  .step p{font-size:15px;color:var(--text-2);margin:0 0 12px}
+  .step .where{font-size:13px;font-weight:600;color:var(--blue);letter-spacing:0}
+  .step.on{outline:2px solid var(--blue)}
+  @media(max-width:820px){.step:nth-child(1),.step:nth-child(2){margin-top:0}}
+
+  /* ---------- segmented control ---------- */
+  .seg{
+    display:flex;gap:2px;background:rgba(120,120,128,.12);
+    padding:2px;border-radius:980px;width:fit-content;margin:0 auto 40px;
+  }
+  .seg button{
+    font-family:var(--sf);font-size:14px;font-weight:500;letter-spacing:-.01em;
+    border:0;background:transparent;color:var(--text);
+    padding:8px 18px;border-radius:980px;cursor:pointer;transition:background .18s;
+  }
+  .seg button[aria-selected="true"]{background:var(--white);box-shadow:0 1px 3px rgba(0,0,0,.1)}
+
+  /* ---------- module grid ---------- */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(272px,1fr));gap:18px}
+  .mod{
+    background:var(--white);border-radius:var(--radius);padding:26px 24px;
+    display:flex;flex-direction:column;gap:10px;
+    box-shadow:0 2px 12px rgba(0,0,0,.045);
+  }
+  .mod .idx{font-size:13px;font-weight:600;color:var(--blue);letter-spacing:0}
+  .mod h3{font-size:21px;line-height:1.2;font-weight:600;letter-spacing:-.02em;margin:0}
+  .mod p{font-size:15px;color:var(--text-2);margin:0;letter-spacing:-.01em}
+  .mod .task{
+    font-size:15px;color:var(--text);margin:0;
+    padding:12px 14px;background:var(--bg-alt);border-radius:12px;
+  }
+  .mod .task b{font-weight:600}
+  .mod .foot{
+    margin-top:auto;padding-top:12px;display:flex;align-items:center;
+    justify-content:space-between;gap:10px;font-size:13px;color:var(--text-2);
+  }
+  .mod .foot a{color:var(--blue);text-decoration:none;font-size:14px}
+  .mod .foot a:hover{text-decoration:underline}
+  .mod .foot a::after{content:" ›"}
+
+  .weekbar{
+    grid-column:1/-1;font-size:13px;font-weight:600;color:var(--text-2);
+    text-transform:uppercase;letter-spacing:.06em;padding:14px 2px 0;
+  }
+
+  /* ---------- notice ---------- */
+  .notice{
+    background:var(--white);border-radius:var(--radius);padding:24px 26px;
+    margin-bottom:34px;border-left:4px solid #b85c00;
+    box-shadow:0 2px 12px rgba(0,0,0,.045);
+  }
+  .notice.legal{border-left-color:var(--blue)}
+  .notice h4{margin:0 0 6px;font-size:17px;font-weight:600}
+  .notice p{margin:0;font-size:15px;color:var(--text-2)}
+  .notice p + p{margin-top:8px}
+  .notice a{color:var(--blue)}
+
+  /* ---------- rules ---------- */
+  .rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:34px}
+  .rule{background:var(--white);border-radius:var(--radius);padding:22px 22px;box-shadow:0 2px 12px rgba(0,0,0,.045)}
+  .rule .n{font-size:34px;font-weight:600;color:var(--blue);letter-spacing:-.02em;line-height:1;display:block;margin-bottom:8px}
+  .rule p{margin:0;font-size:15px;color:var(--text-2)}
+
+  /* ---------- craft ---------- */
+  .craft{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:14px;margin-top:20px}
+  .craft div{background:var(--white);border-radius:14px;padding:18px 18px;box-shadow:0 2px 12px rgba(0,0,0,.045)}
+  .craft b{display:block;font-size:15px;font-weight:600;margin-bottom:4px}
+  .craft b span{color:var(--blue);font-size:19px;margin-right:6px}
+  .craft p{margin:0;font-size:14px;color:var(--text-2)}
+
+  /* ---------- kit ---------- */
+  .fiche{
+    background:var(--white);border-radius:var(--radius);margin-bottom:10px;
+    box-shadow:0 2px 12px rgba(0,0,0,.045);overflow:hidden;
+  }
+  .fiche summary{
+    list-style:none;cursor:pointer;padding:20px 24px;
+    display:flex;align-items:center;gap:14px;font-size:19px;font-weight:600;letter-spacing:-.02em;
+  }
+  .fiche summary::-webkit-details-marker{display:none}
+  .fiche summary .num{font-size:13px;color:var(--blue);font-weight:600;flex:none;min-width:26px}
+  .fiche summary .chev{margin-left:auto;color:var(--text-2);font-size:15px;transition:transform .2s}
+  .fiche[open] summary .chev{transform:rotate(90deg)}
+  .fiche .body{padding:0 24px 24px 64px}
+  .fiche .body dl{margin:0;display:grid;gap:12px}
+  .fiche .body dt{font-size:13px;font-weight:600;color:var(--text-2);text-transform:uppercase;letter-spacing:.05em}
+  .fiche .body dd{margin:4px 0 0;font-size:16px;color:var(--text)}
+  @media(max-width:640px){.fiche .body{padding-left:24px}}
+
+  .anim{padding:26px;background:var(--white);border-radius:var(--radius);margin-bottom:34px;box-shadow:0 2px 12px rgba(0,0,0,.045)}
+  .anim table{width:100%;border-collapse:collapse;font-size:16px}
+  .anim td{padding:9px 0;border-bottom:1px solid var(--hair);vertical-align:top}
+  .anim tr:last-child td{border-bottom:0}
+  .anim td:first-child{width:74px;color:var(--blue);font-weight:600;font-size:15px}
+
+  /* ---------- resources ---------- */
+  .res{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+  .res a{
+    background:var(--white);border-radius:var(--radius);padding:24px;text-decoration:none;
+    color:var(--text);box-shadow:0 2px 12px rgba(0,0,0,.045);display:block;transition:transform .2s;
+  }
+  .res a:hover{transform:translateY(-2px)}
+  .res h3{margin:0 0 6px;font-size:19px;font-weight:600;letter-spacing:-.02em}
+  .res p{margin:0 0 10px;font-size:15px;color:var(--text-2)}
+  .res span{color:var(--blue);font-size:14px}
+  .res span::after{content:" ›"}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--bg-alt);border-top:1px solid var(--hair);padding:34px 0;font-size:12px;color:var(--text-2)}
+  footer p{margin:0 0 8px}
+  footer a{color:var(--text-2)}
+
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .reveal{opacity:1;transform:none;transition:none}
+    *{transition:none!important}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">AI Training</a>
+    <div class="nav-links">
+      <a href="#niveaux">Niveaux</a>
+      <a href="#parcours">Parcours</a>
+      <a href="#validation">Validation</a>
+      <a href="#kit">Kit formateur</a>
+      <a href="#ressources">Ressources</a>
+      <a class="lang" href="index-en.html" hreflang="en">EN</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">Programme interne</p>
+    <h1>Apprendre Claude.<br>Vraiment.</h1>
+    <p class="lead">Deux parcours, un kit formateur, zéro théorie. Chaque module se termine par un livrable réel — pas par un quiz.</p>
+    <div class="cta-row">
+      <a class="btn" href="#parcours">Voir les parcours</a>
+      <a class="btn ghost" href="#kit">Animer une session</a>
+    </div>
+  </div>
+</header>
+
+<section id="niveaux" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>L'escalier des usages.</h2>
+      <p>Trois niveaux. On ne saute pas de marche.</p>
+    </div>
+    <div class="stairs">
+      <div class="step reveal">
+        <span class="lvl">1</span>
+        <h3>Le prompt</h3>
+        <p>Une instruction ponctuelle dans une conversation. On repart de zéro à chaque fois.</p>
+        <span class="where">Découverte · modules 00 à 08</span>
+      </div>
+      <div class="step on reveal">
+        <span class="lvl">2</span>
+        <h3>Les assistants</h3>
+        <p>Méthode, connaissance métier et documents de l'entreprise injectés une fois pour toutes.</p>
+        <span class="where">Découverte · modules 09 à 11</span>
+      </div>
+      <div class="step reveal">
+        <span class="lvl">3</span>
+        <h3>Agents &amp; développements</h3>
+        <p>Outils métier connectés, workflows, automatisation. L'IA agit, plus seulement elle répond.</p>
+        <span class="where">Parcours avancé</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="parcours">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Deux parcours, dans l'ordre.</h2>
+      <p>Le premier s'adresse à tout le monde. Le second ne s'ouvre qu'après.</p>
+    </div>
+
+    <div class="seg" role="tablist" aria-label="Choisir un parcours">
+      <button role="tab" id="tab-d" aria-controls="panel-d" aria-selected="true">Découverte · 12 modules</button>
+      <button role="tab" id="tab-a" aria-controls="panel-a" aria-selected="false">Avancé · 6 modules</button>
+    </div>
+
+    <div id="panel-d" role="tabpanel" aria-labelledby="tab-d">
+      <div class="notice legal">
+        <h4>Obligation de maîtrise de l'IA</h4>
+        <p>L'article 4 du règlement européen sur l'IA (UE 2024/1689) impose aux organisations qui déploient un système d'IA de garantir un niveau suffisant de maîtrise de l'IA pour leur personnel. L'obligation s'applique depuis le 2 février 2025, sans seuil de taille et quel que soit le niveau de risque — un simple assistant conversationnel suffit à la déclencher.</p>
+        <p>Les autorités nationales, dont la CNIL, peuvent contrôler et sanctionner à partir du 2 août 2026. Ce programme et sa feuille d'émargement constituent la trace documentaire de cette formation.</p>
+      </div>
+      <div class="sec-head" style="margin-bottom:28px">
+        <p class="kicker">4 semaines · 15 à 20 min par module · aucun prérequis technique</p>
+      </div>
+      <div class="grid" id="grid-d"></div>
+
+      <div class="sec-head" style="margin:52px auto 0;max-width:680px">
+        <h2 style="font-size:clamp(24px,3.2vw,34px)">La matrice CRAFT.</h2>
+        <p style="font-size:17px">Cinq ingrédients. C'est le cœur du module 02, et le seul modèle à retenir par cœur.</p>
+      </div>
+      <div class="craft">
+        <div class="reveal"><b><span>C</span>Contexte</b><p>La situation, le « pourquoi ». Entreprise en croissance ou en crise : ce n'est pas la même réponse.</p></div>
+        <div class="reveal"><b><span>R</span>Rôle</b><p>Qui l'outil doit incarner. « Tu es un RH expérimenté » oriente le niveau de technicité.</p></div>
+        <div class="reveal"><b><span>A</span>Action</b><p>Le livrable attendu, avec un verbe clair : rédige, synthétise, analyse, compare.</p></div>
+        <div class="reveal"><b><span>F</span>Format</b><p>La forme du résultat : mail, tableau, 6 slides. Sans ça, l'outil choisit pour vous.</p></div>
+        <div class="reveal"><b><span>T</span>Tonalité</b><p>Le registre : professionnel, bienveillant, direct. C'est ce qui fait que le texte sonne juste.</p></div>
+      </div>
+
+      <div class="rules" id="rules-d"></div>
+    </div>
+
+    <div id="panel-a" role="tabpanel" aria-labelledby="tab-a" hidden>
+      <div class="notice">
+        <h4>Prérequis</h4>
+        <p>Ce parcours ne s'ouvre qu'après le module 07 du parcours découverte — « Vérifier avant d'envoyer » — et après un livrable réel. Un agent ne fait pas moins d'erreurs : il en fait plus vite et sans témoin.</p>
+      </div>
+      <div class="grid" id="grid-a"></div>
+      <div class="rules" id="rules-a"></div>
+    </div>
+  </div>
+</section>
+
+<section id="validation" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Validation par la preuve.</h2>
+      <p>Pas de quiz. Un livrable, un chiffre, une attestation.</p>
+    </div>
+    <div class="rules" style="margin-top:0">
+      <div class="rule reveal"><span class="n">1</span><p><b>Mesure d'entrée.</b> Module 00 : trois tâches chronométrées avant de commencer. Sans ce point de départ, le « temps gagné » de la fin n'est qu'une impression.</p></div>
+      <div class="rule reveal"><span class="n">2</span><p><b>Émargement.</b> Une feuille par session, signée par les participants et l'animateur. C'est la pièce demandée en cas de contrôle.</p></div>
+      <div class="rule reveal"><span class="n">3</span><p><b>Démo finale.</b> Module 11 : avant, après, temps gagné, chiffré. Le livrable réel est exigé, pas la conversation.</p></div>
+      <div class="rule reveal"><span class="n">4</span><p><b>Attestation de fin.</b> Délivrée le jour de la démo, avec les modules suivis, les dates et le gain mesuré. Modèle dans <code>docs/attestation.md</code>.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="kit">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Kit formateur.</h2>
+      <p>Douze fiches d'animation. Une par module, prête à dérouler.</p>
+    </div>
+
+    <div class="anim">
+      <p class="kicker" style="margin-bottom:10px">Format d'une session</p>
+      <table>
+        <tr><td>2 min</td><td>Le problème concret du jour — « combien de temps tu passes à… ? »</td></tr>
+        <tr><td>4 min</td><td>Démo en direct, écran partagé, sur un cas réel</td></tr>
+        <tr><td>8 min</td><td>Les participants font, l'animateur circule</td></tr>
+        <tr><td>3 min</td><td>Un participant montre, un autre dit ce qui cloche</td></tr>
+      </table>
+      <p style="margin:16px 0 0;font-size:15px;color:var(--text-2)">Jamais de slides théoriques. Jamais le mot « prompt engineering », « token » ou « contexte » devant un débutant. On dit : Claude, la demande, le document.</p>
+    </div>
+
+    <div id="fiches"></div>
+  </div>
+</section>
+
+<section class="alt" id="ressources">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Pour aller plus loin.</h2>
+      <p>Gratuit, officiel, à jour.</p>
+    </div>
+    <div class="res">
+      <a href="https://anthropic.skilljar.com" target="_blank" rel="noopener">
+        <h3>Anthropic Academy</h3>
+        <p>Les cours officiels Claude, du débutant au développeur. Gratuits, avec certificat.</p>
+        <span>Commencer par Claude 101</span></a>
+      <a href="https://www.coursera.org/fr-FR/specializations/ai-essentials-google" target="_blank" rel="noopener">
+        <h3>Google · Principes essentiels de l'IA</h3>
+        <p>En français, niveau débutant, environ 4 heures, certificat partageable.</p>
+        <span>Voir sur Coursera</span></a>
+      <a href="https://openclassrooms.com/us/courses/6417031-objectif-ia-initiez-vous-a-l-intelligence-artificielle" target="_blank" rel="noopener">
+        <h3>Objectif IA</h3>
+        <p>Six heures en français pour comprendre l'IA avant de l'utiliser.</p>
+        <span>Voir sur OpenClassrooms</span></a>
+      <a href="https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview" target="_blank" rel="noopener">
+        <h3>Documentation Claude</h3>
+        <p>La référence sur la rédaction des demandes, mise à jour en continu.</p>
+        <span>Lire la documentation</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Arx Consulting · programme de formation interne · révision 2</p>
+    <p>Claude est une marque d'Anthropic. Ce programme est un support pédagogique indépendant et ne constitue pas une certification officielle.</p>
+    <p>Le rappel réglementaire porte sur l'article 4 du règlement (UE) 2024/1689. Il est fourni à titre d'information et ne constitue pas un conseil juridique.</p>
+  </div>
+</footer>
+
+<script>
+const ACADEMY="https://anthropic.skilljar.com";
+const DOCS="https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview";
+const GOOGLE="https://www.coursera.org/fr-FR/specializations/ai-essentials-google";
+const SKILLS="https://www.skills.google/paths/2336";
+
+const decouverte=[
+ {w:"Semaine 1 — Prendre en main"},
+ {n:"00",t:"Chronomètre : où part ton temps",d:"Avant de toucher à quoi que ce soit : mesurer. Trois tâches récurrentes, minutées à la montre.",task:"Noter 3 tâches, leur fréquence et leur durée réelle. Cette feuille est le point de comparaison du module 11.",m:"15 min",l:"Aucun prérequis",u:ACADEMY},
+ {n:"01",t:"Ce que Claude fait et ne fait pas",d:"L'interface, la conversation, les limites. Pourquoi il se trompe parfois avec assurance.",task:"Poser 3 questions sur son propre métier et repérer la réponse la plus faible.",m:"15 min",l:"Claude 101",u:ACADEMY},
+ {n:"02",t:"Écrire une demande qui marche — CRAFT",d:"Les 5 ingrédients : Contexte, Rôle, Action, Format, Tonalité. Rien de plus.",task:"Reprendre une demande ratée et la réécrire avec les 5 ingrédients CRAFT.",m:"20 min",l:"Guide prompting",u:DOCS},
+ {n:"03",t:"Ce qu'on ne colle jamais",d:"Données clients, RH, contrats, identifiants. Anonymiser en trente secondes.",task:"Écrire la règle de son équipe en une phrase et l'afficher.",m:"15 min",l:"Usage responsable",u:GOOGLE},
+ {w:"Semaine 2 — Écrire et comprendre"},
+ {n:"04",t:"Rédiger et reformuler",d:"Mail délicat, compte-rendu, note interne. Changer le ton sans changer le fond.",task:"Produire 3 versions du même mail : ferme, neutre, chaleureuse.",m:"20 min",l:"Claude 101",u:ACADEMY},
+ {n:"05",t:"Lire un document à ta place",d:"Déposer un PDF ou un contrat, demander les points d'attention plutôt qu'un résumé.",task:"Soumettre un document de 20+ pages et en tirer 5 questions à poser en réunion.",m:"20 min",l:"Claude 101",u:ACADEMY},
+ {n:"06",t:"Photo, capture, schéma",d:"Un courrier papier photographié, une capture d'écran d'erreur, un tableau blanc de réunion.",task:"Photographier un document papier et le transformer en texte exploitable.",m:"15 min",l:"Claude 101",u:ACADEMY},
+ {n:"07",t:"Vérifier avant d'envoyer",d:"Chiffres, noms, dates, citations : les quatre endroits où ça casse. Demander les sources.",task:"Chasser volontairement une erreur dans une réponse et la faire corriger.",m:"20 min",l:"Esprit critique",u:GOOGLE},
+ {w:"Semaine 3 — Travailler sur ses fichiers"},
+ {n:"08",t:"Tableurs et données",d:"Déposer un Excel ou un CSV, nettoyer, comparer, sortir un tableau ou un graphique.",task:"Transformer un export brut en tableau lisible par son responsable.",m:"20 min",l:"Google Skills",u:SKILLS},
+ {n:"09",t:"Projects et instructions",d:"Niveau 2 de l'escalier : arrêter de réexpliquer son contexte. Un espace par sujet récurrent.",task:"Créer un Project pour son dossier le plus fréquent, avec 5 lignes d'instructions.",m:"20 min",l:"Anthropic Academy",u:ACADEMY},
+ {w:"Semaine 4 — Devenir autonome"},
+ {n:"10",t:"Ta tâche répétitive, une fois pour toutes",d:"Reprendre la feuille du module 00 et transformer la pire corvée en modèle réutilisable.",task:"Écrire son modèle, le tester deux fois, le partager à l'équipe.",m:"20 min",l:"AI Fluency",u:ACADEMY},
+ {n:"11",t:"Démo de 5 minutes",d:"Chacun montre un livrable réel produit pendant les quatre semaines. C'est ça, la validation.",task:"Présenter l'avant (module 00), l'après et le temps gagné, chiffré. Attestation remise le jour même.",m:"30 min",l:"Certificat",u:ACADEMY}
+];
+
+const avance=[
+ {n:"01",t:"Ce qu'est un agent — et quand ne pas en faire",d:"La différence réelle entre une conversation, une automatisation et un agent. Le critère : qui décide de l'étape suivante.",task:"Lister 3 tâches de l'équipe et les classer : conversation, script ou agent. La plupart ne sont pas des agents.",m:"45 min",l:"Intro to Subagents",u:ACADEMY},
+ {n:"02",t:"Donner des outils",d:"Appels de fonctions : lire un fichier, interroger une API, envoyer un mail. Décrire un outil pour qu'il soit bien utilisé.",task:"Exposer un seul outil en lecture seule et observer quand le modèle choisit de l'appeler.",m:"60 min",l:"Claude API",u:ACADEMY},
+ {n:"03",t:"De Projects à Skills",d:"Capitaliser : transformer des instructions qui marchent en compétence réutilisable par toute l'équipe.",task:"Convertir son meilleur modèle de prompt en Skill et le faire tester par quelqu'un d'autre.",m:"45 min",l:"Intro to Agent Skills",u:ACADEMY},
+ {n:"04",t:"MCP et connecteurs",d:"Brancher l'agent sur les données réelles de l'entreprise plutôt que sur du copier-coller. Périmètre, droits, jetons.",task:"Connecter une source interne en lecture seule et documenter ce à quoi l'agent a accès.",m:"60 min",l:"Intro to MCP",u:ACADEMY},
+ {n:"05",t:"Un agent, de bout en bout",d:"Objectif, périmètre, outils, critère d'arrêt, point de reprise humaine. Sur une tâche volontairement étroite.",task:"Construire l'agent qui traite une seule tâche hebdomadaire réelle, sans jamais écrire en base.",m:"60 min",l:"MCP Advanced",u:ACADEMY},
+ {n:"06",t:"Tester, chiffrer, encadrer",d:"Jeu de cas de test, coût par exécution, journalisation, validation humaine, procédure d'arrêt.",task:"Faire échouer son agent volontairement, puis écrire la règle qui empêche que ça recommence.",m:"60 min",l:"Documentation",u:"https://docs.claude.com"}
+];
+
+const reflexes=[
+ "Donne le contexte que tu donnerais à un nouveau collègue.",
+ "Demande le format de sortie avant de te plaindre du format.",
+ "Rien de confidentiel sans l'accord de ton service.",
+ "Tu signes ce que tu envoies. Relis les chiffres."
+];
+const gardefous=[
+ "Lecture seule d'abord. L'écriture et l'envoi viennent après des semaines de preuve.",
+ "Un agent, une tâche. Le périmètre large est la cause n°1 des dérapages.",
+ "Toute action irréversible passe par une validation humaine explicite.",
+ "Coût et journal consultables. Sans mesure, pas de mise en production."
+];
+
+const fiches=[
+ {n:"00",t:"Chronomètre : où part ton temps",o:"Établir la mesure d'entrée. Sans elle, le gain final n'est pas démontrable.",demo:"Remplir la feuille au tableau avec une tâche de l'animateur : intitulé, fréquence hebdomadaire, durée réelle en minutes.",ex:"Chacun note 3 tâches récurrentes, chronométrées ou estimées honnêtement. La feuille est conservée jusqu'au module 11.",err:"Estimations complaisantes du type « 5 minutes ». Faire chronométrer la tâche pour de vrai avant la session suivante.",msg:"Ce qui n'est pas mesuré au départ ne sera pas prouvé à l'arrivée."},
+ {n:"01",t:"Ce que Claude fait et ne fait pas",o:"Oser poser la première question, sans peur ni fausse confiance.",demo:"Une question métier bien traitée, puis une question où Claude invente un chiffre. Montrer les deux.",ex:"Poser 3 questions sur son propre métier, repérer la réponse la plus faible et dire pourquoi.",err:"Le participant teste avec des devinettes. Recadrer : « prends une tâche que tu as vraiment à faire aujourd'hui ».",msg:"Ce n'est pas un moteur de recherche, c'est un collègue rapide qui n'a jamais raison par défaut."},
+ {n:"02",t:"Écrire une demande qui marche — CRAFT",o:"Installer les 5 ingrédients : Contexte, Rôle, Action, Format, Tonalité.",demo:"« Fais-moi un résumé » → résultat médiocre. La même demande en CRAFT → résultat exploitable. Le contraste fait tout le cours.",ex:"Reprendre une demande ratée du module 01 et la réécrire lettre par lettre.",err:"Demandes trop courtes, et surtout Format et Tonalité oubliés — ce sont les deux qui manquent le plus souvent.",msg:"Donne le contexte que tu donnerais à un nouveau collègue."},
+ {n:"03",t:"Ce qu'on ne colle jamais",o:"Poser la règle de confidentialité avant que les mauvaises habitudes se prennent.",demo:"Anonymiser un extrait réel en trente secondes : noms, montants et identifiants remplacés par des variables.",ex:"Chacun écrit en une phrase ce qu'il ne collera jamais. On garde la version la plus stricte comme règle d'équipe.",err:"Croire que « c'est interne, donc pas grave ». Faire valider la règle par le service concerné avant la session.",msg:"Dans le doute, anonymise. Ça prend trente secondes."},
+ {n:"04",t:"Rédiger et reformuler",o:"Produire un mail difficile et faire varier le ton sans changer le fond.",demo:"Un mail de relance client en version ferme, neutre, chaleureuse.",ex:"Générer 3 versions d'un vrai mail en attente dans sa boîte, choisir, éditer à la main.",err:"Copier-coller la première version sans la retoucher. Imposer la retouche manuelle.",msg:"Claude fait le premier jet, jamais la version envoyée."},
+ {n:"05",t:"Lire un document à ta place",o:"Exploiter un long document sans le lire en entier.",demo:"Déposer un contrat ou un rapport et demander les points d'attention, pas un résumé.",ex:"Soumettre un document de 20+ pages et en tirer 5 questions à poser en réunion.",err:"Demander « résume » et obtenir une bouillie. Apprendre à demander un angle : risques, engagements, échéances, chiffres.",msg:"Un bon résumé répond à une question. Pose la question."},
+ {n:"06",t:"Photo, capture, schéma",o:"Sortir du clavier : exploiter ce qui est sur papier ou à l'écran.",demo:"Photographier un courrier reçu, le faire transcrire, puis faire rédiger la réponse. Enchaîner sur une capture d'écran d'erreur informatique.",ex:"Photographier un document papier de son bureau et le transformer en texte exploitable.",err:"Photo floue ou de travers, puis conclusion que « ça ne marche pas ». Montrer le bon cadrage, à plat et bien éclairé.",msg:"Si tu peux le photographier, tu peux le traiter."},
+ {n:"07",t:"Vérifier avant d'envoyer",o:"Installer le réflexe de contrôle. C'est le module le plus important du programme.",demo:"Les 4 zones à risque : chiffres, noms propres, dates, citations. Demander les sources et en vérifier une en direct.",ex:"Chercher volontairement une erreur dans une réponse produite en séance et la faire corriger.",err:"Confiance excessive après trois bonnes réponses. Provoquer l'erreur en séance pour casser cette confiance.",msg:"Tu signes ce que tu envoies."},
+ {n:"08",t:"Tableurs et données",o:"Passer d'un export brut à un tableau lisible.",demo:"Déposer un CSV mal formé, nettoyer, agréger, sortir un graphique.",ex:"Transformer un export réel en tableau présentable à son responsable.",err:"Faire confiance aux totaux sans les recalculer. Imposer une vérification sur une ligne au hasard.",msg:"L'IA met en forme, toi tu contrôles les chiffres."},
+ {n:"09",t:"Projects et instructions",o:"Monter sur la marche 2 de l'escalier : arrêter de réexpliquer le même contexte à chaque conversation.",demo:"Créer un Project pour un dossier récurrent, y déposer deux documents de référence, écrire cinq lignes d'instructions.",ex:"Chacun crée le Project de son dossier le plus fréquent.",err:"Instructions vagues du type « sois professionnel ». Exiger du concret : format, longueur, vocabulaire interdit, destinataire type.",msg:"Un Project bien réglé, c'est dix minutes gagnées à chaque usage."},
+ {n:"10",t:"Ta tâche répétitive, une fois pour toutes",o:"Transformer la pire ligne de la feuille du module 00 en modèle réutilisable.",demo:"Prendre une tâche récurrente de l'équipe et en écrire le modèle de demande, variables entre crochets.",ex:"Écrire son modèle, le tester deux fois, le déposer dans l'espace partagé de l'équipe.",err:"Viser trop gros. Une seule tâche, une fois par semaine, suffit pour la première fois.",msg:"Ce que tu fais deux fois, écris-le une fois."},
+ {n:"11",t:"Démo de 5 minutes",o:"Valider par la preuve, pas par un quiz.",demo:"Format imposé : avant (feuille du module 00), après, temps gagné, chiffré. Cinq minutes maximum, questions comprises.",ex:"La démo elle-même.",err:"Présenter une belle conversation au lieu d'un livrable. Exiger le fichier, le mail envoyé, le tableau produit.",msg:"Remettre l'attestation et les liens de certification le jour même : l'élan retombe en 48 heures."}
+];
+
+const esc=s=>String(s).replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+const modCard=m=>m.w?`<div class="weekbar">${esc(m.w)}</div>`:
+ `<article class="mod reveal">
+    <span class="idx">MODULE ${esc(m.n)}</span>
+    <h3>${esc(m.t)}</h3>
+    <p>${esc(m.d)}</p>
+    <p class="task"><b>À faire —</b> ${esc(m.task)}</p>
+    <div class="foot"><span>${esc(m.m)}</span><a href="${m.u}" target="_blank" rel="noopener">${esc(m.l)}</a></div>
+  </article>`;
+const ruleCard=(r,i)=>`<div class="rule reveal"><span class="n">${i+1}</span><p>${esc(r)}</p></div>`;
+const ficheEl=f=>`<details class="fiche reveal">
+   <summary><span class="num">${esc(f.n)}</span>${esc(f.t)}<span class="chev">›</span></summary>
+   <div class="body"><dl>
+     <div><dt>Objectif</dt><dd>${esc(f.o)}</dd></div>
+     <div><dt>Démo</dt><dd>${esc(f.demo)}</dd></div>
+     <div><dt>Exercice — 5 min</dt><dd>${esc(f.ex)}</dd></div>
+     <div><dt>Erreur fréquente</dt><dd>${esc(f.err)}</dd></div>
+     <div><dt>À faire retenir</dt><dd>${esc(f.msg)}</dd></div>
+   </dl></div></details>`;
+
+document.getElementById("grid-d").innerHTML=decouverte.map(modCard).join("");
+document.getElementById("grid-a").innerHTML=avance.map(modCard).join("");
+document.getElementById("rules-d").innerHTML=reflexes.map(ruleCard).join("");
+document.getElementById("rules-a").innerHTML=gardefous.map(ruleCard).join("");
+document.getElementById("fiches").innerHTML=fiches.map(ficheEl).join("");
+
+const tabs=[["tab-d","panel-d"],["tab-a","panel-a"]];
+tabs.forEach(([tid,pid])=>{
+  document.getElementById(tid).addEventListener("click",()=>{
+    tabs.forEach(([t,p])=>{
+      const on=t===tid;
+      document.getElementById(t).setAttribute("aria-selected",on);
+      document.getElementById(p).hidden=!on;
+    });
+    document.querySelectorAll("#"+pid+" .reveal").forEach(e=>e.classList.add("in"));
+  });
+});
+
+if(matchMedia("(prefers-reduced-motion: reduce)").matches){
+  document.querySelectorAll(".reveal").forEach(e=>e.classList.add("in"));
+}else{
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}}),{threshold:.08});
+  document.querySelectorAll(".reveal").forEach(e=>io.observe(e));
+}
+</script>
+</body>
+</html>
