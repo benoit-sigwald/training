@@ -1,11 +1,14 @@
-# Kit formateur — Claude en 12 modules
+# Kit formateur — la genèse, puis Claude en 12 modules
 
 **Public :** débutants complets, non techniques.
-**Format :** 15–20 min par module, 2 à 3 modules par semaine, sur 4 semaines.
+**Format :** une séance de 45 min pour la genèse, puis 15–20 min par module, 2 à 3 modules par semaine, sur 4 semaines.
 **Règle d'or :** chaque participant arrive avec **un vrai dossier de son travail**. Sans ça, le module ne sert à rien.
 
 **Matériel :** le site (`site/index.html`), la feuille du module 00, la feuille d'émargement et le modèle
 d'attestation (`docs/attestation.md`).
+
+**Deux parties dans ce kit :** cinq fiches pour la séance d'ouverture « genèse de l'IA », puis douze fiches
+pour le parcours découverte. La genèse se fait **avant** le module 00.
 
 ---
 
@@ -45,6 +48,109 @@ Conséquence pratique pour l'animateur : **la feuille d'émargement et les attes
 administratives, elles sont la preuve**. Voir `docs/attestation.md`.
 
 *Information générale, pas un conseil juridique. Faire valider par le service juridique avant diffusion externe.*
+
+---
+
+# SÉANCE D'OUVERTURE — La genèse de l'IA
+
+**Durée :** 45 minutes, une seule fois, avant le module 00.
+**Objectif de la séance :** éviter deux erreurs symétriques — croire que tout est nouveau, croire que rien n'a changé.
+**Support :** l'onglet « La genèse de l'IA » du site. Tout est cliquable, rien n'est à projeter en diaporama.
+
+**Ce qui change par rapport aux autres fiches :** ici, il n'y a pas de livrable. C'est la seule séance du
+programme qui ne produit rien. Elle sert à installer un socle commun, et surtout à faire comprendre
+l'hallucination par le mécanisme plutôt que par la morale.
+
+**Discipline de temps.** La tentation est de tout montrer : la page contient dix époques, treize étapes et
+six mythes. En 45 minutes, c'est intenable. Chaque fiche indique **combien d'éléments ouvrir**, pas
+lesquels sont intéressants. Le reste est consultable par les participants après la séance.
+
+---
+
+## Fiche G1 · La frise et les noms — 10 min
+
+**Objectif :** faire comprendre que l'IA n'est pas née en 2022, et que le domaine change de nom après chaque déception.
+
+**Démo :** dérouler la frise en s'arrêtant sur **trois points seulement** :
+- **1922** — Richardson calcule la météo à la main, met des semaines pour quelques heures de prévision, se trompe, et imagine une usine de 64 000 calculateurs humains ;
+- **1974 et 1987** — les deux hivers de l'IA, et le fait que les chercheurs se rebaptisent pour ne plus prononcer le mot ;
+- **2022** — ChatGPT, une date d'accès public et non une percée scientifique.
+
+**Exercice (3 min) :** demander au groupe combien de noms différents ils ont déjà entendus pour la même chose — IA, machine learning, data science, agentique, copilote. Les écrire au tableau.
+
+**Erreur fréquente :** vouloir tout raconter. Dix époques en dix minutes, c'est un cours d'histoire raté. Trois arrêts suffisent.
+
+**Message à faire retenir :** quand un mot nouveau apparaît, demande ce qu'il fait que le précédent ne faisait pas. Souvent, rien.
+
+---
+
+## Fiche G2 · Le chemin de vos données — 10 min
+
+**Objectif :** répondre une fois pour toutes à « est-ce que mes données servent à entraîner le modèle ? ». La réponse dépend de l'étape, et c'est ça qu'il faut installer.
+
+**Démo :** ouvrir **trois étapes au clic**, dans cet ordre :
+- **06 votre demande** — ce que vous tapez part chez le fournisseur, systématiquement ;
+- **08 contexte assemblé** — le point de sortie réel des données, celui que personne ne cite ;
+- **10 génération** — vos données ne modifient pas le modèle, sauf mention contraire au contrat.
+
+**Exercice (3 min) :** chacun cite une chose qu'il a déjà collée dans une conversation. Sans jugement. C'est l'étape 06 qui fuit, jamais l'index savamment sécurisé.
+
+**Erreur fréquente :** dérouler les treize étapes. On en ouvre trois, on dit que le reste est consultable, on avance.
+
+**Message à faire retenir :** vos données sortent à l'étape 08. Tout le reste est de la préparation.
+
+---
+
+## Fiche G3 · Dans la boîte, et la démo du mot suivant — 12 min
+
+**Objectif :** faire comprendre l'hallucination par le mécanisme, pas par la morale. **C'est le cœur de la séance.**
+
+**Démo :** ouvrir la **partie 5** du schéma de réseau — la sortie est une distribution de probabilités, pas une réponse. Puis basculer la démonstration entre les deux exemples :
+
+| Question | Distribution | Ce qu'on voit |
+|---|---|---|
+| « La capitale de la France est… » | Paris à 92 % | Distribution **piquée** : un mot écrase les autres. Le cas favorable, celui qui installe la confiance. |
+| « Le chiffre d'affaires 2025 de votre société est de… » | 19 % / 17 % / 16 % | Distribution **plate**, et pourtant un montant sort, avec la même assurance que « Paris ». |
+
+**Exercice (3 min) :** demander au groupe *à quel endroit le modèle pourrait-il dire « je ne sais pas » ?* Laisser chercher. Il n'y a pas d'endroit — la case n'existe pas dans une distribution de probabilités.
+
+**Erreur fréquente :** filer l'analogie du cerveau. Elle rassure et elle induit en erreur. L'image juste est un jury pondéré où personne ne comprend le dossier.
+
+**Message à faire retenir :** il n'existe pas de case « je ne sais pas ». L'hallucination est la forme du système, pas un défaut de version.
+
+---
+
+## Fiche G4 · Sur quoi ça tourne, et le carbone — 7 min
+
+**Objectif :** donner l'échelle physique, et désamorcer la culpabilité individuelle qui bloque l'adoption.
+
+**Démo :** montrer l'illustration des huit couches **en partant du bas** — on n'installe pas un centre de données où l'on veut, on l'installe où il y a du courant. Puis les quatre chiffres et leurs équivalences :
+
+| Chiffre | Équivalence à dire à voix haute |
+|---|---|
+| 0,24 Wh la requête | 43 secondes de cerveau humain. Il en faut 2 000 pour égaler une journée de réflexion. |
+| 72 816 t CO₂e l'entraînement de Grok 4 | 8 900 Français pendant un an. |
+| ≈ 945 TWh en 2030 | Plus de deux fois toute la consommation électrique de la France. |
+
+**Exercice (2 min) :** question au groupe — qu'est-ce qui pèse le plus, vos requêtes ou l'entraînement ? La réponse surprend et elle recadre le débat.
+
+**Erreur fréquente :** laisser s'installer le procès moral de l'utilisateur. Une requête coûte autant qu'une recherche web ; le levier n'est pas d'utiliser moins, c'est de ne pas envoyer trente pages à chaque question.
+
+**Message à faire retenir :** petit par requête, massif à l'échelle mondiale. Ce ne sont pas les mêmes personnes qui décident des deux.
+
+---
+
+## Fiche G5 · Mythes et réalité — 6 min
+
+**Objectif :** fermer la séance sur les objections réelles, avec des chiffres plutôt qu'avec des opinions.
+
+**Démo :** traiter **deux mythes au choix du groupe**, pas les six. Les plus demandés en pratique : « ça va remplacer les emplois » et « c'est une bulle comme la blockchain ».
+
+**Exercice (3 min) :** chacun formule l'objection qu'il entendra en revenant dans son service. On y répond ensemble, source à l'appui.
+
+**Erreur fréquente :** répondre par la conviction. Chaque affirmation de la page porte un appel de note ; s'en servir, et montrer la liste des sources en fin de parcours — c'est la meilleure démonstration du module 07.
+
+**Message à faire retenir :** deux hivers ont déjà eu lieu. Ce qui compte, c'est l'usage réel, pas la promesse.
 
 ---
 
