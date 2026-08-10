@@ -1,29 +1,30 @@
-/* Genèse de l'IA — 5 slides, public varié.
+/* Genèse de l'IA — 6 slides, public varié.
    Reprend les éléments graphiques du parcours : frise, chemin des données,
    réseau de neurones, couches du centre de données, chiffres carbone.
    node build.js  →  Genese-de-l-IA.pptx                                        */
 
 const pptxgen = require("pptxgenjs");
 
-const DEEP = "07295C";   // bleu profond, fond de toutes les diapos
+const DEEP = "FBFBFD";   // fond des diapos, identique au site
 const BLUE = "0071E3";
 const ICE = "CDE3FF";
-const LIGHT = "F2F5FA";
+const LIGHT = "F5F5F7";   // fonds secondaires du site
 const WHITE = "FFFFFF";
 const INK = "1D1D1F";
 const MUTED = "6E6E73";
-const MUTED_D = "A9BFE0";
-const SKY  = "6FB8FF";   // accent lisible sur le bleu profond
-const WARM = "F0A64A";   // sur fond bleu
-const GOLD = "9A6410";   // sur carte blanche
-const HAIR = "D3D9E4";
+const MUTED_D = "6E6E73";
+const SKY  = "0071E3";
+const WARM = "A04E00";   // orange assombri, lisible en petit corps
+const BLUE_D = "005BB8"; // bleu foncé, pour les puces posées sur un fond teinté
+const GOLD = "B85C00";
+const HAIR = "A9A9AF";   // filet, assombri pour rester visible sur fond clair
 
 const H1 = "Calibri";
 const BODY = "Calibri Light";
 const M = 0.7;
 const CW = 11.933; // largeur utile
 
-const card = () => ({ type: "outer", color: "000000", blur: 10, offset: 2, angle: 135, opacity: 0.10 });
+const card = () => ({ type: "outer", color: "000000", blur: 16, offset: 3, angle: 135, opacity: 0.18 });
 
 const pres = new pptxgen();
 pres.layout = "LAYOUT_WIDE";
@@ -59,17 +60,17 @@ function link(s, x1, y1, x2, y2, color) {
 
   eyebrow(s, "Arx Consulting · AI Training · séance d'ouverture", SKY);
   s.addText("Soixante-dix ans,\nune douzaine de noms.", {
-    x: M, y: 0.92, w: 8.5, h: 1.6, margin: 0, fontFace: H1, fontSize: 42, bold: true, color: WHITE, lineSpacingMultiple: 1.05,
+    x: M, y: 0.92, w: 8.5, h: 1.6, margin: 0, fontFace: H1, fontSize: 42, bold: true, color: INK, lineSpacingMultiple: 1.05,
   });
   s.addText("Le même projet — faire faire à une machine ce qui demande de l'intelligence — a changé d'étiquette à chaque fois que la précédente s'est dévaluée.", {
     x: M, y: 2.62, w: 8.5, h: 0.8, margin: 0, fontFace: BODY, fontSize: 15, color: MUTED_D,
   });
 
-  s.addImage({ path: "G:/My Drive/Dev/IA/AITraining/training/slides/arx-logo-blanc.png",
+  s.addImage({ path: "G:/My Drive/Dev/IA/AITraining/training/site/arx-logo.png",
     x: 10.46, y: 0.85, w: 2.17, h: 2.38, altText: "Arx Consulting" });
 
   const LY = 4.7;
-  s.addShape(pres.shapes.LINE, { x: M, y: LY, w: CW, h: 0, line: { color: "3E74B8", width: 2 } });
+  s.addShape(pres.shapes.LINE, { x: M, y: LY, w: CW, h: 0, line: { color: HAIR, width: 2 } });
 
   const steps = [
     ["1805", "Les moindres carrés", "Prédire avec des chiffres", false],
@@ -84,14 +85,14 @@ function link(s, x1, y1, x2, y2, color) {
     const cx = x0 + i * dx;
     const c = cold ? WARM : SKY;
     s.addShape(pres.shapes.OVAL, { x: cx - 0.09, y: LY - 0.09, w: 0.18, h: 0.18, fill: { color: c } });
-    s.addText(yr, { x: cx - 0.95, y: LY - 0.7, w: 1.9, h: 0.34, margin: 0, align: "center", fontFace: H1, fontSize: 16, bold: true, color: cold ? WARM : ICE });
-    s.addText(t1, { x: cx - 0.95, y: LY + 0.22, w: 1.9, h: 0.34, margin: 0, align: "center", fontFace: H1, fontSize: 12.5, bold: true, color: WHITE });
+    s.addText(yr, { x: cx - 0.95, y: LY - 0.7, w: 1.9, h: 0.34, margin: 0, align: "center", fontFace: H1, fontSize: 16, bold: true, color: cold ? WARM : BLUE });
+    s.addText(t1, { x: cx - 0.95, y: LY + 0.22, w: 1.9, h: 0.34, margin: 0, align: "center", fontFace: H1, fontSize: 12.5, bold: true, color: INK });
     s.addText(t2, { x: cx - 0.95, y: LY + 0.58, w: 1.9, h: 0.5, margin: 0, align: "center", fontFace: BODY, fontSize: 10.5, color: MUTED_D });
   });
   s.addText("en orange, les deux hivers de l'IA", { x: 6.2, y: 5.88, w: 3.0, h: 0.3, margin: 0, align: "center", fontFace: BODY, fontSize: 10.5, italic: true, color: WARM });
 
   s.addText("Quand un mot nouveau apparaît, demandez ce qu'il fait que le précédent ne faisait pas. Souvent, rien.", {
-    x: M, y: 6.5, w: CW, h: 0.42, margin: 0, align: "center", fontFace: BODY, fontSize: 14, italic: true, color: ICE,
+    x: M, y: 6.5, w: CW, h: 0.42, margin: 0, align: "center", fontFace: BODY, fontSize: 14, italic: true, color: MUTED,
   });
 }
 
@@ -101,7 +102,7 @@ function link(s, x1, y1, x2, y2, color) {
   s.background = { color: DEEP };
 
   eyebrow(s, "Étape 02 · où passent vos données", SKY);
-  title(s, "Le chemin de vos données.", WHITE);
+  title(s, "Le chemin de vos données.", INK);
   sub2(s, "« Est-ce que mes données servent à entraîner le modèle ? » n'a pas de réponse unique : elle dépend de l'étape.");
 
   const phases = [
@@ -122,7 +123,7 @@ function link(s, x1, y1, x2, y2, color) {
       const y = 2.98 + k * 0.42;
       const on = n === "08";
       s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: x + 0.28, y, w: cw - 0.56, h: 0.4, rectRadius: 0.08, fill: { color: on ? BLUE : LIGHT } });
-      s.addText(n, { x: x + 0.42, y, w: 0.5, h: 0.4, margin: 0, valign: "middle", fontFace: H1, fontSize: 11, bold: true, color: on ? WHITE : BLUE });
+      s.addText(n, { x: x + 0.42, y, w: 0.5, h: 0.4, margin: 0, valign: "middle", fontFace: H1, fontSize: 11, bold: true, color: on ? WHITE : BLUE_D });
       s.addText(label, { x: x + 0.95, y, w: cw - 1.25, h: 0.4, margin: 0, valign: "middle", fontFace: H1, fontSize: 12.5, bold: on, color: on ? WHITE : INK });
     });
 
@@ -144,7 +145,7 @@ function link(s, x1, y1, x2, y2, color) {
   s.background = { color: DEEP };
 
   eyebrow(s, "Étape 03 · le mécanisme", SKY);
-  title(s, "Ce qu'il y a dans la boîte.", WHITE);
+  title(s, "Ce qu'il y a dans la boîte.", INK);
   sub2(s, "Ce n'est pas un cerveau. Un neurone additionne ce qui lui arrive, chaque signal multiplié par son poids.");
 
   /* --- réseau --- */
@@ -204,7 +205,7 @@ function link(s, x1, y1, x2, y2, color) {
   s.background = { color: DEEP };
 
   eyebrow(s, "Étape 04 · l'infrastructure", SKY);
-  title(s, "Sur quoi ça tourne.", WHITE);
+  title(s, "Sur quoi ça tourne.", INK);
   sub2(s, "Les poids ne flottent pas dans le vide. Huit couches, de la terre jusqu'à votre écran.", 9.2);
 
   const layers = [
@@ -223,7 +224,7 @@ function link(s, x1, y1, x2, y2, color) {
 
   layers.forEach(([n, name, unit, kind], i) => {
     const y = TOP + i * (BH + GAP);
-    const accent = kind === "ph" ? "5A6070" : BLUE;
+    const accent = kind === "ph" ? "4A5060" : BLUE_D;
     s.addShape(pres.shapes.RECTANGLE, { x: BX, y, w: BW, h: BH, fill: { color: fills[kind] } });
     s.addShape(pres.shapes.RECTANGLE, { x: BX, y, w: 0.06, h: BH, fill: { color: accent } });
     s.addText(n, { x: BX + 0.22, y, w: 0.5, h: BH, margin: 0, valign: "middle", fontFace: H1, fontSize: 11, bold: true, color: accent });
@@ -241,7 +242,7 @@ function link(s, x1, y1, x2, y2, color) {
     });
   });
 
-  s.addShape(pres.shapes.RECTANGLE, { x: M, y: 6.45, w: CW, h: 0.5, fill: { color: WHITE } });
+  s.addShape(pres.shapes.RECTANGLE, { x: M, y: 6.45, w: CW, h: 0.5, fill: { color: "E8F1FD" } });
   s.addShape(pres.shapes.RECTANGLE, { x: M, y: 6.45, w: 0.07, h: 0.5, fill: { color: BLUE } });
   s.addText("On n'installe pas un centre de données où l'on veut : on l'installe où il y a du courant disponible.", {
     x: M + 0.3, y: 6.45, w: CW - 0.6, h: 0.5, margin: 0, valign: "middle", fontFace: BODY, fontSize: 13, italic: true, color: INK,
@@ -254,7 +255,7 @@ function link(s, x1, y1, x2, y2, color) {
   s.background = { color: DEEP };
 
   eyebrow(s, "Étape 05 · l'empreinte", SKY);
-  title(s, "Ce que ça coûte à la planète.", WHITE);
+  title(s, "Ce que ça coûte à la planète.", INK);
   sub(s, "Deux échelles à ne jamais confondre : ce que coûte votre requête, et ce que coûte l'ensemble.", MUTED_D);
 
   const stats = [
@@ -274,16 +275,16 @@ function link(s, x1, y1, x2, y2, color) {
     s.addText(eq, { x: x + 0.26, y: 3.89, w: cw - 0.52, h: 1.1, margin: 0, valign: "top", fontFace: BODY, fontSize: 12, color: MUTED });
   });
 
-  s.addShape(pres.shapes.RECTANGLE, { x: M, y: 5.5, w: CW, h: 0.64, fill: { color: "0F3B78" } });
+  s.addShape(pres.shapes.RECTANGLE, { x: M, y: 5.5, w: CW, h: 0.64, fill: { color: "E8F1FD" } });
   s.addShape(pres.shapes.RECTANGLE, { x: M, y: 5.5, w: 0.07, h: 0.64, fill: { color: SKY } });
   s.addText(
-    [{ text: "Le levier n'est pas d'utiliser moins l'IA, ", options: { bold: true, color: WHITE } },
-     { text: "c'est de ne pas envoyer trente pages à chaque question.", options: { color: ICE } }],
+    [{ text: "Le levier n'est pas d'utiliser moins l'IA, ", options: { bold: true, color: INK } },
+     { text: "c'est de ne pas envoyer trente pages à chaque question.", options: { color: MUTED } }],
     { x: M + 0.3, y: 5.5, w: CW - 0.6, h: 0.64, margin: 0, valign: "middle", fontFace: BODY, fontSize: 13.5 }
   );
 
   s.addText("Sources : Stanford AI Index 2026 · Google, rapport technique Gemini 2025 · AIE 2026 · RTE, bilan électrique 2025 · Insee, empreinte carbone 2024.", {
-    x: M, y: 6.5, w: CW, h: 0.3, margin: 0, fontFace: BODY, fontSize: 10, color: "9AA6BC",
+    x: M, y: 6.5, w: CW, h: 0.3, margin: 0, fontFace: BODY, fontSize: 10, color: MUTED,
   });
 }
 
@@ -293,7 +294,7 @@ function link(s, x1, y1, x2, y2, color) {
   s.background = { color: DEEP };
 
   eyebrow(s, "La suite du programme", SKY);
-  title(s, "Et après la genèse.", WHITE);
+  title(s, "Et après la genèse.", INK);
   sub2(s, "Deux parcours, dans l'ordre. Le premier s'adresse à tout le monde, le second ne s'ouvre qu'après le module 07.");
 
   const dec = [
@@ -327,7 +328,7 @@ function link(s, x1, y1, x2, y2, color) {
   s.addText("4 semaines · 15 à 20 min par module · aucun prérequis", { x: M + 0.3, y: 2.7, w: 5.3, h: 0.26, margin: 0, fontFace: BODY, fontSize: 11, color: MUTED });
   dec.forEach(([n, ttl, desc], i) => {
     const y = 3.05 + i * 0.26;
-    s.addText(n, { x: M + 0.3, y, w: 0.36, h: 0.26, margin: 0, valign: "middle", fontFace: H1, fontSize: 10, bold: true, color: BLUE });
+    s.addText(n, { x: M + 0.3, y, w: 0.36, h: 0.26, margin: 0, valign: "middle", fontFace: H1, fontSize: 10, bold: true, color: BLUE_D });
     s.addText([{ text: ttl + " — ", options: { bold: true, color: INK } }, { text: desc, options: { color: MUTED } }],
       { x: M + 0.72, y, w: 4.9, h: 0.26, margin: 0, valign: "middle", fontFace: BODY, fontSize: 11.5 });
   });
@@ -354,7 +355,7 @@ function link(s, x1, y1, x2, y2, color) {
   s.addText("Frise, chemin des données, limites, mythes et sources — tout est consultable et cliquable.",
     { x: 10.75, y: 5.0, w: 1.73, h: 1.2, margin: 0, align: "center", fontFace: BODY, fontSize: 10.5, color: MUTED });
 
-  s.addImage({ path: "G:/My Drive/Dev/IA/AITraining/training/slides/arx-logo-blanc.png",
+  s.addImage({ path: "G:/My Drive/Dev/IA/AITraining/training/site/arx-logo.png",
     x: M, y: 6.55, w: 0.35, h: 0.38, altText: "Arx Consulting" });
   s.addText("Arx Consulting · programme de formation interne", { x: 1.18, y: 6.58, w: 6, h: 0.32, margin: 0, valign: "middle", fontFace: BODY, fontSize: 11, color: MUTED_D });
   s.addText("Une obligation européenne de maîtrise de l'IA s'applique depuis février 2025. Ce programme en constitue la trace.",
