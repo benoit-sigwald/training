@@ -258,6 +258,20 @@
   @media(max-width:560px){.tk-row{grid-template-columns:66px 1fr 44px;gap:8px}.tk-row .w{font-size:14px}}
 
   /* ---------- genèse : sur quoi ça tourne ---------- */
+  .stackfig{width:100%;height:auto;display:block;margin-top:4px}
+  .stackfig .bd{rx:10}
+  .stackfig .bd.sw{fill:rgba(0,113,227,.10);stroke:rgba(0,113,227,.30)}
+  .stackfig .bd.hw{fill:rgba(0,113,227,.22);stroke:rgba(0,113,227,.45)}
+  .stackfig .bd.ph{fill:var(--bg-alt);stroke:var(--hair)}
+  .stackfig .num{fill:var(--blue);font-size:12px;font-weight:700;font-family:var(--sf)}
+  .stackfig .nm{fill:var(--text);font-size:15px;font-weight:600;font-family:var(--sf)}
+  .stackfig .un{fill:var(--text-2);font-size:12.5px;font-family:var(--sf)}
+  .stackfig .grp{fill:var(--text-2);font-size:12px;font-weight:600;font-family:var(--sf);
+    text-transform:uppercase;letter-spacing:.06em}
+  .stackfig .brk{stroke:var(--hair);stroke-width:1.5;fill:none}
+  .stackfig .cap{fill:var(--text-2);font-size:12.5px;font-family:var(--sf)}
+
+
   .stack{display:grid;gap:10px;margin-top:8px}
   .lay{
     background:var(--white);border-radius:var(--radius);box-shadow:0 2px 12px rgba(0,0,0,.045);
@@ -894,6 +908,52 @@
         <p style="font-size:17px">Les poids et les couches du réseau ne flottent pas dans le vide. Ils vivent dans un bâtiment, sur des machines, alimentés par un réseau électrique. Huit couches, de la terre jusqu'à votre écran.</p>
       </div>
 
+      <svg class="stackfig" viewBox="0 0 720 432" role="img" aria-label="Illustration des huit couches d'un centre de données pour l'IA, du site et de l'électricité en bas jusqu'à l'application en haut.">
+        <text class="grp" x="0" y="14">Les huit couches</text>
+        <text class="grp" x="700" y="14" text-anchor="end">On se mesure en</text>
+        <rect class="bd sw" x="150" y="26" width="450" height="40" rx="10"></rect>
+        <text class="num" x="168" y="51">08</text>
+        <text class="nm" x="196" y="51">Votre application</text>
+        <text class="un" x="700" y="51" text-anchor="end">des clics</text>
+        <rect class="bd sw" x="150" y="72" width="450" height="40" rx="10"></rect>
+        <text class="num" x="168" y="97">07</text>
+        <text class="nm" x="196" y="97">L'API</text>
+        <text class="un" x="700" y="97" text-anchor="end">des requêtes par minute</text>
+        <rect class="bd sw" x="150" y="118" width="450" height="40" rx="10"></rect>
+        <text class="num" x="168" y="143">06</text>
+        <text class="nm" x="196" y="143">Le service d'inférence</text>
+        <text class="un" x="700" y="143" text-anchor="end">des jetons par seconde</text>
+        <rect class="bd sw" x="150" y="164" width="450" height="40" rx="10"></rect>
+        <text class="num" x="168" y="189">05</text>
+        <text class="nm" x="196" y="189">L'orchestration</text>
+        <text class="un" x="700" y="189" text-anchor="end">des machines</text>
+        <rect class="bd hw" x="150" y="210" width="450" height="40" rx="10"></rect>
+        <text class="num" x="168" y="235">04</text>
+        <text class="nm" x="196" y="235">Le réseau interne</text>
+        <text class="un" x="700" y="235" text-anchor="end">des gigaoctets par seconde</text>
+        <rect class="bd hw" x="150" y="256" width="450" height="40" rx="10"></rect>
+        <text class="num" x="168" y="281">03</text>
+        <text class="nm" x="196" y="281">Le calcul</text>
+        <text class="un" x="700" y="281" text-anchor="end">des processeurs graphiques</text>
+        <rect class="bd ph" x="150" y="302" width="450" height="40" rx="10"></rect>
+        <text class="num" x="168" y="327">02</text>
+        <text class="nm" x="196" y="327">Le refroidissement</text>
+        <text class="un" x="700" y="327" text-anchor="end">des litres d'eau</text>
+        <rect class="bd ph" x="150" y="348" width="450" height="40" rx="10"></rect>
+        <text class="num" x="168" y="373">01</text>
+        <text class="nm" x="196" y="373">Le site et l'électricité</text>
+        <text class="un" x="700" y="373" text-anchor="end">des mégawatts</text>
+        <path class="brk" d="M138 26 H128 V204 H138"></path>
+        <text class="grp" x="120" y="119" text-anchor="end">Logiciel</text>
+        <path class="brk" d="M138 210 H128 V296 H138"></path>
+        <text class="grp" x="120" y="257" text-anchor="end">Matériel</text>
+        <path class="brk" d="M138 302 H128 V388 H138"></path>
+        <text class="grp" x="120" y="349" text-anchor="end">Physique</text>
+        <path class="brk" d="M612 376 V38" marker-end=""></path>
+        <path class="brk" d="M607 46 L612 38 L617 46"></path>
+        <text class="cap" x="700" y="412" text-anchor="end">Vous n'en voyez qu'une</text>
+      </svg>
+
       <div class="stack">
 
         <div class="lay reveal" data-n="08"><h4>Votre application</h4>
@@ -1365,7 +1425,7 @@
   <div class="wrap">
     <div class="sec-head">
       <h2>Kit formateur.</h2>
-      <p>Douze fiches d'animation. Une par module, prête à dérouler.</p>
+      <p>Cinq fiches pour la genèse, douze pour la découverte. Prêtes à dérouler.</p>
     </div>
 
     <div class="anim">
@@ -1379,6 +1439,9 @@
       <p style="margin:16px 0 0;font-size:15px;color:var(--text-2)">Jamais de slides théoriques. Jamais le mot « prompt engineering », « token » ou « contexte » devant un débutant. On dit : Claude, la demande, le document.</p>
     </div>
 
+      <p class="kicker" style="font-weight:600;color:var(--text);margin:8px 0 12px">Parcours genèse — une séance de 45 minutes</p>
+      <div id="fiches-g"></div>
+      <p class="kicker" style="font-weight:600;color:var(--text);margin:34px 0 12px">Parcours découverte — douze modules</p>
     <div id="fiches"></div>
   </div>
 </section>
@@ -1467,6 +1530,39 @@ const gardefous=[
  "Coût et journal consultables. Sans mesure, pas de mise en production."
 ];
 
+const fichesG=[
+ {n:"G1",t:"La frise et les noms — 10 min",
+  o:"Faire comprendre que l'IA n'est pas née en 2022, et que le domaine change de nom après chaque déception.",
+  demo:"Dérouler la frise en s'arrêtant sur trois points seulement : 1922, Richardson calcule la météo à la main et imagine 64 000 calculateurs humains ; 1974 et 1987, les deux hivers ; 2022, ChatGPT — une date d'accès public, pas une percée scientifique.",
+  ex:"Demander au groupe combien de noms différents ils ont déjà entendus pour la même chose : IA, machine learning, data science, agentique. Les écrire au tableau.",
+  err:"Vouloir tout raconter. Dix époques en dix minutes, c'est un cours d'histoire raté. Trois arrêts suffisent, le reste est en lecture.",
+  msg:"Quand un mot nouveau apparaît, demande ce qu'il fait que le précédent ne faisait pas. Souvent, rien."},
+ {n:"G2",t:"Le chemin de vos données — 10 min",
+  o:"Répondre une fois pour toutes à « est-ce que mes données servent à entraîner le modèle ? » — la réponse dépend de l'étape.",
+  demo:"Ouvrir trois étapes au clic, dans cet ordre : 06 votre demande, 08 contexte assemblé, 10 génération. Montrer que le point de sortie réel des données est l'étape 08, pas l'index.",
+  ex:"Chacun cite une chose qu'il a déjà collée dans une conversation. Sans jugement. C'est l'étape 06 qui fuit, jamais l'index savamment sécurisé.",
+  err:"Passer les treize étapes. On en ouvre trois, on dit que le reste est consultable, on avance.",
+  msg:"Vos données sortent à l'étape 08. Tout le reste est de la préparation."},
+ {n:"G3",t:"Dans la boîte, et la démo du mot suivant — 12 min",
+  o:"Faire comprendre l'hallucination par le mécanisme, pas par la morale.",
+  demo:"Le cœur de la séance. Ouvrir la partie 5 du schéma, puis basculer la démonstration : « La capitale de la France est » donne Paris à 92 %, une distribution piquée. Puis « Le chiffre d'affaires 2025 de votre société est de » donne 19, 17, 16 % — une distribution plate, et pourtant un montant sort.",
+  ex:"Demander au groupe : à quel endroit le modèle pourrait-il dire « je ne sais pas » ? Laisser chercher. Il n'y a pas d'endroit.",
+  err:"Filer l'analogie du cerveau. Elle rassure et elle induit en erreur. L'image juste est un jury pondéré où personne ne comprend le dossier.",
+  msg:"Il n'existe pas de case « je ne sais pas ». L'hallucination est la forme du système, pas un défaut de version."},
+ {n:"G4",t:"Sur quoi ça tourne, et le carbone — 7 min",
+  o:"Donner l'échelle physique, et désamorcer la culpabilité individuelle qui bloque l'adoption.",
+  demo:"Montrer l'illustration des huit couches en partant du bas : on n'installe pas un centre de données où l'on veut, on l'installe où il y a du courant. Puis les quatre chiffres : 0,24 Wh la requête, contre 72 816 tonnes de CO₂e pour un seul entraînement.",
+  ex:"Question au groupe : qu'est-ce qui pèse le plus, vos requêtes ou l'entraînement ? La réponse surprend et elle recadre le débat.",
+  err:"Laisser s'installer le procès moral de l'utilisateur. Une requête coûte autant qu'une recherche web ; le levier n'est pas d'utiliser moins, c'est de ne pas envoyer trente pages à chaque question.",
+  msg:"Petit par requête, massif à l'échelle mondiale. Ce ne sont pas les mêmes personnes qui décident des deux."},
+ {n:"G5",t:"Mythes et réalité — 6 min",
+  o:"Fermer la séance sur les objections réelles, avec des chiffres plutôt qu'avec des opinions.",
+  demo:"Traiter deux mythes au choix du groupe, pas les six. Les plus demandés : « ça va remplacer les emplois » et « c'est une bulle comme la blockchain ».",
+  ex:"Chacun formule l'objection qu'il entendra en revenant dans son service. On y répond ensemble, source à l'appui.",
+  err:"Répondre par la conviction. Chaque affirmation de cette page porte un appel de note ; s'en servir, et montrer la liste des sources en fin de parcours.",
+  msg:"Deux hivers ont déjà eu lieu. Ce qui compte, c'est l'usage réel, pas la promesse."}
+];
+
 const fiches=[
  {n:"00",t:"Chronomètre : où part ton temps",o:"Établir la mesure d'entrée. Sans elle, le gain final n'est pas démontrable.",demo:"Remplir la feuille au tableau avec une tâche de l'animateur : intitulé, fréquence hebdomadaire, durée réelle en minutes.",ex:"Chacun note 3 tâches récurrentes, chronométrées ou estimées honnêtement. La feuille est conservée jusqu'au module 11.",err:"Estimations complaisantes du type « 5 minutes ». Faire chronométrer la tâche pour de vrai avant la session suivante.",msg:"Ce qui n'est pas mesuré au départ ne sera pas prouvé à l'arrivée."},
  {n:"01",t:"Ce que Claude fait et ne fait pas",o:"Oser poser la première question, sans peur ni fausse confiance.",demo:"Une question métier bien traitée, puis une question où Claude invente un chiffre. Montrer les deux.",ex:"Poser 3 questions sur son propre métier, repérer la réponse la plus faible et dire pourquoi.",err:"Le participant teste avec des devinettes. Recadrer : « prends une tâche que tu as vraiment à faire aujourd'hui ».",msg:"Ce n'est pas un moteur de recherche, c'est un collègue rapide qui n'a jamais raison par défaut."},
@@ -1506,6 +1602,7 @@ document.getElementById("grid-d").innerHTML=decouverte.map(modCard).join("");
 document.getElementById("grid-a").innerHTML=avance.map(modCard).join("");
 document.getElementById("rules-d").innerHTML=reflexes.map(ruleCard).join("");
 document.getElementById("rules-a").innerHTML=gardefous.map(ruleCard).join("");
+document.getElementById("fiches-g").innerHTML=fichesG.map(ficheEl).join("");
 document.getElementById("fiches").innerHTML=fiches.map(ficheEl).join("");
 
 /* Dans la boîte : les cinq parties du réseau, ouvertes au clic. */

@@ -221,6 +221,20 @@
   @media(max-width:560px){.tk-row{grid-template-columns:66px 1fr 44px;gap:8px}.tk-row .w{font-size:14px}}
 
   /* ---------- genèse : sur quoi ça tourne ---------- */
+  .stackfig{width:100%;height:auto;display:block;margin-top:4px}
+  .stackfig .bd{rx:10}
+  .stackfig .bd.sw{fill:rgba(0,113,227,.10);stroke:rgba(0,113,227,.30)}
+  .stackfig .bd.hw{fill:rgba(0,113,227,.22);stroke:rgba(0,113,227,.45)}
+  .stackfig .bd.ph{fill:var(--bg-alt);stroke:var(--hair)}
+  .stackfig .num{fill:var(--blue);font-size:12px;font-weight:700;font-family:var(--sf)}
+  .stackfig .nm{fill:var(--text);font-size:15px;font-weight:600;font-family:var(--sf)}
+  .stackfig .un{fill:var(--text-2);font-size:12.5px;font-family:var(--sf)}
+  .stackfig .grp{fill:var(--text-2);font-size:12px;font-weight:600;font-family:var(--sf);
+    text-transform:uppercase;letter-spacing:.06em}
+  .stackfig .brk{stroke:var(--hair);stroke-width:1.5;fill:none}
+  .stackfig .cap{fill:var(--text-2);font-size:12.5px;font-family:var(--sf)}
+
+
   .stack{display:grid;gap:10px;margin-top:8px}
   .lay{
     background:var(--white);border-radius:var(--radius);box-shadow:0 2px 12px rgba(0,0,0,.045);
@@ -870,6 +884,52 @@
         <p style="font-size:17px">The weights and layers of the network do not float in a vacuum. They live in a building, on machines, fed by an electricity grid. Eight layers, from the ground up to your screen.</p>
       </div>
 
+      <svg class="stackfig" viewBox="0 0 720 432" role="img" aria-label="Illustration of the eight layers of an AI data centre, from site and electricity at the bottom up to the application at the top.">
+        <text class="grp" x="0" y="14">The eight layers</text>
+        <text class="grp" x="700" y="14" text-anchor="end">Measured in</text>
+        <rect class="bd sw" x="150" y="26" width="450" height="40" rx="10"></rect>
+        <text class="num" x="168" y="51">08</text>
+        <text class="nm" x="196" y="51">Your application</text>
+        <text class="un" x="700" y="51" text-anchor="end">clicks</text>
+        <rect class="bd sw" x="150" y="72" width="450" height="40" rx="10"></rect>
+        <text class="num" x="168" y="97">07</text>
+        <text class="nm" x="196" y="97">The API</text>
+        <text class="un" x="700" y="97" text-anchor="end">requests per minute</text>
+        <rect class="bd sw" x="150" y="118" width="450" height="40" rx="10"></rect>
+        <text class="num" x="168" y="143">06</text>
+        <text class="nm" x="196" y="143">The inference service</text>
+        <text class="un" x="700" y="143" text-anchor="end">tokens per second</text>
+        <rect class="bd sw" x="150" y="164" width="450" height="40" rx="10"></rect>
+        <text class="num" x="168" y="189">05</text>
+        <text class="nm" x="196" y="189">Orchestration</text>
+        <text class="un" x="700" y="189" text-anchor="end">machines</text>
+        <rect class="bd hw" x="150" y="210" width="450" height="40" rx="10"></rect>
+        <text class="num" x="168" y="235">04</text>
+        <text class="nm" x="196" y="235">The internal network</text>
+        <text class="un" x="700" y="235" text-anchor="end">gigabytes per second</text>
+        <rect class="bd hw" x="150" y="256" width="450" height="40" rx="10"></rect>
+        <text class="num" x="168" y="281">03</text>
+        <text class="nm" x="196" y="281">Compute</text>
+        <text class="un" x="700" y="281" text-anchor="end">graphics processors</text>
+        <rect class="bd ph" x="150" y="302" width="450" height="40" rx="10"></rect>
+        <text class="num" x="168" y="327">02</text>
+        <text class="nm" x="196" y="327">Cooling</text>
+        <text class="un" x="700" y="327" text-anchor="end">litres of water</text>
+        <rect class="bd ph" x="150" y="348" width="450" height="40" rx="10"></rect>
+        <text class="num" x="168" y="373">01</text>
+        <text class="nm" x="196" y="373">Site and electricity</text>
+        <text class="un" x="700" y="373" text-anchor="end">megawatts</text>
+        <path class="brk" d="M138 26 H128 V204 H138"></path>
+        <text class="grp" x="120" y="119" text-anchor="end">Software</text>
+        <path class="brk" d="M138 210 H128 V296 H138"></path>
+        <text class="grp" x="120" y="257" text-anchor="end">Hardware</text>
+        <path class="brk" d="M138 302 H128 V388 H138"></path>
+        <text class="grp" x="120" y="349" text-anchor="end">Physical</text>
+        <path class="brk" d="M612 376 V38" marker-end=""></path>
+        <path class="brk" d="M607 46 L612 38 L617 46"></path>
+        <text class="cap" x="700" y="412" text-anchor="end">You only ever see one</text>
+      </svg>
+
       <div class="stack">
 
         <div class="lay reveal" data-n="08"><h4>Your application</h4>
@@ -1242,7 +1302,7 @@
   <div class="wrap">
     <div class="sec-head">
       <h2>Facilitator kit.</h2>
-      <p>Twelve session sheets. One per module, ready to run.</p>
+      <p>Five sheets for the genesis, twelve for the foundation. Ready to run.</p>
     </div>
 
     <div class="anim">
@@ -1256,6 +1316,9 @@
       <p style="margin:16px 0 0;font-size:15px;color:var(--text-2)">Never theory slides. Never the words "prompt engineering", "token" or "context window" in front of a beginner. Say: Claude, the request, the document.</p>
     </div>
 
+      <p class="kicker" style="font-weight:600;color:var(--text);margin:8px 0 12px">Genesis track — one 45-minute session</p>
+      <div id="fiches-g"></div>
+      <p class="kicker" style="font-weight:600;color:var(--text);margin:34px 0 12px">Foundation track — twelve modules</p>
     <div id="fiches"></div>
   </div>
 </section>
@@ -1344,6 +1407,39 @@ const gardefous=[
  "Cost and logs must be viewable. No measurement, no production."
 ];
 
+const fichesG=[
+ {n:"G1",t:"The timeline and the names — 10 min",
+  o:"Get across that AI was not born in 2022, and that the field renames itself after every disappointment.",
+  demo:"Walk the timeline stopping at three points only: 1922, Richardson computing the weather by hand and imagining 64,000 human computers; 1974 and 1987, the two winters; 2022, ChatGPT — a date of public access, not a scientific breakthrough.",
+  ex:"Ask the group how many different names they have already heard for the same thing: AI, machine learning, data science, agentic. Write them on the board.",
+  err:"Trying to tell everything. Ten eras in ten minutes is a failed history lecture. Three stops are enough; the rest is there to read.",
+  msg:"When a new word appears, ask what it does that the previous one did not. Often, nothing."},
+ {n:"G2",t:"The path your data takes — 10 min",
+  o:"Answer once and for all: \"does my data train the model?\" — the answer depends on the step.",
+  demo:"Open three steps by clicking, in this order: 06 your request, 08 assembled context, 10 generation. Show that the real exit point for data is step 08, not the index.",
+  ex:"Everyone names one thing they have already pasted into a chat. No judgement. Step 06 is what leaks, never the carefully secured index.",
+  err:"Going through all thirteen steps. Open three, say the rest is there to browse, move on.",
+  msg:"Your data leaves at step 08. Everything else is preparation."},
+ {n:"G3",t:"Inside the box, and the next-word demo — 12 min",
+  o:"Make hallucination understood through the mechanism, not through moralising.",
+  demo:"The heart of the session. Open part 5 of the diagram, then switch the demonstration: \"The capital of France is\" gives Paris at 92 %, a peaked distribution. Then \"Your company's 2025 revenue was\" gives 19, 17, 16 % — a flat distribution, and yet a figure comes out.",
+  ex:"Ask the group: where could the model say \"I don't know\"? Let them look. There is no such place.",
+  err:"Running with the brain analogy. It reassures and it misleads. The right image is a weighted jury where nobody understands the case.",
+  msg:"There is no \"I don't know\" slot. Hallucination is the shape of the system, not a versioning defect."},
+ {n:"G4",t:"What it runs on, and the carbon — 7 min",
+  o:"Give the physical scale, and defuse the individual guilt that blocks adoption.",
+  demo:"Show the eight-layer illustration starting from the bottom: you do not build a data centre where you want it, you build it where there is power. Then the four figures: 0.24 Wh per request, against 72,816 tonnes of CO₂e for a single training run.",
+  ex:"Ask the group: which weighs more, your requests or the training? The answer surprises, and it reframes the debate.",
+  err:"Letting a moral trial of the user take hold. One request costs about as much as a web search; the lever is not using less, it is not sending thirty pages with every question.",
+  msg:"Small per request, massive at global scale. Those two are not decided by the same people."},
+ {n:"G5",t:"Myths and reality — 6 min",
+  o:"Close the session on the real objections, with figures rather than opinions.",
+  demo:"Take two myths chosen by the group, not all six. The most requested: \"it will replace jobs\" and \"it's a bubble like blockchain\".",
+  ex:"Everyone states the objection they will hear when they go back to their department. Answer it together, with the source.",
+  err:"Answering from conviction. Every claim on this page carries a footnote; use them, and show the source list at the end of the track.",
+  msg:"Two winters have already happened. What counts is real usage, not the promise."}
+];
+
 const fiches=[
  {n:"00",t:"Stopwatch: where your time goes",o:"Establish the baseline. Without it, the final gain cannot be demonstrated.",demo:"Fill the sheet on the board with one of the facilitator's own tasks: name, weekly frequency, real duration in minutes.",ex:"Everyone writes down 3 recurring tasks, timed or honestly estimated. The sheet is kept until module 11.",err:"Flattering estimates like \"five minutes\". Have the task actually timed before the next session.",msg:"What is not measured at the start will not be proven at the end."},
  {n:"01",t:"What Claude does and does not do",o:"Dare to ask the first question, without fear and without false confidence.",demo:"One business question handled well, then one where Claude invents a figure. Show both.",ex:"Ask 3 questions about your own job, spot the weakest answer and say why.",err:"Participants test with riddles. Redirect: \"take a task you actually have to do today\".",msg:"It is not a search engine, it is a fast colleague who is never right by default."},
@@ -1383,6 +1479,7 @@ document.getElementById("grid-d").innerHTML=decouverte.map(modCard).join("");
 document.getElementById("grid-a").innerHTML=avance.map(modCard).join("");
 document.getElementById("rules-d").innerHTML=reflexes.map(ruleCard).join("");
 document.getElementById("rules-a").innerHTML=gardefous.map(ruleCard).join("");
+document.getElementById("fiches-g").innerHTML=fichesG.map(ficheEl).join("");
 document.getElementById("fiches").innerHTML=fiches.map(ficheEl).join("");
 
 /* Inside the box: the five parts of the network, opened on click. */
