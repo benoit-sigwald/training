@@ -257,6 +257,33 @@
   .tk-note b{color:var(--text)}
   @media(max-width:560px){.tk-row{grid-template-columns:66px 1fr 44px;gap:8px}.tk-row .w{font-size:14px}}
 
+  /* ---------- genèse : sur quoi ça tourne ---------- */
+  .stack{display:grid;gap:10px;margin-top:8px}
+  .lay{
+    background:var(--white);border-radius:var(--radius);box-shadow:0 2px 12px rgba(0,0,0,.045);
+    padding:20px 24px 20px 78px;position:relative;
+  }
+  .lay::before{
+    content:attr(data-n);position:absolute;left:22px;top:20px;
+    width:38px;height:38px;border-radius:11px;background:var(--bg-alt);color:var(--blue);
+    font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center;
+  }
+  .lay h4{margin:0 0 4px;font-size:18px;font-weight:600;letter-spacing:-.02em}
+  .lay p{margin:0;font-size:15px;color:var(--text-2)}
+  .lay .cons{
+    display:block;margin-top:10px;padding-top:10px;border-top:1px solid var(--hair);
+    font-size:14px;color:var(--text);
+  }
+  .lay .cons b{font-weight:600}
+  .lay.top{outline:2px solid rgba(0,113,227,.25)}
+  @media(max-width:560px){.lay{padding:64px 20px 20px}.lay::before{top:18px}}
+
+  .figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(210px,100%),1fr));gap:16px;margin-top:8px}
+  .fig{background:var(--white);border-radius:var(--radius);padding:24px 22px;box-shadow:0 2px 12px rgba(0,0,0,.045)}
+  .fig .n{display:block;font-size:clamp(26px,3.4vw,34px);font-weight:600;color:var(--blue);letter-spacing:-.02em;line-height:1.05}
+  .fig .u{display:block;font-size:14px;font-weight:600;color:var(--text);margin-top:6px}
+  .fig p{margin:8px 0 0;font-size:14px;color:var(--text-2)}
+
   /* ---------- genèse : chemin des données ---------- */
   .flow{display:grid;gap:14px}
   .ph{background:var(--white);border-radius:var(--radius);padding:20px 22px;box-shadow:0 2px 12px rgba(0,0,0,.045)}
@@ -695,6 +722,64 @@
       </div>
 
       <div class="sec-head" style="max-width:700px;margin:56px auto 20px">
+        <h2 style="font-size:clamp(24px,3.2vw,34px)">Le chemin de vos données.</h2>
+        <p style="font-size:17px">De votre fichier jusqu'à la réponse, puis jusqu'à la trace qu'il en reste. Cliquez sur une étape : ce qui s'y passe, où vont vos données, et ce qui casse.</p>
+      </div>
+
+      <div class="flow" id="flow">
+
+        <div class="ph">
+          <div class="ph-h"><b>Une fois</b><span>Préparation, hors ligne</span></div>
+          <div class="ph-s">
+            <button class="stp" data-s="0"><i>01</i><span>Vos sources</span></button>
+            <button class="stp" data-s="1"><i>02</i><span>Extraction</span></button>
+            <button class="stp" data-s="2"><i>03</i><span>Découpage</span></button>
+            <button class="stp" data-s="3"><i>04</i><span>Vectorisation</span></button>
+            <button class="stp" data-s="4"><i>05</i><span>Index</span></button>
+          </div>
+        </div>
+
+        <div class="ph">
+          <div class="ph-h"><b>À chaque demande</b><span>Quelques secondes</span></div>
+          <div class="ph-s">
+            <button class="stp" data-s="5"><i>06</i><span>Votre demande</span></button>
+            <button class="stp" data-s="6"><i>07</i><span>Recherche</span></button>
+            <button class="stp" data-s="7"><i>08</i><span>Contexte assemblé</span></button>
+            <button class="stp" data-s="8"><i>09</i><span>Tokens</span></button>
+            <button class="stp on" data-s="9"><i>10</i><span>Génération</span></button>
+          </div>
+        </div>
+
+        <div class="ph">
+          <div class="ph-h"><b>Autour</b><span>Ce qui encadre</span></div>
+          <div class="ph-s">
+            <button class="stp" data-s="10"><i>11</i><span>Outils &amp; actions</span></button>
+            <button class="stp" data-s="11"><i>12</i><span>Vérification humaine</span></button>
+            <button class="stp" data-s="12"><i>13</i><span>Journal &amp; coûts</span></button>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="notice legal" style="margin-top:22px;margin-bottom:0">
+        <h4>Ce que ce schéma change dans une conversation</h4>
+        <p>La question « est-ce que mes données servent à entraîner le modèle ? » n'a pas de réponse unique : elle dépend de l'étape. Aux étapes 01 à 05, vos données sont copiées et stockées chez quelqu'un. À l'étape 08, elles partent dans la demande. À l'étape 10, elles ne modifient pas le modèle — sauf si le contrat le prévoit. Savoir de quelle étape on parle est ce qui distingue une règle d'usage sérieuse d'une interdiction générale et inapplicable.</p>
+      </div>
+
+      <dialog class="dlg" id="dlg">
+        <div class="dlg-in">
+          <button class="dlg-x" id="dlgx" aria-label="Fermer">✕</button>
+          <span class="dlg-k" id="dlgk"></span>
+          <h3 id="dlgt"></h3>
+          <dl>
+            <div><dt>Ce qui se passe</dt><dd id="dlg1"></dd></div>
+            <div><dt>Où vont vos données</dt><dd id="dlg2"></dd></div>
+            <div><dt>Ce qui casse ici</dt><dd id="dlg3"></dd></div>
+          </dl>
+          <p class="dlg-m" id="dlgm"></p>
+        </div>
+      </dialog>
+      <div class="sec-head" style="max-width:700px;margin:56px auto 20px">
         <h2 style="font-size:clamp(24px,3.2vw,34px)">Ce qu'il y a dans la boîte.</h2>
         <p style="font-size:17px">Cinq idées, aucune équation. Chacune sert à comprendre une limite que vous rencontrerez pour de vrai.</p>
       </div>
@@ -805,63 +890,76 @@
         </div>
       </dialog>
       <div class="sec-head" style="max-width:700px;margin:56px auto 20px">
-        <h2 style="font-size:clamp(24px,3.2vw,34px)">Le chemin de vos données.</h2>
-        <p style="font-size:17px">De votre fichier jusqu'à la réponse, puis jusqu'à la trace qu'il en reste. Cliquez sur une étape : ce qui s'y passe, où vont vos données, et ce qui casse.</p>
+        <h2 style="font-size:clamp(24px,3.2vw,34px)">Sur quoi ça tourne.</h2>
+        <p style="font-size:17px">Les poids et les couches du réseau ne flottent pas dans le vide. Ils vivent dans un bâtiment, sur des machines, alimentés par un réseau électrique. Huit couches, de la terre jusqu'à votre écran.</p>
       </div>
 
-      <div class="flow" id="flow">
+      <div class="stack">
 
-        <div class="ph">
-          <div class="ph-h"><b>Une fois</b><span>Préparation, hors ligne</span></div>
-          <div class="ph-s">
-            <button class="stp" data-s="0"><i>01</i><span>Vos sources</span></button>
-            <button class="stp" data-s="1"><i>02</i><span>Extraction</span></button>
-            <button class="stp" data-s="2"><i>03</i><span>Découpage</span></button>
-            <button class="stp" data-s="3"><i>04</i><span>Vectorisation</span></button>
-            <button class="stp" data-s="4"><i>05</i><span>Index</span></button>
-          </div>
-        </div>
+        <div class="lay reveal" data-n="08"><h4>Votre application</h4>
+          <p>L'interface où vous tapez : navigateur, application mobile, module intégré à votre logiciel métier. C'est la seule couche que la plupart des utilisateurs verront jamais.</p>
+          <span class="cons"><b>Ce qu'elle impose —</b> tout ce qui est en dessous vous est invisible, y compris la localisation réelle du traitement.</span></div>
 
-        <div class="ph">
-          <div class="ph-h"><b>À chaque demande</b><span>Quelques secondes</span></div>
-          <div class="ph-s">
-            <button class="stp" data-s="5"><i>06</i><span>Votre demande</span></button>
-            <button class="stp" data-s="6"><i>07</i><span>Recherche</span></button>
-            <button class="stp" data-s="7"><i>08</i><span>Contexte assemblé</span></button>
-            <button class="stp" data-s="8"><i>09</i><span>Tokens</span></button>
-            <button class="stp on" data-s="9"><i>10</i><span>Génération</span></button>
-          </div>
-        </div>
+        <div class="lay reveal" data-n="07"><h4>L'API</h4>
+          <p>Le point d'entrée technique : authentification, quotas, facturation au jeton, journalisation. C'est là que se décide qui a le droit d'appeler quoi, et à quel coût.</p>
+          <span class="cons"><b>Ce qu'elle impose —</b> sans limite fixée ici, une boucle mal écrite peut consommer un budget mensuel en une nuit.</span></div>
 
-        <div class="ph">
-          <div class="ph-h"><b>Autour</b><span>Ce qui encadre</span></div>
-          <div class="ph-s">
-            <button class="stp" data-s="10"><i>11</i><span>Outils &amp; actions</span></button>
-            <button class="stp" data-s="11"><i>12</i><span>Vérification humaine</span></button>
-            <button class="stp" data-s="12"><i>13</i><span>Journal &amp; coûts</span></button>
-          </div>
-        </div>
+        <div class="lay reveal top" data-n="06"><h4>Le service d'inférence</h4>
+          <p>Le logiciel qui fait tourner le modèle : il regroupe les demandes de plusieurs utilisateurs pour occuper les processeurs graphiques au maximum, garde en mémoire les débuts de conversation identiques, et compresse les poids pour aller plus vite.</p>
+          <span class="cons"><b>Ce qu'elle impose —</b> c'est la couche qui explique pourquoi le même modèle peut coûter cinq fois moins cher chez un fournisseur que chez un autre.</span></div>
+
+        <div class="lay reveal" data-n="05"><h4>L'orchestration</h4>
+          <p>Le chef d'orchestre : il répartit les tâches sur des milliers de machines, redémarre ce qui tombe, isole les clients les uns des autres.</p>
+          <span class="cons"><b>Ce qu'elle impose —</b> c'est ici que se joue la promesse de séparation entre vos données et celles d'un autre client.</span></div>
+
+        <div class="lay reveal" data-n="04"><h4>Le réseau interne</h4>
+          <p>Un très grand modèle ne tient pas sur une seule carte : il est découpé sur des dizaines de processeurs qui doivent se parler en permanence, à des débits considérables. C'est souvent le réseau, pas le calcul, qui fixe la vitesse.</p>
+          <span class="cons"><b>Ce qu'elle impose —</b> on ne peut pas simplement « ajouter des cartes » : il faut les relier, et c'est la partie la plus difficile.</span></div>
+
+        <div class="lay reveal top" data-n="03"><h4>Le calcul</h4>
+          <p>Les processeurs graphiques et leurs puces mémoire à très haut débit. C'est le composant rare, cher, et concentré : la capacité mondiale a été multipliée par 3,3 chaque année depuis 2022, et un seul fondeur taïwanais fabrique la quasi-totalité des puces qui font tourner l'IA de pointe.<sup class="ref"><a href="#r1">[1]</a></sup></p>
+          <span class="cons"><b>Ce qu'elle impose —</b> la dépendance matérielle est le point de fragilité le plus concret de toute la chaîne.</span></div>
+
+        <div class="lay reveal" data-n="02"><h4>Le refroidissement</h4>
+          <p>Toute l'électricité consommée finit en chaleur. Il faut l'évacuer : air brassé, air extérieur quand le climat le permet, ou liquide amené directement au contact des puces — de plus en plus indispensable à mesure que les cartes chauffent.</p>
+          <span class="cons"><b>Ce qu'elle impose —</b> l'eau. La consommation annuelle d'eau liée à l'inférence d'un seul modèle grand public pourrait dépasser les besoins en eau potable de 1,2 million de personnes.<sup class="ref"><a href="#r1">[1]</a></sup></span></div>
+
+        <div class="lay reveal" data-n="01"><h4>Le site et l'électricité</h4>
+          <p>Un terrain, un bâtiment, et surtout un raccordement au réseau électrique — le vrai facteur limitant aujourd'hui. La puissance installée des centres de données dédiés à l'IA atteint 29,6 GW, comparable à la consommation de pointe de l'État de New York.<sup class="ref"><a href="#r1">[1]</a></sup></p>
+          <span class="cons"><b>Ce qu'elle impose —</b> on n'installe pas un centre de données où l'on veut : on l'installe où il y a du courant disponible.</span></div>
 
       </div>
 
-      <div class="notice legal" style="margin-top:22px;margin-bottom:0">
-        <h4>Ce que ce schéma change dans une conversation</h4>
-        <p>La question « est-ce que mes données servent à entraîner le modèle ? » n'a pas de réponse unique : elle dépend de l'étape. Aux étapes 01 à 05, vos données sont copiées et stockées chez quelqu'un. À l'étape 08, elles partent dans la demande. À l'étape 10, elles ne modifient pas le modèle — sauf si le contrat le prévoit. Savoir de quelle étape on parle est ce qui distingue une règle d'usage sérieuse d'une interdiction générale et inapplicable.</p>
+      <div class="sec-head" style="max-width:700px;margin:52px auto 18px">
+        <h2 style="font-size:clamp(22px,2.9vw,30px)">Ce que ça coûte à la planète.</h2>
+        <p style="font-size:17px">Deux échelles à ne jamais confondre : ce que coûte votre requête, et ce que coûte l'ensemble.</p>
       </div>
 
-      <dialog class="dlg" id="dlg">
-        <div class="dlg-in">
-          <button class="dlg-x" id="dlgx" aria-label="Fermer">✕</button>
-          <span class="dlg-k" id="dlgk"></span>
-          <h3 id="dlgt"></h3>
-          <dl>
-            <div><dt>Ce qui se passe</dt><dd id="dlg1"></dd></div>
-            <div><dt>Où vont vos données</dt><dd id="dlg2"></dd></div>
-            <div><dt>Ce qui casse ici</dt><dd id="dlg3"></dd></div>
-          </dl>
-          <p class="dlg-m" id="dlgm"></p>
-        </div>
-      </dialog>
+      <div class="figs">
+        <div class="fig reveal"><span class="n">0,24</span><span class="u">Wh par requête texte</span>
+          <p>Mesure publiée par Google pour une requête médiane sur Gemini, avec 0,03 g de CO₂e et 0,26 mL d'eau. À comparer aux 0,2 à 0,3 Wh d'une recherche web classique.<sup class="ref"><a href="#r14">[14]</a></sup></p></div>
+        <div class="fig reveal"><span class="n">0,34</span><span class="u">Wh, autre estimation</span>
+          <p>Ordre de grandeur avancé publiquement par OpenAI. La fourchette raisonnable pour une requête texte se situe donc entre 0,24 et 0,34 Wh.<sup class="ref"><a href="#r14">[14]</a></sup></p></div>
+        <div class="fig reveal"><span class="n">72 816</span><span class="u">tonnes de CO₂e</span>
+          <p>Émissions estimées du seul entraînement de Grok 4, en 2025. L'entraînement est un coût unique, mais colossal — et de moins en moins documenté.<sup class="ref"><a href="#r1">[1]</a></sup></p></div>
+        <div class="fig reveal"><span class="n">≈ 945</span><span class="u">TWh en 2030</span>
+          <p>Projection de l'Agence internationale de l'énergie pour la consommation électrique mondiale des centres de données — environ le double du niveau actuel.<sup class="ref"><a href="#r15">[15]</a></sup></p></div>
+      </div>
+
+      <div class="notice" style="margin-top:22px">
+        <h4>Comment lire ces chiffres sans se tromper</h4>
+        <p><b>À l'échelle d'une requête, l'impact est faible.</b> Une question à un assistant coûte à peu près autant qu'une recherche web. Culpabiliser un salarié qui pose trois questions par jour n'a aucun sens : sa consommation est inférieure à celle de son écran allumé pendant la même minute.</p>
+        <p><b>À l'échelle mondiale, l'impact est massif.</b> Ce ne sont pas les mêmes personnes qui décident des deux. Le total vient du nombre de requêtes multiplié par le nombre d'utilisateurs, et de l'entraînement des modèles — pas de votre usage individuel.</p>
+        <p><b>Le levier utile en entreprise n'est pas d'utiliser moins l'IA, c'est de ne pas envoyer trente pages à chaque question.</b> C'est exactement l'étape 09 du chemin des données : ce qui gonfle la facture gonfle aussi la consommation. Régler le curseur d'effort et limiter le contexte agit sur les deux à la fois.</p>
+      </div>
+
+      <div class="notice legal" style="margin-top:16px;margin-bottom:0">
+        <h4>Trois raisons de rester prudent avec ces chiffres</h4>
+        <p><b>Ils viennent en partie des fournisseurs eux-mêmes.</b> L'étude sur les 0,24 Wh est interne à Google, sa méthodologie est discutée, et des audits indépendants sont réclamés. Le périmètre compte énormément : compte-t-on le refroidissement ? les machines à l'arrêt ? l'amortissement de l'entraînement ?</p>
+        <p><b>La transparence recule.</b> Le code d'entraînement, le nombre de paramètres, la taille des jeux de données et la durée d'entraînement ne sont plus publiés pour plusieurs des systèmes les plus gourmands, chez OpenAI, Anthropic comme Google.<sup class="ref"><a href="#r1">[1]</a></sup> Autrement dit : on communique volontiers sur le coût d'une requête, beaucoup moins sur celui de l'entraînement.</p>
+        <p><b>Les sources se contredisent sur le présent.</b> Pour la consommation mondiale des centres de données en 2025, on trouve aussi bien 485 TWh que 787 TWh selon le périmètre retenu. Les projections à 2030 convergent, le point de départ non. Citez toujours la source avec le chiffre.</p>
+      </div>
+
       <div class="sec-head" style="max-width:700px;margin:56px auto 20px">
         <h2 style="font-size:clamp(24px,3.2vw,34px)">Ce qu'un modèle ne sait pas faire.</h2>
         <p style="font-size:17px">Les limites ne sont pas des bugs à corriger dans la prochaine version. Elles découlent de la façon dont ces modèles sont construits.</p>
@@ -1167,6 +1265,15 @@
 
         <li id="r13"><b>Origines statistiques</b> : Adrien-Marie Legendre, méthode des moindres carrés, 1805 ; Carl Friedrich Gauss, application au calcul de l'orbite de Cérès, 1809 ; Francis Galton, régression et corrélation, années 1880 ; Karl Pearson, formalisation du coefficient de corrélation.<br>
           <span class="use">Généalogie des outils mathématiques encore utilisés pour entraîner un modèle.</span></li>
+
+        <li id="r14"><b>Google — rapport technique sur l'empreinte d'une requête Gemini</b>, publié le 21 août 2025 : 0,24 Wh d'électricité, 0,03 g de CO₂e et 0,26 mL d'eau pour une requête texte médiane, et une division par 33 de l'énergie par requête entre mai 2024 et mai 2025.<br>
+          <a href="https://blog.google/intl/fr-fr/nouveautes-produits/dans-le-cloud/quelle-consommation-energetique-pour-lia-de-google-nous-avons-fait-le-calcul/" target="_blank" rel="noopener">Billet Google — méthodologie de mesure</a><br>
+          <span class="use">Énergie, eau et carbone par requête · comparaison avec une recherche web classique (0,2 à 0,3 Wh) · ordre de grandeur de 0,34 Wh avancé publiquement par OpenAI.</span>
+          <span class="warn">Étude interne au fournisseur, méthodologie contestée, audits indépendants réclamés. Le périmètre retenu (refroidissement, machines à l'arrêt, amortissement de l'entraînement) change fortement le résultat.</span></li>
+
+        <li id="r15"><b>Agence internationale de l'énergie — rapport d'avril 2026 sur l'électricité et les centres de données.</b><br>
+          <span class="use">Projection d'environ 945 à 950 TWh de consommation électrique mondiale des centres de données en 2030, soit environ le double du niveau actuel.</span>
+          <span class="warn">Les estimations pour 2025 divergent selon les périmètres : de 485 TWh à 787 TWh selon les publications. Seule la trajectoire fait consensus.</span></li>
       </ol>
 
       <div class="notice" style="margin-top:22px;margin-bottom:0">

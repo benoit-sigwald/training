@@ -220,6 +220,33 @@
   .tk-note b{color:var(--text)}
   @media(max-width:560px){.tk-row{grid-template-columns:66px 1fr 44px;gap:8px}.tk-row .w{font-size:14px}}
 
+  /* ---------- genèse : sur quoi ça tourne ---------- */
+  .stack{display:grid;gap:10px;margin-top:8px}
+  .lay{
+    background:var(--white);border-radius:var(--radius);box-shadow:0 2px 12px rgba(0,0,0,.045);
+    padding:20px 24px 20px 78px;position:relative;
+  }
+  .lay::before{
+    content:attr(data-n);position:absolute;left:22px;top:20px;
+    width:38px;height:38px;border-radius:11px;background:var(--bg-alt);color:var(--blue);
+    font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center;
+  }
+  .lay h4{margin:0 0 4px;font-size:18px;font-weight:600;letter-spacing:-.02em}
+  .lay p{margin:0;font-size:15px;color:var(--text-2)}
+  .lay .cons{
+    display:block;margin-top:10px;padding-top:10px;border-top:1px solid var(--hair);
+    font-size:14px;color:var(--text);
+  }
+  .lay .cons b{font-weight:600}
+  .lay.top{outline:2px solid rgba(0,113,227,.25)}
+  @media(max-width:560px){.lay{padding:64px 20px 20px}.lay::before{top:18px}}
+
+  .figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(210px,100%),1fr));gap:16px;margin-top:8px}
+  .fig{background:var(--white);border-radius:var(--radius);padding:24px 22px;box-shadow:0 2px 12px rgba(0,0,0,.045)}
+  .fig .n{display:block;font-size:clamp(26px,3.4vw,34px);font-weight:600;color:var(--blue);letter-spacing:-.02em;line-height:1.05}
+  .fig .u{display:block;font-size:14px;font-weight:600;color:var(--text);margin-top:6px}
+  .fig p{margin:8px 0 0;font-size:14px;color:var(--text-2)}
+
   /* ---------- genèse : chemin des données ---------- */
   .flow{display:grid;gap:14px}
   .ph{background:var(--white);border-radius:var(--radius);padding:20px 22px;box-shadow:0 2px 12px rgba(0,0,0,.045)}
@@ -674,6 +701,61 @@
       </div>
 
       <div class="sec-head" style="max-width:700px;margin:56px auto 20px">
+        <h2 style="font-size:clamp(24px,3.2vw,34px)">The path your data takes.</h2>
+        <p style="font-size:17px">From your file to the answer, and on to the trace it leaves. Click a step: what happens there, where your data goes, and what breaks.</p>
+      </div>
+
+      <div class="flow" id="flow">
+        <div class="ph">
+          <div class="ph-h"><b>Once</b><span>Preparation, offline</span></div>
+          <div class="ph-s">
+            <button class="stp" data-s="0"><i>01</i><span>Your sources</span></button>
+            <button class="stp" data-s="1"><i>02</i><span>Extraction</span></button>
+            <button class="stp" data-s="2"><i>03</i><span>Chunking</span></button>
+            <button class="stp" data-s="3"><i>04</i><span>Embedding</span></button>
+            <button class="stp" data-s="4"><i>05</i><span>Index</span></button>
+          </div>
+        </div>
+        <div class="ph">
+          <div class="ph-h"><b>On every request</b><span>A few seconds</span></div>
+          <div class="ph-s">
+            <button class="stp" data-s="5"><i>06</i><span>Your request</span></button>
+            <button class="stp" data-s="6"><i>07</i><span>Retrieval</span></button>
+            <button class="stp" data-s="7"><i>08</i><span>Assembled context</span></button>
+            <button class="stp" data-s="8"><i>09</i><span>Tokens</span></button>
+            <button class="stp on" data-s="9"><i>10</i><span>Generation</span></button>
+          </div>
+        </div>
+        <div class="ph">
+          <div class="ph-h"><b>Around it</b><span>What keeps it in check</span></div>
+          <div class="ph-s">
+            <button class="stp" data-s="10"><i>11</i><span>Tools &amp; actions</span></button>
+            <button class="stp" data-s="11"><i>12</i><span>Human check</span></button>
+            <button class="stp" data-s="12"><i>13</i><span>Logs &amp; cost</span></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="notice legal" style="margin-top:22px;margin-bottom:0">
+        <h4>What this diagram changes in a conversation</h4>
+        <p>The question "does my data train the model?" has no single answer: it depends on the step. At steps 01 to 05, your data is copied and stored on someone's infrastructure. At step 08, it leaves inside the request. At step 10, it does not modify the model — unless your contract says otherwise. Knowing which step you are talking about is what separates a serious usage policy from a blanket ban nobody follows.</p>
+      </div>
+
+      <dialog class="dlg" id="dlg">
+        <div class="dlg-in">
+          <button class="dlg-x" id="dlgx" aria-label="Close">✕</button>
+          <span class="dlg-k" id="dlgk"></span>
+          <h3 id="dlgt"></h3>
+          <dl>
+            <div><dt>What happens</dt><dd id="dlg1"></dd></div>
+            <div><dt>Where your data goes</dt><dd id="dlg2"></dd></div>
+            <div><dt>What breaks here</dt><dd id="dlg3"></dd></div>
+          </dl>
+          <p class="dlg-m" id="dlgm"></p>
+        </div>
+      </dialog>
+
+      <div class="sec-head" style="max-width:700px;margin:56px auto 20px">
         <h2 style="font-size:clamp(24px,3.2vw,34px)">What is inside the box.</h2>
         <p style="font-size:17px">Five ideas, no equations. Each one exists to explain a limit you will actually run into.</p>
       </div>
@@ -784,59 +866,75 @@
         </div>
       </dialog>
       <div class="sec-head" style="max-width:700px;margin:56px auto 20px">
-        <h2 style="font-size:clamp(24px,3.2vw,34px)">The path your data takes.</h2>
-        <p style="font-size:17px">From your file to the answer, and on to the trace it leaves. Click a step: what happens there, where your data goes, and what breaks.</p>
+        <h2 style="font-size:clamp(24px,3.2vw,34px)">What it runs on.</h2>
+        <p style="font-size:17px">The weights and layers of the network do not float in a vacuum. They live in a building, on machines, fed by an electricity grid. Eight layers, from the ground up to your screen.</p>
       </div>
 
-      <div class="flow" id="flow">
-        <div class="ph">
-          <div class="ph-h"><b>Once</b><span>Preparation, offline</span></div>
-          <div class="ph-s">
-            <button class="stp" data-s="0"><i>01</i><span>Your sources</span></button>
-            <button class="stp" data-s="1"><i>02</i><span>Extraction</span></button>
-            <button class="stp" data-s="2"><i>03</i><span>Chunking</span></button>
-            <button class="stp" data-s="3"><i>04</i><span>Embedding</span></button>
-            <button class="stp" data-s="4"><i>05</i><span>Index</span></button>
-          </div>
-        </div>
-        <div class="ph">
-          <div class="ph-h"><b>On every request</b><span>A few seconds</span></div>
-          <div class="ph-s">
-            <button class="stp" data-s="5"><i>06</i><span>Your request</span></button>
-            <button class="stp" data-s="6"><i>07</i><span>Retrieval</span></button>
-            <button class="stp" data-s="7"><i>08</i><span>Assembled context</span></button>
-            <button class="stp" data-s="8"><i>09</i><span>Tokens</span></button>
-            <button class="stp on" data-s="9"><i>10</i><span>Generation</span></button>
-          </div>
-        </div>
-        <div class="ph">
-          <div class="ph-h"><b>Around it</b><span>What keeps it in check</span></div>
-          <div class="ph-s">
-            <button class="stp" data-s="10"><i>11</i><span>Tools &amp; actions</span></button>
-            <button class="stp" data-s="11"><i>12</i><span>Human check</span></button>
-            <button class="stp" data-s="12"><i>13</i><span>Logs &amp; cost</span></button>
-          </div>
-        </div>
+      <div class="stack">
+
+        <div class="lay reveal" data-n="08"><h4>Your application</h4>
+          <p>The interface where you type: browser, mobile app, a module inside your business software. It is the only layer most users will ever see.</p>
+          <span class="cons"><b>What it imposes —</b> everything underneath is invisible to you, including where the processing actually happens.</span></div>
+
+        <div class="lay reveal" data-n="07"><h4>The API</h4>
+          <p>The technical entry point: authentication, quotas, per-token billing, logging. This is where it is decided who may call what, and at what price.</p>
+          <span class="cons"><b>What it imposes —</b> with no cap set here, a badly written loop can burn a monthly budget overnight.</span></div>
+
+        <div class="lay reveal top" data-n="06"><h4>The inference service</h4>
+          <p>The software that runs the model: it batches requests from several users to keep the graphics processors busy, caches identical conversation openings, and compresses the weights to go faster.</p>
+          <span class="cons"><b>What it imposes —</b> this is the layer that explains why the same model can cost five times less at one provider than another.</span></div>
+
+        <div class="lay reveal" data-n="05"><h4>Orchestration</h4>
+          <p>The conductor: it spreads jobs across thousands of machines, restarts what fails, and isolates customers from one another.</p>
+          <span class="cons"><b>What it imposes —</b> this is where the promise of separation between your data and another customer's is actually kept, or not.</span></div>
+
+        <div class="lay reveal" data-n="04"><h4>The internal network</h4>
+          <p>A very large model does not fit on a single card: it is split across dozens of processors that must talk to each other constantly, at enormous bandwidth. It is often the network, not the compute, that sets the speed.</p>
+          <span class="cons"><b>What it imposes —</b> you cannot simply "add more cards": they have to be wired together, and that is the hard part.</span></div>
+
+        <div class="lay reveal top" data-n="03"><h4>Compute</h4>
+          <p>The graphics processors and their very high bandwidth memory. This is the scarce, expensive, concentrated component: global capacity has grown 3.3× every year since 2022, and a single Taiwanese foundry fabricates almost every chip running frontier AI.<sup class="ref"><a href="#r1">[1]</a></sup></p>
+          <span class="cons"><b>What it imposes —</b> hardware dependency is the most concrete point of fragility in the whole chain.</span></div>
+
+        <div class="lay reveal" data-n="02"><h4>Cooling</h4>
+          <p>All the electricity consumed ends up as heat. It has to go somewhere: moved air, outside air where the climate allows, or liquid brought directly against the chips — increasingly unavoidable as cards run hotter.</p>
+          <span class="cons"><b>What it imposes —</b> water. Annual inference water use for a single consumer model may exceed the drinking water needs of 1.2 million people.<sup class="ref"><a href="#r1">[1]</a></sup></span></div>
+
+        <div class="lay reveal" data-n="01"><h4>Site and electricity</h4>
+          <p>Land, a building, and above all a grid connection — the real limiting factor today. Installed power capacity for AI data centres has reached 29.6 GW, comparable to New York state at peak demand.<sup class="ref"><a href="#r1">[1]</a></sup></p>
+          <span class="cons"><b>What it imposes —</b> you do not build a data centre where you want it: you build it where there is power available.</span></div>
+
       </div>
 
-      <div class="notice legal" style="margin-top:22px;margin-bottom:0">
-        <h4>What this diagram changes in a conversation</h4>
-        <p>The question "does my data train the model?" has no single answer: it depends on the step. At steps 01 to 05, your data is copied and stored on someone's infrastructure. At step 08, it leaves inside the request. At step 10, it does not modify the model — unless your contract says otherwise. Knowing which step you are talking about is what separates a serious usage policy from a blanket ban nobody follows.</p>
+      <div class="sec-head" style="max-width:700px;margin:52px auto 18px">
+        <h2 style="font-size:clamp(22px,2.9vw,30px)">What it costs the planet.</h2>
+        <p style="font-size:17px">Two scales never to be confused: what your request costs, and what the whole thing costs.</p>
       </div>
 
-      <dialog class="dlg" id="dlg">
-        <div class="dlg-in">
-          <button class="dlg-x" id="dlgx" aria-label="Close">✕</button>
-          <span class="dlg-k" id="dlgk"></span>
-          <h3 id="dlgt"></h3>
-          <dl>
-            <div><dt>What happens</dt><dd id="dlg1"></dd></div>
-            <div><dt>Where your data goes</dt><dd id="dlg2"></dd></div>
-            <div><dt>What breaks here</dt><dd id="dlg3"></dd></div>
-          </dl>
-          <p class="dlg-m" id="dlgm"></p>
-        </div>
-      </dialog>
+      <div class="figs">
+        <div class="fig reveal"><span class="n">0.24</span><span class="u">Wh per text request</span>
+          <p>Figure published by Google for a median Gemini prompt, alongside 0.03 g of CO₂e and 0.26 mL of water. Compare with 0.2 to 0.3 Wh for a conventional web search.<sup class="ref"><a href="#r14">[14]</a></sup></p></div>
+        <div class="fig reveal"><span class="n">0.34</span><span class="u">Wh, another estimate</span>
+          <p>The order of magnitude stated publicly by OpenAI. A reasonable range for a text request is therefore 0.24 to 0.34 Wh.<sup class="ref"><a href="#r14">[14]</a></sup></p></div>
+        <div class="fig reveal"><span class="n">72,816</span><span class="u">tonnes of CO₂e</span>
+          <p>Estimated emissions from training Grok 4 alone, in 2025. Training is a one-off cost, but a colossal one — and increasingly undocumented.<sup class="ref"><a href="#r1">[1]</a></sup></p></div>
+        <div class="fig reveal"><span class="n">≈ 945</span><span class="u">TWh by 2030</span>
+          <p>International Energy Agency projection for global data centre electricity consumption — roughly double today's level.<sup class="ref"><a href="#r15">[15]</a></sup></p></div>
+      </div>
+
+      <div class="notice" style="margin-top:22px">
+        <h4>How to read these figures without getting them wrong</h4>
+        <p><b>At the scale of one request, the impact is small.</b> A question to an assistant costs about as much as a web search. Making an employee feel guilty for asking three questions a day makes no sense: their consumption is lower than that of their screen being on for the same minute.</p>
+        <p><b>At global scale, the impact is massive.</b> These are not decided by the same people. The total comes from the number of requests times the number of users, and from training the models — not from your individual use.</p>
+        <p><b>The useful lever in a company is not using AI less, it is not sending thirty pages with every question.</b> That is exactly step 09 of the data path: what inflates the bill also inflates consumption. Turning down the effort dial and trimming the context acts on both at once.</p>
+      </div>
+
+      <div class="notice legal" style="margin-top:16px;margin-bottom:0">
+        <h4>Three reasons to stay careful with these figures</h4>
+        <p><b>Some of them come from the vendors themselves.</b> The 0.24 Wh study is internal to Google, its methodology is debated, and independent audits are being called for. Scope matters enormously: does it count cooling? idle machines? amortised training?</p>
+        <p><b>Transparency is going backwards.</b> Training code, parameter counts, dataset sizes and training duration are no longer disclosed for several of the most resource-intensive systems, at OpenAI, Anthropic and Google alike.<sup class="ref"><a href="#r1">[1]</a></sup> In other words: the cost of a request is willingly published, the cost of training much less so.</p>
+        <p><b>Sources contradict each other about the present.</b> For global data centre consumption in 2025, you will find both 485 TWh and 787 TWh depending on the scope used. Projections to 2030 converge; the starting point does not. Always quote the source with the figure.</p>
+      </div>
 
       <div class="sec-head" style="max-width:700px;margin:56px auto 20px">
         <h2 style="font-size:clamp(24px,3.2vw,34px)">What a model cannot do.</h2>
@@ -1045,6 +1143,15 @@
 
         <li id="r13"><b>Statistical origins</b>: Adrien-Marie Legendre, method of least squares, 1805; Carl Friedrich Gauss, applied to computing the orbit of Ceres, 1809; Francis Galton, regression and correlation, 1880s; Karl Pearson, formalisation of the correlation coefficient.<br>
           <span class="use">Genealogy of the mathematical tools still used to train a model.</span></li>
+
+        <li id="r14"><b>Google — technical report on the footprint of a Gemini prompt</b>, published 21 August 2025: 0.24 Wh of electricity, 0.03 g of CO₂e and 0.26 mL of water for a median text prompt, and a 33-fold reduction in energy per prompt between May 2024 and May 2025.<br>
+          <a href="https://blog.google/products/gemini/gemini-ai-energy-footprint/" target="_blank" rel="noopener">Google post — measurement methodology</a><br>
+          <span class="use">Energy, water and carbon per request · comparison with a conventional web search (0.2 to 0.3 Wh) · the 0.34 Wh order of magnitude stated publicly by OpenAI.</span>
+          <span class="warn">Vendor-internal study, contested methodology, independent audits being called for. The scope chosen (cooling, idle machines, amortised training) changes the result substantially.</span></li>
+
+        <li id="r15"><b>International Energy Agency — April 2026 report on electricity and data centres.</b><br>
+          <span class="use">Projection of roughly 945 to 950 TWh of global data centre electricity consumption by 2030, about double today's level.</span>
+          <span class="warn">Estimates for 2025 diverge by scope: from 485 TWh to 787 TWh depending on the publication. Only the trajectory is agreed.</span></li>
       </ol>
 
       <div class="notice" style="margin-top:22px;margin-bottom:0">
