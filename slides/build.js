@@ -59,10 +59,10 @@ function link(s, x1, y1, x2, y2, color) {
   s.background = { color: DEEP };
 
   eyebrow(s, "Arx Consulting · AI Training · séance d'ouverture", SKY);
-  s.addText("Soixante-dix ans,\nune douzaine de noms.", {
+  s.addText("Cent ans,\nune douzaine de noms.", {
     x: M, y: 0.92, w: 8.5, h: 1.6, margin: 0, fontFace: H1, fontSize: 42, bold: true, color: INK, lineSpacingMultiple: 1.05,
   });
-  s.addText("Le même projet — faire faire à une machine ce qui demande de l'intelligence — a changé d'étiquette à chaque fois que la précédente s'est dévaluée.", {
+  s.addText("Tout part d'un besoin que personne ne savait satisfaire : prévoir le temps. C'est lui qui a justifié de construire la machine — et le domaine a changé d'étiquette à chaque déception depuis.", {
     x: M, y: 2.62, w: 8.5, h: 0.8, margin: 0, fontFace: BODY, fontSize: 15, color: MUTED_D,
   });
 
@@ -73,26 +73,28 @@ function link(s, x1, y1, x2, y2, color) {
   s.addShape(pres.shapes.LINE, { x: M, y: LY, w: CW, h: 0, line: { color: HAIR, width: 2 } });
 
   const steps = [
-    ["1805", "Les moindres carrés", "Prédire avec des chiffres", false],
-    ["1922", "La météo à la main", "Le véritable ancêtre", false],
+    ["1922", "Prévoir le temps", "Le besoin qui fera la machine", false],
+    ["1950", "La météo sur ENIAC", "24 h de prévision, des semaines de calcul", false],
+    ["1952", "UNIVAC prédit l'élection", "438-93, contre tous les sondages", false],
     ["1956", "Le mot est inventé", "Conférence de Dartmouth", false],
+    ["1958", "Le score de crédit", "La prédiction entre dans l'économie", false],
     ["1974 · 87", "Deux hivers", "Le mot devient un repoussoir", true],
     ["2012", "L'apprentissage profond", "Le moment où ça marche", false],
     ["2022", "L'accès grand public", "Une date, pas une percée", false],
   ];
-  const x0 = 1.55, dx = 2.05;
+  const x0 = 1.32, dx = 1.53;
   steps.forEach(([yr, t1, t2, cold], i) => {
     const cx = x0 + i * dx;
     const c = cold ? WARM : SKY;
     s.addShape(pres.shapes.OVAL, { x: cx - 0.09, y: LY - 0.09, w: 0.18, h: 0.18, fill: { color: c } });
-    s.addText(yr, { x: cx - 0.95, y: LY - 0.7, w: 1.9, h: 0.34, margin: 0, align: "center", fontFace: H1, fontSize: 16, bold: true, color: cold ? WARM : BLUE });
-    s.addText(t1, { x: cx - 0.95, y: LY + 0.22, w: 1.9, h: 0.34, margin: 0, align: "center", fontFace: H1, fontSize: 12.5, bold: true, color: INK });
-    s.addText(t2, { x: cx - 0.95, y: LY + 0.58, w: 1.9, h: 0.5, margin: 0, align: "center", fontFace: BODY, fontSize: 10.5, color: MUTED_D });
+    s.addText(yr, { x: cx - 0.74, y: LY - 0.68, w: 1.48, h: 0.32, margin: 0, align: "center", fontFace: H1, fontSize: 14.5, bold: true, color: cold ? WARM : BLUE });
+    s.addText(t1, { x: cx - 0.74, y: LY + 0.2, w: 1.48, h: 0.46, margin: 0, align: "center", fontFace: H1, fontSize: 11.5, bold: true, color: INK });
+    s.addText(t2, { x: cx - 0.74, y: LY + 0.68, w: 1.48, h: 0.62, margin: 0, align: "center", fontFace: BODY, fontSize: 10, color: MUTED_D });
   });
-  s.addText("en orange, les deux hivers de l'IA", { x: 6.2, y: 5.88, w: 3.0, h: 0.3, margin: 0, align: "center", fontFace: BODY, fontSize: 10.5, italic: true, color: WARM });
+  s.addText("en orange, les deux hivers de l'IA", { x: 7.87, y: 6.06, w: 3.0, h: 0.3, margin: 0, align: "center", fontFace: BODY, fontSize: 10.5, italic: true, color: WARM });
 
   s.addText("Quand un mot nouveau apparaît, demandez ce qu'il fait que le précédent ne faisait pas. Souvent, rien.", {
-    x: M, y: 6.5, w: CW, h: 0.42, margin: 0, align: "center", fontFace: BODY, fontSize: 14, italic: true, color: MUTED,
+    x: M, y: 6.62, w: CW, h: 0.42, margin: 0, align: "center", fontFace: BODY, fontSize: 14, italic: true, color: MUTED,
   });
 }
 

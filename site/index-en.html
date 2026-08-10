@@ -160,6 +160,19 @@
   .era.cold{background:var(--bg-alt);box-shadow:none;border:1px dashed var(--hair)}
   @media(max-width:560px){.tl{padding-left:26px}.tl::before{left:5px}.era::before{left:-27px}}
 
+  .tl-sep{
+    position:relative;margin:26px 0 18px;padding:14px 20px;
+    background:var(--bg-alt);border-radius:14px;
+  }
+  .tl-sep::before{
+    content:"";position:absolute;left:-30px;top:50%;width:12px;height:12px;margin-top:-6px;
+    border-radius:50%;background:var(--bg-alt);border:3px solid var(--bg);
+  }
+  .tl-sep b{display:block;font-size:12px;font-weight:600;color:var(--text-2);
+    text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+  .tl-sep p{margin:0;font-size:15px;color:var(--text-2)}
+  @media(max-width:560px){.tl-sep::before{left:-27px}}
+
   /* ---------- genèse : barres ---------- */
   .chart{background:var(--white);border-radius:var(--radius);padding:26px 26px 22px;
     box-shadow:0 2px 12px rgba(0,0,0,.045);margin-top:18px}
@@ -496,28 +509,32 @@
       </div>
 
       <div class="sec-head" style="max-width:700px;margin:0 auto 24px">
-        <h2 style="font-size:clamp(24px,3.2vw,34px)">Seventy years, a dozen names.</h2>
+        <h2 style="font-size:clamp(24px,3.2vw,34px)">A hundred years, a dozen names.</h2>
         <p style="font-size:17px">The same project — getting a machine to do what takes intelligence — has changed its label every time the previous one lost its value.</p>
       </div>
 
       <div class="tl">
 
+
         <div class="era reveal">
-          <span class="yr">1805 — 1900</span>
-          <h3>Predicting with numbers <em>· the real ancestors</em></h3>
-          <p>Long before any machine, statistics invented the tools today's AI still runs on. Legendre published the <b>method of least squares</b> in 1805; Gauss used it to find the dwarf planet Ceres again after it was lost from view — the first quantitative prediction confirmed by observation.</p>
-          <p>Late in the century, Francis Galton studied family heights and coined the word <b>regression</b> — "regression towards the mean" — then <b>correlation</b>, taken up and formalised by Karl Pearson.<sup class="ref"><a href="#r13">[13]</a></sup> A century later, training a model still means minimising a squared error.</p>
-          <span class="nom">Least squares · regression · correlation</span>
+          <span class="yr">1922</span>
+          <h3>The need to forecast the weather <em>· the starting point</em></h3>
+          <p>It starts with a demand nobody could meet. In 1904, Vilhelm Bjerknes framed the idea: forecasting weather is an <b>initial-value problem</b> — know the state of the atmosphere and the equations governing it, and you can compute tomorrow's. That is the definition of a predictive model.</p>
+          <p>In 1922, Lewis Fry Richardson tried it by hand. He cut the atmosphere into cells and solved the equations cell by cell. It took him weeks for a few hours of forecast — and the result was wrong. He then imagined a "forecast factory": a hall of <b>64,000 human computers</b> working in parallel under a conductor.<sup class="ref"><a href="#r8">[8]</a></sup></p>
+          <p><b>Everything else follows from this.</b> Richardson did not have the machine; it is precisely this need that would justify building one. Von Neumann would cite weather forecasting among the reasons to build a computer.</p>
+          <span class="nom">Modelling · initial-value problem</span>
         </div>
 
         <div class="era reveal">
-          <span class="yr">1904 — 1950</span>
-          <h3>Weather, the first prediction machine <em>· the true ancestor</em></h3>
-          <p>In 1904, Vilhelm Bjerknes framed a decisive idea: forecasting the weather is an <b>initial-value problem</b>. Know the state of the atmosphere now and the equations governing it, and you can compute tomorrow's. That is the definition of a predictive model.</p>
-          <p>In 1922, Lewis Fry Richardson actually tried it, by hand, in <i>Weather Prediction by Numerical Process</i>. He cut the atmosphere into cells and solved the equations cell by cell. It took him weeks of arithmetic for a few hours of forecast — and the result was wrong. He then imagined a "forecast factory": a hall of <b>64,000 human computers</b> working in parallel under a conductor. That is, word for word, a description of a modern computing centre, thirty years before one existed.<sup class="ref"><a href="#r8">[8]</a></sup></p>
-          <p>In March 1950, Charney, Fjørtoft and von Neumann produced the <b>first numerical weather forecast on a computer</b>, on ENIAC. Twenty-four hours of coherent forecast — but weeks to produce it. The first operational services followed in the early 1960s.<sup class="ref"><a href="#r9">[9]</a></sup></p>
-          <span class="nom">Numerical forecasting · modelling · simulation</span>
+          <span class="yr">1946 — 1958</span>
+          <h3>The prediction machine <em>· three uses that changed everything</em></h3>
+          <p><b>Los Alamos, late 1940s — statistical simulation.</b> Ulam and von Neumann devised what became the Monte Carlo method: when a problem is too complex to solve, run it thousands of times at random and read the distribution of outcomes. Predicting stops being "compute the answer" and becomes "estimate a probability".</p>
+          <p><b>March 1950 — the weather problem is cracked.</b> Charney, Fjørtoft and von Neumann produce the first numerical weather forecast on ENIAC. Twenty-four hours of coherent forecast, obtained after weeks of computation. Richardson's wish granted twenty-eight years later.<sup class="ref"><a href="#r9">[9]</a></sup></p>
+          <p><b>4 November 1952 — prediction goes public.</b> On CBS, a UNIVAC I announced early in the evening, from a sample of ballots, a landslide for Eisenhower: 438 electoral votes to 93, at odds of 100 to 1 — while Gallup was calling a close race. The operators judged the prediction too risky and refused to broadcast it. Final result: <b>442 to 89</b>. The machine was right; the humans did not dare believe it.<sup class="ref"><a href="#r13">[13]</a></sup></p>
+          <p><b>1956 — prediction enters the economy.</b> Bill Fair and Earl Isaac founded their company with, in its own words, "two smart guys and a borrowed computer". Two years later they delivered the first credit scoring system: a financial decision taken on a statistical calculation rather than a clerk's judgement. It is the first mass-market, everyday, commercial use of prediction from data.<sup class="ref"><a href="#r13">[13]</a></sup></p>
+          <span class="nom">Simulation · numerical forecasting · scoring</span>
         </div>
+
 
         <div class="era reveal">
           <span class="yr">1963</span>
@@ -525,6 +542,11 @@
           <p>Edward Lorenz restarted a weather simulation, typing his starting values rounded to three decimals instead of six. The trajectory diverged completely. He had just discovered <b>sensitivity to initial conditions</b> — the butterfly effect — and with it a truth that holds for every model: even a perfect one, with infinite computing power, has a <b>horizon of predictability</b> beyond which it says nothing.</p>
           <p>It is the most honest answer to give when someone asks what a model cannot do. It is not a matter of the next version.<sup class="ref"><a href="#r10">[10]</a></sup></p>
           <span class="nom">Chaos · butterfly effect · limit of predictability</span>
+        </div>
+
+        <div class="tl-sep">
+          <b>A second lineage</b>
+          <p>So far, one story: predicting from data and computation. In parallel, from the 1940s onwards, another lineage was advancing — the one that would take the name artificial intelligence. The two only converge in 2012.</p>
         </div>
 
         <div class="era reveal">
@@ -1205,8 +1227,13 @@
         <li id="r12"><b>Founding milestones of AI</b>: Warren McCulloch and Walter Pitts, formal neuron, 1943 · Norbert Wiener, <i>Cybernetics</i>, 1948 · Alan Turing, <i>Computing Machinery and Intelligence</i>, <i>Mind</i>, 1950 · Dartmouth conference and the coining of <i>artificial intelligence</i> by John McCarthy, 1956 · Frank Rosenblatt, perceptron, 1957 · Joseph Weizenbaum, ELIZA, 1966 · Marvin Minsky and Seymour Papert, <i>Perceptrons</i>, 1969 · Lighthill report, 1973 · Ashish Vaswani <i>et al.</i>, <i>Attention Is All You Need</i>, 2017 · ChatGPT opened to the public, 30 November 2022.<br>
           <span class="use">Chronological backbone of the timeline.</span></li>
 
-        <li id="r13"><b>Statistical origins</b>: Adrien-Marie Legendre, method of least squares, 1805; Carl Friedrich Gauss, applied to computing the orbit of Ceres, 1809; Francis Galton, regression and correlation, 1880s; Karl Pearson, formalisation of the correlation coefficient.<br>
-          <span class="use">Genealogy of the mathematical tools still used to train a model.</span></li>
+        <li id="r13"><b>Three founding uses of computer-based prediction.</b><br>
+          <b>UNIVAC I and the US presidential election of 4 November 1952</b>: a forecast of 438 electoral votes to 93 for Eisenhower from a sample of ballots, at odds of 100 to 1, against a Gallup poll calling a close race; final result 442 to 89; the operators held the broadcast back on the night.<br>
+          <a href="https://ethw.org/UNIVAC_and_the_1952_Presidential_Election" target="_blank" rel="noopener">Engineering and Technology History Wiki</a> · <a href="https://computerhistory.org/blog/election-night-1952/" target="_blank" rel="noopener">Computer History Museum</a><br>
+          <b>Fair, Isaac and Company</b>, founded in 1956 by Bill Fair and Earl Isaac; first credit scoring system developed in 1958.<br>
+          <a href="https://www.fico.com/en/history" target="_blank" rel="noopener">History published by FICO</a><br>
+          <b>The Monte Carlo method</b>, developed at Los Alamos in the late 1940s by Stanislaw Ulam and John von Neumann.
+          <span class="use">The "1946 — 1958" era of the timeline: statistical simulation, the weather problem cracked, the first public computer prediction, and the first mass commercial use.</span></li>
 
         <li id="r14"><b>Google — technical report on the footprint of a Gemini prompt</b>, published 21 August 2025: 0.24 Wh of electricity, 0.03 g of CO₂e and 0.26 mL of water for a median text prompt, and a 33-fold reduction in energy per prompt between May 2024 and May 2025.<br>
           <a href="https://blog.google/products/gemini/gemini-ai-energy-footprint/" target="_blank" rel="noopener">Google post — measurement methodology</a><br>

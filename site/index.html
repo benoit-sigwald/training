@@ -197,6 +197,19 @@
   .era.cold{background:var(--bg-alt);box-shadow:none;border:1px dashed var(--hair)}
   @media(max-width:560px){.tl{padding-left:26px}.tl::before{left:5px}.era::before{left:-27px}}
 
+  .tl-sep{
+    position:relative;margin:26px 0 18px;padding:14px 20px;
+    background:var(--bg-alt);border-radius:14px;
+  }
+  .tl-sep::before{
+    content:"";position:absolute;left:-30px;top:50%;width:12px;height:12px;margin-top:-6px;
+    border-radius:50%;background:var(--bg-alt);border:3px solid var(--bg);
+  }
+  .tl-sep b{display:block;font-size:12px;font-weight:600;color:var(--text-2);
+    text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+  .tl-sep p{margin:0;font-size:15px;color:var(--text-2)}
+  @media(max-width:560px){.tl-sep::before{left:-27px}}
+
   /* ---------- genèse : barres ---------- */
   .chart{background:var(--white);border-radius:var(--radius);padding:26px 26px 22px;
     box-shadow:0 2px 12px rgba(0,0,0,.045);margin-top:18px}
@@ -547,28 +560,32 @@
       </div>
 
       <div class="sec-head" style="max-width:700px;margin:0 auto 24px">
-        <h2 style="font-size:clamp(24px,3.2vw,34px)">Soixante-dix ans, une douzaine de noms.</h2>
+        <h2 style="font-size:clamp(24px,3.2vw,34px)">Cent ans, une douzaine de noms.</h2>
         <p style="font-size:17px">Le même projet — faire faire à une machine ce qui demande de l'intelligence — a changé d'étiquette à chaque fois que la précédente s'est dévaluée.</p>
       </div>
 
       <div class="tl">
 
+
         <div class="era reveal">
-          <span class="yr">1805 — 1900</span>
-          <h3>Prédire avec des chiffres <em>· les vrais ancêtres</em></h3>
-          <p>Avant toute machine, la statistique invente les outils qu'utilise encore l'IA d'aujourd'hui. Legendre publie la <b>méthode des moindres carrés</b> en 1805, Gauss l'applique pour retrouver dans le ciel la planète naine Cérès, perdue de vue : première prédiction quantitative vérifiée par l'observation.</p>
-          <p>À la fin du siècle, Francis Galton étudie la taille des familles et forge le mot <b>régression</b> — la « régression vers la moyenne » —, puis la <b>corrélation</b>, reprise et formalisée par Karl Pearson.<sup class="ref"><a href="#r13">[13]</a></sup> Un siècle plus tard, entraîner un modèle, c'est toujours minimiser une erreur au carré.</p>
-          <span class="nom">Moindres carrés · régression · corrélation</span>
+          <span class="yr">1922</span>
+          <h3>Le besoin de prévoir le temps <em>· le point de départ</em></h3>
+          <p>Tout commence par une demande que personne ne sait satisfaire. En 1904, Vilhelm Bjerknes pose l'idée : prévoir le temps est un <b>problème aux conditions initiales</b> — connaissez l'état de l'atmosphère et ses équations, et vous calculez celui de demain. C'est la définition même d'un modèle prédictif.</p>
+          <p>En 1922, Lewis Fry Richardson essaie, à la main. Il découpe l'atmosphère en cellules et résout les équations case par case. Il lui faut des semaines pour quelques heures de prévision — et le résultat est faux. Il imagine alors une « usine à prévisions » : un amphithéâtre de <b>64 000 calculateurs humains</b> travaillant en parallèle sous la direction d'un chef d'orchestre.<sup class="ref"><a href="#r8">[8]</a></sup></p>
+          <p><b>C'est de là que vient le reste.</b> Richardson n'avait pas la machine ; c'est ce besoin, précisément, qui justifiera de la construire. Von Neumann citera la prévision météorologique parmi les raisons de bâtir un calculateur.</p>
+          <span class="nom">Modélisation · problème aux conditions initiales</span>
         </div>
 
         <div class="era reveal">
-          <span class="yr">1904 — 1950</span>
-          <h3>La météo, première machine à prédire <em>· le véritable ancêtre</em></h3>
-          <p>En 1904, Vilhelm Bjerknes pose une idée décisive : prévoir le temps est un <b>problème aux conditions initiales</b>. Si l'on connaît l'état de l'atmosphère maintenant et les équations qui la régissent, on peut calculer son état de demain. C'est la définition même d'un modèle prédictif.</p>
-          <p>En 1922, Lewis Fry Richardson essaie pour de vrai, à la main, dans <i>Weather Prediction by Numerical Process</i>. Il découpe l'atmosphère en cellules et résout les équations case par case. Il lui faut des semaines de calcul pour quelques heures de prévision — et le résultat est faux. Il imagine alors une « usine à prévisions » : un amphithéâtre de <b>64 000 calculateurs humains</b> travaillant en parallèle sous la direction d'un chef d'orchestre. C'est, mot pour mot, la description d'un centre de calcul moderne, trente ans avant qu'il existe.<sup class="ref"><a href="#r8">[8]</a></sup></p>
-          <p>En mars 1950, Charney, Fjørtoft et von Neumann réussissent la <b>première prévision numérique du temps sur ordinateur</b>, sur l'ENIAC. Vingt-quatre heures de prévision cohérente, mais des semaines pour la produire. Les premiers services opérationnels suivent au début des années 1960.<sup class="ref"><a href="#r9">[9]</a></sup></p>
-          <span class="nom">Prévision numérique · modélisation · simulation</span>
+          <span class="yr">1946 — 1958</span>
+          <h3>La machine à prédire <em>· trois usages qui font tout basculer</em></h3>
+          <p><b>Los Alamos, fin des années 1940 — la simulation statistique.</b> Ulam et von Neumann mettent au point la méthode dite de Monte-Carlo : quand un problème est trop complexe pour être résolu, on le fait tourner des milliers de fois au hasard et on lit la distribution des résultats. Prédire cesse d'être « calculer la réponse » pour devenir « estimer une probabilité ».</p>
+          <p><b>Mars 1950 — la météo aboutit.</b> Charney, Fjørtoft et von Neumann réussissent la première prévision numérique du temps sur l'ENIAC. Vingt-quatre heures de prévision cohérente, obtenues en plusieurs semaines de calcul. Le vœu de Richardson est exaucé vingt-huit ans plus tard.<sup class="ref"><a href="#r9">[9]</a></sup></p>
+          <p><b>4 novembre 1952 — la prédiction devient publique.</b> Sur CBS, un UNIVAC I annonce en début de soirée, à partir d'un échantillon de bulletins, une victoire écrasante d'Eisenhower : 438 grands électeurs contre 93, à 100 contre 1 — alors que l'institut Gallup annonçait un scrutin serré. Les opérateurs jugent la prédiction trop risquée et refusent de la diffuser. Résultat final : <b>442 contre 89</b>. La machine avait raison, les humains n'ont pas osé la croire.<sup class="ref"><a href="#r13">[13]</a></sup></p>
+          <p><b>1956 — la prédiction entre dans l'économie.</b> Bill Fair et Earl Isaac fondent leur société avec, selon ses propres termes, « deux types intelligents et un ordinateur emprunté ». Deux ans plus tard, ils livrent le premier système de score de crédit : une décision financière prise sur un calcul statistique plutôt que sur l'avis d'un guichetier. C'est le premier usage de masse, quotidien et commercial, de la prédiction par données.<sup class="ref"><a href="#r13">[13]</a></sup></p>
+          <span class="nom">Simulation · prévision numérique · scoring</span>
         </div>
+
 
         <div class="era reveal">
           <span class="yr">1963</span>
@@ -576,6 +593,11 @@
           <p>Edward Lorenz relance une simulation météo en saisissant ses valeurs de départ arrondies à trois décimales au lieu de six. La trajectoire diverge complètement. Il vient de découvrir la <b>sensibilité aux conditions initiales</b> — l'effet papillon —, et avec elle une vérité qui vaut pour tous les modèles : même parfait, même avec une puissance de calcul infinie, un modèle a un <b>horizon de prédictibilité</b> au-delà duquel il ne dit plus rien.</p>
           <p>C'est la réponse la plus honnête à donner quand on demande à un modèle ce qu'il ne peut pas faire. Ce n'est pas une question de version suivante.<sup class="ref"><a href="#r10">[10]</a></sup></p>
           <span class="nom">Chaos · effet papillon · limite de prédictibilité</span>
+        </div>
+
+        <div class="tl-sep">
+          <b>Deuxième lignée</b>
+          <p>Jusqu'ici, une seule histoire : prévoir à partir de données et de calcul. En parallèle, dès les années 1940, une autre lignée avance — celle qui prendra le nom d'intelligence artificielle. Les deux ne se rejoindront qu'en 2012.</p>
         </div>
 
         <div class="era reveal">
@@ -1327,8 +1349,13 @@
         <li id="r12"><b>Jalons fondateurs de l'IA</b> : Warren McCulloch et Walter Pitts, neurone formel, 1943 · Norbert Wiener, <i>Cybernetics</i>, 1948 · Alan Turing, <i>Computing Machinery and Intelligence</i>, <i>Mind</i>, 1950 · conférence de Dartmouth et forge du terme <i>artificial intelligence</i> par John McCarthy, 1956 · Frank Rosenblatt, perceptron, 1957 · Joseph Weizenbaum, ELIZA, 1966 · Marvin Minsky et Seymour Papert, <i>Perceptrons</i>, 1969 · rapport Lighthill, 1973 · Ashish Vaswani <i>et al.</i>, <i>Attention Is All You Need</i>, 2017 · ouverture de ChatGPT au public, 30 novembre 2022.<br>
           <span class="use">Trame chronologique de la frise.</span></li>
 
-        <li id="r13"><b>Origines statistiques</b> : Adrien-Marie Legendre, méthode des moindres carrés, 1805 ; Carl Friedrich Gauss, application au calcul de l'orbite de Cérès, 1809 ; Francis Galton, régression et corrélation, années 1880 ; Karl Pearson, formalisation du coefficient de corrélation.<br>
-          <span class="use">Généalogie des outils mathématiques encore utilisés pour entraîner un modèle.</span></li>
+        <li id="r13"><b>Trois usages fondateurs de la prédiction par ordinateur.</b><br>
+          <b>UNIVAC I et l'élection présidentielle américaine du 4 novembre 1952</b> : prévision de 438 grands électeurs contre 93 pour Eisenhower à partir d'un échantillon de bulletins, à 100 contre 1, contre un sondage Gallup annonçant un scrutin serré ; résultat final 442 contre 89 ; diffusion retenue le soir même par les opérateurs.<br>
+          <a href="https://ethw.org/UNIVAC_and_the_1952_Presidential_Election" target="_blank" rel="noopener">Engineering and Technology History Wiki</a> · <a href="https://computerhistory.org/blog/election-night-1952/" target="_blank" rel="noopener">Computer History Museum</a><br>
+          <b>Fair, Isaac and Company</b>, fondée en 1956 par Bill Fair et Earl Isaac ; premier système de score de crédit développé en 1958.<br>
+          <a href="https://www.fico.com/en/history" target="_blank" rel="noopener">Historique publié par FICO</a><br>
+          <b>Méthode de Monte-Carlo</b>, mise au point à Los Alamos à la fin des années 1940 par Stanislaw Ulam et John von Neumann.
+          <span class="use">Époque « 1946 — 1958 » de la frise : simulation statistique, aboutissement de la prévision météorologique, première prédiction publique par ordinateur, et premier usage commercial de masse.</span></li>
 
         <li id="r14"><b>Google — rapport technique sur l'empreinte d'une requête Gemini</b>, publié le 21 août 2025 : 0,24 Wh d'électricité, 0,03 g de CO₂e et 0,26 mL d'eau pour une requête texte médiane, et une division par 33 de l'énergie par requête entre mai 2024 et mai 2025.<br>
           <a href="https://blog.google/intl/fr-fr/nouveautes-produits/dans-le-cloud/quelle-consommation-energetique-pour-lia-de-google-nous-avons-fait-le-calcul/" target="_blank" rel="noopener">Billet Google — méthodologie de mesure</a><br>
