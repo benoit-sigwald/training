@@ -180,6 +180,46 @@
   .svgbar .fill.alt{fill:#8e8e93}
   .svgbar .val{fill:var(--text);font-size:15px;font-weight:600;font-family:var(--sf)}
 
+  /* ---------- genèse : dans la boîte ---------- */
+  .netwrap{background:var(--white);border-radius:var(--radius);padding:26px 26px 20px;
+    box-shadow:0 2px 12px rgba(0,0,0,.045);margin-top:18px}
+  .netwrap h4{margin:0 0 4px;font-size:17px;font-weight:600;letter-spacing:-.02em}
+  .netwrap .src{margin:0 0 14px;font-size:13px;color:var(--text-2)}
+  .net{width:100%;height:auto;display:block}
+  .net .wire{stroke:var(--hair);stroke-width:1.4;fill:none}
+  .net .nd{fill:var(--white);stroke:var(--blue);stroke-width:2}
+  .net .nd.in{stroke:#8e8e93}
+  .net .nd.out{fill:rgba(0,113,227,.12)}
+  .net .cap{fill:var(--text-2);font-size:12.5px;font-family:var(--sf)}
+  .net .cap.b{fill:var(--text);font-weight:600}
+  .np{cursor:pointer}
+  .np .hit{fill:transparent}
+  .np:hover .nd{fill:rgba(0,113,227,.14)}
+  .np:hover .wire{stroke:var(--blue);stroke-width:2.4}
+  .np:hover .cap{fill:var(--blue)}
+  .np:focus-visible{outline:3px solid var(--blue);outline-offset:2px;border-radius:8px}
+  .np .pin{fill:var(--blue);font-size:11px;font-weight:700;font-family:var(--sf)}
+  .netwrap .hint{margin:12px 0 0;font-size:13px;color:var(--text-2);text-align:center}
+
+  /* démonstration : le mot suivant */
+  .toks{background:var(--white);border-radius:var(--radius);padding:26px;box-shadow:0 2px 12px rgba(0,0,0,.045);margin-top:18px}
+  .toks h4{margin:0 0 4px;font-size:17px;font-weight:600;letter-spacing:-.02em}
+  .toks .src{margin:0 0 16px;font-size:13px;color:var(--text-2)}
+  .tk-seg{display:flex;gap:2px;background:rgba(120,120,128,.12);padding:2px;border-radius:980px;width:fit-content;margin-bottom:18px}
+  .tk-seg button{font-family:var(--sf);font-size:13.5px;font-weight:500;border:0;background:transparent;
+    color:var(--text);padding:7px 15px;border-radius:980px;cursor:pointer}
+  .tk-seg button[aria-pressed="true"]{background:var(--white);box-shadow:0 1px 3px rgba(0,0,0,.1)}
+  .tk-q{font-size:19px;letter-spacing:-.02em;margin:0 0 16px}
+  .tk-q i{font-style:normal;background:var(--bg-alt);border-radius:6px;padding:1px 10px;color:var(--text-2)}
+  .tk-row{display:grid;grid-template-columns:minmax(74px,140px) 1fr 52px;gap:12px;align-items:center;margin-bottom:8px}
+  .tk-row .w{font-size:15px;color:var(--text)}
+  .tk-row .tr{display:block;background:var(--bg-alt);border-radius:980px;height:20px;overflow:hidden}
+  .tk-row .fl{display:block;height:20px;background:var(--blue);border-radius:980px;transition:width .35s ease}
+  .tk-row .pc{font-size:14px;font-weight:600;text-align:right}
+  .tk-note{margin:16px 0 0;padding:14px 16px;border-radius:12px;background:var(--bg-alt);font-size:15px;color:var(--text-2)}
+  .tk-note b{color:var(--text)}
+  @media(max-width:560px){.tk-row{grid-template-columns:66px 1fr 44px;gap:8px}.tk-row .w{font-size:14px}}
+
   /* ---------- genèse : chemin des données ---------- */
   .flow{display:grid;gap:14px}
   .ph{background:var(--white);border-radius:var(--radius);padding:20px 22px;box-shadow:0 2px 12px rgba(0,0,0,.045)}
@@ -628,6 +668,116 @@
         <p>The rule holds beyond this example: when a percentage is attached to no named study, do not repeat it. That is module 07 applied to your own communication.</p>
       </div>
 
+      <div class="sec-head" style="max-width:700px;margin:56px auto 20px">
+        <h2 style="font-size:clamp(24px,3.2vw,34px)">What is inside the box.</h2>
+        <p style="font-size:17px">Five ideas, no equations. Each one exists to explain a limit you will actually run into.</p>
+      </div>
+
+      <div class="netwrap">
+        <h4>A neural network, in one picture</h4>
+        <p class="src">Click a part of the diagram. A warning: this is not a brain — the biological analogy misleads more than it helps.</p>
+
+        <svg class="net" viewBox="0 0 720 300" role="img" aria-label="Diagram of a neural network: inputs, weights, hidden layers, output. Each part is clickable.">
+          <g class="wires">
+            <path class="wire" d="M136 90 L246 60 M136 90 L246 120 M136 90 L246 180 M136 150 L246 60 M136 150 L246 120 M136 150 L246 180 M136 210 L246 60 M136 210 L246 120 M136 210 L246 180"></path>
+            <path class="wire" d="M286 60 L406 60 M286 60 L406 120 M286 60 L406 180 M286 120 L406 60 M286 120 L406 120 M286 120 L406 180 M286 180 L406 60 M286 180 L406 120 M286 180 L406 180"></path>
+            <path class="wire" d="M446 60 L566 120 M446 120 L566 120 M446 180 L566 120"></path>
+          </g>
+
+          <g class="np" data-n="0" tabindex="0" role="button" aria-label="Inputs">
+            <rect class="hit" x="76" y="46" width="76" height="200"></rect>
+            <circle class="nd in" cx="116" cy="90" r="20"></circle>
+            <circle class="nd in" cx="116" cy="150" r="20"></circle>
+            <circle class="nd in" cx="116" cy="210" r="20"></circle>
+            <text class="cap b" x="116" y="266" text-anchor="middle">Inputs</text>
+            <text class="pin" x="116" y="34" text-anchor="middle">1</text>
+          </g>
+
+          <g class="np" data-n="1" tabindex="0" role="button" aria-label="Weights, what is learned">
+            <rect class="hit" x="152" y="46" width="92" height="200"></rect>
+            <path class="wire" d="M136 90 L246 60 M136 150 L246 120 M136 210 L246 180"></path>
+            <text class="cap b" x="191" y="266" text-anchor="middle">Weights</text>
+            <text class="pin" x="191" y="34" text-anchor="middle">2</text>
+          </g>
+
+          <g class="np" data-n="2" tabindex="0" role="button" aria-label="A neuron">
+            <rect class="hit" x="246" y="36" width="80" height="60"></rect>
+            <circle class="nd" cx="266" cy="60" r="20"></circle>
+            <text class="pin" x="266" y="26" text-anchor="middle">3</text>
+          </g>
+          <circle class="nd" cx="266" cy="120" r="20"></circle>
+          <circle class="nd" cx="266" cy="180" r="20"></circle>
+
+          <g class="np" data-n="3" tabindex="0" role="button" aria-label="Stacked layers">
+            <rect class="hit" x="326" y="46" width="120" height="200"></rect>
+            <circle class="nd" cx="426" cy="60" r="20"></circle>
+            <circle class="nd" cx="426" cy="120" r="20"></circle>
+            <circle class="nd" cx="426" cy="180" r="20"></circle>
+            <text class="cap b" x="346" y="266" text-anchor="middle">Hidden layers</text>
+            <text class="pin" x="426" y="34" text-anchor="middle">4</text>
+          </g>
+
+          <g class="np" data-n="4" tabindex="0" role="button" aria-label="The output">
+            <rect class="hit" x="526" y="76" width="140" height="140"></rect>
+            <circle class="nd out" cx="586" cy="120" r="26"></circle>
+            <text class="cap b" x="586" y="176" text-anchor="middle">Output</text>
+            <text class="cap" x="586" y="196" text-anchor="middle">a probability</text>
+            <text class="pin" x="586" y="80" text-anchor="middle">5</text>
+          </g>
+        </svg>
+
+        <p class="hint">Five clickable parts — inputs, weights, neuron, layers, output.</p>
+      </div>
+
+      <div class="toks">
+        <h4>What actually comes out: a distribution, not an answer</h4>
+        <p class="src">A language model does not pick a word: it assigns a probability to every word it knows, then draws one. Compare the two cases.</p>
+
+        <div class="tk-seg" role="group" aria-label="Choose an example">
+          <button id="tkb0" aria-pressed="true">A question it can handle</button>
+          <button id="tkb1" aria-pressed="false">A question it knows nothing about</button>
+        </div>
+
+        <p class="tk-q" id="tkq"></p>
+        <div id="tkbars"></div>
+        <p class="tk-note" id="tknote"></p>
+      </div>
+
+      <div class="tbl" style="margin-top:18px">
+        <table>
+          <thead>
+            <tr><th>The mechanism</th><th>The limit it explains</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>The output is a distribution: there is always a most probable word, even when the right answer does not exist.</td><td><b>Limit 01 — it does not know that it does not know.</b> There is no "I don't know" output: that is not an oversight by the designers, it is the shape of the system.</td></tr>
+            <tr><td>The weights are frozen when training ends. Nothing you write modifies them.</td><td><b>Limit 02 — it does not know your company.</b> And <b>limit 04 — it has no memory</b>: what looks like memory is text handed back to it each time.</td></tr>
+            <tr><td>A neuron performs a weighted sum, not a symbolic arithmetic operation. The model learned what a correct calculation looks like.</td><td><b>Limit 03 — it does not compute, it imitates computation.</b> Hence the duty to recompute totals, or to give it a tool that genuinely calculates.</td></tr>
+            <tr><td>The weights encode the regularities of the training corpus, including the ones we would rather it had not learned.</td><td><b>Limit 05 — it reproduces the biases in its data.</b> Bias is not added afterwards: it is in the weights.</td></tr>
+            <tr><td>The next word is drawn from the distribution, not always taken from the top.</td><td><b>Limit 06 — it is not deterministic.</b> Same request twice, two answers. Adjustable, not removable.</td></tr>
+            <tr><td>Each layer composes what the previous one detected; depth builds increasingly abstract representations.</td><td><b>This is where the power comes from</b> — and why nobody can say precisely why one answer came out rather than another.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="notice legal" style="margin-top:22px;margin-bottom:0">
+        <h4>Two words you will hear, now defined</h4>
+        <p><b>Backpropagation.</b> The training method: compare the output to the right answer, measure the error, then travel back through the network adjusting every weight slightly in the direction that reduces that error. Repeated billions of times. Known since 1986, unusable until the data and the graphics cards arrived.</p>
+        <p><b>Open weights.</b> When a lab publishes the numerical values its model learned, anyone can download it and run it on their own machines. That is what separates GLM-5.2 or DeepSeek from models reachable only through a provider's interface — and it is the only realistic route if your data must not leave.</p>
+      </div>
+
+      <dialog class="dlg" id="dlgn">
+        <div class="dlg-in">
+          <button class="dlg-x" id="dlgnx" aria-label="Close">✕</button>
+          <span class="dlg-k" id="dlgnk"></span>
+          <h3 id="dlgnt"></h3>
+          <dl>
+            <div><dt>In plain terms</dt><dd id="dlgn1"></dd></div>
+            <div><dt>What it changes for you</dt><dd id="dlgn2"></dd></div>
+            <div><dt>The limit it explains</dt><dd id="dlgn3"></dd></div>
+          </dl>
+          <p class="dlg-m" id="dlgnm"></p>
+        </div>
+      </dialog>
       <div class="sec-head" style="max-width:700px;margin:56px auto 20px">
         <h2 style="font-size:clamp(24px,3.2vw,34px)">The path your data takes.</h2>
         <p style="font-size:17px">From your file to the answer, and on to the trace it leaves. Click a step: what happens there, where your data goes, and what breaks.</p>
@@ -1122,6 +1272,83 @@ document.getElementById("grid-a").innerHTML=avance.map(modCard).join("");
 document.getElementById("rules-d").innerHTML=reflexes.map(ruleCard).join("");
 document.getElementById("rules-a").innerHTML=gardefous.map(ruleCard).join("");
 document.getElementById("fiches").innerHTML=fiches.map(ficheEl).join("");
+
+/* Inside the box: the five parts of the network, opened on click. */
+const reseau=[
+ {k:"Part 1",t:"The inputs",
+  a:"Everything coming in is first turned into numbers. A word, a piece of an image, a fragment of sound: nothing reaches the network in its original form. That is the job of the tokens at step 09.",
+  b:"It explains why a model handles text, a photo or a table indifferently: by this point they have all become the same thing. And why it has no access whatsoever to anything that was not converted.",
+  c:"What does not go in does not exist for it. A document you did not provide will never be \"guessed\".",
+  m:"→ Limit 02 — it does not know your company"},
+
+ {k:"Part 2",t:"The weights, what is learned",
+  a:"Every line in the diagram carries a number: a weight. It says how much importance to give the signal passing through it. A model is exactly that — hundreds of billions of those numbers, and nothing else.",
+  b:"When people say \"parameters\", these are they. When they say \"open weights\", it means a lab published them and you can run the model yourself. And when they say a model \"has learned\", it means these numbers were adjusted, one by one.",
+  c:"They are frozen when training ends. Nothing you type modifies them: your data passes through the network, it does not change it.",
+  m:"→ Limits 02 and 04 — no knowledge of your company, no memory"},
+
+ {k:"Part 3",t:"A neuron",
+  a:"A neuron does only two things: it adds up what arrives, each signal multiplied by its weight, then decides whether to pass anything on and how strongly. That is all. A weighted vote, followed by a threshold.",
+  b:"The useful image is not a brain, it is a jury: each member has a different voting weight, and the decision comes out of the sum. Nobody on that jury \"understands\" the case.",
+  c:"A weighted sum is not a symbolic arithmetic operation. The model learned what a correct calculation looks like — which is not the same as calculating.",
+  m:"→ Limit 03 — it does not compute, it imitates computation"},
+
+ {k:"Part 4",t:"The stacked layers",
+  a:"Neurons are arranged in successive layers. Each layer composes what the previous one detected: edges, then shapes, then objects. In language: letters, then words, then turns of phrase, then meaning.",
+  b:"That is the \"deep\" in deep learning: depth is the number of layers. It is what makes these models powerful — and opaque.",
+  c:"Nobody, including the people who built it, can point to the exact place in the network where a piece of information sits, or say why one answer came out rather than another.",
+  m:"→ Explainability, and why the human check stays essential"},
+
+ {k:"Part 5",t:"The output",
+  a:"At the end, the network does not produce a word: it produces a probability for every word it knows. Then one word is drawn from that distribution, appended to the text, and the whole thing starts again for the next one.",
+  b:"This is the most important part of the diagram. The model always produces an output, whatever the question. A probability distribution contains no \"I don't know\" option — that slot does not exist.",
+  c:"Hallucination stops being a mysterious defect: it is the direct consequence of this shape. And since the word is drawn at random, the same request twice can give two answers.",
+  m:"→ Limits 01 and 06 — confidence without knowledge, and non-determinism"}
+];
+
+/* Next-word demonstration. Illustrative figures, rounded for readability. */
+const tkEx=[
+ {q:'"The capital of France is ',bars:[["Paris",92],["a",3],["Lyon",1],["located",1],["other",3]],
+  n:"Here the distribution is <b>peaked</b>: one word crushes all the others. The model has seen this sentence millions of times. This is the favourable case — and the one that builds confidence."},
+ {q:'"Your company\'s 2025 revenue was ',bars:[["€2.4m",19],["€1.8m",17],["€3.1m",16],["roughly",15],["other",33]],
+  n:"Here the model has <b>no information at all</b>: your revenue appears nowhere in its data. And yet it produces a distribution, therefore a figure, written with the same confidence as \"Paris\". <b>There is no \"I don't know\" slot.</b> That is exactly the mechanics of a hallucination."}
+];
+
+(function(){
+  const dlg=document.getElementById("dlgn");
+  if(dlg){
+    const set=(id,v)=>{document.getElementById(id).textContent=v;};
+    const open=g=>{
+      const e=reseau[+g.dataset.n];
+      set("dlgnk",e.k); set("dlgnt",e.t);
+      set("dlgn1",e.a); set("dlgn2",e.b); set("dlgn3",e.c); set("dlgnm",e.m);
+      if(typeof dlg.showModal==="function"){dlg.showModal();}else{dlg.setAttribute("open","");}
+    };
+    document.querySelectorAll(".net .np").forEach(g=>{
+      g.addEventListener("click",()=>open(g));
+      g.addEventListener("keydown",ev=>{if(ev.key==="Enter"||ev.key===" "){ev.preventDefault();open(g);}});
+    });
+    document.getElementById("dlgnx").addEventListener("click",()=>dlg.close());
+    dlg.addEventListener("click",ev=>{if(ev.target===dlg) dlg.close();});
+  }
+
+  const q=document.getElementById("tkq"), zone=document.getElementById("tkbars"), note=document.getElementById("tknote");
+  if(!q) return;
+  const btns=[document.getElementById("tkb0"),document.getElementById("tkb1")];
+  const esc=s=>String(s).replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+  function show(i){
+    const e=tkEx[i];
+    q.innerHTML=esc(e.q)+"<i>… ?</i>";
+    zone.innerHTML=e.bars.map(([w,p])=>
+      '<div class="tk-row"><span class="w">'+esc(w)+'</span>'+
+      '<span class="tr"><span class="fl" style="width:'+p+'%"></span></span>'+
+      '<span class="pc">'+p+' %</span></div>').join("");
+    note.innerHTML=e.n;
+    btns.forEach((b,n)=>b.setAttribute("aria-pressed",n===i?"true":"false"));
+  }
+  btns.forEach((b,i)=>b.addEventListener("click",()=>show(i)));
+  show(0);
+})();
 
 /* Data path: detail of each step, opened on click. */
 const etapes=[

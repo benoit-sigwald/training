@@ -217,6 +217,46 @@
   .svgbar .fill.alt{fill:#8e8e93}
   .svgbar .val{fill:var(--text);font-size:15px;font-weight:600;font-family:var(--sf)}
 
+  /* ---------- genèse : dans la boîte ---------- */
+  .netwrap{background:var(--white);border-radius:var(--radius);padding:26px 26px 20px;
+    box-shadow:0 2px 12px rgba(0,0,0,.045);margin-top:18px}
+  .netwrap h4{margin:0 0 4px;font-size:17px;font-weight:600;letter-spacing:-.02em}
+  .netwrap .src{margin:0 0 14px;font-size:13px;color:var(--text-2)}
+  .net{width:100%;height:auto;display:block}
+  .net .wire{stroke:var(--hair);stroke-width:1.4;fill:none}
+  .net .nd{fill:var(--white);stroke:var(--blue);stroke-width:2}
+  .net .nd.in{stroke:#8e8e93}
+  .net .nd.out{fill:rgba(0,113,227,.12)}
+  .net .cap{fill:var(--text-2);font-size:12.5px;font-family:var(--sf)}
+  .net .cap.b{fill:var(--text);font-weight:600}
+  .np{cursor:pointer}
+  .np .hit{fill:transparent}
+  .np:hover .nd{fill:rgba(0,113,227,.14)}
+  .np:hover .wire{stroke:var(--blue);stroke-width:2.4}
+  .np:hover .cap{fill:var(--blue)}
+  .np:focus-visible{outline:3px solid var(--blue);outline-offset:2px;border-radius:8px}
+  .np .pin{fill:var(--blue);font-size:11px;font-weight:700;font-family:var(--sf)}
+  .netwrap .hint{margin:12px 0 0;font-size:13px;color:var(--text-2);text-align:center}
+
+  /* démonstration : le mot suivant */
+  .toks{background:var(--white);border-radius:var(--radius);padding:26px;box-shadow:0 2px 12px rgba(0,0,0,.045);margin-top:18px}
+  .toks h4{margin:0 0 4px;font-size:17px;font-weight:600;letter-spacing:-.02em}
+  .toks .src{margin:0 0 16px;font-size:13px;color:var(--text-2)}
+  .tk-seg{display:flex;gap:2px;background:rgba(120,120,128,.12);padding:2px;border-radius:980px;width:fit-content;margin-bottom:18px}
+  .tk-seg button{font-family:var(--sf);font-size:13.5px;font-weight:500;border:0;background:transparent;
+    color:var(--text);padding:7px 15px;border-radius:980px;cursor:pointer}
+  .tk-seg button[aria-pressed="true"]{background:var(--white);box-shadow:0 1px 3px rgba(0,0,0,.1)}
+  .tk-q{font-size:19px;letter-spacing:-.02em;margin:0 0 16px}
+  .tk-q i{font-style:normal;background:var(--bg-alt);border-radius:6px;padding:1px 10px;color:var(--text-2)}
+  .tk-row{display:grid;grid-template-columns:minmax(74px,140px) 1fr 52px;gap:12px;align-items:center;margin-bottom:8px}
+  .tk-row .w{font-size:15px;color:var(--text)}
+  .tk-row .tr{display:block;background:var(--bg-alt);border-radius:980px;height:20px;overflow:hidden}
+  .tk-row .fl{display:block;height:20px;background:var(--blue);border-radius:980px;transition:width .35s ease}
+  .tk-row .pc{font-size:14px;font-weight:600;text-align:right}
+  .tk-note{margin:16px 0 0;padding:14px 16px;border-radius:12px;background:var(--bg-alt);font-size:15px;color:var(--text-2)}
+  .tk-note b{color:var(--text)}
+  @media(max-width:560px){.tk-row{grid-template-columns:66px 1fr 44px;gap:8px}.tk-row .w{font-size:14px}}
+
   /* ---------- genèse : chemin des données ---------- */
   .flow{display:grid;gap:14px}
   .ph{background:var(--white);border-radius:var(--radius);padding:20px 22px;box-shadow:0 2px 12px rgba(0,0,0,.045)}
@@ -649,6 +689,116 @@
         <p class="src" style="margin:14px 0 0">Comparez les deux graphiques : une TPE sur deux met de l'IA en production, mais moins d'une sur cinq a écrit une feuille de route — et seulement <b>14 %</b> ont une charte d'usage, contre 73 % des ETI. C'est exactement le trou que comble le module 03 du parcours découverte.</p>
       </div>
 
+      <div class="sec-head" style="max-width:700px;margin:56px auto 20px">
+        <h2 style="font-size:clamp(24px,3.2vw,34px)">Ce qu'il y a dans la boîte.</h2>
+        <p style="font-size:17px">Cinq idées, aucune équation. Chacune sert à comprendre une limite que vous rencontrerez pour de vrai.</p>
+      </div>
+
+      <div class="netwrap">
+        <h4>Un réseau de neurones, en une image</h4>
+        <p class="src">Cliquez sur une partie du schéma. Attention : ce n'est pas un cerveau — l'analogie biologique induit plus en erreur qu'elle n'aide.</p>
+
+        <svg class="net" viewBox="0 0 720 300" role="img" aria-label="Schéma d'un réseau de neurones : entrées, poids, couches cachées, sortie. Chaque partie est cliquable.">
+          <g class="wires">
+            <path class="wire" d="M136 90 L246 60 M136 90 L246 120 M136 90 L246 180 M136 150 L246 60 M136 150 L246 120 M136 150 L246 180 M136 210 L246 60 M136 210 L246 120 M136 210 L246 180"></path>
+            <path class="wire" d="M286 60 L406 60 M286 60 L406 120 M286 60 L406 180 M286 120 L406 60 M286 120 L406 120 M286 120 L406 180 M286 180 L406 60 M286 180 L406 120 M286 180 L406 180"></path>
+            <path class="wire" d="M446 60 L566 120 M446 120 L566 120 M446 180 L566 120"></path>
+          </g>
+
+          <g class="np" data-n="0" tabindex="0" role="button" aria-label="Les entrées">
+            <rect class="hit" x="76" y="46" width="76" height="200"></rect>
+            <circle class="nd in" cx="116" cy="90" r="20"></circle>
+            <circle class="nd in" cx="116" cy="150" r="20"></circle>
+            <circle class="nd in" cx="116" cy="210" r="20"></circle>
+            <text class="cap b" x="116" y="266" text-anchor="middle">Entrées</text>
+            <text class="pin" x="116" y="34" text-anchor="middle">1</text>
+          </g>
+
+          <g class="np" data-n="1" tabindex="0" role="button" aria-label="Les poids, ce qui est appris">
+            <rect class="hit" x="152" y="46" width="92" height="200"></rect>
+            <path class="wire" d="M136 90 L246 60 M136 150 L246 120 M136 210 L246 180"></path>
+            <text class="cap b" x="191" y="266" text-anchor="middle">Poids</text>
+            <text class="pin" x="191" y="34" text-anchor="middle">2</text>
+          </g>
+
+          <g class="np" data-n="2" tabindex="0" role="button" aria-label="Un neurone">
+            <rect class="hit" x="246" y="36" width="80" height="60"></rect>
+            <circle class="nd" cx="266" cy="60" r="20"></circle>
+            <text class="pin" x="266" y="26" text-anchor="middle">3</text>
+          </g>
+          <circle class="nd" cx="266" cy="120" r="20"></circle>
+          <circle class="nd" cx="266" cy="180" r="20"></circle>
+
+          <g class="np" data-n="3" tabindex="0" role="button" aria-label="Les couches empilées">
+            <rect class="hit" x="326" y="46" width="120" height="200"></rect>
+            <circle class="nd" cx="426" cy="60" r="20"></circle>
+            <circle class="nd" cx="426" cy="120" r="20"></circle>
+            <circle class="nd" cx="426" cy="180" r="20"></circle>
+            <text class="cap b" x="346" y="266" text-anchor="middle">Couches cachées</text>
+            <text class="pin" x="426" y="34" text-anchor="middle">4</text>
+          </g>
+
+          <g class="np" data-n="4" tabindex="0" role="button" aria-label="La sortie">
+            <rect class="hit" x="526" y="76" width="140" height="140"></rect>
+            <circle class="nd out" cx="586" cy="120" r="26"></circle>
+            <text class="cap b" x="586" y="176" text-anchor="middle">Sortie</text>
+            <text class="cap" x="586" y="196" text-anchor="middle">une probabilité</text>
+            <text class="pin" x="586" y="80" text-anchor="middle">5</text>
+          </g>
+        </svg>
+
+        <p class="hint">Cinq parties cliquables — entrées, poids, neurone, couches, sortie.</p>
+      </div>
+
+      <div class="toks">
+        <h4>Ce qui sort vraiment : une distribution, pas une réponse</h4>
+        <p class="src">Un modèle de langue ne choisit pas un mot : il attribue une probabilité à tous les mots possibles, puis en tire un. Comparez les deux cas.</p>
+
+        <div class="tk-seg" role="group" aria-label="Choisir un exemple">
+          <button id="tkb0" aria-pressed="true">Une question qu'il peut traiter</button>
+          <button id="tkb1" aria-pressed="false">Une question dont il ne sait rien</button>
+        </div>
+
+        <p class="tk-q" id="tkq"></p>
+        <div id="tkbars"></div>
+        <p class="tk-note" id="tknote"></p>
+      </div>
+
+      <div class="tbl" style="margin-top:18px">
+        <table>
+          <thead>
+            <tr><th>Le mécanisme</th><th>La limite qu'il explique</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>La sortie est une distribution : il y a toujours un mot le plus probable, même quand la bonne réponse n'existe pas.</td><td><b>Limite 01 — il ne sait pas qu'il ne sait pas.</b> Il n'existe pas de sortie « je ne sais pas » : ce n'est pas un oubli des concepteurs, c'est la forme même du système.</td></tr>
+            <tr><td>Les poids sont figés à la fin de l'entraînement. Rien de ce que vous écrivez ne les modifie.</td><td><b>Limite 02 — il ne connaît pas votre entreprise.</b> Et <b>limite 04 — il n'a pas de mémoire</b> : ce qui ressemble à de la mémoire est du texte qu'on lui redonne à chaque fois.</td></tr>
+            <tr><td>Un neurone fait une addition pondérée, pas une opération arithmétique symbolique. Le modèle a appris à quoi ressemble un calcul juste.</td><td><b>Limite 03 — il ne calcule pas, il imite du calcul.</b> D'où l'obligation de recalculer les totaux, ou de lui donner un outil qui calcule réellement.</td></tr>
+            <tr><td>Les poids encodent les régularités du corpus d'entraînement, y compris celles qu'on aurait préféré ne pas apprendre.</td><td><b>Limite 05 — il reproduit les biais de ses données.</b> Le biais n'est pas ajouté après coup : il est dans les poids.</td></tr>
+            <tr><td>Le mot suivant est tiré au sort dans la distribution, pas pris systématiquement en tête.</td><td><b>Limite 06 — il n'est pas déterministe.</b> Deux fois la même demande, deux réponses. C'est réglable, pas supprimable.</td></tr>
+            <tr><td>Chaque couche compose ce que la précédente a repéré ; la profondeur crée des représentations de plus en plus abstraites.</td><td><b>Ce qui explique la puissance</b>, et pourquoi personne ne peut dire précisément pourquoi une réponse est sortie plutôt qu'une autre.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="notice legal" style="margin-top:22px;margin-bottom:0">
+        <h4>Deux mots que vous entendrez, maintenant définis</h4>
+        <p><b>Rétropropagation.</b> La méthode d'entraînement : on compare la sortie à la bonne réponse, on mesure l'erreur, et on remonte le réseau à l'envers pour corriger légèrement chaque poids dans le sens qui réduit cette erreur. Répété des milliards de fois. Connue depuis 1986, inexploitable jusqu'à ce que les données et les cartes graphiques arrivent.</p>
+        <p><b>Poids ouverts</b>, ou <i>open weights</i>. Quand un laboratoire publie les valeurs numériques apprises par son modèle, n'importe qui peut le télécharger et le faire tourner chez soi. C'est ce qui distingue GLM-5.2 ou DeepSeek des modèles accessibles uniquement par l'interface d'un fournisseur — et c'est la seule voie réaliste si vos données ne doivent pas sortir.</p>
+      </div>
+
+      <dialog class="dlg" id="dlgn">
+        <div class="dlg-in">
+          <button class="dlg-x" id="dlgnx" aria-label="Fermer">✕</button>
+          <span class="dlg-k" id="dlgnk"></span>
+          <h3 id="dlgnt"></h3>
+          <dl>
+            <div><dt>En clair</dt><dd id="dlgn1"></dd></div>
+            <div><dt>Ce que ça change pour vous</dt><dd id="dlgn2"></dd></div>
+            <div><dt>La limite que ça explique</dt><dd id="dlgn3"></dd></div>
+          </dl>
+          <p class="dlg-m" id="dlgnm"></p>
+        </div>
+      </dialog>
       <div class="sec-head" style="max-width:700px;margin:56px auto 20px">
         <h2 style="font-size:clamp(24px,3.2vw,34px)">Le chemin de vos données.</h2>
         <p style="font-size:17px">De votre fichier jusqu'à la réponse, puis jusqu'à la trace qu'il en reste. Cliquez sur une étape : ce qui s'y passe, où vont vos données, et ce qui casse.</p>
@@ -1245,6 +1395,83 @@ document.getElementById("grid-a").innerHTML=avance.map(modCard).join("");
 document.getElementById("rules-d").innerHTML=reflexes.map(ruleCard).join("");
 document.getElementById("rules-a").innerHTML=gardefous.map(ruleCard).join("");
 document.getElementById("fiches").innerHTML=fiches.map(ficheEl).join("");
+
+/* Dans la boîte : les cinq parties du réseau, ouvertes au clic. */
+const reseau=[
+ {k:"Partie 1",t:"Les entrées",
+  a:"Tout ce qui entre est d'abord transformé en nombres. Un mot, un morceau d'image, un extrait de son : rien n'arrive au réseau sous sa forme d'origine. C'est le rôle des jetons de l'étape 09.",
+  b:"Cela explique pourquoi un modèle traite indifféremment du texte, une photo ou un tableau : à ce stade, tout est devenu la même chose. Et pourquoi il n'a aucun accès à ce qui n'a pas été converti.",
+  c:"Ce qui n'entre pas n'existe pas pour lui. Un document que vous n'avez pas fourni ne sera jamais « deviné ».",
+  m:"→ Limite 02 — il ne connaît pas votre entreprise"},
+
+ {k:"Partie 2",t:"Les poids, ce qui est appris",
+  a:"Chaque trait du schéma porte un nombre : un poids. Il dit quelle importance accorder au signal qui passe par là. Un modèle, c'est exactement cela — des centaines de milliards de ces nombres, et rien d'autre.",
+  b:"Quand on parle de « paramètres », ce sont eux. Quand on parle de « poids ouverts », c'est qu'un laboratoire les publie et que vous pouvez faire tourner le modèle chez vous. Et quand on dit qu'un modèle « a appris », cela veut dire que ces nombres ont été ajustés, un par un.",
+  c:"Ils sont figés à la fin de l'entraînement. Rien de ce que vous tapez ne les modifie : vos données passent par le réseau, elles ne le changent pas.",
+  m:"→ Limites 02 et 04 — pas de connaissance de votre entreprise, pas de mémoire"},
+
+ {k:"Partie 3",t:"Un neurone",
+  a:"Un neurone ne fait que deux choses : il additionne ce qui lui arrive, chaque signal multiplié par son poids, puis il décide s'il transmet et avec quelle intensité. C'est tout. Un vote pondéré, suivi d'un seuil.",
+  b:"L'image utile n'est pas le cerveau, c'est un jury : chaque membre a un poids de vote différent, et la décision sort de la somme. Personne, dans le jury, ne « comprend » le dossier.",
+  c:"Une addition pondérée n'est pas une opération arithmétique symbolique. Le modèle a appris à quoi ressemble un calcul juste — ce n'est pas la même chose que calculer.",
+  m:"→ Limite 03 — il ne calcule pas, il imite du calcul"},
+
+ {k:"Partie 4",t:"Les couches empilées",
+  a:"Les neurones sont rangés en couches successives. Chaque couche compose ce que la précédente a repéré : des traits, puis des formes, puis des objets. En langage : des lettres, puis des mots, puis des tournures, puis du sens.",
+  b:"C'est le « profond » de deep learning : la profondeur, c'est le nombre de couches. C'est ce qui rend ces modèles puissants — et opaques.",
+  c:"Personne, y compris ceux qui l'ont construit, ne peut désigner l'endroit précis du réseau où se trouve une information ni dire pourquoi telle réponse est sortie plutôt qu'une autre.",
+  m:"→ L'explicabilité, et pourquoi la vérification humaine reste indispensable"},
+
+ {k:"Partie 5",t:"La sortie",
+  a:"À la fin, le réseau ne produit pas un mot : il produit une probabilité pour chacun des mots qu'il connaît. Puis un mot est tiré dans cette distribution, ajouté au texte, et tout recommence pour le suivant.",
+  b:"C'est la partie la plus importante de ce schéma. Le modèle produit toujours une sortie, quelle que soit la question. Une distribution de probabilités ne contient pas d'option « je ne sais pas » — cette case n'existe pas.",
+  c:"L'hallucination cesse d'être un défaut mystérieux : c'est la conséquence directe de cette forme. Et comme le mot est tiré au sort, deux fois la même demande peut donner deux réponses.",
+  m:"→ Limites 01 et 06 — l'assurance sans le savoir, et le non-déterminisme"}
+];
+
+/* Démonstration du mot suivant. Chiffres illustratifs, arrondis pour la lecture. */
+const tkEx=[
+ {q:'« La capitale de la France est ',bars:[["Paris",92],["une",3],["Lyon",1],["située",1],["autre",3]],
+  n:"Ici la distribution est <b>piquée</b> : un mot écrase tous les autres. Le modèle a vu cette phrase des millions de fois. C'est le cas favorable — et c'est celui qui installe la confiance."},
+ {q:'« Le chiffre d\'affaires 2025 de votre société est de ',bars:[["2,4 M€",19],["1,8 M€",17],["3,1 M€",16],["environ",15],["autre",33]],
+  n:"Ici le modèle n'a <b>aucune information</b> : votre chiffre d'affaires n'est nulle part dans ses données. Et pourtant il produit une distribution, donc un montant, écrit avec la même assurance que « Paris ». <b>Il n'existe pas de case « je ne sais pas ».</b> C'est exactement la mécanique d'une hallucination."}
+];
+
+(function(){
+  const dlg=document.getElementById("dlgn");
+  if(dlg){
+    const set=(id,v)=>{document.getElementById(id).textContent=v;};
+    const open=g=>{
+      const e=reseau[+g.dataset.n];
+      set("dlgnk",e.k); set("dlgnt",e.t);
+      set("dlgn1",e.a); set("dlgn2",e.b); set("dlgn3",e.c); set("dlgnm",e.m);
+      if(typeof dlg.showModal==="function"){dlg.showModal();}else{dlg.setAttribute("open","");}
+    };
+    document.querySelectorAll(".net .np").forEach(g=>{
+      g.addEventListener("click",()=>open(g));
+      g.addEventListener("keydown",ev=>{if(ev.key==="Enter"||ev.key===" "){ev.preventDefault();open(g);}});
+    });
+    document.getElementById("dlgnx").addEventListener("click",()=>dlg.close());
+    dlg.addEventListener("click",ev=>{if(ev.target===dlg) dlg.close();});
+  }
+
+  const q=document.getElementById("tkq"), zone=document.getElementById("tkbars"), note=document.getElementById("tknote");
+  if(!q) return;
+  const btns=[document.getElementById("tkb0"),document.getElementById("tkb1")];
+  const esc=s=>String(s).replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+  function show(i){
+    const e=tkEx[i];
+    q.innerHTML=esc(e.q)+"<i>… ?</i>";
+    zone.innerHTML=e.bars.map(([w,p])=>
+      '<div class="tk-row"><span class="w">'+esc(w)+'</span>'+
+      '<span class="tr"><span class="fl" style="width:'+p+'%"></span></span>'+
+      '<span class="pc">'+p+' %</span></div>').join("");
+    note.innerHTML=e.n;
+    btns.forEach((b,n)=>b.setAttribute("aria-pressed",n===i?"true":"false"));
+  }
+  btns.forEach((b,i)=>b.addEventListener("click",()=>show(i)));
+  show(0);
+})();
 
 /* Chemin des données : détail de chaque étape, ouvert au clic. */
 const etapes=[
