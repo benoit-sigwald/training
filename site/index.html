@@ -297,6 +297,10 @@
   .fig .n{display:block;font-size:clamp(26px,3.4vw,34px);font-weight:600;color:var(--blue);letter-spacing:-.02em;line-height:1.05}
   .fig .u{display:block;font-size:14px;font-weight:600;color:var(--text);margin-top:6px}
   .fig p{margin:8px 0 0;font-size:14px;color:var(--text-2)}
+  .fig .eq{display:block;margin-top:12px;padding-top:11px;border-top:1px solid var(--hair);
+    font-size:14.5px;color:var(--text);line-height:1.45}
+  .fig .eq b{font-weight:600;color:var(--blue)}
+
 
   /* ---------- genèse : chemin des données ---------- */
   .flow{display:grid;gap:14px}
@@ -997,13 +1001,13 @@
 
       <div class="figs">
         <div class="fig reveal"><span class="n">0,24</span><span class="u">Wh par requête texte</span>
-          <p>Mesure publiée par Google pour une requête médiane sur Gemini, avec 0,03 g de CO₂e et 0,26 mL d'eau. À comparer aux 0,2 à 0,3 Wh d'une recherche web classique.<sup class="ref"><a href="#r14">[14]</a></sup></p></div>
+          <p>Mesure publiée par Google pour une requête médiane sur Gemini, avec 0,03 g de CO₂e et 0,26 mL d'eau. À comparer aux 0,2 à 0,3 Wh d'une recherche web classique.<sup class="ref"><a href="#r14">[14]</a></sup></p><span class="eq">Votre cerveau consomme environ 20 W en continu, soit 480 Wh par jour.<sup class="ref"><a href="#r18">[18]</a></sup> Une requête, c'est donc <b>43 secondes de cerveau humain</b> — et il faudrait <b>2 000 requêtes</b> pour égaler une seule de vos journées de réflexion.</span></div>
         <div class="fig reveal"><span class="n">0,34</span><span class="u">Wh, autre estimation</span>
-          <p>Ordre de grandeur avancé publiquement par OpenAI. La fourchette raisonnable pour une requête texte se situe donc entre 0,24 et 0,34 Wh.<sup class="ref"><a href="#r14">[14]</a></sup></p></div>
+          <p>Ordre de grandeur avancé publiquement par OpenAI. La fourchette raisonnable pour une requête texte se situe donc entre 0,24 et 0,34 Wh.<sup class="ref"><a href="#r14">[14]</a></sup></p><span class="eq">Soit <b>une minute de cerveau</b>, ou <b>trois minutes d'une ampoule LED</b> de 7 W. Recharger entièrement un téléphone en consomme quarante fois plus.</span></div>
         <div class="fig reveal"><span class="n">72 816</span><span class="u">tonnes de CO₂e</span>
-          <p>Émissions estimées du seul entraînement de Grok 4, en 2025. L'entraînement est un coût unique, mais colossal — et de moins en moins documenté.<sup class="ref"><a href="#r1">[1]</a></sup></p></div>
+          <p>Émissions estimées du seul entraînement de Grok 4, en 2025. L'entraînement est un coût unique, mais colossal — et de moins en moins documenté.<sup class="ref"><a href="#r1">[1]</a></sup></p><span class="eq">L'empreinte carbone moyenne d'un Français est de 8,2 tonnes par an.<sup class="ref"><a href="#r17">[17]</a></sup> Entraîner ce seul modèle a donc émis autant que <b>8 900 Français pendant un an</b> — l'équivalent d'une ville comme Chantilly ou Sanary-sur-Mer.</span></div>
         <div class="fig reveal"><span class="n">≈ 945</span><span class="u">TWh en 2030</span>
-          <p>Projection de l'Agence internationale de l'énergie pour la consommation électrique mondiale des centres de données — environ le double du niveau actuel.<sup class="ref"><a href="#r15">[15]</a></sup></p></div>
+          <p>Projection de l'Agence internationale de l'énergie pour la consommation électrique mondiale des centres de données — environ le double du niveau actuel.<sup class="ref"><a href="#r15">[15]</a></sup></p><span class="eq">La France entière a consommé 451 TWh d'électricité en 2025.<sup class="ref"><a href="#r16">[16]</a></sup> Les centres de données consommeront donc <b>plus de deux fois la France</b>, chauffage, industrie, transports et tous les foyers compris.</span></div>
       </div>
 
       <div class="notice" style="margin-top:22px">
@@ -1334,6 +1338,19 @@
         <li id="r15"><b>Agence internationale de l'énergie — rapport d'avril 2026 sur l'électricité et les centres de données.</b><br>
           <span class="use">Projection d'environ 945 à 950 TWh de consommation électrique mondiale des centres de données en 2030, soit environ le double du niveau actuel.</span>
           <span class="warn">Les estimations pour 2025 divergent selon les périmètres : de 485 TWh à 787 TWh selon les publications. Seule la trajectoire fait consensus.</span></li>
+
+        <li id="r16"><b>RTE — <i>Bilan électrique 2025</i></b>, principaux résultats, publié en 2026.<br>
+          <a href="https://assets.rte-france.com/prod/public/2026-03/Bilan-electrique-2025-principaux-resultats.pdf" target="_blank" rel="noopener">Bilan électrique 2025 (PDF)</a><br>
+          <span class="use">Consommation électrique de la France métropolitaine en 2025 : 451 TWh, corrigée des aléas météorologiques et calendaires. Sert de point de comparaison à la projection de 945 TWh pour les centres de données mondiaux en 2030.</span></li>
+
+        <li id="r17"><b>Insee et Service des données et études statistiques — empreinte carbone de la France.</b><br>
+          <a href="https://www.statistiques.developpement-durable.gouv.fr/lempreinte-carbone-de-la-france-de-1990-2024" target="_blank" rel="noopener">L'empreinte carbone de la France de 1990 à 2024</a><br>
+          <span class="use">Empreinte carbone moyenne de 8,2 tonnes équivalent CO₂ par personne en 2024, dont la moitié associée aux importations. Sert au calcul de l'équivalence des 72 816 tonnes d'un entraînement.</span>
+          <span class="warn">L'empreinte inclut les émissions importées ; les émissions territoriales par personne sont nettement plus basses. Deux chiffres différents, deux périmètres différents.</span></li>
+
+        <li id="r18"><b>Métabolisme cérébral — consommation énergétique du cerveau humain.</b> Le cerveau représente environ 2 % de la masse corporelle mais 20 % du métabolisme basal, soit une puissance moyenne continue d'environ 20 watts.<br>
+          <span class="use">Équivalence entre une requête à 0,24 Wh et 43 secondes de fonctionnement cérébral, et entre 2 000 requêtes et une journée de cerveau.</span>
+          <span class="warn">Comparaison pédagogique, pas une équivalence fonctionnelle : un cerveau et un modèle ne font pas le même travail avec ces watts.</span></li>
       </ol>
 
       <div class="notice" style="margin-top:22px;margin-bottom:0">

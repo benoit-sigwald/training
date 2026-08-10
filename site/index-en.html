@@ -260,6 +260,10 @@
   .fig .n{display:block;font-size:clamp(26px,3.4vw,34px);font-weight:600;color:var(--blue);letter-spacing:-.02em;line-height:1.05}
   .fig .u{display:block;font-size:14px;font-weight:600;color:var(--text);margin-top:6px}
   .fig p{margin:8px 0 0;font-size:14px;color:var(--text-2)}
+  .fig .eq{display:block;margin-top:12px;padding-top:11px;border-top:1px solid var(--hair);
+    font-size:14.5px;color:var(--text);line-height:1.45}
+  .fig .eq b{font-weight:600;color:var(--blue)}
+
 
   /* ---------- genèse : chemin des données ---------- */
   .flow{display:grid;gap:14px}
@@ -973,13 +977,13 @@
 
       <div class="figs">
         <div class="fig reveal"><span class="n">0.24</span><span class="u">Wh per text request</span>
-          <p>Figure published by Google for a median Gemini prompt, alongside 0.03 g of CO₂e and 0.26 mL of water. Compare with 0.2 to 0.3 Wh for a conventional web search.<sup class="ref"><a href="#r14">[14]</a></sup></p></div>
+          <p>Figure published by Google for a median Gemini prompt, alongside 0.03 g of CO₂e and 0.26 mL of water. Compare with 0.2 to 0.3 Wh for a conventional web search.<sup class="ref"><a href="#r14">[14]</a></sup></p><span class="eq">Your brain draws about 20 W continuously, or 480 Wh a day.<sup class="ref"><a href="#r18">[18]</a></sup> One request is therefore <b>43 seconds of human brain</b> — and it would take <b>2,000 requests</b> to match a single day of your own thinking.</span></div>
         <div class="fig reveal"><span class="n">0.34</span><span class="u">Wh, another estimate</span>
-          <p>The order of magnitude stated publicly by OpenAI. A reasonable range for a text request is therefore 0.24 to 0.34 Wh.<sup class="ref"><a href="#r14">[14]</a></sup></p></div>
+          <p>The order of magnitude stated publicly by OpenAI. A reasonable range for a text request is therefore 0.24 to 0.34 Wh.<sup class="ref"><a href="#r14">[14]</a></sup></p><span class="eq">That is <b>one minute of brain</b>, or <b>three minutes of a 7 W LED bulb</b>. Fully charging a phone uses forty times more.</span></div>
         <div class="fig reveal"><span class="n">72,816</span><span class="u">tonnes of CO₂e</span>
-          <p>Estimated emissions from training Grok 4 alone, in 2025. Training is a one-off cost, but a colossal one — and increasingly undocumented.<sup class="ref"><a href="#r1">[1]</a></sup></p></div>
+          <p>Estimated emissions from training Grok 4 alone, in 2025. Training is a one-off cost, but a colossal one — and increasingly undocumented.<sup class="ref"><a href="#r1">[1]</a></sup></p><span class="eq">The average French person's carbon footprint is 8.2 tonnes a year.<sup class="ref"><a href="#r17">[17]</a></sup> Training this one model therefore emitted as much as <b>8,900 people living for a year</b> — a town the size of Windermere or Saint-Tropez.</span></div>
         <div class="fig reveal"><span class="n">≈ 945</span><span class="u">TWh by 2030</span>
-          <p>International Energy Agency projection for global data centre electricity consumption — roughly double today's level.<sup class="ref"><a href="#r15">[15]</a></sup></p></div>
+          <p>International Energy Agency projection for global data centre electricity consumption — roughly double today's level.<sup class="ref"><a href="#r15">[15]</a></sup></p><span class="eq">France as a whole consumed 451 TWh of electricity in 2025.<sup class="ref"><a href="#r16">[16]</a></sup> Data centres will therefore draw <b>more than twice all of France</b> — heating, industry, transport and every household included.</span></div>
       </div>
 
       <div class="notice" style="margin-top:22px">
@@ -1212,6 +1216,19 @@
         <li id="r15"><b>International Energy Agency — April 2026 report on electricity and data centres.</b><br>
           <span class="use">Projection of roughly 945 to 950 TWh of global data centre electricity consumption by 2030, about double today's level.</span>
           <span class="warn">Estimates for 2025 diverge by scope: from 485 TWh to 787 TWh depending on the publication. Only the trajectory is agreed.</span></li>
+
+        <li id="r16"><b>RTE — <i>2025 French electricity report</i></b>, key results, published 2026.<br>
+          <a href="https://assets.rte-france.com/prod/public/2026-03/Bilan-electrique-2025-principaux-resultats.pdf" target="_blank" rel="noopener">Bilan électrique 2025 (PDF, French)</a><br>
+          <span class="use">Electricity consumption of mainland France in 2025: 451 TWh, corrected for weather and calendar effects. Used as the yardstick for the 945 TWh projection for global data centres in 2030.</span></li>
+
+        <li id="r17"><b>Insee and the French statistical service for sustainable development — carbon footprint of France.</b><br>
+          <a href="https://www.statistiques.developpement-durable.gouv.fr/lempreinte-carbone-de-la-france-de-1990-2024" target="_blank" rel="noopener">The carbon footprint of France, 1990 to 2024</a><br>
+          <span class="use">Average footprint of 8.2 tonnes of CO₂ equivalent per person in 2024, half of it embedded in imports. Used to convert the 72,816 tonnes of a training run into people-years.</span>
+          <span class="warn">This footprint includes imported emissions; territorial emissions per person are markedly lower. Two different figures, two different scopes.</span></li>
+
+        <li id="r18"><b>Brain metabolism — energy consumption of the human brain.</b> The brain is about 2 % of body mass but 20 % of basal metabolism, giving a continuous average draw of roughly 20 watts.<br>
+          <span class="use">Equivalence between a 0.24 Wh request and 43 seconds of brain activity, and between 2,000 requests and one day of brain.</span>
+          <span class="warn">A teaching comparison, not a functional equivalence: a brain and a model do not do the same work with those watts.</span></li>
       </ol>
 
       <div class="notice" style="margin-top:22px;margin-bottom:0">
