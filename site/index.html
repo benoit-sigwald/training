@@ -349,6 +349,11 @@
   .tbl td{padding:12px 16px;border-bottom:1px solid var(--hair);vertical-align:top;color:var(--text-2)}
   .tbl tr:last-child td{border-bottom:0}
   .tbl td:first-child{color:var(--text);font-weight:600;white-space:nowrap}
+  /* Tableau dont la 1re colonne est une phrase : elle doit pouvoir se couper. */
+  .tbl.prose table{min-width:0}
+  .tbl.prose td{white-space:normal;vertical-align:top;width:50%}
+  .tbl.prose td:first-child{white-space:normal;font-weight:400;color:var(--text-2)}
+  @media(max-width:640px){.tbl.prose table{min-width:420px}}
   .tbl td b{color:var(--text);font-weight:600}
 
   /* ---------- craft ---------- */
@@ -764,7 +769,7 @@
         <p class="tk-note" id="tknote"></p>
       </div>
 
-      <div class="tbl" style="margin-top:18px">
+      <div class="tbl prose" style="margin-top:18px">
         <table>
           <thead>
             <tr><th>Le mécanisme</th><th>La limite qu'il explique</th></tr>
