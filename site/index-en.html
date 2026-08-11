@@ -57,7 +57,8 @@
     .brand{font-size:17px}.brand img{height:24px}
     .nav-cta{padding:5px 11px}
   }
-  @media(max-width:520px){.nav-links a:not(.nav-cta):not(.lang){display:none}}
+  .nav-links a.good{font-weight:600;color:var(--blue);opacity:1}
+  @media(max-width:520px){.nav-links a:not(.nav-cta):not(.lang):not(.good){display:none}}
 
   .flogo{height:44px;width:auto;display:block;margin-bottom:14px;opacity:.75}
 
@@ -442,6 +443,7 @@
       <a href="#validation">Validation</a>
       <a href="#kit">Facilitator kit</a>
       <a href="#resources">Resources</a>
+      <a class="good" href="commands/index-en.html">Goodies</a>
       <a class="lang" href="index.html" hreflang="fr">FR</a>
       <a class="nav-cta" href="https://arx-consulting.com/index.html">Arx Consulting</a>
     </div>
@@ -1390,6 +1392,10 @@
         <h3>Prompting best practices</h3>
         <p>The reference on writing requests, continuously updated. Source of module 02.</p>
         <span>Read the docs</span></a>
+      <a href="commands/index-en.html">
+        <h3>Goodies · the commands</h3>
+        <p>The list of Claude Code slash commands, and the five steps to write your own.</p>
+        <span>See the commands</span></a>
     </div>
   </div>
 </section>

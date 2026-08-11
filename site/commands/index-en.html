@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Goodies — les commandes Claude Code | Arx Consulting</title>
-<meta name="description" content="La liste des commandes slash de Claude Code, et les cinq étapes pour créer la sienne.">
+<title>Goodies — Claude Code commands | Arx Consulting</title>
+<meta name="description" content="The list of Claude Code slash commands, and the five steps to write your own.">
 <meta name="theme-color" content="#fbfbfd">
 <meta name="robots" content="noindex, nofollow">
 <style>
@@ -85,7 +85,7 @@
   .sub{margin:0 0 30px;font-size:17px;color:var(--text-2)}
   @media(max-width:640px){section{padding:40px 0}h2{font-size:26px}}
 
-  /* ---------- tableau des commandes ---------- */
+  /* ---------- command table ---------- */
   .cmds{
     background:var(--white);border:1px solid var(--hair);border-radius:var(--radius);
     overflow:hidden;
@@ -112,7 +112,7 @@
     .cmds span{font-size:15px}
   }
 
-  /* ---------- étapes ---------- */
+  /* ---------- steps ---------- */
   .steps{list-style:none;margin:0;padding:0;counter-reset:s}
   .steps li{
     counter-increment:s;position:relative;
@@ -143,7 +143,7 @@
     .steps b{font-size:17px}
   }
 
-  /* ---------- exemple ---------- */
+  /* ---------- example ---------- */
   .ex{
     margin-top:34px;background:var(--white);border:1px solid var(--hair);
     border-radius:var(--radius);overflow:hidden;
@@ -165,7 +165,7 @@
   .note b{color:var(--text);font-weight:600}
   .note code{font-family:var(--mono);font-size:13.5px}
 
-  /* ---------- pied ---------- */
+  /* ---------- footer ---------- */
   footer{
     padding:34px 0 46px;border-top:1px solid var(--hair);
     font-size:13px;color:var(--text-2);
@@ -178,15 +178,15 @@
 
 <nav class="nav">
   <div class="wrap">
-    <a class="brand" href="../index.html"><img src="../arx-logo.png" alt="Arx Consulting" width="242" height="264" decoding="async">AI Training</a>
+    <a class="brand" href="../index-en.html"><img src="../arx-logo.png" alt="Arx Consulting" width="242" height="264" decoding="async">AI Training</a>
     <div class="nav-links">
-      <a href="../index.html#niveaux">Niveaux</a>
-      <a href="../index.html#parcours">Parcours</a>
-      <a href="../index.html#kit">Kit formateur</a>
-      <a href="../index.html#ressources">Ressources</a>
-      <a class="here" href="./">Goodies</a>
-      <a class="lang" href="./index-en.html" hreflang="en">EN</a>
-      <a class="nav-cta" href="https://arx-consulting.com/index-fr.html">Arx Consulting</a>
+      <a href="../index-en.html#levels">Levels</a>
+      <a href="../index-en.html#tracks">Tracks</a>
+      <a href="../index-en.html#kit">Facilitator kit</a>
+      <a href="../index-en.html#resources">Resources</a>
+      <a class="here" href="./index-en.html">Goodies</a>
+      <a class="lang" href="./" hreflang="fr">FR</a>
+      <a class="nav-cta" href="https://arx-consulting.com/index.html">Arx Consulting</a>
     </div>
   </div>
 </nav>
@@ -194,101 +194,101 @@
 <header class="hero" id="top">
   <div class="wrap">
     <p class="eyebrow">Goodies</p>
-    <h1>Les commandes.<br>Et comment faire les vôtres.</h1>
-    <p class="lead">Une commande slash, c'est un dossier et un fichier. Voici celles qui existent, puis les cinq étapes pour en écrire une.</p>
+    <h1>The commands.<br>And how to write your own.</h1>
+    <p class="lead">A slash command is a folder and a file. Here are the ones that exist, then the five steps to write one.</p>
   </div>
 </header>
 
-<section id="liste">
+<section id="list">
   <div class="wrap">
-    <h2>Les commandes disponibles</h2>
-    <p class="sub">Tapez <code style="font-family:var(--mono);font-size:15px">/</code> dans Claude Code pour les voir apparaître.</p>
+    <h2>The commands available</h2>
+    <p class="sub">Type <code style="font-family:var(--mono);font-size:15px">/</code> in Claude Code to see them appear.</p>
 
     <div class="cmds">
 
-      <div class="grp">Recherche et rédaction</div>
-      <div class="row"><code>/deep-research</code><span>Recherche web multi-sources avec vérification et rapport cité</span></div>
-      <div class="row"><code>/dataviz</code><span>Guide de design pour graphiques et visualisations de données</span></div>
-      <div class="row"><code>/artifact-design</code><span>Guide de design pour les Artifacts</span></div>
-      <div class="row"><code>/artifact-diagramming</code><span>Créer des diagrammes (Mermaid, SVG) dans les Artifacts</span></div>
+      <div class="grp">Research and writing</div>
+      <div class="row"><code>/deep-research</code><span>Multi-source web research with verification and a cited report</span></div>
+      <div class="row"><code>/dataviz</code><span>Design guidance for charts and data visualisations</span></div>
+      <div class="row"><code>/artifact-design</code><span>Design guidance for Artifacts</span></div>
+      <div class="row"><code>/artifact-diagramming</code><span>Build diagrams (Mermaid, SVG) inside Artifacts</span></div>
 
-      <div class="grp">Qualité du code</div>
-      <div class="row"><code>/verify</code><span>Vérifier qu'un changement fonctionne réellement, en exécution de bout en bout</span></div>
-      <div class="row"><code>/code-review</code><span>Revue du diff courant : bugs, simplification, efficacité</span></div>
-      <div class="row"><code>/review</code><span>Revue d'une pull request GitHub</span></div>
-      <div class="row"><code>/security-review</code><span>Revue de sécurité des changements en cours</span></div>
-      <div class="row"><code>/simplify</code><span>Revue puis application de simplifications sur le code modifié</span></div>
-      <div class="row"><code>/run</code><span>Lancer et piloter l'application pour voir un changement fonctionner</span></div>
+      <div class="grp">Code quality</div>
+      <div class="row"><code>/verify</code><span>Check that a change actually works, end to end</span></div>
+      <div class="row"><code>/code-review</code><span>Review of the current diff: bugs, simplification, efficiency</span></div>
+      <div class="row"><code>/review</code><span>Review a GitHub pull request</span></div>
+      <div class="row"><code>/security-review</code><span>Security review of the changes in progress</span></div>
+      <div class="row"><code>/simplify</code><span>Review, then apply simplifications to the modified code</span></div>
+      <div class="row"><code>/run</code><span>Launch and drive the app to watch a change work</span></div>
 
-      <div class="grp">Configuration du harness</div>
-      <div class="row"><code>/init</code><span>Initialiser un fichier CLAUDE.md avec la documentation du dépôt</span></div>
-      <div class="row"><code>/update-config</code><span>Configurer le harness via settings.json : hooks, permissions, variables d'environnement</span></div>
-      <div class="row"><code>/session-start-hook</code><span>Créer ou configurer un hook de démarrage pour Claude Code web</span></div>
-      <div class="row"><code>/keybindings-help</code><span>Personnaliser les raccourcis clavier</span></div>
-      <div class="row"><code>/fewer-permission-prompts</code><span>Scanner les transcripts pour réduire les demandes de permission</span></div>
+      <div class="grp">Harness configuration</div>
+      <div class="row"><code>/init</code><span>Create a CLAUDE.md file documenting the repository</span></div>
+      <div class="row"><code>/update-config</code><span>Configure the harness through settings.json: hooks, permissions, environment variables</span></div>
+      <div class="row"><code>/session-start-hook</code><span>Create or configure a start-up hook for Claude Code web</span></div>
+      <div class="row"><code>/keybindings-help</code><span>Customise keyboard shortcuts</span></div>
+      <div class="row"><code>/fewer-permission-prompts</code><span>Scan transcripts to cut down on permission prompts</span></div>
 
-      <div class="grp">Divers</div>
-      <div class="row"><code>/loop</code><span>Exécuter un prompt ou une commande à intervalle récurrent</span></div>
-      <div class="row"><code>/claude-api</code><span>Référence de l'API Claude et du SDK Anthropic</span></div>
-      <div class="row"><code>/1</code><span>Mode d'exécution strict — commande personnelle, l'exemple ci-dessous</span></div>
+      <div class="grp">Other</div>
+      <div class="row"><code>/loop</code><span>Run a prompt or command on a recurring interval</span></div>
+      <div class="row"><code>/claude-api</code><span>Claude API and Anthropic SDK reference</span></div>
+      <div class="row"><code>/1</code><span>Strict execution mode — a personal command, the example below</span></div>
 
     </div>
   </div>
 </section>
 
-<section id="creer" class="alt">
+<section id="create" class="alt">
   <div class="wrap">
-    <h2>Créer sa propre commande</h2>
-    <p class="sub">Cinq étapes. Aucun redémarrage, aucune compilation, aucun enregistrement nulle part.</p>
+    <h2>Writing your own command</h2>
+    <p class="sub">Five steps. No restart, no build, no registration anywhere.</p>
 
     <ol class="steps">
       <li>
-        <b>Créer le dossier</b>
-        <p><code>mkdir -p ~/.claude/skills/&lt;nom&gt;</code> pour une commande personnelle, disponible dans tous vos projets — ou <code>.claude/skills/&lt;nom&gt;</code> à la racine d'un dépôt pour une commande de projet, versionnée avec le code et partagée par l'équipe.</p>
+        <b>Create the folder</b>
+        <p><code>mkdir -p ~/.claude/skills/&lt;name&gt;</code> for a personal command, available across all your projects — or <code>.claude/skills/&lt;name&gt;</code> at the root of a repository for a project command, versioned with the code and shared by the team.</p>
       </li>
       <li>
-        <b>Créer le fichier SKILL.md dedans</b>
-        <p>Le nom du fichier est imposé, en majuscules. C'est le dossier qui donne son nom à la commande, pas le fichier.</p>
+        <b>Create the SKILL.md file inside it</b>
+        <p>The filename is fixed, in capitals. It is the folder that names the command, not the file.</p>
       </li>
       <li>
-        <b>Ajouter le frontmatter YAML</b>
-        <p>Entre deux lignes de trois tirets <code>---</code>, en tête de fichier. Un seul champ est obligatoire : <code>description</code>. C'est lui que Claude lit pour décider si la commande est pertinente.</p>
+        <b>Add the YAML frontmatter</b>
+        <p>Between two lines of three dashes <code>---</code>, at the top of the file. Only one field is required: <code>description</code>. That is what Claude reads to decide whether the command is relevant.</p>
       </li>
       <li>
-        <b>Écrire les instructions en markdown en dessous</b>
-        <p>Du texte, adressé à Claude. Écrivez-le comme une consigne à un collègue qui prend le dossier : ce qu'il doit faire, dans quel ordre, et ce qu'il ne doit pas faire.</p>
+        <b>Write the instructions in markdown below it</b>
+        <p>Plain text, addressed to Claude. Write it the way you would brief a colleague picking up the job: what to do, in what order, and what not to do.</p>
       </li>
       <li>
-        <b>Sauvegarder</b>
-        <p>La commande <code>/&lt;nom&gt;</code> est disponible immédiatement — la détection se fait à chaud.</p>
+        <b>Save</b>
+        <p>The <code>/&lt;name&gt;</code> command is available immediately — detection happens live.</p>
       </li>
     </ol>
 
     <div class="ex">
       <div class="hd">~/.claude/skills/1/SKILL.md</div>
 <pre><span class="fm">---
-description: Active un mode d'exécution strict.
+description: Turns on a strict execution mode.
 disable-model-invocation: true
 ---</span>
 
-À partir de maintenant, pour le reste de la session :
+From now on, for the rest of the session:
 
-1. Écoute exactement ce que l'utilisateur dit.
-2. Fais exactement ce qu'il demande, rien de plus.
-3. Ne sois pas verbeux — réponses minimales, consommation de tokens réduite au maximum.
-4. En cas de doute, pose une question avant d'agir.
-5. Ne décide jamais sur une hypothèse non validée par l'utilisateur.</pre>
+1. Listen to exactly what the user says.
+2. Do exactly what they ask, nothing more.
+3. Do not be verbose — minimal answers, token use kept as low as possible.
+4. When in doubt, ask a question before acting.
+5. Never decide on an assumption the user has not confirmed.</pre>
     </div>
 
     <div class="note">
-      <b>Le champ <code>disable-model-invocation: true</code></b> de cet exemple est facultatif. Il empêche Claude de déclencher la commande de lui-même : elle ne part que si vous tapez <code>/1</code>. Utile pour tout ce qui change le comportement de la session plutôt que d'exécuter une tâche.
+      <b>The <code>disable-model-invocation: true</code> field</b> in this example is optional. It stops Claude from firing the command on its own: it only runs when you type <code>/1</code>. Useful for anything that changes how the session behaves rather than performing a task.
     </div>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <a href="../index.html">← Retour au programme AI Training</a> · Arx Consulting
+    <a href="../index-en.html">← Back to the AI Training programme</a> · Arx Consulting
   </div>
 </footer>
 
