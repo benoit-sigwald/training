@@ -381,6 +381,34 @@
   }
   @media(min-width:861px){.mapfig{display:block}#flow{display:none}}
 
+  /* Pastilles de groupe : ouvrent le schema detaille du groupe. */
+  .mapfig .hot.deep{border-radius:18px}
+  .mapfig .hot.deep:hover{background:rgba(0,113,227,.10)}
+  .mapfig .hot.deep::after{
+    content:"Schéma détaillé";position:absolute;right:12px;bottom:8px;
+    font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;
+    color:var(--blue);opacity:0;transition:opacity .18s;
+  }
+  .mapfig .hot.deep:hover::after{opacity:1}
+
+  /* Bouton equivalent sur mobile, dans l'entete de chaque groupe. */
+  .deepb{
+    font-family:var(--sf);font-size:12px;font-weight:600;letter-spacing:.02em;
+    color:var(--blue);background:rgba(0,113,227,.10);border:0;
+    padding:5px 12px;border-radius:980px;cursor:pointer;margin-left:auto;
+  }
+  .deepb:hover{background:rgba(0,113,227,.18)}
+  .ph-h{align-items:center}
+  @media(min-width:861px){.deepb{display:none}}
+
+  .dlgd{max-width:1180px}
+  .deepimg{
+    margin-top:4px;overflow-x:auto;border:1px solid var(--hair);border-radius:12px;
+    background:var(--bg-alt);
+  }
+  .deepimg img{display:block;width:100%;min-width:840px;height:auto}
+  .deepcap{margin:12px 0 0;font-size:13px;color:var(--text-2)}
+
   .dlg{
     border:0;padding:0;background:transparent;max-width:640px;width:calc(100% - 32px);
     color:var(--text);
@@ -832,12 +860,15 @@
         <button class="hot" data-s="10" style="left:10.872%;top:76.097%;width:20.898%;height:16.397%"><span class="sr">11 Outils &amp; actions</span></button>
         <button class="hot" data-s="11" style="left:39.974%;top:76.097%;width:19.206%;height:16.397%"><span class="sr">12 Vérification humaine</span></button>
         <button class="hot" data-s="12" style="left:67.318%;top:76.097%;width:19.271%;height:16.397%"><span class="sr">13 Journal &amp; coûts</span></button>
+        <button class="hot deep" data-d="1" style="left:1.823%;top:0.808%;width:28.125%;height:10.4%"><span class="sr">Une fois — voir le schéma détaillé</span></button>
+        <button class="hot deep" data-d="2" style="left:1.823%;top:33.256%;width:28.125%;height:10.4%"><span class="sr">À chaque demande — voir le schéma détaillé</span></button>
+        <button class="hot deep" data-d="3" style="left:1.823%;top:65.127%;width:28.125%;height:10.4%"><span class="sr">Autour — voir le schéma détaillé</span></button>
       </figure>
 
       <div class="flow" id="flow">
 
         <div class="ph">
-          <div class="ph-h"><b>Une fois</b><span>Préparation, hors ligne</span></div>
+          <div class="ph-h"><b>Une fois</b><span>Préparation, hors ligne</span><button class="deepb" data-d="1">Schéma détaillé</button></div>
           <div class="ph-s">
             <button class="stp" data-s="0"><i>01</i><span>Vos sources</span></button>
             <button class="stp" data-s="1"><i>02</i><span>Extraction</span></button>
@@ -848,7 +879,7 @@
         </div>
 
         <div class="ph">
-          <div class="ph-h"><b>À chaque demande</b><span>Quelques secondes</span></div>
+          <div class="ph-h"><b>À chaque demande</b><span>Quelques secondes</span><button class="deepb" data-d="2">Schéma détaillé</button></div>
           <div class="ph-s">
             <button class="stp" data-s="5"><i>06</i><span>Votre demande</span></button>
             <button class="stp" data-s="6"><i>07</i><span>Recherche</span></button>
@@ -859,7 +890,7 @@
         </div>
 
         <div class="ph">
-          <div class="ph-h"><b>Autour</b><span>Ce qui encadre</span></div>
+          <div class="ph-h"><b>Autour</b><span>Ce qui encadre</span><button class="deepb" data-d="3">Schéma détaillé</button></div>
           <div class="ph-s">
             <button class="stp" data-s="10"><i>11</i><span>Outils &amp; actions</span></button>
             <button class="stp" data-s="11"><i>12</i><span>Vérification humaine</span></button>
@@ -887,6 +918,16 @@
           <p class="dlg-m" id="dlgm"></p>
         </div>
       </dialog>
+      <dialog class="dlg dlgd" id="dlgd">
+        <div class="dlg-in">
+          <button class="dlg-x" id="dlgdx" aria-label="Fermer">✕</button>
+          <span class="dlg-k" id="dlgdk"></span>
+          <h3 id="dlgdt"></h3>
+          <div class="deepimg"><img id="dlgdi" src="" alt=""></div>
+          <p class="deepcap">Schéma large : faites défiler horizontalement sur petit écran.</p>
+        </div>
+      </dialog>
+
       <div class="sec-head" style="max-width:700px;margin:56px auto 20px">
         <h2 style="font-size:clamp(24px,3.2vw,34px)">Ce qu'il y a dans la boîte.</h2>
         <p style="font-size:17px">Cinq idées, aucune équation. Chacune sert à comprendre une limite que vous rencontrerez pour de vrai.</p>
@@ -1929,6 +1970,28 @@ if(matchMedia("(prefers-reduced-motion: reduce)").matches){
   });
   document.addEventListener("click",()=>{dd.classList.remove("open");b.setAttribute("aria-expanded","false");});
   document.addEventListener("keydown",e=>{if(e.key==="Escape"){dd.classList.remove("open");b.setAttribute("aria-expanded","false");}});
+})();
+
+(function(){
+  const dlg=document.getElementById("dlgd");
+  if(!dlg) return;
+  const deep={
+    "1":["Une fois · Préparation, hors ligne","Pipeline de préparation et d'indexation","DD1.jpg"],
+    "2":["À chaque demande · Quelques secondes","Pipeline de requête et de génération","DD2.jpg"],
+    "3":["Autour · Ce qui encadre","Gouvernance et cadre d'exécution","DD3.jpg"]
+  };
+  document.querySelectorAll("[data-d]").forEach(b=>{
+    b.addEventListener("click",()=>{
+      const [k,titre,src]=deep[b.dataset.d];
+      document.getElementById("dlgdk").textContent=k;
+      document.getElementById("dlgdt").textContent=titre;
+      const img=document.getElementById("dlgdi");
+      img.src=src; img.alt="Schéma détaillé : "+titre;
+      if(typeof dlg.showModal==="function"){dlg.showModal();}else{dlg.setAttribute("open","");}
+    });
+  });
+  document.getElementById("dlgdx").addEventListener("click",()=>dlg.close());
+  dlg.addEventListener("click",ev=>{if(ev.target===dlg) dlg.close();});
 })();
 </script>
 </body>
