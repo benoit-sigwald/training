@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1436 472" width="1436" height="472" role="img">
+<rect width="1436" height="472" fill="#ffffff"/>
+<rect x="40" y="26" width="236" height="392" rx="16" fill="#ecf7f1" stroke="#bfe3ce" stroke-width="1.5"/>
+<circle cx="74" cy="62" r="16" fill="#1a8a5a"/>
+<text x="74" y="67" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="14" font-weight="700" fill="#ffffff">06</text>
+<text x="100" y="68" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="19" font-weight="600" fill="#1d1d1f">Your request</text>
+<text x="62" y="100" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="14.5" fill="#5f6368">The question goes out</text>
+<text x="62" y="121" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="14.5" fill="#5f6368">exactly as you wrote it.</text>
+<rect x="56" y="146" width="204" height="256" rx="11" fill="#ffffff" stroke="#bfe3ce" stroke-width="1"/>
+<text x="70" y="172" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="11" font-weight="700" letter-spacing="1.1" fill="#1a8a5a">INPUTS</text>
+<circle cx="74" cy="189" r="2.6" fill="#1a8a5a"/>
+<text x="84" y="194" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="13.5" fill="#1d1d1f">Typed or dictated</text>
+<circle cx="74" cy="210" r="2.6" fill="#1a8a5a"/>
+<text x="84" y="215" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="13.5" fill="#1d1d1f">Attached file</text>
+<text x="70" y="244" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="11" font-weight="700" letter-spacing="1.1" fill="#1a8a5a">WHAT HAPPENS HERE</text>
+<text x="70" y="266" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="13.5" fill="#5f6368">Identifying who is</text>
+<text x="70" y="286" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="13.5" fill="#5f6368">asking, and applying</text>
+<text x="70" y="306" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="13.5" fill="#5f6368">their access rights.</text>
+<path d="M283 222.0 L309 222.0" stroke="#1a8a5a" stroke-width="2.4" fill="none"/><path d="M304 216.0 L313 222.0 L304 228.0 Z" fill="#1a8a5a"/>
+<rect x="320" y="26" width="236" height="392" rx="16" fill="#ecf7f1" stroke="#bfe3ce" stroke-width="1.5"/>
+<circle cx="354" cy="62" r="16" fill="#1a8a5a"/>
+<text x="354" y="67" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="14" font-weight="700" fill="#ffffff">07</text>
+<text x="380" y="68" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="19" font-weight="600" fill="#1d1d1f">Retrieval</text>
+<text x="342" y="100" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="14.5" fill="#5f6368">The index is queried for</text>
+<text x="342" y="121" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="14.5" fill="#5f6368">the useful passages.</text>
+<rect x="336" y="146" width="204" height="256" rx="11" fill="#ffffff" stroke="#bfe3ce" stroke-width="1"/>
+<text x="350" y="172" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="11" font-weight="700" letter-spacing="1.1" fill="#1a8a5a">HYBRID SEARCH</text>
+<circle cx="354" cy="189" r="2.6" fill="#1a8a5a"/>
+<text x="364" y="194" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="13.5" fill="#1d1d1f">Vector: the meaning</text>
+<circle cx="354" cy="210" r="2.6" fill="#1a8a5a"/>
+<text x="364" y="215" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="13.5" fill="#1d1d1f">Keyword: the exact</text>
+<text x="350" y="236" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="13.5" fill="#5f6368">    terms, the references</text>
+<text x="350" y="264" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="11" font-weight="700" letter-spacing="1.1" fill="#1a8a5a">THEN RE-RANKING</text>
+<text x="350" y="290" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="21" font-weight="700" fill="#1a8a5a">50 → 5</text>
+<text x="350" y="314" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="13.5" fill="#5f6368">candidates reordered by a</text>
+<text x="350" y="334" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="13.5" fill="#5f6368">finer model.</text>
+<path d="M563 222.0 L589 222.0" stroke="#1a8a5a" stroke-width="2.4" fill="none"/><path d="M584 216.0 L593 222.0 L584 228.0 Z" fill="#1a8a5a"/>
+<rect x="600" y="26" width="236" height="392" rx="16" fill="#ecf7f1" stroke="#bfe3ce" stroke-width="1.5"/>
+<circle cx="634" cy="62" r="16" fill="#1a8a5a"/>
+<text x="634" y="67" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="14" font-weight="700" fill="#ffffff">08</text>
+<text x="660" y="68" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="19" font-weight="600" fill="#1d1d1f">Assembled context</text>
+<text x="622" y="100" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="14.5" fill="#5f6368">The message actually</text>
+<text x="622" y="121" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="14.5" fill="#5f6368">sent to the model.</text>
+<rect x="616" y="146" width="204" height="256" rx="11" fill="#ffffff" stroke="#bfe3ce" stroke-width="1"/>
+<text x="630" y="172" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="11" font-weight="700" letter-spacing="1.1" fill="#1a8a5a">WHAT IS STACKED</text>
+<circle cx="634" cy="189" r="2.6" fill="#1a8a5a"/>
+<text x="644" y="194" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="13.5" fill="#1d1d1f">The system instruction</text>
+<circle cx="634" cy="210" r="2.6" fill="#1a8a5a"/>
+<text x="644" y="215" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="13.5" fill="#1d1d1f">The selected extracts</text>
+<circle cx="634" cy="231" r="2.6" fill="#1a8a5a"/>
+<text x="644" y="236" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="13.5" fill="#1d1d1f">The history</text>
+<circle cx="634" cy="252" r="2.6" fill="#1a8a5a"/>
+<text x="644" y="257" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="13.5" fill="#1d1d1f">Your data</text>
+<text x="630" y="286" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="11" font-weight="700" letter-spacing="1.1" fill="#1a8a5a">THE CONSTRAINT</text>
+<text x="630" y="308" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="13.5" fill="#5f6368">Fixed token budget:</text>
+<text x="630" y="328" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="13.5" fill="#5f6368">what does not fit is cut.</text>
+<path d="M843 222.0 L869 222.0" stroke="#1a8a5a" stroke-width="2.4" fill="none"/><path d="M864 216.0 L873 222.0 L864 228.0 Z" fill="#1a8a5a"/>
+<rect x="880" y="26" width="236" height="392" rx="16" fill="#ecf7f1" stroke="#bfe3ce" stroke-width="1.5"/>
+<circle cx="914" cy="62" r="16" fill="#1a8a5a"/>
+<text x="914" y="67" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="14" font-weight="700" fill="#ffffff">09</text>
+<text x="940" y="68" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="19" font-weight="600" fill="#1d1d1f">Tokens</text>
+<text x="902" y="100" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="14.5" fill="#5f6368">Text is split into the</text>
+<text x="902" y="121" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="14.5" fill="#5f6368">unit the model reads.</text>
+<rect x="896" y="146" width="204" height="256" rx="11" fill="#ffffff" stroke="#bfe3ce" stroke-width="1"/>
+<text x="910" y="172" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="11" font-weight="700" letter-spacing="1.1" fill="#1a8a5a">FIXED VOCABULARY</text>
+<text x="910" y="194" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="13.5" fill="#5f6368">A common word is one</text>
+<text x="910" y="214" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="13.5" fill="#5f6368">token, a proper noun</text>
+<text x="910" y="234" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="13.5" fill="#5f6368">is worth several.</text>
+<text x="910" y="262" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="11" font-weight="700" letter-spacing="1.1" fill="#1a8a5a">WHAT THIS DECIDES</text>
+<circle cx="914" cy="279" r="2.6" fill="#1a8a5a"/>
+<text x="924" y="284" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="13.5" fill="#1d1d1f">The cost billed</text>
+<circle cx="914" cy="300" r="2.6" fill="#1a8a5a"/>
+<text x="924" y="305" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="13.5" fill="#1d1d1f">The context limit</text>
+<path d="M1123 222.0 L1149 222.0" stroke="#1a8a5a" stroke-width="2.4" fill="none"/><path d="M1144 216.0 L1153 222.0 L1144 228.0 Z" fill="#1a8a5a"/>
+<rect x="1160" y="26" width="236" height="392" rx="16" fill="#ecf7f1" stroke="#bfe3ce" stroke-width="1.5"/>
+<circle cx="1194" cy="62" r="16" fill="#1a8a5a"/>
+<text x="1194" y="67" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="14" font-weight="700" fill="#ffffff">10</text>
+<text x="1220" y="68" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="19" font-weight="600" fill="#1d1d1f">Generation</text>
+<text x="1182" y="100" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="14.5" fill="#5f6368">The model predicts the next</text>
+<text x="1182" y="121" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="14.5" fill="#5f6368">token, then starts again.</text>
+<rect x="1176" y="146" width="204" height="256" rx="11" fill="#ffffff" stroke="#bfe3ce" stroke-width="1"/>
+<text x="1190" y="172" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="11" font-weight="700" letter-spacing="1.1" fill="#1a8a5a">WHILE IT WRITES</text>
+<text x="1190" y="194" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="13.5" fill="#5f6368">It looks nothing up and</text>
+<text x="1190" y="214" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="13.5" fill="#5f6368">queries no database.</text>
+<text x="1190" y="242" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="11" font-weight="700" letter-spacing="1.1" fill="#1a8a5a">POSSIBLE OUTPUTS</text>
+<circle cx="1194" cy="259" r="2.6" fill="#1a8a5a"/>
+<text x="1204" y="264" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="13.5" fill="#1d1d1f">A written answer</text>
+<circle cx="1194" cy="280" r="2.6" fill="#1a8a5a"/>
+<text x="1204" y="285" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="13.5" fill="#1d1d1f">A table, an email</text>
+<circle cx="1194" cy="301" r="2.6" fill="#1a8a5a"/>
+<text x="1204" y="306" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="13.5" fill="#1d1d1f">A tool call</text>
+<text x="718.0" y="454" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="14" fill="#5f6368">Steps 06 to 10 · this pipeline runs in full for every question, in a few seconds.</text>
+</svg>
