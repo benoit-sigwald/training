@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Asking well in chat | Arx Consulting</title>
+<meta name="description" content="The prompting techniques that work with Claude in conversation: be clear and direct, give the why, show examples, structure, and put documents before the question.">
+<meta name="theme-color" content="#fbfbfd">
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="goodies.css?v=2">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="../index-en.html"><img src="../arx-logo.png" alt="Arx Consulting" width="242" height="264" decoding="async">AI Training</a>
+    <div class="nav-links">
+      <a href="../index-en.html#tracks">Tracks</a>
+      <a href="../index-en.html#kit">Facilitator kit</a>
+      <a href="../index-en.html#resources">Resources</a>
+      <div class="dd" id="dd">
+        <button class="dd-t" id="ddt" aria-expanded="false" aria-controls="ddm">Goodies</button>
+        <div class="dd-m" id="ddm">
+          <a href="index-en.html">The commands</a>
+          <a href="claude-code-en.html">Working well with Claude Code</a>
+          <a href="cowork-en.html">Delegating with Claude Cowork</a>
+          <a class="here" href="chat-en.html">Asking well in chat</a>
+        </div>
+      </div>
+      <a class="lang" href="chat.html" hreflang="fr">FR</a>
+      <a class="nav-cta" href="https://arx-consulting.com/index.html">Arx Consulting</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">Goodies</p>
+    <h1>Asking well<br>in conversation.</h1>
+    <p class="lead">The golden rule: show your prompt to a colleague with minimal context on the task and ask them to follow it. If they would be confused, Claude will be too.</p>
+  </div>
+</header>
+
+<section id="basics">
+  <div class="wrap">
+    <h2>The six basic techniques</h2>
+    <p class="sub">They apply to all current models, and the order matters: the first three do half the work.</p>
+
+    <div class="pr">
+
+      <article>
+        <span class="k">01</span>
+        <h3>Be clear and direct</h3>
+        <p>Think of Claude as a brilliant but new employee who lacks context on your norms and workflows. The more precisely you explain what you want, the better the result.</p>
+        <p>Be specific about the <b>output format</b> and the constraints. When the order or completeness of steps matters, give them as a numbered list. And if you want work that goes above and beyond, <b>ask for it</b> — do not rely on the model to infer it from a vague prompt.<sup>[1]</sup></p>
+      </article>
+
+      <article>
+        <span class="k">02</span>
+        <h3>Say why</h3>
+        <p>Providing the motivation behind an instruction — explaining why the behaviour matters — helps Claude understand your goal and deliver a more targeted response. <b>It is smart enough to generalise from the explanation</b>, and so to handle the cases you did not anticipate.<sup>[1]</sup></p>
+      </article>
+
+      <article>
+        <span class="k">03</span>
+        <h3>Show examples</h3>
+        <p>This is the most reliable way to steer the format, tone and structure of a response. Three to five examples give the best results. They should be <b>relevant</b> — close to your actual case —, <b>diverse</b> — covering edge cases, and varied enough that Claude does not pick up an unintended pattern — and <b>structured</b>, wrapped in tags so it can tell them apart from instructions.<sup>[1]</sup></p>
+        <span class="why"><b>Worth knowing:</b> you can ask Claude to evaluate your examples for relevance and diversity, or to generate more from the ones you have.</span>
+      </article>
+
+      <article>
+        <span class="k">04</span>
+        <h3>Structure with tags</h3>
+        <p>When a prompt mixes instructions, context, examples and variable input, tags like <code style="font-family:var(--mono);font-size:14px">&lt;instructions&gt;</code>, <code style="font-family:var(--mono);font-size:14px">&lt;context&gt;</code>, <code style="font-family:var(--mono);font-size:14px">&lt;input&gt;</code> remove the ambiguity. Keep tag names consistent across prompts, and nest them when the content has a natural hierarchy.<sup>[1]</sup></p>
+      </article>
+
+      <article>
+        <span class="k">05</span>
+        <h3>Give it a role</h3>
+        <p>A single sentence is enough to focus behaviour and tone for your use case. "You are an assistant specialising in French contract law" is not decoration: it decides the vocabulary, the level of detail and the caution reflexes.<sup>[1]</sup></p>
+      </article>
+
+      <article>
+        <span class="k">06</span>
+        <h3>Say what to do, not what to avoid</h3>
+        <p>Negative phrasing works poorly. Replace "do not use markdown" with "write in smoothly flowing prose paragraphs". Another lever: <b>the style of your prompt influences the style of the response</b> — removing markdown from your own message reduces markdown in the answer.<sup>[1]</sup></p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="long" class="alt">
+  <div class="wrap">
+    <h2>When you paste a large document</h2>
+    <p class="sub">Beyond 20,000 tokens — a hundred pages or so — the order of the pieces changes the result.</p>
+
+    <div class="pr">
+
+      <article>
+        <span class="k">Order</span>
+        <h3>Document first, question last</h3>
+        <p>Put long documents <b>at the top</b> of your message, above the query, the instructions and the examples. Putting the query at the end can improve response quality <b>by up to 30 percent</b> in Anthropic's tests, especially with complex, multidocument inputs.<sup>[1]</sup></p>
+        <span class="why">This is the only rule on this page with a number attached. It is also the one almost nobody applies, because you naturally write your question before pasting your file.</span>
+      </article>
+
+      <article>
+        <span class="k">Grounding</span>
+        <h3>Have it quote before it answers</h3>
+        <p>On a long document, ask it to <b>first extract the relevant passages</b>, then carry out the task. This focuses it on the useful content and helps it ignore the rest — and it hands you the means to check the answer.<sup>[1]</sup></p>
+      </article>
+
+      <article>
+        <span class="k">Tagging</span>
+        <h3>Several documents, several tags</h3>
+        <p>With multiple sources, wrap each in a <code style="font-family:var(--mono);font-size:14px">&lt;document&gt;</code> tag holding its content and its source. Without that separation, two contradictory documents become one undifferentiated mass and Claude can no longer attribute the claims.<sup>[1]</sup></p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="limit">
+  <div class="wrap">
+    <h2>Knowing when chat is no longer the right place</h2>
+    <p class="sub">A good prompt does not rescue the wrong tool.</p>
+
+    <div class="pr">
+      <article>
+        <span class="k">The boundary</span>
+        <h3>Chat is for when the output is a thought</h3>
+        <p>Stay in conversation if what you want fits in a few exchanges: a question, an explanation, a brainstorm, an idea to pressure-test.</p>
+        <p>As soon as the expected result is a <b>file</b> someone will open, as soon as the task touches several files or several apps, or as soon as you would describe it as a task rather than a question, chat will have you copy-pasting in both directions for an hour.<sup>[2]</sup></p>
+        <span class="why">→ See <a href="cowork-en.html" style="color:var(--blue)">Delegating with Claude Cowork</a> for that case.</span>
+      </article>
+    </div>
+
+    <div class="note">
+      <b>A word on response length.</b> Recent models are more concise and more direct by default, and may skip the summary after a series of actions. If you want visibility into what was done, ask for it explicitly — it is a sentence to add, not a setting to find.<sup>[1]</sup>
+    </div>
+  </div>
+</section>
+
+<section id="sources" class="alt">
+  <div class="wrap">
+    <h2>Sources</h2>
+    <p class="sub">Two primary Anthropic sources.</p>
+    <ol class="srcs">
+      <li><b>Anthropic — Prompting best practices</b>, Claude platform documentation. The reference for prompt engineering with current models: general principles, output formatting, long context, tool use.<br>
+      <a href="https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices" target="_blank" rel="noopener">platform.claude.com — prompt engineering / prompting best practices</a>
+      <span style="display:block;margin-top:8px">It is documentation written for developers calling the API, but the six basic techniques and the long-context rules apply as-is to an ordinary conversation. What is strictly API-side — tool calls, effort settings, model migration — is not covered here.</span></li>
+      <li><b>Austin Lau (Anthropic), "Best practices for getting started with Claude Cowork"</b>, Claude blog, 3 June 2026. Used only for the boundary between chat and Cowork.<br>
+      <a href="https://claude.com/blog/best-practices-for-getting-started-with-claude-cowork" target="_blank" rel="noopener">claude.com/blog/best-practices-for-getting-started-with-claude-cowork</a></li>
+    </ol>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a href="../index-en.html">← Back to the AI Training programme</a> · Arx Consulting
+  </div>
+</footer>
+
+<script>
+(function(){
+  const dd=document.getElementById("dd"), t=document.getElementById("ddt");
+  if(!dd) return;
+  t.addEventListener("click",e=>{
+    e.stopPropagation();
+    const open=dd.classList.toggle("open");
+    t.setAttribute("aria-expanded",open?"true":"false");
+  });
+  document.addEventListener("click",()=>{dd.classList.remove("open");t.setAttribute("aria-expanded","false");});
+  document.addEventListener("keydown",e=>{if(e.key==="Escape"){dd.classList.remove("open");t.setAttribute("aria-expanded","false");}});
+})();
+</script>
+
+</body>
+</html>

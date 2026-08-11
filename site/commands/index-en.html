@@ -19,7 +19,15 @@
       <a href="../index-en.html#tracks">Tracks</a>
       <a href="../index-en.html#kit">Facilitator kit</a>
       <a href="../index-en.html#resources">Resources</a>
-      <a class="here" href="./index-en.html">Goodies</a>
+      <div class="dd" id="dd">
+        <button class="dd-t" id="ddt" aria-expanded="false" aria-controls="ddm">Goodies</button>
+        <div class="dd-m" id="ddm">
+          <a class="here" href="index-en.html">The commands</a>
+          <a href="claude-code-en.html">Working well with Claude Code</a>
+          <a href="cowork-en.html">Delegating with Claude Cowork</a>
+          <a href="chat-en.html">Asking well in chat</a>
+        </div>
+      </div>
       <a class="lang" href="./" hreflang="fr">FR</a>
       <a class="nav-cta" href="https://arx-consulting.com/index.html">Arx Consulting</a>
     </div>
@@ -126,6 +134,20 @@ From now on, for the rest of the session:
     <a href="../index-en.html">← Back to the AI Training programme</a> · Arx Consulting
   </div>
 </footer>
+
+<script>
+(function(){
+  const dd=document.getElementById("dd"), t=document.getElementById("ddt");
+  if(!dd) return;
+  t.addEventListener("click",e=>{
+    e.stopPropagation();
+    const open=dd.classList.toggle("open");
+    t.setAttribute("aria-expanded",open?"true":"false");
+  });
+  document.addEventListener("click",()=>{dd.classList.remove("open");t.setAttribute("aria-expanded","false");});
+  document.addEventListener("keydown",e=>{if(e.key==="Escape"){dd.classList.remove("open");t.setAttribute("aria-expanded","false");}});
+})();
+</script>
 
 </body>
 </html>

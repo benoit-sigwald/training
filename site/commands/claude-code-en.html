@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Working well with Claude Code | Arx Consulting</title>
+<meta name="description" content="The practices that work with Claude Code, from Anthropic's official documentation: manage context, give it a way to verify, explore before coding, write a short CLAUDE.md.">
+<meta name="theme-color" content="#fbfbfd">
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="goodies.css?v=2">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="../index-en.html"><img src="../arx-logo.png" alt="Arx Consulting" width="242" height="264" decoding="async">AI Training</a>
+    <div class="nav-links">
+      <a href="../index-en.html#tracks">Tracks</a>
+      <a href="../index-en.html#kit">Facilitator kit</a>
+      <a href="../index-en.html#resources">Resources</a>
+      <div class="dd" id="dd">
+        <button class="dd-t" id="ddt" aria-expanded="false" aria-controls="ddm">Goodies</button>
+        <div class="dd-m" id="ddm">
+          <a href="index-en.html">The commands</a>
+          <a class="here" href="claude-code-en.html">Working well with Claude Code</a>
+          <a href="cowork-en.html">Delegating with Claude Cowork</a>
+          <a href="chat-en.html">Asking well in chat</a>
+        </div>
+      </div>
+      <a class="lang" href="claude-code.html" hreflang="fr">FR</a>
+      <a class="nav-cta" href="https://arx-consulting.com/index.html">Arx Consulting</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">Goodies</p>
+    <h1>Working well<br>with Claude Code.</h1>
+    <p class="lead">Almost every best practice follows from a single constraint: the context window fills up fast, and performance degrades as it fills.</p>
+  </div>
+</header>
+
+<section id="ground">
+  <div class="wrap">
+    <h2>The constraint that explains the rest</h2>
+    <p class="sub">Understand this one, and the eight practices that follow become obvious.</p>
+
+    <div class="pr">
+      <article>
+        <span class="k">The starting point</span>
+        <h3>Context is the scarce resource</h3>
+        <p>The context window holds your entire conversation: every message, <b>every file read and every command output</b>. A single debugging session or codebase exploration can burn tens of thousands of tokens.</p>
+        <p>And model performance degrades as context fills. When the window is getting full, Claude may start "forgetting" your earlier instructions or making more mistakes.<sup>[1]</sup></p>
+        <span class="why"><b>What this changes:</b> a long session going off the rails is not a model problem, it is a context problem. Start clean rather than pushing on.</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="practices" class="alt">
+  <div class="wrap">
+    <h2>The practices that work</h2>
+    <p class="sub">Drawn from Anthropic's internal teams and from engineers using Claude Code day to day.</p>
+
+    <div class="pr">
+
+      <article>
+        <span class="k">01</span>
+        <h3>Give it a way to verify its work</h3>
+        <p>This is the one that matters most. Claude stops when the work <i>looks</i> done. Without a check it can run itself, "looks done" is the only signal available — and you become the verification loop: every mistake waits for you to notice it.</p>
+        <p>Give it something that produces a pass or a fail, and the loop closes on its own: it does the work, runs the check, reads the result, and iterates until the check passes. A test suite, a build exit code, a linter, a script that diffs output against a fixture, a screenshot compared against a design.<sup>[1]</sup></p>
+        <span class="why"><b>The difference:</b> a session you watch, versus one you can walk away from.</span>
+      </article>
+
+      <article>
+        <span class="k">02</span>
+        <h3>Ask for evidence, not assertion</h3>
+        <p>Have it show the test output, the command it ran and what it returned, or a screenshot of the result. <b>Reviewing evidence is faster than re-running the verification yourself</b> — and it is what makes a session you did not watch usable at all.<sup>[1]</sup></p>
+      </article>
+
+      <article>
+        <span class="k">03</span>
+        <h3>Explore, then plan, then code</h3>
+        <p>Letting Claude jump straight to code often produces a clean solution… to the wrong problem. Plan mode separates exploration from execution, in four phases: <b>explore</b> (it reads and answers without changing anything), <b>plan</b> (it drafts a plan you can edit), <b>implement</b>, then <b>commit</b>.<sup>[1]</sup></p>
+        <p>Planning has a cost. For a typo, a log line or a rename, just ask directly. <b>If you could describe the diff in one sentence, skip the plan.</b> It earns its keep when you are unsure about the approach, when the change touches several files, or when you do not know the code being modified.</p>
+      </article>
+
+      <article>
+        <span class="k">04</span>
+        <h3>Be specific in the request</h3>
+        <p>Claude can infer intent, but it cannot read your mind. Reference the files, state the constraints, point to an existing pattern to follow. The more precise the instruction, the less you correct afterwards.<sup>[1]</sup></p>
+        <p>Vague prompts keep their use: when you are exploring and can afford to course-correct, a "what would you improve in this file?" surfaces things you would not have thought to ask about.</p>
+      </article>
+
+    </div>
+
+    <div class="ba">
+      <div class="p">
+        <div class="no"><b>Too vague</b><q>add tests for foo.py</q></div>
+        <div class="ok"><b>Scoped</b><q>write a test for foo.py covering the edge case where the user is logged out. avoid mocks.</q></div>
+      </div>
+      <div class="p">
+        <div class="no"><b>Too vague</b><q>fix the login bug</q></div>
+        <div class="ok"><b>Symptom, location, criterion</b><q>users report that login fails after session timeout. check the auth flow in src/auth/, especially token refresh. write a failing test that reproduces the issue, then fix it.</q></div>
+      </div>
+      <div class="p">
+        <div class="no"><b>Too vague</b><q>add a calendar widget</q></div>
+        <div class="ok"><b>Point to the pattern</b><q>look at how existing widgets are implemented on the home page. HotDogWidget.php is a good example. follow that pattern, without adding libraries.</q></div>
+      </div>
+      <div class="p">
+        <div class="no"><b>Too vague</b><q>the build is failing</q></div>
+        <div class="ok"><b>Root cause, not symptom</b><q>the build fails with this error: [paste]. fix it and verify the build succeeds. address the root cause, don't suppress the error.</q></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="setup">
+  <div class="wrap">
+    <h2>Configure once, gain every session</h2>
+    <p class="sub">Three settings that pay off over time.</p>
+
+    <div class="pr">
+
+      <article>
+        <span class="k">05</span>
+        <h3>Write a short CLAUDE.md</h3>
+        <p><code style="font-family:var(--mono);font-size:14px">/init</code> generates a first file from your repository, to refine from there. Claude reads it at the start of <b>every</b> conversation: shell commands it cannot guess, style rules that differ from the defaults, how to run the tests, branch and PR conventions, architectural decisions, non-obvious gotchas.</p>
+        <p>And above all what not to put in it: anything Claude can work out by reading the code, standard language conventions it already knows, detailed API documentation (link to it instead), file-by-file descriptions, and self-evident practices like "write clean code".<sup>[1]</sup></p>
+        <span class="why"><b>The test to apply line by line:</b> "would removing this cause Claude to make a mistake?" If not, cut it. A bloated CLAUDE.md makes Claude <b>ignore</b> your actual instructions.</span>
+      </article>
+
+      <article>
+        <span class="k">06</span>
+        <h3>The symptom of a file that is too long</h3>
+        <p>If Claude keeps doing something you explicitly forbade, the file is probably too long and the rule is getting lost in it. If it asks you questions that CLAUDE.md already answers, the phrasing is ambiguous.</p>
+        <p>Treat the file like code: review it when things go wrong, prune it regularly, check it into git so the team contributes. <b>Its value compounds over time.</b><sup>[1]</sup></p>
+      </article>
+
+      <article>
+        <span class="k">07</span>
+        <h3>Cut down the permission prompts</h3>
+        <p>By default Claude asks before writing a file or running a command. That is safe but tedious: <b>by the tenth approval you are not reviewing any more, you are clicking.</b> Three ways out — auto mode, where a classifier blocks only what looks risky; an allowlist for commands you know are safe; or sandboxing, which isolates the filesystem and the network.<sup>[1]</sup></p>
+      </article>
+
+      <article>
+        <span class="k">08</span>
+        <h3>Prefer command-line tools</h3>
+        <p>CLIs are the most context-efficient way to talk to an external service. Install <code style="font-family:var(--mono);font-size:14px">gh</code> if you use GitHub: Claude knows how to use it for issues, pull requests and comments. Without it, it falls back to unauthenticated API calls and hits rate limits.</p>
+        <p>It also picks up tools it does not know: "use <code style="font-family:var(--mono);font-size:14px">foo --help</code> to learn the tool, then solve A, B, C".<sup>[1]</sup></p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="sources" class="alt">
+  <div class="wrap">
+    <h2>Source</h2>
+    <p class="sub">One source, primary, and current.</p>
+    <ol class="srcs">
+      <li><b>Anthropic — Best practices for Claude Code</b>, official Claude Code documentation. Covers the patterns that have proven effective across Anthropic's internal teams and for engineers using Claude Code across various codebases, languages and environments.<br>
+      <a href="https://code.claude.com/docs/en/best-practices" target="_blank" rel="noopener">code.claude.com/docs/en/best-practices</a>
+      <span style="display:block;margin-top:8px">The before / after pairs on this page are taken from the "Strategy · Before · After" tables in that same documentation.</span></li>
+    </ol>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a href="../index-en.html">← Back to the AI Training programme</a> · Arx Consulting
+  </div>
+</footer>
+
+<script>
+(function(){
+  const dd=document.getElementById("dd"), t=document.getElementById("ddt");
+  if(!dd) return;
+  t.addEventListener("click",e=>{
+    e.stopPropagation();
+    const open=dd.classList.toggle("open");
+    t.setAttribute("aria-expanded",open?"true":"false");
+  });
+  document.addEventListener("click",()=>{dd.classList.remove("open");t.setAttribute("aria-expanded","false");});
+  document.addEventListener("keydown",e=>{if(e.key==="Escape"){dd.classList.remove("open");t.setAttribute("aria-expanded","false");}});
+})();
+</script>
+
+</body>
+</html>
