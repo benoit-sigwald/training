@@ -384,12 +384,15 @@
   /* Pastilles de groupe : ouvrent le schema detaille du groupe. */
   .mapfig .hot.deep{border-radius:18px}
   .mapfig .hot.deep:hover{background:rgba(0,113,227,.10)}
+  /* Un « i » cercle, toujours visible : il signale que la pastille s'ouvre. */
   .mapfig .hot.deep::after{
-    content:"Schéma détaillé";position:absolute;right:12px;bottom:8px;
-    font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;
-    color:var(--blue);opacity:0;transition:opacity .18s;
+    content:"i";position:absolute;right:14px;top:50%;margin-top:-11px;
+    width:22px;height:22px;border-radius:50%;
+    border:1.5px solid var(--blue);color:var(--blue);background:var(--white);
+    font-family:var(--sf);font-size:13px;font-weight:700;font-style:italic;line-height:19px;
+    text-align:center;opacity:.6;transition:opacity .18s,background .18s,color .18s;
   }
-  .mapfig .hot.deep:hover::after{opacity:1}
+  .mapfig .hot.deep:hover::after{opacity:1;background:var(--blue);color:#fff}
 
   /* Bouton equivalent sur mobile, dans l'entete de chaque groupe. */
   .deepb{
@@ -402,12 +405,28 @@
   @media(min-width:861px){.deepb{display:none}}
 
   .dlgd{max-width:1180px}
-  .deepimg{
-    margin-top:4px;overflow-x:auto;border:1px solid var(--hair);border-radius:12px;
-    background:var(--bg-alt);
+  .dlgd .dlg-in{max-height:88vh;overflow-y:auto}
+  /* L'image entiere, jamais rognee : elle se met a la largeur disponible. */
+  .deepimg{margin-top:4px;border:1px solid var(--hair);border-radius:12px;background:var(--bg-alt)}
+  .deepimg img{display:block;width:100%;height:auto;border-radius:11px}
+  .deepcap{margin:10px 0 0;font-size:13px;color:var(--text-2)}
+  .deept{margin-top:24px}
+  .deept h4{
+    margin:22px 0 6px;font-size:17px;font-weight:600;letter-spacing:-.02em;color:var(--text);
   }
-  .deepimg img{display:block;width:100%;min-width:840px;height:auto}
-  .deepcap{margin:12px 0 0;font-size:13px;color:var(--text-2)}
+  .deept h4:first-child{margin-top:0}
+  .deept h4 i{
+    font-style:normal;color:var(--blue);font-size:13px;font-weight:600;
+    margin-right:7px;letter-spacing:.02em;
+  }
+  .deept p{margin:0;font-size:15.5px;line-height:1.5;color:var(--text-2)}
+  .deept p + p{margin-top:8px}
+  .deept b{color:var(--text);font-weight:600}
+  .deept .warn{
+    display:block;margin-top:22px;padding:14px 16px;background:var(--bg-alt);
+    border-radius:12px;font-size:15px;color:var(--text);
+  }
+  .deept .warn b{color:#b85c00}
 
   .dlg{
     border:0;padding:0;background:transparent;max-width:640px;width:calc(100% - 32px);
@@ -924,7 +943,8 @@
           <span class="dlg-k" id="dlgdk"></span>
           <h3 id="dlgdt"></h3>
           <div class="deepimg"><img id="dlgdi" src="" alt=""></div>
-          <p class="deepcap">Schéma large : faites défiler horizontalement sur petit écran.</p>
+          <p class="deepcap" id="dlgdc"></p>
+          <div class="deept" id="dlgdtxt"></div>
         </div>
       </dialog>
 
@@ -1975,19 +1995,80 @@ if(matchMedia("(prefers-reduced-motion: reduce)").matches){
 (function(){
   const dlg=document.getElementById("dlgd");
   if(!dlg) return;
+
+  // Un objet par groupe : entete, titre, image, legende et texte du process.
   const deep={
-    "1":["Une fois · Préparation, hors ligne","Pipeline de préparation et d'indexation","DD1.jpg"],
-    "2":["À chaque demande · Quelques secondes","Pipeline de requête et de génération","DD2.jpg"],
-    "3":["Autour · Ce qui encadre","Gouvernance et cadre d'exécution","DD3.jpg"]
+  "1":{
+    k:"Une fois \u00b7 Pr\u00e9paration, hors ligne",
+    t:"Pipeline de pr\u00e9paration et d'indexation",
+    img:"DD1.jpg",
+    cap:"\u00c9tapes 01 \u00e0 05. Ce pipeline tourne une fois, avant toute question, et se rejoue \u00e0 chaque mise \u00e0 jour documentaire.",
+    txt:`
+    <h4><i>01</i>Vos sources</h4>
+    <p>Tout part de ce que vous poss\u00e9dez d\u00e9j\u00e0 : bases relationnelles (SQL), documents bureautiques et PDF, API m\u00e9tier. <b>Rien n'est cr\u00e9\u00e9 \u00e0 cette \u00e9tape</b> — on d\u00e9cide seulement de ce qui entre dans le p\u00e9rim\u00e8tre, et c'est la d\u00e9cision la plus lourde de cons\u00e9quences de toute la cha\u00eene. Un document oubli\u00e9 ici sera invisible \u00e0 toutes les r\u00e9ponses ; un document confidentiel int\u00e9gr\u00e9 ici devient interrogeable par tous ceux qui ont acc\u00e8s au syst\u00e8me.</p>
+    <h4><i>02</i>Extraction et normalisation</h4>
+    <p>Les donn\u00e9es brutes sont r\u00e9cup\u00e9r\u00e9es puis <b>nettoy\u00e9es et standardis\u00e9es</b> : on retire la mise en page, les en-t\u00eates et pieds de page r\u00e9p\u00e9t\u00e9s, les tableaux mal form\u00e9s, et on ram\u00e8ne le tout \u00e0 un texte homog\u00e8ne. C'est ici que se joue la qualit\u00e9 du reste. Un PDF scann\u00e9 sans reconnaissance de caract\u00e8res ne produira rien d'exploitable, et personne ne s'en apercevra avant que les r\u00e9ponses ne deviennent inexactes.</p>
+    <h4><i>03</i>D\u00e9coupage en morceaux</h4>
+    <p>Les documents sont segment\u00e9s en unit\u00e9s exploitables, les <i>chunks</i>. Plusieurs strat\u00e9gies coexistent : d\u00e9coupage r\u00e9cursif par caract\u00e8res, par longueur fixe, ou en suivant la structure du document — les titres markdown, par exemple. Le sch\u00e9ma montre aussi un <b>recouvrement d'une vingtaine de jetons</b> entre morceaux cons\u00e9cutifs.</p>
+    <p>Ce recouvrement n'est pas un d\u00e9tail : sans lui, une phrase coup\u00e9e en deux perd son sens dans les deux morceaux. Le d\u00e9coupage est le r\u00e9glage qui influence le plus la pertinence des r\u00e9ponses, et c'est celui qu'on ajuste en dernier alors qu'il faudrait le tester en premier.</p>
+    <h4><i>04</i>Vectorisation</h4>
+    <p>Chaque morceau est converti en une liste de nombres — un vecteur — par un mod\u00e8le d'embedding. Le sch\u00e9ma indique <b>768 dimensions</b> et un mod\u00e8le multilingue, ce qui permet d'interroger en fran\u00e7ais des documents r\u00e9dig\u00e9s en anglais. Deux textes qui parlent de la m\u00eame chose produisent des vecteurs proches, m\u00eame sans partager un seul mot : c'est ce qui distingue cette recherche d'un simple \u00ab Ctrl+F \u00bb.</p>
+    <h4><i>05</i>Index</h4>
+    <p>Les vecteurs sont stock\u00e9s dans une base vectorielle — Pinecone, Milvus et leurs \u00e9quivalents — organis\u00e9e pour retrouver les plus proches voisins d'un vecteur en quelques millisecondes sur des millions d'entr\u00e9es.</p>
+    <span class="warn"><b>Le point de vigilance :</b> \u00e0 partir de l'\u00e9tape 02, vos donn\u00e9es existent en copie chez un prestataire. Le contrat qui encadre cette copie compte davantage que tous les r\u00e9glages techniques de la cha\u00eene.</span>`
+  },
+  "2":{
+    k:"\u00c0 chaque demande \u00b7 Quelques secondes",
+    t:"Pipeline de requ\u00eate et de g\u00e9n\u00e9ration",
+    img:"DD2.jpg",
+    cap:"\u00c9tapes 06 \u00e0 10. Ce pipeline se rejoue int\u00e9gralement \u00e0 chaque question pos\u00e9e, en moins de deux secondes.",
+    txt:`
+    <h4><i>06</i>Votre demande</h4>
+    <p>La question arrive au clavier ou \u00e0 la voix. Un premier traitement cherche \u00e0 qualifier l'<b>intention</b> : cherche-t-on un fait, une comparaison, une synth\u00e8se, une action ? De cette lecture d\u00e9pend la suite — une question mal formul\u00e9e n'est pas rattrap\u00e9e plus loin dans la cha\u00eene.</p>
+    <h4><i>07</i>Recherche</h4>
+    <p>La question est vectoris\u00e9e avec le m\u00eame mod\u00e8le qu'\u00e0 l'\u00e9tape 04, puis compar\u00e9e \u00e0 l'index par <b>distance cosinus</b> : on mesure l'angle entre deux vecteurs plut\u00f4t que leur \u00e9cart brut. Les moteurs cit\u00e9s — FAISS, Chroma — remontent les morceaux les plus proches, avec une <b>latence vis\u00e9e sous la seconde</b>.</p>
+    <p>C'est une recherche s\u00e9mantique : elle trouve un passage sur les \u00ab cong\u00e9s pay\u00e9s \u00bb \u00e0 partir d'une question sur les \u00ab vacances \u00bb, l\u00e0 o\u00f9 une recherche par mots-cl\u00e9s ne trouverait rien.</p>
+    <h4><i>08</i>Contexte assembl\u00e9</h4>
+    <p>Les morceaux retenus sont assembl\u00e9s avec leurs <b>m\u00e9tadonn\u00e9es</b> — source, date, auteur, droits — et, le cas \u00e9ch\u00e9ant, le profil de l'utilisateur. Une \u00e9tape de <b>re-ranking</b> reclasse l'ensemble : la recherche vectorielle est rapide mais grossi\u00e8re, un second mod\u00e8le plus fin r\u00e9ordonne les candidats avant de n'en garder que les meilleurs.</p>
+    <p><b>C'est ici que vos donn\u00e9es sortent r\u00e9ellement.</b> Tout ce qui entre dans ce paquet part chez le fournisseur du mod\u00e8le avec la question. Les quatre \u00e9tapes pr\u00e9c\u00e9dentes n'\u00e9taient que de la pr\u00e9paration.</p>
+    <h4><i>09</i>Tokens</h4>
+    <p>Le contexte et la question sont d\u00e9coup\u00e9s en jetons, les unit\u00e9s que le mod\u00e8le manipule r\u00e9ellement — ni des mots, ni des caract\u00e8res, mais des fragments r\u00e9currents. Le sch\u00e9ma \u00e9voque un vocabulaire de l'ordre de <b>50 000 jetons</b> et un suivi de consommation. <b>C'est l'unit\u00e9 de facturation</b> : tout ce qui est envoy\u00e9 est compt\u00e9, y compris les morceaux qui ne serviront pas.</p>
+    <h4><i>10</i>G\u00e9n\u00e9ration</h4>
+    <p>Le mod\u00e8le produit la r\u00e9ponse \u00e0 partir du contexte fourni, dans le format demand\u00e9 : un courriel, une requ\u00eate SQL, un r\u00e9sum\u00e9. Il ne consulte pas l'index — <b>il ne voit que ce que l'\u00e9tape 08 lui a donn\u00e9</b>. Si le bon document n'a pas \u00e9t\u00e9 remont\u00e9, aucune qualit\u00e9 de mod\u00e8le ne compensera : il r\u00e9pondra quand m\u00eame, avec ce qu'il a.</p>
+    <span class="warn"><b>Le point de vigilance :</b> une r\u00e9ponse fausse vient le plus souvent de l'\u00e9tape 07 ou 08, pas de l'\u00e9tape 10. Avant de changer de mod\u00e8le, regardez ce qui a \u00e9t\u00e9 remont\u00e9.</span>`
+  },
+  "3":{
+    k:"Autour \u00b7 Ce qui encadre",
+    t:"Gouvernance et cadre d'ex\u00e9cution",
+    img:"DD3.jpg",
+    cap:"\u00c9tapes 11 \u00e0 13. Ce n'est pas la cha\u00eene de traitement, c'est ce qui la rend exploitable en production — et la boucle qui la fait progresser.",
+    txt:`
+    <h4><i>11</i>Outils et actions</h4>
+    <p>Le mod\u00e8le cesse de se contenter de r\u00e9pondre : il d\u00e9clenche des actions. Une <b>passerelle d'API</b> expose les outils disponibles, un registre les d\u00e9clare, une couche d'authentification contr\u00f4le qui a le droit d'appeler quoi, et une couche d'ex\u00e9cution lance l'appel. Le sch\u00e9ma cite des connecteurs vers des plateformes d'automatisation et des CRM.</p>
+    <p>Le changement de nature est r\u00e9el : tant qu'il r\u00e9dige, une erreur produit un mauvais texte. D\u00e8s qu'il agit, une erreur produit un mauvais virement, un courriel envoy\u00e9 \u00e0 tort, une ligne supprim\u00e9e. <b>Les droits accord\u00e9s \u00e0 cette \u00e9tape sont les droits r\u00e9els du syst\u00e8me.</b></p>
+    <h4><i>12</i>V\u00e9rification humaine</h4>
+    <p>Quatre contr\u00f4les distincts apparaissent : v\u00e9rifier les <b>sources</b>, corriger les <b>faits</b>, valider ces faits, et v\u00e9rifier que la r\u00e9ponse r\u00e9pond bien \u00e0 l'<b>exigence</b> pos\u00e9e. Un validateur peut ajouter ou pr\u00e9ciser une source, ce qui alimente directement l'index.</p>
+    <p>La courbe \u00ab v\u00e9rification humaine vs fr\u00e9quence \u00bb du sch\u00e9ma dit l'essentiel : le taux de contr\u00f4le d\u00e9cro\u00eet avec l'usage. On v\u00e9rifie beaucoup au d\u00e9but, puis de moins en moins \u00e0 mesure que la confiance s'installe — et c'est pr\u00e9cis\u00e9ment \u00e0 ce moment-l\u00e0 que les erreurs passent. <b>Le bon dispositif n'est pas de tout v\u00e9rifier, c'est de d\u00e9cider \u00e0 l'avance ce qui sera toujours v\u00e9rifi\u00e9</b>, quelle que soit la confiance acquise.</p>
+    <h4><i>13</i>Journal et co\u00fbts</h4>
+    <p>Chaque \u00e9change laisse une trace horodat\u00e9e : qui a demand\u00e9, quel statut — succ\u00e8s, approbation, \u00e9chec —, quels documents ont \u00e9t\u00e9 remont\u00e9s. Les indicateurs suivis sont le <b>co\u00fbt par requ\u00eate</b>, le volume de jetons, la latence moyenne, le taux d'erreur et la disponibilit\u00e9, ainsi qu'une mesure d'exactitude des r\u00e9ponses.</p>
+    <p>Ce n'est pas seulement de la conformit\u00e9. Sans journal, on ne peut ni expliquer une r\u00e9ponse aberrante, ni estimer un co\u00fbt, ni d\u00e9montrer quoi que ce soit lors d'un contr\u00f4le. <b>Sans mesure, pas de mise en production.</b></p>
+    <h4><i>\u21ba</i>La boucle de retour</h4>
+    <p>Le trait discontinu qui revient de la droite vers la gauche est la partie la plus souvent oubli\u00e9e : les corrections humaines et les mesures d'usage <b>remontent vers l'index et vers la politique de filtrage</b>. Un syst\u00e8me sans cette boucle ne s'am\u00e9liore pas — il se d\u00e9grade, simplement parce que les documents vieillissent.</p>
+    <span class="warn"><b>Le point de vigilance :</b> l'article 4 du r\u00e8glement (UE) 2024/1689 impose depuis f\u00e9vrier 2025 un niveau suffisant de ma\u00eetrise de l'IA chez ceux qui l'utilisent. Les \u00e9tapes 12 et 13 sont ce qui permet de le d\u00e9montrer.</span>`
+  }
   };
+
   document.querySelectorAll("[data-d]").forEach(b=>{
     b.addEventListener("click",()=>{
-      const [k,titre,src]=deep[b.dataset.d];
-      document.getElementById("dlgdk").textContent=k;
-      document.getElementById("dlgdt").textContent=titre;
+      const d=deep[b.dataset.d];
+      document.getElementById("dlgdk").textContent=d.k;
+      document.getElementById("dlgdt").textContent=d.t;
+      document.getElementById("dlgdc").textContent=d.cap;
+      document.getElementById("dlgdtxt").innerHTML=d.txt;
       const img=document.getElementById("dlgdi");
-      img.src=src; img.alt="Schéma détaillé : "+titre;
+      img.src=d.img; img.alt="Sch\u00e9ma d\u00e9taill\u00e9 : "+d.t;
       if(typeof dlg.showModal==="function"){dlg.showModal();}else{dlg.setAttribute("open","");}
+      dlg.querySelector(".dlg-in").scrollTop=0;
     });
   });
   document.getElementById("dlgdx").addEventListener("click",()=>dlg.close());
