@@ -467,6 +467,9 @@
     border-radius:12px;font-size:15px;color:var(--text);
   }
   .deept .warn b{color:#b85c00}
+  .deept .ddsrc{margin-top:18px;font-size:13px;color:var(--text-2);line-height:1.5}
+  .deept .ddsrc b{color:var(--text-2);font-weight:600}
+  .deept .ddsrc a{color:var(--blue)}
 
   .dlg{
     border:0;padding:0;background:transparent;max-width:640px;width:calc(100% - 32px);
@@ -2201,6 +2204,7 @@ if(matchMedia("(prefers-reduced-motion: reduce)").matches){
     <p>Ce recouvrement n'est pas un d\u00e9tail : sans lui, une phrase coup\u00e9e en deux perd son sens dans les deux morceaux. Le d\u00e9coupage est le r\u00e9glage qui influence le plus la pertinence des r\u00e9ponses, et c'est celui qu'on ajuste en dernier alors qu'il faudrait le tester en premier.</p>
     <h4><i>04</i>Vectorisation</h4>
     <p>Chaque morceau est converti en une liste de nombres — un vecteur — par un mod\u00e8le d'embedding. Le sch\u00e9ma indique <b>768 dimensions</b> et un mod\u00e8le multilingue, ce qui permet d'interroger en fran\u00e7ais des documents r\u00e9dig\u00e9s en anglais. Deux textes qui parlent de la m\u00eame chose produisent des vecteurs proches, m\u00eame sans partager un seul mot : c'est ce qui distingue cette recherche d'un simple \u00ab Ctrl+F \u00bb.</p>
+    <p>Ce modèle d'embedding est lui-même un réseau de neurones, entraîné par l'exemple et non programmé à la main. <b>Personne n'a écrit la règle qui rapproche « congés » de « vacances »</b> — elle a été déduite de milliards de phrases où les deux mots apparaissaient dans les mêmes contextes. Le mécanisme est détaillé dans le schéma 2, à l'étape 10.</p>
     <h4><i>05</i>Index</h4>
     <p>Les vecteurs sont stock\u00e9s dans une base vectorielle — Pinecone, Milvus et leurs \u00e9quivalents — organis\u00e9e pour retrouver les plus proches voisins d'un vecteur en quelques millisecondes sur des millions d'entr\u00e9es.</p>
     <span class="warn"><b>Le point de vigilance :</b> \u00e0 partir de l'\u00e9tape 02, vos donn\u00e9es existent en copie chez un prestataire. Le contrat qui encadre cette copie compte davantage que tous les r\u00e9glages techniques de la cha\u00eene.</span>`
@@ -2223,6 +2227,19 @@ if(matchMedia("(prefers-reduced-motion: reduce)").matches){
     <p>Le contexte et la question sont d\u00e9coup\u00e9s en jetons, les unit\u00e9s que le mod\u00e8le manipule r\u00e9ellement — ni des mots, ni des caract\u00e8res, mais des fragments r\u00e9currents. Le sch\u00e9ma \u00e9voque un vocabulaire de l'ordre de <b>50 000 jetons</b> et un suivi de consommation. <b>C'est l'unit\u00e9 de facturation</b> : tout ce qui est envoy\u00e9 est compt\u00e9, y compris les morceaux qui ne serviront pas.</p>
     <h4><i>10</i>G\u00e9n\u00e9ration</h4>
     <p>Le mod\u00e8le produit la r\u00e9ponse \u00e0 partir du contexte fourni, dans le format demand\u00e9 : un courriel, une requ\u00eate SQL, un r\u00e9sum\u00e9. Il ne consulte pas l'index — <b>il ne voit que ce que l'\u00e9tape 08 lui a donn\u00e9</b>. Si le bon document n'a pas \u00e9t\u00e9 remont\u00e9, aucune qualit\u00e9 de mod\u00e8le ne compensera : il r\u00e9pondra quand m\u00eame, avec ce qu'il a.</p>
+    <h4><i>⚙</i>Comment le modèle fonctionne, sans une seule équation</h4>
+    <p>Partez d'un problème minuscule : reconnaître un chiffre écrit à la main. Vous croyez pouvoir écrire la règle — « un 9 a une boucle en haut et un trait vertical en bas à droite ». Essayez de la rendre précise : vous vous perdez immédiatement dans les exceptions et les cas particuliers. <b>La règle existe dans votre tête, mais elle est inécrivable.</b><sup>[A]</sup></p>
+    <p>Le réseau de neurones renverse le problème. Au lieu d'écrire la règle, <b>on montre des exemples et la machine déduit la règle toute seule</b>. Et plus on montre d'exemples, plus elle est juste.</p>
+    <p>Un neurone ne fait qu'une chose : <b>pondérer des indices</b>. Chaque entrée reçoit un poids, qui dit son importance ; on additionne le tout ; si le total dépasse un seuil, le neurone s'allume. C'est exactement ce que vous faites en pesant le pour et le contre avant une décision — sauf que vous le faites une fois, et que le modèle le fait des milliards de fois.</p>
+    <p><b>Apprendre, c'est régler les poids.</b> Rien d'autre. Un modèle n'est pas une base de connaissances : c'est un très grand réglage de boutons, obtenu en corrigeant l'écart entre ce qu'il prédisait et ce qu'il aurait fallu prédire, exemple après exemple.</p>
+    <p>Pour mesurer à quel point l'idée est simple : <b>74 lignes de code, sans aucune bibliothèque spécialisée, suffisent à dépasser 96 % de réussite</b> sur les chiffres manuscrits. Tout le reste — la taille, les données, la puissance de calcul — est une affaire d'échelle, pas de nature.<sup>[A]</sup></p>
+    <h4><i>◈</i>Pourquoi ce n'est pas un cerveau</h4>
+    <p>L'analogie biologique donne une image fausse : celle d'un neurone qui porterait une idée, comme une ampoule « chat » ou une ampoule « Paris ». Les travaux d'interprétabilité d'Anthropic ont montré l'inverse : <b>chaque concept est réparti sur de nombreux neurones, et chaque neurone participe à de nombreux concepts</b>.<sup>[B]</sup></p>
+    <p>La bonne image est alphabétique, pas biologique. <b>Les neurones sont des lettres, pas des mots.</b> Un concept se lit en combinant des neurones comme un mot se compose de lettres, et une pensée complète en combinant ces concepts comme une phrase se compose de mots.</p>
+    <p>Ce n'est pas une vue de l'esprit. En cherchant ces combinaisons dans Claude, les chercheurs ont trouvé un motif du « Golden Gate Bridge » qui s'active aussi bien sur le nom en anglais que sur une discussion en japonais, en chinois, en grec, en vietnamien, en russe — <b>ou sur une photo du pont</b>. Le concept est le même quelle que soit la langue, et quel que soit le format.<sup>[B]</sup></p>
+    <p>Et ces motifs ne font pas qu'accompagner le raisonnement, <b>ils le produisent</b> : en amplifiant artificiellement celui du pont, Claude, interrogé sur sa forme physique, a cessé de répondre « je n'ai pas de forme physique » pour affirmer « je suis le Golden Gate Bridge ». On a déplacé un rouage, et le comportement a suivi.<sup>[B]</sup></p>
+    <span class="warn"><b>Ce que ça change en séance :</b> remplacez « il comprend » et « il pense » par « il pondère ». L'hallucination, l'absence de case « je ne sais pas », la sensibilité à la formulation : ces trois limites découlent de ce seul fait.</span>
+    <p class="ddsrc"><b>Sources</b> — [A] Michael Nielsen, <i>Neural Networks and Deep Learning</i>, chapitre 1, <a href="http://neuralnetworksanddeeplearning.com/chap1.html" target="_blank" rel="noopener">neuralnetworksanddeeplearning.com</a>. [B] Anthropic, <i>Mapping the mind of a large language model</i>, 21 mai 2024, <a href="https://www.anthropic.com/research/mapping-mind-language-model" target="_blank" rel="noopener">anthropic.com</a>.</p>
     <span class="warn"><b>Le point de vigilance :</b> une r\u00e9ponse fausse vient le plus souvent de l'\u00e9tape 07 ou 08, pas de l'\u00e9tape 10. Avant de changer de mod\u00e8le, regardez ce qui a \u00e9t\u00e9 remont\u00e9.</span>`
   },
   "3":{
