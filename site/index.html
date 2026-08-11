@@ -342,7 +342,10 @@
      briques qui sont reellement des reseaux de neurones. */
   .bkwrap{background:var(--white);border-radius:var(--radius);padding:22px 20px 16px;
     box-shadow:0 2px 12px rgba(0,0,0,.045);overflow-x:auto}
-  .bkfig{display:block;width:100%;height:auto;min-width:1060px}
+  /* Le schema tient dans la colonne : pas de largeur minimale sur grand ecran,
+     sinon les dernieres briques sortent du cadre. */
+  .bkfig{display:block;width:100%;height:auto}
+  @media(max-width:900px){.bkfig{min-width:900px}}
   .bkrow{font-family:var(--sf);font-size:11.5px;font-weight:700;letter-spacing:.09em}
   .bknum{font-family:var(--sf);font-size:12px;font-weight:700;letter-spacing:.03em}
   .bkt{font-family:var(--sf);font-size:15.5px;font-weight:600;fill:var(--text)}
@@ -1000,7 +1003,7 @@
       </div>
 
       <div class="bkwrap">
-        <svg class="bkfig" viewBox="0 0 1174 512" width="1174" height="512" xmlns="http://www.w3.org/2000/svg" aria-label="Les douze briques logicielles, cliquables">
+        <svg class="bkfig" viewBox="0 0 1174 512" xmlns="http://www.w3.org/2000/svg" aria-label="Les douze briques logicielles, cliquables">
         <text x="24" y="32" class="bkrow" fill="#0071e3">UNE FOIS, HORS LIGNE</text>
         <g class="bk" data-b="1" tabindex="0" role="button">
         <rect x="139.0" y="44" width="206" height="104" rx="15" fill="#eef5fe" stroke="#c3ddf9" stroke-width="1.5"/>
