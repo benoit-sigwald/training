@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Goodies — les commandes Claude Code | Arx Consulting</title>
+<meta name="description" content="La liste des commandes slash de Claude Code, et les cinq étapes pour créer la sienne.">
+<meta name="theme-color" content="#fbfbfd">
+<meta name="robots" content="noindex, nofollow">
+<style>
+  :root{
+    --text:#1d1d1f;
+    --text-2:#6e6e73;
+    --bg:#fbfbfd;
+    --bg-alt:#f5f5f7;
+    --white:#ffffff;
+    --blue:#0071e3;
+    --blue-dark:#0077ed;
+    --hair:#d2d2d7;
+    --radius:18px;
+    --sf:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue","Segoe UI",Roboto,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+  }
+  *{box-sizing:border-box;-webkit-font-smoothing:antialiased}
+  html{scroll-behavior:smooth;scroll-padding-top:76px}
+  body{
+    margin:0;background:var(--bg);color:var(--text);
+    font-family:var(--sf);font-size:17px;line-height:1.47;letter-spacing:-.022em;
+  }
+  .wrap{max-width:980px;margin:0 auto;padding:0 22px}
+
+  /* ---------- nav ---------- */
+  .nav{
+    position:sticky;top:0;z-index:50;height:52px;
+    background:rgba(251,251,253,.72);
+    -webkit-backdrop-filter:saturate(180%) blur(20px);
+    backdrop-filter:saturate(180%) blur(20px);
+    border-bottom:1px solid rgba(0,0,0,.08);
+  }
+  .nav .wrap{display:flex;align-items:center;height:100%;gap:26px}
+  .brand{
+    font-size:21px;font-weight:600;letter-spacing:-.02em;text-decoration:none;color:var(--text);
+    white-space:nowrap;display:flex;align-items:center;gap:9px;
+  }
+  .brand img{height:30px;width:auto;display:block}
+  .nav-links{margin-left:auto;display:flex;gap:24px;align-items:center}
+  .nav-links a{font-size:12px;color:var(--text);text-decoration:none;opacity:.85;white-space:nowrap}
+  .nav-links a:hover{opacity:1}
+  .nav-links a.here{font-weight:600;opacity:1}
+  .nav-cta{
+    font-size:12px;font-weight:500;background:var(--blue);color:#fff!important;opacity:1!important;
+    padding:6px 14px;border-radius:980px;transition:background .2s;
+  }
+  .nav-cta:hover{background:var(--blue-dark)}
+  @media(max-width:640px){
+    .nav-links{gap:12px}.nav-links a{font-size:11px}
+    .brand{font-size:17px}.brand img{height:24px}
+    .nav-cta{padding:5px 11px}
+  }
+
+  /* ---------- hero ---------- */
+  .hero{padding:78px 0 46px;text-align:center}
+  .eyebrow{
+    margin:0 0 10px;font-size:19px;font-weight:600;color:var(--blue);letter-spacing:-.02em;
+  }
+  .hero h1{
+    margin:0 0 16px;font-size:52px;line-height:1.06;font-weight:600;letter-spacing:-.028em;
+  }
+  .hero .lead{
+    margin:0 auto;max-width:620px;font-size:20px;color:var(--text-2);letter-spacing:-.02em;
+  }
+  @media(max-width:640px){
+    .hero{padding:52px 0 34px}
+    .hero h1{font-size:34px}
+    .hero .lead{font-size:17px}
+  }
+
+  /* ---------- sections ---------- */
+  section{padding:56px 0}
+  section.alt{background:var(--bg-alt)}
+  h2{
+    margin:0 0 8px;font-size:34px;line-height:1.12;font-weight:600;letter-spacing:-.024em;
+  }
+  .sub{margin:0 0 30px;font-size:17px;color:var(--text-2)}
+  @media(max-width:640px){section{padding:40px 0}h2{font-size:26px}}
+
+  /* ---------- tableau des commandes ---------- */
+  .cmds{
+    background:var(--white);border:1px solid var(--hair);border-radius:var(--radius);
+    overflow:hidden;
+  }
+  .cmds .grp{
+    padding:12px 22px 10px;background:var(--bg-alt);
+    font-size:12px;font-weight:600;color:var(--text-2);
+    text-transform:uppercase;letter-spacing:.06em;
+    border-bottom:1px solid var(--hair);
+  }
+  .cmds .row{
+    display:flex;gap:18px;align-items:baseline;
+    padding:13px 22px;border-bottom:1px solid var(--hair);
+  }
+  .cmds .row:last-child{border-bottom:0}
+  .cmds code{
+    flex:0 0 236px;font-family:var(--mono);font-size:14px;
+    color:var(--blue);font-weight:500;word-break:break-word;
+  }
+  .cmds span{font-size:16px;color:var(--text-2);letter-spacing:-.018em}
+  @media(max-width:640px){
+    .cmds .row{flex-direction:column;gap:3px;padding:12px 18px}
+    .cmds code{flex:none;font-size:13.5px}
+    .cmds span{font-size:15px}
+  }
+
+  /* ---------- étapes ---------- */
+  .steps{list-style:none;margin:0;padding:0;counter-reset:s}
+  .steps li{
+    counter-increment:s;position:relative;
+    padding:0 0 26px 56px;
+  }
+  .steps li::before{
+    content:counter(s);position:absolute;left:0;top:-1px;
+    width:32px;height:32px;border-radius:50%;
+    background:var(--blue);color:#fff;
+    font-size:15px;font-weight:600;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .steps li::after{
+    content:"";position:absolute;left:15.5px;top:36px;bottom:8px;width:1px;background:var(--hair);
+  }
+  .steps li:last-child{padding-bottom:0}
+  .steps li:last-child::after{display:none}
+  .steps b{display:block;font-size:19px;font-weight:600;letter-spacing:-.022em;margin-bottom:4px}
+  .steps p{margin:0;font-size:16px;color:var(--text-2)}
+  .steps code{
+    font-family:var(--mono);font-size:14px;background:var(--bg-alt);
+    padding:2px 6px;border-radius:6px;color:var(--text);
+  }
+  @media(max-width:640px){
+    .steps li{padding-left:46px}
+    .steps li::before{width:28px;height:28px;font-size:14px}
+    .steps li::after{left:13.5px;top:32px}
+    .steps b{font-size:17px}
+  }
+
+  /* ---------- exemple ---------- */
+  .ex{
+    margin-top:34px;background:var(--white);border:1px solid var(--hair);
+    border-radius:var(--radius);overflow:hidden;
+  }
+  .ex .hd{
+    padding:12px 22px;border-bottom:1px solid var(--hair);
+    font-family:var(--mono);font-size:13px;color:var(--text-2);
+  }
+  .ex pre{
+    margin:0;padding:20px 22px;overflow-x:auto;
+    font-family:var(--mono);font-size:13.5px;line-height:1.62;color:var(--text);
+  }
+  .ex .fm{color:var(--blue)}
+
+  .note{
+    margin-top:30px;padding:18px 22px;background:var(--bg-alt);
+    border-radius:14px;font-size:15px;color:var(--text-2);
+  }
+  .note b{color:var(--text);font-weight:600}
+  .note code{font-family:var(--mono);font-size:13.5px}
+
+  /* ---------- pied ---------- */
+  footer{
+    padding:34px 0 46px;border-top:1px solid var(--hair);
+    font-size:13px;color:var(--text-2);
+  }
+  footer a{color:var(--blue);text-decoration:none}
+  footer a:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="../index.html"><img src="../arx-logo.png" alt="Arx Consulting" width="242" height="264" decoding="async">AI Training</a>
+    <div class="nav-links">
+      <a href="../index.html#niveaux">Niveaux</a>
+      <a href="../index.html#parcours">Parcours</a>
+      <a href="../index.html#kit">Kit formateur</a>
+      <a href="../index.html#ressources">Ressources</a>
+      <a class="here" href="./">Goodies</a>
+      <a class="nav-cta" href="https://arx-consulting.com/index-fr.html">Arx Consulting</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">Goodies</p>
+    <h1>Les commandes.<br>Et comment faire les vôtres.</h1>
+    <p class="lead">Une commande slash, c'est un dossier et un fichier. Voici celles qui existent, puis les cinq étapes pour en écrire une.</p>
+  </div>
+</header>
+
+<section id="liste">
+  <div class="wrap">
+    <h2>Les commandes disponibles</h2>
+    <p class="sub">Tapez <code style="font-family:var(--mono);font-size:15px">/</code> dans Claude Code pour les voir apparaître.</p>
+
+    <div class="cmds">
+
+      <div class="grp">Recherche et rédaction</div>
+      <div class="row"><code>/deep-research</code><span>Recherche web multi-sources avec vérification et rapport cité</span></div>
+      <div class="row"><code>/dataviz</code><span>Guide de design pour graphiques et visualisations de données</span></div>
+      <div class="row"><code>/artifact-design</code><span>Guide de design pour les Artifacts</span></div>
+      <div class="row"><code>/artifact-diagramming</code><span>Créer des diagrammes (Mermaid, SVG) dans les Artifacts</span></div>
+
+      <div class="grp">Qualité du code</div>
+      <div class="row"><code>/verify</code><span>Vérifier qu'un changement fonctionne réellement, en exécution de bout en bout</span></div>
+      <div class="row"><code>/code-review</code><span>Revue du diff courant : bugs, simplification, efficacité</span></div>
+      <div class="row"><code>/review</code><span>Revue d'une pull request GitHub</span></div>
+      <div class="row"><code>/security-review</code><span>Revue de sécurité des changements en cours</span></div>
+      <div class="row"><code>/simplify</code><span>Revue puis application de simplifications sur le code modifié</span></div>
+      <div class="row"><code>/run</code><span>Lancer et piloter l'application pour voir un changement fonctionner</span></div>
+
+      <div class="grp">Configuration du harness</div>
+      <div class="row"><code>/init</code><span>Initialiser un fichier CLAUDE.md avec la documentation du dépôt</span></div>
+      <div class="row"><code>/update-config</code><span>Configurer le harness via settings.json : hooks, permissions, variables d'environnement</span></div>
+      <div class="row"><code>/session-start-hook</code><span>Créer ou configurer un hook de démarrage pour Claude Code web</span></div>
+      <div class="row"><code>/keybindings-help</code><span>Personnaliser les raccourcis clavier</span></div>
+      <div class="row"><code>/fewer-permission-prompts</code><span>Scanner les transcripts pour réduire les demandes de permission</span></div>
+
+      <div class="grp">Divers</div>
+      <div class="row"><code>/loop</code><span>Exécuter un prompt ou une commande à intervalle récurrent</span></div>
+      <div class="row"><code>/claude-api</code><span>Référence de l'API Claude et du SDK Anthropic</span></div>
+      <div class="row"><code>/1</code><span>Mode d'exécution strict — commande personnelle, l'exemple ci-dessous</span></div>
+
+    </div>
+  </div>
+</section>
+
+<section id="creer" class="alt">
+  <div class="wrap">
+    <h2>Créer sa propre commande</h2>
+    <p class="sub">Cinq étapes. Aucun redémarrage, aucune compilation, aucun enregistrement nulle part.</p>
+
+    <ol class="steps">
+      <li>
+        <b>Créer le dossier</b>
+        <p><code>mkdir -p ~/.claude/skills/&lt;nom&gt;</code> pour une commande personnelle, disponible dans tous vos projets — ou <code>.claude/skills/&lt;nom&gt;</code> à la racine d'un dépôt pour une commande de projet, versionnée avec le code et partagée par l'équipe.</p>
+      </li>
+      <li>
+        <b>Créer le fichier SKILL.md dedans</b>
+        <p>Le nom du fichier est imposé, en majuscules. C'est le dossier qui donne son nom à la commande, pas le fichier.</p>
+      </li>
+      <li>
+        <b>Ajouter le frontmatter YAML</b>
+        <p>Entre deux lignes de trois tirets <code>---</code>, en tête de fichier. Un seul champ est obligatoire : <code>description</code>. C'est lui que Claude lit pour décider si la commande est pertinente.</p>
+      </li>
+      <li>
+        <b>Écrire les instructions en markdown en dessous</b>
+        <p>Du texte, adressé à Claude. Écrivez-le comme une consigne à un collègue qui prend le dossier : ce qu'il doit faire, dans quel ordre, et ce qu'il ne doit pas faire.</p>
+      </li>
+      <li>
+        <b>Sauvegarder</b>
+        <p>La commande <code>/&lt;nom&gt;</code> est disponible immédiatement — la détection se fait à chaud.</p>
+      </li>
+    </ol>
+
+    <div class="ex">
+      <div class="hd">~/.claude/skills/1/SKILL.md</div>
+<pre><span class="fm">---
+description: Active un mode d'exécution strict.
+disable-model-invocation: true
+---</span>
+
+À partir de maintenant, pour le reste de la session :
+
+1. Écoute exactement ce que l'utilisateur dit.
+2. Fais exactement ce qu'il demande, rien de plus.
+3. Ne sois pas verbeux — réponses minimales, consommation de tokens réduite au maximum.
+4. En cas de doute, pose une question avant d'agir.
+5. Ne décide jamais sur une hypothèse non validée par l'utilisateur.</pre>
+    </div>
+
+    <div class="note">
+      <b>Le champ <code>disable-model-invocation: true</code></b> de cet exemple est facultatif. Il empêche Claude de déclencher la commande de lui-même : elle ne part que si vous tapez <code>/1</code>. Utile pour tout ce qui change le comportement de la session plutôt que d'exécuter une tâche.
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a href="../index.html">← Retour au programme AI Training</a> · Arx Consulting
+  </div>
+</footer>
+
+</body>
+</html>
