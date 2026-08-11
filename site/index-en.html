@@ -304,6 +304,23 @@
   .stp.on i{color:var(--blue)}
   @media(max-width:560px){.stp{flex:1 1 100%}}
 
+  /* Data path: the illustration on wide screens, the chips on mobile.
+     Hotspots are percentages of the image, so they scale with it. */
+  .mapfig{position:relative;margin:0;display:none}
+  .mapfig img{width:100%;height:auto;display:block}
+  .mapfig .hot{
+    position:absolute;padding:0;margin:0;border:0;background:transparent;
+    border-radius:14px;cursor:pointer;transition:background .18s,box-shadow .18s;
+  }
+  .mapfig .hot:hover{background:rgba(0,113,227,.12);box-shadow:inset 0 0 0 2px rgba(0,113,227,.5)}
+  .mapfig .hot.on{box-shadow:inset 0 0 0 2px rgba(0,113,227,.65)}
+  .mapfig .hot:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+  .mapfig .sr{
+    position:absolute;width:1px;height:1px;overflow:hidden;
+    clip:rect(0 0 0 0);white-space:nowrap;
+  }
+  @media(min-width:861px){.mapfig{display:block}#flow{display:none}}
+
   .dlg{
     border:0;padding:0;background:transparent;max-width:640px;width:calc(100% - 32px);
     color:var(--text);
@@ -746,6 +763,24 @@
         <h2 style="font-size:clamp(24px,3.2vw,34px)">The path your data takes.</h2>
         <p style="font-size:17px">From your file to the answer, and on to the trace it leaves. Click a step: what happens there, where your data goes, and what breaks.</p>
       </div>
+
+      <figure class="mapfig">
+        <img src="data-path-en.png" width="1536" height="866" loading="lazy" decoding="async"
+             alt="The thirteen steps of the data path, in three groups: once and offline (sources, extraction, chunking, embedding, index), on every request (your request, retrieval, assembled context, tokens, generation), and around it (tools and actions, human check, logs and cost).">
+        <button class="hot" data-s="0" style="left:4.427%;top:12.24%;width:15.885%;height:17.552%"><span class="sr">01 Your sources</span></button>
+        <button class="hot" data-s="1" style="left:22.656%;top:12.24%;width:16.146%;height:17.552%"><span class="sr">02 Extraction</span></button>
+        <button class="hot" data-s="2" style="left:41.602%;top:12.24%;width:16.276%;height:17.552%"><span class="sr">03 Chunking</span></button>
+        <button class="hot" data-s="3" style="left:60.677%;top:12.24%;width:15.56%;height:17.552%"><span class="sr">04 Embedding</span></button>
+        <button class="hot" data-s="4" style="left:78.971%;top:12.24%;width:15.104%;height:17.552%"><span class="sr">05 Index</span></button>
+        <button class="hot" data-s="5" style="left:4.427%;top:44.342%;width:15.885%;height:17.552%"><span class="sr">06 Your request</span></button>
+        <button class="hot" data-s="6" style="left:22.656%;top:44.342%;width:16.146%;height:17.552%"><span class="sr">07 Retrieval</span></button>
+        <button class="hot" data-s="7" style="left:41.602%;top:44.342%;width:16.276%;height:17.552%"><span class="sr">08 Assembled context</span></button>
+        <button class="hot" data-s="8" style="left:60.677%;top:44.342%;width:15.56%;height:17.552%"><span class="sr">09 Tokens</span></button>
+        <button class="hot" data-s="9" style="left:78.971%;top:44.342%;width:15.104%;height:17.552%"><span class="sr">10 Generation</span></button>
+        <button class="hot" data-s="10" style="left:10.872%;top:76.097%;width:20.898%;height:16.397%"><span class="sr">11 Tools &amp; actions</span></button>
+        <button class="hot" data-s="11" style="left:39.974%;top:76.097%;width:19.206%;height:16.397%"><span class="sr">12 Human check</span></button>
+        <button class="hot" data-s="12" style="left:67.318%;top:76.097%;width:19.271%;height:16.397%"><span class="sr">13 Logs &amp; cost</span></button>
+      </figure>
 
       <div class="flow" id="flow">
         <div class="ph">
@@ -1694,12 +1729,15 @@ const etapes=[
   const dlg=document.getElementById("dlg");
   if(!dlg) return;
   const set=(id,v)=>{document.getElementById(id).textContent=v;};
-  document.querySelectorAll("#flow .stp").forEach(b=>{
+  // Two presentations of the same journey: the image on wide screens, the chips
+  // on mobile. One data set, one handler.
+  const targets="#flow .stp, .mapfig .hot";
+  document.querySelectorAll(targets).forEach(b=>{
     b.addEventListener("click",()=>{
       const e=etapes[+b.dataset.s];
       set("dlgk",e.k); set("dlgt",e.t);
       set("dlg1",e.a); set("dlg2",e.b); set("dlg3",e.c); set("dlgm","→ "+e.m);
-      document.querySelectorAll("#flow .stp").forEach(x=>x.classList.remove("on"));
+      document.querySelectorAll(targets).forEach(x=>x.classList.remove("on"));
       b.classList.add("on");
       if(typeof dlg.showModal==="function"){dlg.showModal();}else{dlg.setAttribute("open","");}
     });

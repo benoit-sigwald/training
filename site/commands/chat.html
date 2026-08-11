@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bien demander en chat | Arx Consulting</title>
+<meta name="description" content="Les techniques de formulation qui marchent avec Claude en conversation : être clair et direct, donner le pourquoi, montrer des exemples, structurer, et placer les documents avant la question.">
+<meta name="theme-color" content="#fbfbfd">
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="goodies.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="../index.html"><img src="../arx-logo.png" alt="Arx Consulting" width="242" height="264" decoding="async">AI Training</a>
+    <div class="nav-links">
+      <a href="../index.html#parcours">Parcours</a>
+      <a href="../index.html#kit">Kit formateur</a>
+      <a href="../index.html#ressources">Ressources</a>
+      <div class="dd" id="dd">
+        <button class="dd-t" id="ddt" aria-expanded="false" aria-controls="ddm">Goodies</button>
+        <div class="dd-m" id="ddm">
+          <a href="./">Les commandes</a>
+          <a href="claude-code.html">Bien coder avec Claude Code</a>
+          <a href="cowork.html">Déléguer avec Claude Cowork</a>
+          <a class="here" href="chat.html">Bien demander en chat</a>
+        </div>
+      </div>
+      <a class="nav-cta" href="https://arx-consulting.com/index-fr.html">Arx Consulting</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">Goodies</p>
+    <h1>Bien demander<br>en conversation.</h1>
+    <p class="lead">La règle d'or : montrez votre demande à un collègue qui ne connaît pas le sujet et demandez-lui de l'exécuter. S'il est perdu, Claude le sera aussi.</p>
+  </div>
+</header>
+
+<section id="base">
+  <div class="wrap">
+    <h2>Les six techniques de base</h2>
+    <p class="sub">Elles valent pour tous les modèles actuels, et l'ordre compte : les trois premières font la moitié du chemin.</p>
+
+    <div class="pr">
+
+      <article>
+        <span class="k">01</span>
+        <h3>Être clair et direct</h3>
+        <p>Pensez à Claude comme à un collaborateur brillant mais nouveau, qui n'a aucun contexte sur vos habitudes et vos méthodes. Plus vous expliquez précisément ce que vous voulez, meilleur est le résultat.</p>
+        <p>Soyez explicite sur le <b>format attendu</b> et sur les contraintes. Quand l'ordre ou l'exhaustivité des étapes compte, donnez-les en liste numérotée. Et si vous attendez un travail qui va au-delà du minimum, <b>demandez-le</b> : ne comptez pas sur le modèle pour le déduire d'une consigne vague.<sup>[1]</sup></p>
+      </article>
+
+      <article>
+        <span class="k">02</span>
+        <h3>Dire pourquoi</h3>
+        <p>Donner le motif derrière une consigne — expliquer en quoi ce comportement est important — aide Claude à comprendre l'objectif et à répondre plus juste. <b>Il est assez capable pour généraliser à partir de l'explication</b>, et donc pour traiter correctement les cas que vous n'aviez pas prévus.<sup>[1]</sup></p>
+      </article>
+
+      <article>
+        <span class="k">03</span>
+        <h3>Montrer des exemples</h3>
+        <p>C'est le moyen le plus fiable d'orienter le format, le ton et la structure d'une réponse. Trois à cinq exemples donnent les meilleurs résultats. Ils doivent être <b>pertinents</b> — proches de votre cas réel —, <b>variés</b> — couvrant les cas limites, et assez différents pour que Claude n'attrape pas un motif involontaire — et <b>délimités</b>, entourés de balises pour qu'il les distingue des consignes.<sup>[1]</sup></p>
+        <span class="why"><b>Astuce :</b> vous pouvez demander à Claude d'évaluer vos exemples — pertinence, diversité — ou d'en générer d'autres à partir des vôtres.</span>
+      </article>
+
+      <article>
+        <span class="k">04</span>
+        <h3>Structurer avec des balises</h3>
+        <p>Quand une demande mélange consignes, contexte, exemples et données variables, des balises du type <code style="font-family:var(--mono);font-size:14px">&lt;consignes&gt;</code>, <code style="font-family:var(--mono);font-size:14px">&lt;contexte&gt;</code>, <code style="font-family:var(--mono);font-size:14px">&lt;donnees&gt;</code> lèvent l'ambiguïté. Gardez des noms cohérents d'une demande à l'autre, et imbriquez-les quand le contenu a une hiérarchie naturelle.<sup>[1]</sup></p>
+      </article>
+
+      <article>
+        <span class="k">05</span>
+        <h3>Donner un rôle</h3>
+        <p>Une seule phrase suffit à cadrer le comportement et le ton pour votre usage. « Tu es un assistant spécialisé en droit des contrats français » n'est pas un gadget : c'est ce qui décide du vocabulaire, du niveau de détail et des réflexes de prudence.<sup>[1]</sup></p>
+      </article>
+
+      <article>
+        <span class="k">06</span>
+        <h3>Dire quoi faire, pas quoi éviter</h3>
+        <p>Formuler à la forme négative marche mal. Remplacez « n'utilise pas de markdown » par « rédige en paragraphes de prose qui s'enchaînent ». Autre levier : <b>le style de votre demande influence le style de la réponse</b> — retirer le markdown de votre propre message réduit le markdown dans la réponse.<sup>[1]</sup></p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="long" class="alt">
+  <div class="wrap">
+    <h2>Quand vous collez un gros document</h2>
+    <p class="sub">Au-delà de 20 000 jetons — une centaine de pages — l'ordre des éléments change le résultat.</p>
+
+    <div class="pr">
+
+      <article>
+        <span class="k">L'ordre</span>
+        <h3>Le document d'abord, la question à la fin</h3>
+        <p>Placez les documents longs <b>en haut</b> de votre message, au-dessus de la question, des consignes et des exemples. Mettre la question à la fin peut améliorer la qualité de la réponse <b>jusqu'à 30 %</b> selon les tests d'Anthropic, en particulier sur des entrées complexes ou multi-documents.<sup>[1]</sup></p>
+        <span class="why">C'est la seule règle de cette page qui soit chiffrée. C'est aussi celle que presque personne n'applique, parce qu'on écrit naturellement sa question avant de coller son fichier.</span>
+      </article>
+
+      <article>
+        <span class="k">L'ancrage</span>
+        <h3>Faites-lui citer avant de répondre</h3>
+        <p>Sur un document long, demandez-lui d'<b>extraire d'abord les passages pertinents</b>, puis de faire le travail. Cela le concentre sur le contenu utile et l'aide à ignorer le reste — et vous donne au passage de quoi vérifier sa réponse.<sup>[1]</sup></p>
+      </article>
+
+      <article>
+        <span class="k">Le balisage</span>
+        <h3>Plusieurs documents, plusieurs balises</h3>
+        <p>Avec plusieurs sources, entourez chacune d'une balise <code style="font-family:var(--mono);font-size:14px">&lt;document&gt;</code> contenant son contenu et sa provenance. Sans cette séparation, deux documents contradictoires deviennent une seule bouillie dont Claude ne peut plus attribuer les affirmations.<sup>[1]</sup></p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="limite">
+  <div class="wrap">
+    <h2>Savoir quand le chat n'est plus le bon endroit</h2>
+    <p class="sub">Une bonne demande ne rattrape pas un mauvais outil.</p>
+
+    <div class="pr">
+      <article>
+        <span class="k">La frontière</span>
+        <h3>Le chat sert quand le résultat est une pensée</h3>
+        <p>Restez en conversation si ce que vous voulez tient en quelques échanges : une question, une explication, un remue-méninges, un avis à éprouver.</p>
+        <p>Dès que le résultat attendu est un <b>fichier</b> que quelqu'un ouvrira, que la tâche touche plusieurs fichiers ou plusieurs applications, ou que vous la décririez comme une tâche plutôt que comme une question, le chat vous fera copier-coller dans les deux sens pendant une heure.<sup>[2]</sup></p>
+        <span class="why">→ Voir <a href="cowork.html" style="color:var(--blue)">Déléguer avec Claude Cowork</a> pour ce cas-là.</span>
+      </article>
+    </div>
+
+    <div class="note">
+      <b>Un mot sur la longueur des réponses.</b> Les modèles récents sont plus concis et plus directs par défaut, et peuvent sauter le résumé après une série d'actions. Si vous voulez de la visibilité sur ce qui a été fait, demandez-le explicitement — c'est une phrase à ajouter, pas un réglage à trouver.<sup>[1]</sup>
+    </div>
+  </div>
+</section>
+
+<section id="sources" class="alt">
+  <div class="wrap">
+    <h2>Sources</h2>
+    <p class="sub">Deux sources primaires Anthropic.</p>
+    <ol class="srcs">
+      <li><b>Anthropic — Prompting best practices</b>, documentation de la plateforme Claude. Référence de l'ingénierie de prompt pour les modèles actuels : principes généraux, format de sortie, contexte long, usage des outils.<br>
+      <a href="https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices" target="_blank" rel="noopener">platform.claude.com — prompt engineering / prompting best practices</a>
+      <span style="display:block;margin-top:8px">C'est une documentation destinée aux développeurs qui appellent l'API, mais les six techniques de base et les règles de contexte long s'appliquent telles quelles à une conversation ordinaire. Ce qui relève strictement de l'API — appels d'outils, réglages d'effort, migration entre modèles — n'est pas repris ici.</span></li>
+      <li><b>Austin Lau (Anthropic), « Best practices for getting started with Claude Cowork »</b>, blog Claude, 3 juin 2026. Utilisé uniquement pour la frontière entre chat et Cowork.<br>
+      <a href="https://claude.com/blog/best-practices-for-getting-started-with-claude-cowork" target="_blank" rel="noopener">claude.com/blog/best-practices-for-getting-started-with-claude-cowork</a></li>
+    </ol>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a href="../index.html">← Retour au programme AI Training</a> · Arx Consulting
+  </div>
+</footer>
+
+<script>
+(function(){
+  const dd=document.getElementById("dd"), t=document.getElementById("ddt");
+  if(!dd) return;
+  t.addEventListener("click",e=>{
+    e.stopPropagation();
+    const open=dd.classList.toggle("open");
+    t.setAttribute("aria-expanded",open?"true":"false");
+  });
+  document.addEventListener("click",()=>{dd.classList.remove("open");t.setAttribute("aria-expanded","false");});
+  document.addEventListener("keydown",e=>{if(e.key==="Escape"){dd.classList.remove("open");t.setAttribute("aria-expanded","false");}});
+})();
+</script>
+
+</body>
+</html>
