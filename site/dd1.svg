@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1436 472" width="1436" height="472" role="img">
+<rect width="1436" height="472" fill="#ffffff"/>
+<rect x="40" y="26" width="236" height="392" rx="16" fill="#eef5fe" stroke="#c3ddf9" stroke-width="1.5"/>
+<circle cx="74" cy="62" r="16" fill="#0071e3"/>
+<text x="74" y="67" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="14" font-weight="700" fill="#ffffff">01</text>
+<text x="100" y="68" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="19" font-weight="600" fill="#1d1d1f">Vos sources</text>
+<text x="62" y="100" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="14.5" fill="#5f6368">Ce que vous possédez déjà,</text>
+<text x="62" y="121" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="14.5" fill="#5f6368">là où ça se trouve.</text>
+<rect x="56" y="146" width="204" height="256" rx="11" fill="#ffffff" stroke="#c3ddf9" stroke-width="1"/>
+<text x="70" y="172" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="11" font-weight="700" letter-spacing="1.1" fill="#0071e3">TYPIQUEMENT</text>
+<circle cx="74" cy="189" r="2.6" fill="#0071e3"/>
+<text x="84" y="194" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="13.5" fill="#1d1d1f">Bases SQL, entrepôts</text>
+<circle cx="74" cy="210" r="2.6" fill="#0071e3"/>
+<text x="84" y="215" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="13.5" fill="#1d1d1f">PDF, Word, présentations</text>
+<circle cx="74" cy="231" r="2.6" fill="#0071e3"/>
+<text x="84" y="236" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="13.5" fill="#1d1d1f">Intranet, messagerie</text>
+<circle cx="74" cy="252" r="2.6" fill="#0071e3"/>
+<text x="84" y="257" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="13.5" fill="#1d1d1f">API métier</text>
+<text x="70" y="286" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="13.5" fill="#5f6368">Rien n'est créé ici : on</text>
+<text x="70" y="306" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="13.5" fill="#5f6368">décide du périmètre.</text>
+<path d="M283 222.0 L309 222.0" stroke="#0071e3" stroke-width="2.4" fill="none"/><path d="M304 216.0 L313 222.0 L304 228.0 Z" fill="#0071e3"/>
+<rect x="320" y="26" width="236" height="392" rx="16" fill="#eef5fe" stroke="#c3ddf9" stroke-width="1.5"/>
+<circle cx="354" cy="62" r="16" fill="#0071e3"/>
+<text x="354" y="67" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="14" font-weight="700" fill="#ffffff">02</text>
+<text x="380" y="68" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="19" font-weight="600" fill="#1d1d1f">Extraction</text>
+<text x="342" y="100" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="14.5" fill="#5f6368">Le fichier devient du texte</text>
+<text x="342" y="121" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="14.5" fill="#5f6368">propre et homogène.</text>
+<rect x="336" y="146" width="204" height="256" rx="11" fill="#ffffff" stroke="#c3ddf9" stroke-width="1"/>
+<text x="350" y="172" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="11" font-weight="700" letter-spacing="1.1" fill="#0071e3">CE QU'ON RETIRE</text>
+<circle cx="354" cy="189" r="2.6" fill="#0071e3"/>
+<text x="364" y="194" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="13.5" fill="#1d1d1f">Mise en page, en-têtes</text>
+<circle cx="354" cy="210" r="2.6" fill="#0071e3"/>
+<text x="364" y="215" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="13.5" fill="#1d1d1f">Pieds de page répétés</text>
+<circle cx="354" cy="231" r="2.6" fill="#0071e3"/>
+<text x="364" y="236" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="13.5" fill="#1d1d1f">Tableaux mal formés</text>
+<text x="350" y="265" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="11" font-weight="700" letter-spacing="1.1" fill="#0071e3">LE PIÈGE</text>
+<text x="350" y="287" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="13.5" fill="#5f6368">Un PDF scanné sans</text>
+<text x="350" y="307" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="13.5" fill="#5f6368">reconnaissance de</text>
+<text x="350" y="327" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="13.5" fill="#5f6368">caractères ne donne rien.</text>
+<path d="M563 222.0 L589 222.0" stroke="#0071e3" stroke-width="2.4" fill="none"/><path d="M584 216.0 L593 222.0 L584 228.0 Z" fill="#0071e3"/>
+<rect x="600" y="26" width="236" height="392" rx="16" fill="#eef5fe" stroke="#c3ddf9" stroke-width="1.5"/>
+<circle cx="634" cy="62" r="16" fill="#0071e3"/>
+<text x="634" y="67" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="14" font-weight="700" fill="#ffffff">03</text>
+<text x="660" y="68" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="19" font-weight="600" fill="#1d1d1f">Découpage</text>
+<text x="622" y="100" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="14.5" fill="#5f6368">Le texte est coupé en</text>
+<text x="622" y="121" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="14.5" fill="#5f6368">morceaux exploitables.</text>
+<rect x="616" y="146" width="204" height="256" rx="11" fill="#ffffff" stroke="#c3ddf9" stroke-width="1"/>
+<text x="630" y="172" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="11" font-weight="700" letter-spacing="1.1" fill="#0071e3">TROIS STRATÉGIES</text>
+<circle cx="634" cy="189" r="2.6" fill="#0071e3"/>
+<text x="644" y="194" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="13.5" fill="#1d1d1f">Par longueur fixe</text>
+<circle cx="634" cy="210" r="2.6" fill="#0071e3"/>
+<text x="644" y="215" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="13.5" fill="#1d1d1f">Par structure (titres)</text>
+<circle cx="634" cy="231" r="2.6" fill="#0071e3"/>
+<text x="644" y="236" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="13.5" fill="#1d1d1f">Par phrase</text>
+<text x="630" y="265" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="11" font-weight="700" letter-spacing="1.1" fill="#0071e3">RECOUVREMENT</text>
+<text x="630" y="291" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="21" font-weight="700" fill="#0071e3">≈ 20 jetons</text>
+<text x="630" y="315" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="13.5" fill="#5f6368">entre deux morceaux, pour</text>
+<text x="630" y="335" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="13.5" fill="#5f6368">ne pas couper une idée.</text>
+<path d="M843 222.0 L869 222.0" stroke="#0071e3" stroke-width="2.4" fill="none"/><path d="M864 216.0 L873 222.0 L864 228.0 Z" fill="#0071e3"/>
+<rect x="880" y="26" width="236" height="392" rx="16" fill="#eef5fe" stroke="#c3ddf9" stroke-width="1.5"/>
+<circle cx="914" cy="62" r="16" fill="#0071e3"/>
+<text x="914" y="67" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="14" font-weight="700" fill="#ffffff">04</text>
+<text x="940" y="68" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="19" font-weight="600" fill="#1d1d1f">Vectorisation</text>
+<text x="902" y="100" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="14.5" fill="#5f6368">Chaque morceau devient</text>
+<text x="902" y="121" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="14.5" fill="#5f6368">une liste de nombres.</text>
+<rect x="896" y="146" width="204" height="256" rx="11" fill="#ffffff" stroke="#c3ddf9" stroke-width="1"/>
+<text x="910" y="172" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="11" font-weight="700" letter-spacing="1.1" fill="#0071e3">LE MODÈLE</text>
+<text x="910" y="194" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="13.5" fill="#5f6368">Un modèle dédié, distinct</text>
+<text x="910" y="214" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="13.5" fill="#5f6368">de celui qui rédige.</text>
+<text x="910" y="242" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="11" font-weight="700" letter-spacing="1.1" fill="#0071e3">DIMENSIONS</text>
+<text x="910" y="268" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="21" font-weight="700" fill="#0071e3">768</text>
+<text x="910" y="292" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="13.5" fill="#5f6368">Changer de modèle oblige</text>
+<text x="910" y="312" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="13.5" fill="#5f6368">à tout réindexer.</text>
+<path d="M1123 222.0 L1149 222.0" stroke="#0071e3" stroke-width="2.4" fill="none"/><path d="M1144 216.0 L1153 222.0 L1144 228.0 Z" fill="#0071e3"/>
+<rect x="1160" y="26" width="236" height="392" rx="16" fill="#eef5fe" stroke="#c3ddf9" stroke-width="1.5"/>
+<circle cx="1194" cy="62" r="16" fill="#0071e3"/>
+<text x="1194" y="67" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="14" font-weight="700" fill="#ffffff">05</text>
+<text x="1220" y="68" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="19" font-weight="600" fill="#1d1d1f">Index</text>
+<text x="1182" y="100" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="14.5" fill="#5f6368">Les vecteurs sont stockés</text>
+<text x="1182" y="121" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="14.5" fill="#5f6368">pour être retrouvés vite.</text>
+<rect x="1176" y="146" width="204" height="256" rx="11" fill="#ffffff" stroke="#c3ddf9" stroke-width="1"/>
+<text x="1190" y="172" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="11" font-weight="700" letter-spacing="1.1" fill="#0071e3">CE QUI EST STOCKÉ</text>
+<circle cx="1194" cy="189" r="2.6" fill="#0071e3"/>
+<text x="1204" y="194" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="13.5" fill="#1d1d1f">Le vecteur</text>
+<circle cx="1194" cy="210" r="2.6" fill="#0071e3"/>
+<text x="1204" y="215" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="13.5" fill="#1d1d1f">Le texte du morceau</text>
+<circle cx="1194" cy="231" r="2.6" fill="#0071e3"/>
+<text x="1204" y="236" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="13.5" fill="#1d1d1f">Source, date, droits</text>
+<text x="1190" y="265" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="11" font-weight="700" letter-spacing="1.1" fill="#0071e3">LA RECHERCHE</text>
+<text x="1190" y="287" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="13.5" fill="#5f6368">Voisins les plus proches,</text>
+<text x="1190" y="307" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="13.5" fill="#5f6368">sans tout comparer.</text>
+<text x="718.0" y="454" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Arial,sans-serif" font-size="14" fill="#5f6368">Étapes 01 à 05 · ce pipeline tourne une fois, hors ligne, et se rejoue à chaque mise à jour documentaire.</text>
+</svg>

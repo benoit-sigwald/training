@@ -338,6 +338,29 @@
   .fig .eq b{font-weight:600;color:var(--blue)}
 
 
+  /* Les douze briques : schema clicable. Une pastille RN marque les trois
+     briques qui sont reellement des reseaux de neurones. */
+  .bkwrap{background:var(--white);border-radius:var(--radius);padding:22px 20px 16px;
+    box-shadow:0 2px 12px rgba(0,0,0,.045);overflow-x:auto}
+  .bkfig{display:block;width:100%;height:auto;min-width:1060px}
+  .bkrow{font-family:var(--sf);font-size:11.5px;font-weight:700;letter-spacing:.09em}
+  .bknum{font-family:var(--sf);font-size:12px;font-weight:700;letter-spacing:.03em}
+  .bkt{font-family:var(--sf);font-size:15.5px;font-weight:600;fill:var(--text)}
+  .bkr{font-family:var(--sf);font-size:13px;fill:var(--text-2)}
+  .bknn{font-family:var(--sf);font-size:9px;font-weight:700;fill:#fff;text-anchor:middle;letter-spacing:.04em}
+  .bkc{font-family:var(--sf);font-size:15px;text-anchor:end;opacity:.55}
+  .bk{cursor:pointer}
+  .bk rect{transition:filter .18s}
+  .bk:hover rect{filter:brightness(.965)}
+  .bk:hover .bkc{opacity:1}
+  .bk.on rect{stroke-width:2.5}
+  .bk:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+  .bklg{display:flex;gap:18px;flex-wrap:wrap;align-items:center;margin:14px 2px 0;
+    font-size:13px;color:var(--text-2)}
+  .bklg i{font-style:normal;display:inline-flex;align-items:center;justify-content:center;
+    width:20px;height:20px;border-radius:50%;background:var(--blue);color:#fff;
+    font-size:9px;font-weight:700;margin-right:7px;vertical-align:-4px}
+
   /* ---------- genèse : chemin des données ---------- */
   .flow{display:grid;gap:14px}
   .ph{background:var(--white);border-radius:var(--radius);padding:20px 22px;box-shadow:0 2px 12px rgba(0,0,0,.045)}
@@ -973,86 +996,144 @@
         <p style="font-size:17px">Les treize étapes ci-dessus sont un trajet. Voici les briques logicielles qui l'exécutent : ce que chacune fait, et comment elle s'y prend.</p>
       </div>
 
-      <div class="stack">
-
-        <div class="lay" data-n="01·02">
-          <h4>Les connecteurs et l'extracteur</h4>
-          <p>Vont chercher la donnée là où elle vit, et la rendent en texte brut exploitable.</p>
-          <span class="cons"><b>Comment :</b> un connecteur par source — SharePoint, Drive, une base SQL, une API métier — puis un parseur par format : PDF, DOCX, HTML, et de la reconnaissance de caractères pour les documents scannés. <b>Le point dur :</b> la qualité du parseur décide de tout ce qui suit. Un tableau mal extrait reste mal extrait jusqu'à la réponse finale.</span>
+      <div class="bkwrap">
+        <svg class="bkfig" viewBox="0 0 1174 512" width="1174" height="512" xmlns="http://www.w3.org/2000/svg" aria-label="Les douze briques logicielles, cliquables">
+        <text x="24" y="32" class="bkrow" fill="#0071e3">UNE FOIS, HORS LIGNE</text>
+        <g class="bk" data-b="1" tabindex="0" role="button">
+        <rect x="139.0" y="44" width="206" height="104" rx="15" fill="#eef5fe" stroke="#c3ddf9" stroke-width="1.5"/>
+        <text x="157.0" y="70" class="bknum" fill="#0071e3">01·02</text>
+        <text x="157.0" y="100" class="bkt">Connecteurs &amp; extraction</text>
+        <text x="157.0" y="122" class="bkr">Va chercher, met au propre</text>
+        <text x="329.0" y="136" class="bkc" fill="#0071e3">›</text>
+        </g>
+        <path d="M349.0 96.0 L362.0 96.0" stroke="#0071e3" stroke-width="2" opacity=".5" fill="none"/>
+        <path d="M358.0 91.0 L366.0 96.0 L358.0 101.0 Z" fill="#0071e3" opacity=".5"/>
+        <g class="bk" data-b="2" tabindex="0" role="button">
+        <rect x="369.0" y="44" width="206" height="104" rx="15" fill="#eef5fe" stroke="#c3ddf9" stroke-width="1.5"/>
+        <text x="387.0" y="70" class="bknum" fill="#0071e3">03</text>
+        <text x="387.0" y="100" class="bkt">Découpeur</text>
+        <text x="387.0" y="122" class="bkr">Coupe en morceaux</text>
+        <text x="559.0" y="136" class="bkc" fill="#0071e3">›</text>
+        </g>
+        <path d="M579.0 96.0 L592.0 96.0" stroke="#0071e3" stroke-width="2" opacity=".5" fill="none"/>
+        <path d="M588.0 91.0 L596.0 96.0 L588.0 101.0 Z" fill="#0071e3" opacity=".5"/>
+        <g class="bk" data-b="3" tabindex="0" role="button">
+        <rect x="599.0" y="44" width="206" height="104" rx="15" fill="#eef5fe" stroke="#c3ddf9" stroke-width="1.5"/>
+        <text x="617.0" y="70" class="bknum" fill="#0071e3">04</text>
+        <circle cx="783.0" cy="64" r="9" fill="#0071e3"/>
+        <text x="783.0" y="68" class="bknn">RN</text>
+        <text x="617.0" y="100" class="bkt">Modèle de vectorisation</text>
+        <text x="617.0" y="122" class="bkr">Texte → nombres</text>
+        <text x="789.0" y="136" class="bkc" fill="#0071e3">›</text>
+        </g>
+        <path d="M809.0 96.0 L822.0 96.0" stroke="#0071e3" stroke-width="2" opacity=".5" fill="none"/>
+        <path d="M818.0 91.0 L826.0 96.0 L818.0 101.0 Z" fill="#0071e3" opacity=".5"/>
+        <g class="bk" data-b="4" tabindex="0" role="button">
+        <rect x="829.0" y="44" width="206" height="104" rx="15" fill="#eef5fe" stroke="#c3ddf9" stroke-width="1.5"/>
+        <text x="847.0" y="70" class="bknum" fill="#0071e3">05</text>
+        <text x="847.0" y="100" class="bkt">Base vectorielle</text>
+        <text x="847.0" y="122" class="bkr">Stocke et retrouve</text>
+        <text x="1019.0" y="136" class="bkc" fill="#0071e3">›</text>
+        </g>
+        <text x="24" y="198" class="bkrow" fill="#1a8a5a">À CHAQUE DEMANDE</text>
+        <g class="bk" data-b="5" tabindex="0" role="button">
+        <rect x="24.0" y="210" width="206" height="104" rx="15" fill="#ecf7f1" stroke="#bfe3ce" stroke-width="1.5"/>
+        <text x="42.0" y="236" class="bknum" fill="#1a8a5a">06</text>
+        <text x="42.0" y="266" class="bkt">Passerelle de requête</text>
+        <text x="42.0" y="288" class="bkr">Identifie et filtre</text>
+        <text x="214.0" y="302" class="bkc" fill="#1a8a5a">›</text>
+        </g>
+        <path d="M234.0 262.0 L247.0 262.0" stroke="#1a8a5a" stroke-width="2" opacity=".5" fill="none"/>
+        <path d="M243.0 257.0 L251.0 262.0 L243.0 267.0 Z" fill="#1a8a5a" opacity=".5"/>
+        <g class="bk" data-b="6" tabindex="0" role="button">
+        <rect x="254.0" y="210" width="206" height="104" rx="15" fill="#ecf7f1" stroke="#bfe3ce" stroke-width="1.5"/>
+        <text x="272.0" y="236" class="bknum" fill="#1a8a5a">07</text>
+        <circle cx="438.0" cy="230" r="9" fill="#1a8a5a"/>
+        <text x="438.0" y="234" class="bknn">RN</text>
+        <text x="272.0" y="266" class="bkt">Recherche &amp; re-classement</text>
+        <text x="272.0" y="288" class="bkr">Trouve, puis trie</text>
+        <text x="444.0" y="302" class="bkc" fill="#1a8a5a">›</text>
+        </g>
+        <path d="M464.0 262.0 L477.0 262.0" stroke="#1a8a5a" stroke-width="2" opacity=".5" fill="none"/>
+        <path d="M473.0 257.0 L481.0 262.0 L473.0 267.0 Z" fill="#1a8a5a" opacity=".5"/>
+        <g class="bk" data-b="7" tabindex="0" role="button">
+        <rect x="484.0" y="210" width="206" height="104" rx="15" fill="#ecf7f1" stroke="#bfe3ce" stroke-width="1.5"/>
+        <text x="502.0" y="236" class="bknum" fill="#1a8a5a">08</text>
+        <text x="502.0" y="266" class="bkt">Assembleur de contexte</text>
+        <text x="502.0" y="288" class="bkr">Compose le message</text>
+        <text x="674.0" y="302" class="bkc" fill="#1a8a5a">›</text>
+        </g>
+        <path d="M694.0 262.0 L707.0 262.0" stroke="#1a8a5a" stroke-width="2" opacity=".5" fill="none"/>
+        <path d="M703.0 257.0 L711.0 262.0 L703.0 267.0 Z" fill="#1a8a5a" opacity=".5"/>
+        <g class="bk" data-b="8" tabindex="0" role="button">
+        <rect x="714.0" y="210" width="206" height="104" rx="15" fill="#ecf7f1" stroke="#bfe3ce" stroke-width="1.5"/>
+        <text x="732.0" y="236" class="bknum" fill="#1a8a5a">09</text>
+        <text x="732.0" y="266" class="bkt">Tokeniseur</text>
+        <text x="732.0" y="288" class="bkr">Découpe en jetons</text>
+        <text x="904.0" y="302" class="bkc" fill="#1a8a5a">›</text>
+        </g>
+        <path d="M924.0 262.0 L937.0 262.0" stroke="#1a8a5a" stroke-width="2" opacity=".5" fill="none"/>
+        <path d="M933.0 257.0 L941.0 262.0 L933.0 267.0 Z" fill="#1a8a5a" opacity=".5"/>
+        <g class="bk" data-b="9" tabindex="0" role="button">
+        <rect x="944.0" y="210" width="206" height="104" rx="15" fill="#ecf7f1" stroke="#bfe3ce" stroke-width="1.5"/>
+        <text x="962.0" y="236" class="bknum" fill="#1a8a5a">10</text>
+        <circle cx="1128.0" cy="230" r="9" fill="#1a8a5a"/>
+        <text x="1128.0" y="234" class="bknn">RN</text>
+        <text x="962.0" y="266" class="bkt">Modèle de langage</text>
+        <text x="962.0" y="288" class="bkr">Prédit le jeton suivant</text>
+        <text x="1134.0" y="302" class="bkc" fill="#1a8a5a">›</text>
+        </g>
+        <text x="24" y="364" class="bkrow" fill="#7c4dc8">AUTOUR</text>
+        <g class="bk" data-b="10" tabindex="0" role="button">
+        <rect x="254.0" y="376" width="206" height="104" rx="15" fill="#f4eefc" stroke="#dcc9f2" stroke-width="1.5"/>
+        <text x="272.0" y="402" class="bknum" fill="#7c4dc8">11</text>
+        <text x="272.0" y="432" class="bkt">Couche d'outils</text>
+        <text x="272.0" y="454" class="bkr">Exécute les actions</text>
+        <text x="444.0" y="468" class="bkc" fill="#7c4dc8">›</text>
+        </g>
+        <path d="M464.0 428.0 L477.0 428.0" stroke="#7c4dc8" stroke-width="2" opacity=".5" fill="none"/>
+        <path d="M473.0 423.0 L481.0 428.0 L473.0 433.0 Z" fill="#7c4dc8" opacity=".5"/>
+        <g class="bk" data-b="11" tabindex="0" role="button">
+        <rect x="484.0" y="376" width="206" height="104" rx="15" fill="#f4eefc" stroke="#dcc9f2" stroke-width="1.5"/>
+        <text x="502.0" y="402" class="bknum" fill="#7c4dc8">12</text>
+        <text x="502.0" y="432" class="bkt">Validation humaine</text>
+        <text x="502.0" y="454" class="bkr">Relit et corrige</text>
+        <text x="674.0" y="468" class="bkc" fill="#7c4dc8">›</text>
+        </g>
+        <path d="M694.0 428.0 L707.0 428.0" stroke="#7c4dc8" stroke-width="2" opacity=".5" fill="none"/>
+        <path d="M703.0 423.0 L711.0 428.0 L703.0 433.0 Z" fill="#7c4dc8" opacity=".5"/>
+        <g class="bk" data-b="12" tabindex="0" role="button">
+        <rect x="714.0" y="376" width="206" height="104" rx="15" fill="#f4eefc" stroke="#dcc9f2" stroke-width="1.5"/>
+        <text x="732.0" y="402" class="bknum" fill="#7c4dc8">13</text>
+        <text x="732.0" y="432" class="bkt">Observabilité</text>
+        <text x="732.0" y="454" class="bkr">Trace et chiffre</text>
+        <text x="904.0" y="468" class="bkc" fill="#7c4dc8">›</text>
+        </g>
+        </svg>
+        <div class="bklg">
+          <span><i>RN</i>réseau de neurones — les trois seules briques qui en sont un</span>
+          <span>Cliquez sur une brique : ce qu'elle fait, et comment.</span>
         </div>
-
-        <div class="lay" data-n="03">
-          <h4>Le découpeur</h4>
-          <p>Coupe les documents en morceaux de taille utile. Trop grand, la recherche perd en précision ; trop petit, le morceau ne veut plus rien dire tout seul.</p>
-          <span class="cons"><b>Comment :</b> par nombre de caractères, par structure du document — les titres, les sections —, ou par phrase. Avec un <b>recouvrement</b> de quelques dizaines de jetons entre deux morceaux consécutifs, pour éviter de couper une idée en deux.</span>
-        </div>
-
-        <div class="lay" data-n="04">
-          <h4>Le modèle de vectorisation</h4>
-          <p>Transforme un texte en une liste de nombres. C'est un modèle à part entière, <b>distinct du modèle qui rédige la réponse</b>.</p>
-          <span class="cons"><b>Comment :</b> il produit un vecteur de dimension fixe — 768 valeurs, par exemple. Deux textes proches par le sens obtiennent deux vecteurs proches, même sans aucun mot en commun. <b>La contrainte :</b> changer de modèle de vectorisation oblige à réindexer l'intégralité du corpus.</span>
-        </div>
-
-        <div class="lay" data-n="05">
-          <h4>La base vectorielle</h4>
-          <p>Stocke les vecteurs et retrouve les plus proches en quelques millisecondes, sur des millions d'entrées.</p>
-          <span class="cons"><b>Comment :</b> un index approximatif, qui trouve les voisins les plus proches sans comparer la requête à tout le corpus. C'est aussi là que vivent les métadonnées — source, date, droits d'accès — qui permettent de filtrer avant même de chercher.</span>
-        </div>
-
-        <div class="lay" data-n="06">
-          <h4>La passerelle de requête</h4>
-          <p>Reçoit la demande, identifie qui la pose, et applique ses droits.</p>
-          <span class="cons"><b>Comment :</b> l'authentification est ici, pas dans le modèle. C'est cette couche qui garantit qu'un utilisateur ne verra jamais remonter un document auquel il n'a pas accès — le modèle, lui, ne sait rien des habilitations.</span>
-        </div>
-
-        <div class="lay" data-n="07">
-          <h4>Le moteur de recherche et le re-classement</h4>
-          <p>Trouve les passages candidats, puis les trie une seconde fois.</p>
-          <span class="cons"><b>Comment :</b> une recherche <b>hybride</b> — vectorielle pour le sens, par mots-clés pour les termes exacts, les références et les noms propres — qui remonte une cinquantaine de candidats. Un second modèle, plus coûteux mais appliqué à cette courte liste seulement, les reclasse pour n'en garder que quelques-uns.</span>
-        </div>
-
-        <div class="lay top" data-n="08">
-          <h4>L'assembleur de contexte</h4>
-          <p>Compose le message final envoyé au modèle. <b>C'est lui qui décide de la qualité perçue du système</b>, et c'est le composant dont on parle le moins.</p>
-          <span class="cons"><b>Comment :</b> il concatène la consigne système, les extraits retenus, l'historique de la conversation et les données de l'utilisateur, dans un budget de jetons fixe. Quand tout ne rentre pas, <b>c'est lui qui arbitre ce qui saute</b>. Une réponse incomplète vient bien plus souvent d'un arbitrage à cette étape que d'une faiblesse du modèle.</span>
-        </div>
-
-        <div class="lay" data-n="09">
-          <h4>Le tokeniseur</h4>
-          <p>Découpe le texte en jetons, l'unité que le modèle manipule réellement.</p>
-          <span class="cons"><b>Comment :</b> selon un vocabulaire figé à l'entraînement. Un mot courant vaut un jeton, un mot rare ou un nom propre en vaut plusieurs. <b>C'est ce découpage qui détermine le coût facturé et la limite de contexte</b> — pas le nombre de mots, ni le nombre de pages.</span>
-        </div>
-
-        <div class="lay" data-n="10">
-          <h4>Le modèle de langage</h4>
-          <p>Prédit le jeton suivant, puis recommence. Une fois par jeton produit.</p>
-          <span class="cons"><b>Comment :</b> il ne consulte rien pendant qu'il écrit, n'interroge aucune base et ne se souvient de rien en dehors de ce que l'assembleur lui a mis sous les yeux. <b>Tout ce qu'il sait de votre entreprise à cet instant tient dans l'étape 08.</b></span>
-        </div>
-
-        <div class="lay" data-n="11">
-          <h4>La couche d'outils</h4>
-          <p>Permet au système d'agir, et pas seulement de répondre.</p>
-          <span class="cons"><b>Comment :</b> le modèle n'exécute rien lui-même — il émet une demande structurée, du type « appelle cet outil avec ces paramètres ». Un exécuteur, en dehors du modèle, la réalise vraiment et réinjecte le résultat dans le contexte. <b>Les droits, les quotas et la liste des outils autorisés vivent dans cet exécuteur</b>, jamais dans le modèle.</span>
-        </div>
-
-        <div class="lay" data-n="12">
-          <h4>La boucle de validation humaine</h4>
-          <p>Place un humain là où l'erreur coûte cher, et transforme sa correction en amélioration.</p>
-          <span class="cons"><b>Comment :</b> une file de revue, des seuils de confiance en dessous desquels rien ne part sans relecture, et un échantillonnage sur le reste. <b>L'essentiel est que la correction remonte</b> vers l'index et vers les règles de filtrage — sinon la même erreur reviendra la semaine suivante.</span>
-        </div>
-
-        <div class="lay" data-n="13">
-          <h4>L'observabilité</h4>
-          <p>Enregistre ce qui s'est passé, ce que ça a coûté, et permet de le démontrer.</p>
-          <span class="cons"><b>Comment :</b> une trace par échange — qui a demandé quoi, quels documents sont remontés, combien de jetons ont été consommés, pour quel montant — agrégée en tableaux de bord et en alertes. <b>Sans mesure, pas de mise en production :</b> ni pilotage du coût, ni explication d'une réponse aberrante, ni preuve en cas de contrôle.</span>
-        </div>
-
       </div>
 
       <div class="notice legal" style="margin-top:22px;margin-bottom:0">
-        <h4>Ce que cette liste change dans un projet</h4>
-        <p>Sur ces douze briques, une seule est celle à laquelle tout le monde pense : le modèle de langage, à l'étape 10. C'est aussi la plus facile à remplacer — quelques lignes de configuration. Les projets qui déçoivent achoppent presque toujours ailleurs : sur un <b>découpage</b> inadapté aux documents, sur une <b>recherche</b> qui remonte le mauvais passage, ou sur un <b>assembleur</b> qui tronque le contexte sans le dire. Changer de modèle ne répare aucun de ces trois cas.</p>
+        <h4>Où sont les réseaux de neurones là-dedans ?</h4>
+        <p>Sur ces douze briques, <b>trois seulement</b> sont des réseaux de neurones : le modèle de vectorisation à l'étape 04, le re-classement à l'étape 07, et le modèle de langage à l'étape 10. Les neuf autres sont du logiciel ordinaire — des connecteurs, une base de données, une table de correspondance, de la concaténation de texte, de la journalisation. On pourrait les écrire sans aucune intelligence artificielle.</p>
+        <p>Cela explique la suite. Une seule brique est celle à laquelle tout le monde pense — le modèle, à l'étape 10 — et c'est aussi <b>la plus facile à remplacer</b> : quelques lignes de configuration. Les projets qui déçoivent achoppent presque toujours ailleurs : sur un <b>découpage</b> inadapté aux documents, sur une <b>recherche</b> qui remonte le mauvais passage, ou sur un <b>assembleur</b> qui tronque le contexte sans le dire. Aucun de ces trois n'est un réseau de neurones, et changer de modèle n'en répare aucun.</p>
       </div>
+
+      <dialog class="dlg" id="dlgb">
+        <div class="dlg-in">
+          <button class="dlg-x" id="dlgbx" aria-label="Fermer">✕</button>
+          <span class="dlg-k" id="dlgbk"></span>
+          <h3 id="dlgbt"></h3>
+          <dl>
+            <div><dt>Ce qu'elle fait</dt><dd id="dlgb1"></dd></div>
+            <div><dt>Comment</dt><dd id="dlgb2"></dd></div>
+          </dl>
+          <p class="dlg-m" id="dlgbm"></p>
+        </div>
+      </dialog>
 
       <div class="sec-head" style="max-width:700px;margin:56px auto 20px">
         <h2 style="font-size:clamp(24px,3.2vw,34px)">Ce qu'il y a dans la boîte.</h2>
@@ -2108,7 +2189,7 @@ if(matchMedia("(prefers-reduced-motion: reduce)").matches){
   "1":{
     k:"Une fois \u00b7 Pr\u00e9paration, hors ligne",
     t:"Pipeline de pr\u00e9paration et d'indexation",
-    img:"DD1.jpg",
+    img:"dd1.svg",
     cap:"\u00c9tapes 01 \u00e0 05. Ce pipeline tourne une fois, avant toute question, et se rejoue \u00e0 chaque mise \u00e0 jour documentaire.",
     txt:`
     <h4><i>01</i>Vos sources</h4>
@@ -2127,7 +2208,7 @@ if(matchMedia("(prefers-reduced-motion: reduce)").matches){
   "2":{
     k:"\u00c0 chaque demande \u00b7 Quelques secondes",
     t:"Pipeline de requ\u00eate et de g\u00e9n\u00e9ration",
-    img:"DD2.jpg",
+    img:"dd2.svg",
     cap:"\u00c9tapes 06 \u00e0 10. Ce pipeline se rejoue int\u00e9gralement \u00e0 chaque question pos\u00e9e, en moins de deux secondes.",
     txt:`
     <h4><i>06</i>Votre demande</h4>
@@ -2147,7 +2228,7 @@ if(matchMedia("(prefers-reduced-motion: reduce)").matches){
   "3":{
     k:"Autour \u00b7 Ce qui encadre",
     t:"Gouvernance et cadre d'ex\u00e9cution",
-    img:"DD3.jpg",
+    img:"dd3.svg",
     cap:"\u00c9tapes 11 \u00e0 13. Ce n'est pas la cha\u00eene de traitement, c'est ce qui la rend exploitable en production — et la boucle qui la fait progresser.",
     txt:`
     <h4><i>11</i>Outils et actions</h4>
@@ -2186,6 +2267,91 @@ if(matchMedia("(prefers-reduced-motion: reduce)").matches){
     zone.scrollLeft = z ? (zone.scrollWidth - zone.clientWidth)/2 : 0;
   });
   document.getElementById("dlgdx").addEventListener("click",()=>dlg.close());
+  dlg.addEventListener("click",ev=>{if(ev.target===dlg) dlg.close();});
+})();
+
+const briques=[
+ {k:"Étapes 01 · 02 — Une fois, hors ligne",t:"Les connecteurs et l'extracteur",
+  a:"Vont chercher la donnée là où elle vit, et la rendent en texte brut exploitable.",
+  b:"Un connecteur par source — SharePoint, Drive, une base SQL, une API métier — puis un parseur par format : PDF, DOCX, HTML, et de la reconnaissance de caractères pour les documents scannés. La qualité du parseur décide de tout ce qui suit : un tableau mal extrait reste mal extrait jusqu'à la réponse finale.",
+  m:"Logiciel classique. Aucun réseau de neurones, sauf pour l'océrisation d'un scan."},
+
+ {k:"Étape 03 — Une fois, hors ligne",t:"Le découpeur",
+  a:"Coupe les documents en morceaux de taille utile. Trop grand, la recherche perd en précision ; trop petit, le morceau ne veut plus rien dire tout seul.",
+  b:"Par longueur fixe, par structure du document — les titres, les sections — ou par phrase. Avec un recouvrement d'une vingtaine de jetons entre deux morceaux consécutifs, pour éviter de couper une idée en deux.",
+  m:"Logiciel classique. C'est pourtant le réglage qui influence le plus la pertinence des réponses."},
+
+ {k:"Étape 04 — Une fois, hors ligne",t:"Le modèle de vectorisation",
+  a:"Transforme un texte en une liste de nombres. C'est un modèle à part entière, distinct de celui qui rédige la réponse.",
+  b:"Il produit un vecteur de dimension fixe — 768 valeurs, par exemple. Deux textes proches par le sens obtiennent deux vecteurs proches, même sans aucun mot en commun. Changer de modèle oblige à réindexer l'intégralité du corpus.",
+  m:"Réseau de neurones. Beaucoup plus petit que le modèle de langage, et entraîné pour une seule tâche : placer un texte au bon endroit dans l'espace."},
+
+ {k:"Étape 05 — Une fois, hors ligne",t:"La base vectorielle",
+  a:"Stocke les vecteurs et retrouve les plus proches en quelques millisecondes, sur des millions d'entrées.",
+  b:"Un index approximatif, qui trouve les voisins les plus proches sans comparer la requête à tout le corpus. C'est aussi là que vivent les métadonnées — source, date, droits d'accès — qui permettent de filtrer avant même de chercher.",
+  m:"Base de données. Aucun réseau de neurones : elle manipule les vecteurs produits par l'étape 04, elle n'en fabrique pas."},
+
+ {k:"Étape 06 — À chaque demande",t:"La passerelle de requête",
+  a:"Reçoit la demande, identifie qui la pose, et applique ses droits.",
+  b:"L'authentification est ici, pas dans le modèle. C'est cette couche qui garantit qu'un utilisateur ne verra jamais remonter un document auquel il n'a pas accès — le modèle, lui, ne sait rien des habilitations.",
+  m:"Logiciel classique. C'est le seul endroit où la sécurité d'accès peut être garantie."},
+
+ {k:"Étape 07 — À chaque demande",t:"Le moteur de recherche et le re-classement",
+  a:"Trouve les passages candidats, puis les trie une seconde fois.",
+  b:"Une recherche hybride — vectorielle pour le sens, par mots-clés pour les termes exacts, les références et les noms propres — qui remonte une cinquantaine de candidats. Un second modèle, plus coûteux mais appliqué à cette courte liste seulement, les reclasse pour n'en garder que quelques-uns.",
+  m:"Mixte. La partie mots-clés est un algorithme, le re-classement est un réseau de neurones."},
+
+ {k:"Étape 08 — À chaque demande",t:"L'assembleur de contexte",
+  a:"Compose le message final envoyé au modèle. C'est lui qui décide de la qualité perçue du système, et c'est le composant dont on parle le moins.",
+  b:"Il concatène la consigne système, les extraits retenus, l'historique de la conversation et vos données, dans un budget de jetons fixe. Quand tout ne rentre pas, c'est lui qui arbitre ce qui saute. Une réponse incomplète vient bien plus souvent d'un arbitrage ici que d'une faiblesse du modèle.",
+  m:"Logiciel classique — souvent quelques centaines de lignes. La brique la plus déterminante n'est pas de l'IA."},
+
+ {k:"Étape 09 — À chaque demande",t:"Le tokeniseur",
+  a:"Découpe le texte en jetons, l'unité que le modèle manipule réellement.",
+  b:"Selon un vocabulaire figé à l'entraînement. Un mot courant vaut un jeton, un mot rare ou un nom propre en vaut plusieurs. C'est ce découpage qui détermine le coût facturé et la limite de contexte — pas le nombre de mots, ni le nombre de pages.",
+  m:"Table de correspondance. Aucun apprentissage au moment de l'usage : le vocabulaire est figé une fois pour toutes."},
+
+ {k:"Étape 10 — À chaque demande",t:"Le modèle de langage",
+  a:"Prédit le jeton suivant, puis recommence. Une fois par jeton produit.",
+  b:"Il ne consulte rien pendant qu'il écrit, n'interroge aucune base et ne se souvient de rien en dehors de ce que l'assembleur lui a mis sous les yeux. Tout ce qu'il sait de votre entreprise à cet instant tient dans l'étape 08.",
+  m:"Réseau de neurones — celui dont tout le monde parle. Voir « Ce qu'il y a dans la boîte » juste en dessous pour son fonctionnement interne."},
+
+ {k:"Étape 11 — Autour",t:"La couche d'outils",
+  a:"Permet au système d'agir, et pas seulement de répondre.",
+  b:"Le modèle n'exécute rien lui-même — il émet une demande structurée, du type « appelle cet outil avec ces paramètres ». Un exécuteur, en dehors du modèle, la réalise vraiment et réinjecte le résultat dans le contexte. Les droits, les quotas et la liste des outils autorisés vivent dans cet exécuteur, jamais dans le modèle.",
+  m:"Logiciel classique. C'est la frontière entre « le modèle propose » et « le système agit »."},
+
+ {k:"Étape 12 — Autour",t:"La boucle de validation humaine",
+  a:"Place un humain là où l'erreur coûte cher, et transforme sa correction en amélioration.",
+  b:"Une file de revue, des seuils de confiance en dessous desquels rien ne part sans relecture, et un échantillonnage sur le reste. L'essentiel est que la correction remonte vers l'index et vers les règles de filtrage — sinon la même erreur reviendra la semaine suivante.",
+  m:"Humain et logiciel. La seule brique où la compétence métier compte plus que la technique."},
+
+ {k:"Étape 13 — Autour",t:"L'observabilité",
+  a:"Enregistre ce qui s'est passé, ce que ça a coûté, et permet de le démontrer.",
+  b:"Une trace par échange — qui a demandé quoi, quels documents sont remontés, combien de jetons ont été consommés, pour quel montant — agrégée en tableaux de bord et en alertes.",
+  m:"Supervision classique. Sans mesure, pas de mise en production : ni pilotage du coût, ni explication d'une réponse aberrante, ni preuve en cas de contrôle."}
+];
+
+(function(){
+  const dlg=document.getElementById("dlgb");
+  if(!dlg) return;
+  const set=(id,v)=>{document.getElementById(id).textContent=v;};
+  const noeuds=document.querySelectorAll(".bk");
+  const ouvrir=n=>{
+    const e=briques[+n.dataset.b-1];
+    set("dlgbk",e.k); set("dlgbt",e.t); set("dlgb1",e.a); set("dlgb2",e.b);
+    set("dlgbm","→ "+e.m);
+    noeuds.forEach(x=>x.classList.remove("on"));
+    n.classList.add("on");
+    if(typeof dlg.showModal==="function"){dlg.showModal();}else{dlg.setAttribute("open","");}
+  };
+  noeuds.forEach(n=>{
+    n.addEventListener("click",()=>ouvrir(n));
+    n.addEventListener("keydown",ev=>{
+      if(ev.key==="Enter"||ev.key===" "){ev.preventDefault();ouvrir(n);}
+    });
+  });
+  document.getElementById("dlgbx").addEventListener("click",()=>dlg.close());
   dlg.addEventListener("click",ev=>{if(ev.target===dlg) dlg.close();});
 })();
 </script>
