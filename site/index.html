@@ -58,7 +58,8 @@
     .brand{font-size:17px}.brand img{height:24px}
     .nav-cta{padding:5px 11px}
   }
-  @media(max-width:520px){.nav-links a:not(.nav-cta):not(.lang){display:none}}
+  .nav-links a.good{font-weight:600;color:var(--blue);opacity:1}
+  @media(max-width:520px){.nav-links a:not(.nav-cta):not(.lang):not(.good){display:none}}
 
   .flogo{height:44px;width:auto;display:block;margin-bottom:14px;opacity:.75}
 
@@ -493,7 +494,7 @@
       <a href="#validation">Validation</a>
       <a href="#kit">Kit formateur</a>
       <a href="#ressources">Ressources</a>
-      <a href="commands/">Goodies</a>
+      <a class="good" href="commands/">Goodies</a>
       <a class="lang" href="index-en.html" hreflang="en">EN</a>
       <a class="nav-cta" href="https://arx-consulting.com/index-fr.html">Arx Consulting</a>
     </div>
@@ -1514,6 +1515,10 @@
         <h3>Bonnes pratiques de prompting</h3>
         <p>La référence sur la rédaction des demandes, mise à jour en continu. Source du module 02.</p>
         <span>Lire la documentation</span></a>
+      <a href="commands/">
+        <h3>Goodies · les commandes</h3>
+        <p>La liste des commandes slash de Claude Code, et les cinq étapes pour créer la vôtre.</p>
+        <span>Voir les commandes</span></a>
     </div>
   </div>
 </section>
