@@ -404,12 +404,29 @@
   .ph-h{align-items:center}
   @media(min-width:861px){.deepb{display:none}}
 
-  .dlgd{max-width:1180px}
-  .dlgd .dlg-in{max-height:88vh;overflow-y:auto}
-  /* L'image entiere, jamais rognee : elle se met a la largeur disponible. */
-  .deepimg{margin-top:4px;border:1px solid var(--hair);border-radius:12px;background:var(--bg-alt)}
+  .dlgd{max-width:min(1760px,96vw);width:96vw}
+  .dlgd .dlg-in{max-height:92vh;overflow-y:auto;padding:26px 24px 20px}
+  /* L'image entiere, jamais rognee : elle se met a la largeur disponible.
+     La source fait 1024 px de large. Au-dela, on gagne en taille de texte
+     ce qu'on perd en nettete : le zoom est donc explicite, jamais impose. */
+  .deepimg{
+    margin-top:4px;border:1px solid var(--hair);border-radius:12px;
+    background:var(--bg-alt);overflow:auto;-webkit-overflow-scrolling:touch;
+  }
   .deepimg img{display:block;width:100%;height:auto;border-radius:11px}
-  .deepcap{margin:10px 0 0;font-size:13px;color:var(--text-2)}
+  .deepimg.zoom img{width:auto;min-width:2400px;border-radius:0}
+  .deepbar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:12px 0 0}
+  .deepz{
+    font-family:var(--sf);font-size:13px;font-weight:600;
+    color:#fff;background:var(--blue);border:0;
+    padding:7px 16px;border-radius:980px;cursor:pointer;flex:none;
+  }
+  .deepz:hover{background:var(--blue-dark)}
+  .deepcap{margin:0;font-size:13px;color:var(--text-2);flex:1 1 240px}
+  @media(max-width:640px){
+    .dlgd{width:100vw;max-width:100vw}
+    .dlgd .dlg-in{padding:22px 15px 16px}
+  }
   .deept{margin-top:24px}
   .deept h4{
     margin:22px 0 6px;font-size:17px;font-weight:600;letter-spacing:-.02em;color:var(--text);
@@ -942,11 +959,100 @@
           <button class="dlg-x" id="dlgdx" aria-label="Fermer">✕</button>
           <span class="dlg-k" id="dlgdk"></span>
           <h3 id="dlgdt"></h3>
-          <div class="deepimg"><img id="dlgdi" src="" alt=""></div>
-          <p class="deepcap" id="dlgdc"></p>
+          <div class="deepimg" id="dlgdz"><img id="dlgdi" src="" alt=""></div>
+          <div class="deepbar">
+            <button class="deepz" id="dlgdzb">Agrandir</button>
+            <p class="deepcap" id="dlgdc"></p>
+          </div>
           <div class="deept" id="dlgdtxt"></div>
         </div>
       </dialog>
+
+      <div class="sec-head" style="max-width:700px;margin:56px auto 20px">
+        <h2 style="font-size:clamp(24px,3.2vw,34px)">Qui fait quoi dans la machine.</h2>
+        <p style="font-size:17px">Les treize étapes ci-dessus sont un trajet. Voici les briques logicielles qui l'exécutent : ce que chacune fait, et comment elle s'y prend.</p>
+      </div>
+
+      <div class="stack">
+
+        <div class="lay" data-n="01·02">
+          <h4>Les connecteurs et l'extracteur</h4>
+          <p>Vont chercher la donnée là où elle vit, et la rendent en texte brut exploitable.</p>
+          <span class="cons"><b>Comment :</b> un connecteur par source — SharePoint, Drive, une base SQL, une API métier — puis un parseur par format : PDF, DOCX, HTML, et de la reconnaissance de caractères pour les documents scannés. <b>Le point dur :</b> la qualité du parseur décide de tout ce qui suit. Un tableau mal extrait reste mal extrait jusqu'à la réponse finale.</span>
+        </div>
+
+        <div class="lay" data-n="03">
+          <h4>Le découpeur</h4>
+          <p>Coupe les documents en morceaux de taille utile. Trop grand, la recherche perd en précision ; trop petit, le morceau ne veut plus rien dire tout seul.</p>
+          <span class="cons"><b>Comment :</b> par nombre de caractères, par structure du document — les titres, les sections —, ou par phrase. Avec un <b>recouvrement</b> de quelques dizaines de jetons entre deux morceaux consécutifs, pour éviter de couper une idée en deux.</span>
+        </div>
+
+        <div class="lay" data-n="04">
+          <h4>Le modèle de vectorisation</h4>
+          <p>Transforme un texte en une liste de nombres. C'est un modèle à part entière, <b>distinct du modèle qui rédige la réponse</b>.</p>
+          <span class="cons"><b>Comment :</b> il produit un vecteur de dimension fixe — 768 valeurs, par exemple. Deux textes proches par le sens obtiennent deux vecteurs proches, même sans aucun mot en commun. <b>La contrainte :</b> changer de modèle de vectorisation oblige à réindexer l'intégralité du corpus.</span>
+        </div>
+
+        <div class="lay" data-n="05">
+          <h4>La base vectorielle</h4>
+          <p>Stocke les vecteurs et retrouve les plus proches en quelques millisecondes, sur des millions d'entrées.</p>
+          <span class="cons"><b>Comment :</b> un index approximatif, qui trouve les voisins les plus proches sans comparer la requête à tout le corpus. C'est aussi là que vivent les métadonnées — source, date, droits d'accès — qui permettent de filtrer avant même de chercher.</span>
+        </div>
+
+        <div class="lay" data-n="06">
+          <h4>La passerelle de requête</h4>
+          <p>Reçoit la demande, identifie qui la pose, et applique ses droits.</p>
+          <span class="cons"><b>Comment :</b> l'authentification est ici, pas dans le modèle. C'est cette couche qui garantit qu'un utilisateur ne verra jamais remonter un document auquel il n'a pas accès — le modèle, lui, ne sait rien des habilitations.</span>
+        </div>
+
+        <div class="lay" data-n="07">
+          <h4>Le moteur de recherche et le re-classement</h4>
+          <p>Trouve les passages candidats, puis les trie une seconde fois.</p>
+          <span class="cons"><b>Comment :</b> une recherche <b>hybride</b> — vectorielle pour le sens, par mots-clés pour les termes exacts, les références et les noms propres — qui remonte une cinquantaine de candidats. Un second modèle, plus coûteux mais appliqué à cette courte liste seulement, les reclasse pour n'en garder que quelques-uns.</span>
+        </div>
+
+        <div class="lay top" data-n="08">
+          <h4>L'assembleur de contexte</h4>
+          <p>Compose le message final envoyé au modèle. <b>C'est lui qui décide de la qualité perçue du système</b>, et c'est le composant dont on parle le moins.</p>
+          <span class="cons"><b>Comment :</b> il concatène la consigne système, les extraits retenus, l'historique de la conversation et les données de l'utilisateur, dans un budget de jetons fixe. Quand tout ne rentre pas, <b>c'est lui qui arbitre ce qui saute</b>. Une réponse incomplète vient bien plus souvent d'un arbitrage à cette étape que d'une faiblesse du modèle.</span>
+        </div>
+
+        <div class="lay" data-n="09">
+          <h4>Le tokeniseur</h4>
+          <p>Découpe le texte en jetons, l'unité que le modèle manipule réellement.</p>
+          <span class="cons"><b>Comment :</b> selon un vocabulaire figé à l'entraînement. Un mot courant vaut un jeton, un mot rare ou un nom propre en vaut plusieurs. <b>C'est ce découpage qui détermine le coût facturé et la limite de contexte</b> — pas le nombre de mots, ni le nombre de pages.</span>
+        </div>
+
+        <div class="lay" data-n="10">
+          <h4>Le modèle de langage</h4>
+          <p>Prédit le jeton suivant, puis recommence. Une fois par jeton produit.</p>
+          <span class="cons"><b>Comment :</b> il ne consulte rien pendant qu'il écrit, n'interroge aucune base et ne se souvient de rien en dehors de ce que l'assembleur lui a mis sous les yeux. <b>Tout ce qu'il sait de votre entreprise à cet instant tient dans l'étape 08.</b></span>
+        </div>
+
+        <div class="lay" data-n="11">
+          <h4>La couche d'outils</h4>
+          <p>Permet au système d'agir, et pas seulement de répondre.</p>
+          <span class="cons"><b>Comment :</b> le modèle n'exécute rien lui-même — il émet une demande structurée, du type « appelle cet outil avec ces paramètres ». Un exécuteur, en dehors du modèle, la réalise vraiment et réinjecte le résultat dans le contexte. <b>Les droits, les quotas et la liste des outils autorisés vivent dans cet exécuteur</b>, jamais dans le modèle.</span>
+        </div>
+
+        <div class="lay" data-n="12">
+          <h4>La boucle de validation humaine</h4>
+          <p>Place un humain là où l'erreur coûte cher, et transforme sa correction en amélioration.</p>
+          <span class="cons"><b>Comment :</b> une file de revue, des seuils de confiance en dessous desquels rien ne part sans relecture, et un échantillonnage sur le reste. <b>L'essentiel est que la correction remonte</b> vers l'index et vers les règles de filtrage — sinon la même erreur reviendra la semaine suivante.</span>
+        </div>
+
+        <div class="lay" data-n="13">
+          <h4>L'observabilité</h4>
+          <p>Enregistre ce qui s'est passé, ce que ça a coûté, et permet de le démontrer.</p>
+          <span class="cons"><b>Comment :</b> une trace par échange — qui a demandé quoi, quels documents sont remontés, combien de jetons ont été consommés, pour quel montant — agrégée en tableaux de bord et en alertes. <b>Sans mesure, pas de mise en production :</b> ni pilotage du coût, ni explication d'une réponse aberrante, ni preuve en cas de contrôle.</span>
+        </div>
+
+      </div>
+
+      <div class="notice legal" style="margin-top:22px;margin-bottom:0">
+        <h4>Ce que cette liste change dans un projet</h4>
+        <p>Sur ces douze briques, une seule est celle à laquelle tout le monde pense : le modèle de langage, à l'étape 10. C'est aussi la plus facile à remplacer — quelques lignes de configuration. Les projets qui déçoivent achoppent presque toujours ailleurs : sur un <b>découpage</b> inadapté aux documents, sur une <b>recherche</b> qui remonte le mauvais passage, ou sur un <b>assembleur</b> qui tronque le contexte sans le dire. Changer de modèle ne répare aucun de ces trois cas.</p>
+      </div>
 
       <div class="sec-head" style="max-width:700px;margin:56px auto 20px">
         <h2 style="font-size:clamp(24px,3.2vw,34px)">Ce qu'il y a dans la boîte.</h2>
@@ -1995,6 +2101,7 @@ if(matchMedia("(prefers-reduced-motion: reduce)").matches){
 (function(){
   const dlg=document.getElementById("dlgd");
   if(!dlg) return;
+  const zone=document.getElementById("dlgdz"), zb=document.getElementById("dlgdzb");
 
   // Un objet par groupe : entete, titre, image, legende et texte du process.
   const deep={
@@ -2067,9 +2174,16 @@ if(matchMedia("(prefers-reduced-motion: reduce)").matches){
       document.getElementById("dlgdtxt").innerHTML=d.txt;
       const img=document.getElementById("dlgdi");
       img.src=d.img; img.alt="Sch\u00e9ma d\u00e9taill\u00e9 : "+d.t;
+      zone.classList.remove("zoom"); zb.textContent="Agrandir"; zone.scrollLeft=0;
       if(typeof dlg.showModal==="function"){dlg.showModal();}else{dlg.setAttribute("open","");}
       dlg.querySelector(".dlg-in").scrollTop=0;
     });
+  });
+  zb.addEventListener("click",()=>{
+    const z=zone.classList.toggle("zoom");
+    zb.textContent = z ? "Ajuster" : "Agrandir";
+    // agrandi, on part du milieu du schema plutot que du bord gauche
+    zone.scrollLeft = z ? (zone.scrollWidth - zone.clientWidth)/2 : 0;
   });
   document.getElementById("dlgdx").addEventListener("click",()=>dlg.close());
   dlg.addEventListener("click",ev=>{if(ev.target===dlg) dlg.close();});
