@@ -340,6 +340,52 @@
   }
   @media(min-width:861px){.mapfig{display:block}#flow{display:none}}
 
+  /* Group pastilles: they open the detailed diagram for that group. */
+  .mapfig .hot.deep{border-radius:18px}
+  .mapfig .hot.deep:hover{background:rgba(0,113,227,.10)}
+  .mapfig .hot.deep::after{
+    content:"i";position:absolute;right:14px;top:50%;margin-top:-11px;
+    width:22px;height:22px;border-radius:50%;
+    border:1.5px solid var(--blue);color:var(--blue);background:var(--white);
+    font-family:var(--sf);font-size:13px;font-weight:700;font-style:italic;line-height:19px;
+    text-align:center;opacity:.6;transition:opacity .18s,background .18s,color .18s;
+  }
+  .mapfig .hot.deep:hover::after{opacity:1;background:var(--blue);color:#fff}
+
+  /* Same entry point on mobile, inside each group header. */
+  .deepb{
+    font-family:var(--sf);font-size:12px;font-weight:600;letter-spacing:.02em;
+    color:var(--blue);background:rgba(0,113,227,.10);border:0;
+    padding:5px 12px;border-radius:980px;cursor:pointer;margin-left:auto;
+  }
+  .deepb:hover{background:rgba(0,113,227,.18)}
+  .ph-h{align-items:center}
+  @media(min-width:861px){.deepb{display:none}}
+
+  .dlgd{max-width:1180px}
+  .dlgd .dlg-in{max-height:88vh;overflow-y:auto}
+  .deepimg{margin-top:4px;border:1px solid var(--hair);border-radius:12px;background:var(--bg-alt)}
+  .deepimg img{display:block;width:100%;height:auto;border-radius:11px}
+  .deepcap{margin:10px 0 0;font-size:13px;color:var(--text-2)}
+  .deept{margin-top:24px}
+  .deept h4{margin:22px 0 6px;font-size:17px;font-weight:600;letter-spacing:-.02em;color:var(--text)}
+  .deept h4:first-child{margin-top:0}
+  .deept h4 i{
+    font-style:normal;color:var(--blue);font-size:13px;font-weight:600;
+    margin-right:7px;letter-spacing:.02em;
+  }
+  .deept p{margin:0;font-size:15.5px;line-height:1.5;color:var(--text-2)}
+  .deept p + p{margin-top:8px}
+  .deept b{color:var(--text);font-weight:600}
+  .deept .warn{
+    display:block;margin-top:22px;padding:14px 16px;background:var(--bg-alt);
+    border-radius:12px;font-size:15px;color:var(--text);
+  }
+  .deept .warn b{color:#b85c00}
+  .deept .ddsrc{margin-top:18px;font-size:13px;color:var(--text-2);line-height:1.5}
+  .deept .ddsrc b{color:var(--text-2);font-weight:600}
+  .deept .ddsrc a{color:var(--blue)}
+
   .dlg{
     border:0;padding:0;background:transparent;max-width:640px;width:calc(100% - 32px);
     color:var(--text);
@@ -807,11 +853,14 @@
         <button class="hot" data-s="10" style="left:10.872%;top:76.097%;width:20.898%;height:16.397%"><span class="sr">11 Tools &amp; actions</span></button>
         <button class="hot" data-s="11" style="left:39.974%;top:76.097%;width:19.206%;height:16.397%"><span class="sr">12 Human check</span></button>
         <button class="hot" data-s="12" style="left:67.318%;top:76.097%;width:19.271%;height:16.397%"><span class="sr">13 Logs &amp; cost</span></button>
+        <button class="hot deep" data-d="1" style="left:1.823%;top:0.808%;width:28.125%;height:10.4%"><span class="sr">Once — open the detailed diagram</span></button>
+        <button class="hot deep" data-d="2" style="left:1.823%;top:33.256%;width:28.125%;height:10.4%"><span class="sr">On every request — open the detailed diagram</span></button>
+        <button class="hot deep" data-d="3" style="left:1.823%;top:65.127%;width:28.125%;height:10.4%"><span class="sr">Around it — open the detailed diagram</span></button>
       </figure>
 
       <div class="flow" id="flow">
         <div class="ph">
-          <div class="ph-h"><b>Once</b><span>Preparation, offline</span></div>
+          <div class="ph-h"><b>Once</b><span>Preparation, offline</span><button class="deepb" data-d="1">Detailed diagram</button></div>
           <div class="ph-s">
             <button class="stp" data-s="0"><i>01</i><span>Your sources</span></button>
             <button class="stp" data-s="1"><i>02</i><span>Extraction</span></button>
@@ -821,7 +870,7 @@
           </div>
         </div>
         <div class="ph">
-          <div class="ph-h"><b>On every request</b><span>A few seconds</span></div>
+          <div class="ph-h"><b>On every request</b><span>A few seconds</span><button class="deepb" data-d="2">Detailed diagram</button></div>
           <div class="ph-s">
             <button class="stp" data-s="5"><i>06</i><span>Your request</span></button>
             <button class="stp" data-s="6"><i>07</i><span>Retrieval</span></button>
@@ -831,7 +880,7 @@
           </div>
         </div>
         <div class="ph">
-          <div class="ph-h"><b>Around it</b><span>What keeps it in check</span></div>
+          <div class="ph-h"><b>Around it</b><span>What keeps it in check</span><button class="deepb" data-d="3">Detailed diagram</button></div>
           <div class="ph-s">
             <button class="stp" data-s="10"><i>11</i><span>Tools &amp; actions</span></button>
             <button class="stp" data-s="11"><i>12</i><span>Human check</span></button>
@@ -856,6 +905,17 @@
             <div><dt>What breaks here</dt><dd id="dlg3"></dd></div>
           </dl>
           <p class="dlg-m" id="dlgm"></p>
+        </div>
+      </dialog>
+
+      <dialog class="dlg dlgd" id="dlgd">
+        <div class="dlg-in">
+          <button class="dlg-x" id="dlgdx" aria-label="Close">&#10005;</button>
+          <span class="dlg-k" id="dlgdk"></span>
+          <h3 id="dlgdt"></h3>
+          <div class="deepimg"><img id="dlgdi" src="" alt=""></div>
+          <p class="deepcap" id="dlgdc"></p>
+          <div class="deept" id="dlgdtxt"></div>
         </div>
       </dialog>
 
@@ -1802,6 +1862,102 @@ if(matchMedia("(prefers-reduced-motion: reduce)").matches){
   });
   document.addEventListener("click",()=>{dd.classList.remove("open");b.setAttribute("aria-expanded","false");});
   document.addEventListener("keydown",e=>{if(e.key==="Escape"){dd.classList.remove("open");b.setAttribute("aria-expanded","false");}});
+})();
+
+(function(){
+  const dlg=document.getElementById("dlgd");
+  if(!dlg) return;
+
+  const deep={
+  "1":{
+    k:"Once \u00b7 Preparation, offline",
+    t:"Preparation and indexing pipeline",
+    img:"DD1.jpg",
+    cap:"Steps 01 to 05. This pipeline runs once, before any question is asked, and runs again whenever the documents change.",
+    txt:`
+    <h4><i>01</i>Your sources</h4>
+    <p>It all starts with what you already own: relational databases, office documents and PDFs, business APIs. <b>Nothing is created at this step</b> — you only decide what is in scope, and it is the most consequential decision in the whole chain. A document forgotten here will be invisible to every answer; a confidential document included here becomes searchable by everyone with access to the system.</p>
+    <h4><i>02</i>Extraction and normalisation</h4>
+    <p>Raw data is retrieved, then <b>cleaned and standardised</b>: layout, repeated headers and footers and broken tables are stripped out, and everything is reduced to uniform text. The quality of everything downstream is decided here. A scanned PDF with no character recognition produces nothing usable, and nobody notices until the answers start being wrong.</p>
+    <h4><i>03</i>Chunking</h4>
+    <p>Documents are split into workable units, the <i>chunks</i>. Several strategies coexist: recursive splitting by character, fixed length, or following the structure of the document — markdown headings, for instance. The diagram also shows an <b>overlap of about twenty tokens</b> between consecutive chunks.</p>
+    <p>That overlap is not a detail: without it, a sentence cut in two loses its meaning in both halves. Chunking is the setting that most affects the relevance of answers, and it is the one people tune last when it should be tested first.</p>
+    <h4><i>04</i>Embedding</h4>
+    <p>Each chunk is converted into a list of numbers — a vector — by an embedding model. The diagram shows <b>768 dimensions</b> and a multilingual model, which is what lets you query English documents in French. Two texts about the same thing produce nearby vectors even without sharing a single word: that is what separates this from a plain "Ctrl+F".</p>
+    <p>That embedding model is itself a neural network, trained by example rather than programmed by hand. <b>Nobody wrote the rule that puts "holiday" close to "leave"</b> — it was inferred from billions of sentences where both appeared in the same contexts. The mechanism is explained in diagram 2, step 10.</p>
+    <h4><i>05</i>Index</h4>
+    <p>The vectors are stored in a vector database — Pinecone, Milvus and their equivalents — organised to find the nearest neighbours of a vector in milliseconds across millions of entries.</p>
+    <span class="warn"><b>Watch out:</b> from step 02 onwards, your data exists as a copy at a supplier. The contract covering that copy matters more than every technical setting in the chain.</span>`
+  },
+  "2":{
+    k:"On every request \u00b7 A few seconds",
+    t:"Query and generation pipeline",
+    img:"DD2.jpg",
+    cap:"Steps 06 to 10. This pipeline runs in full for every single question, in under two seconds.",
+    txt:`
+    <h4><i>06</i>Your request</h4>
+    <p>The question arrives by keyboard or by voice. A first pass tries to qualify the <b>intent</b>: is this a fact, a comparison, a synthesis, an action? Everything downstream depends on that reading — a badly framed question is not rescued further along the chain.</p>
+    <h4><i>07</i>Retrieval</h4>
+    <p>The question is embedded with the same model as step 04, then compared against the index using <b>cosine distance</b>: the angle between two vectors rather than their raw gap. The engines named — FAISS, Chroma — return the closest chunks, with a <b>target latency under one second</b>.</p>
+    <p>This is semantic search: it finds a passage about "paid leave" from a question about "holidays", where keyword search would find nothing.</p>
+    <h4><i>08</i>Assembled context</h4>
+    <p>The selected chunks are assembled with their <b>metadata</b> — source, date, author, rights — and, where relevant, the user profile. A <b>re-ranking</b> step reorders the set: vector search is fast but coarse, so a second, finer model reorders the candidates before only the best are kept.</p>
+    <p><b>This is where your data actually leaves.</b> Everything in this bundle goes to the model provider along with the question. The four preceding steps were only preparation.</p>
+    <h4><i>09</i>Tokens</h4>
+    <p>Context and question are split into tokens, the units the model actually manipulates — neither words nor characters, but recurring fragments. The diagram mentions a vocabulary in the order of <b>50,000 tokens</b> and usage tracking. <b>This is the billing unit</b>: everything sent is counted, including the chunks that end up unused.</p>
+    <h4><i>10</i>Generation</h4>
+    <p>The model produces the answer from the context supplied, in the requested format: an email, a SQL query, a summary. It does not consult the index — <b>it only sees what step 08 handed it</b>. If the right document was not retrieved, no amount of model quality compensates: it will answer anyway, with what it has.</p>
+    <h4><i>\u2699</i>How the model works, without a single equation</h4>
+    <p>Start from a tiny problem: recognising a handwritten digit. You think you can write the rule — "a 9 has a loop at the top and a vertical stroke in the bottom right". Try making it precise: you get lost in exceptions and special cases immediately. <b>The rule exists in your head, but it cannot be written down.</b><sup>[A]</sup></p>
+    <p>A neural network turns the problem around. Instead of writing the rule, <b>you show examples and the machine infers the rule itself</b>. And the more examples you show, the more accurate it gets.</p>
+    <p>A neuron does exactly one thing: <b>it weighs up evidence</b>. Each input gets a weight expressing its importance; the whole thing is summed; if the total passes a threshold, the neuron fires. It is precisely what you do when weighing pros and cons before a decision — except you do it once, and the model does it billions of times.</p>
+    <p><b>Learning is setting the weights.</b> Nothing else. A model is not a knowledge base: it is a very large set of dials, tuned by correcting the gap between what it predicted and what it should have predicted, example after example.</p>
+    <p>To gauge how simple the idea is: <b>74 lines of code, with no specialist library, are enough to pass 96% accuracy</b> on handwritten digits. Everything else — size, data, computing power — is a matter of scale, not of nature.<sup>[A]</sup></p>
+    <h4><i>\u25c8</i>Why it is not a brain</h4>
+    <p>The biological analogy paints a false picture: a neuron holding an idea, like a "cat" bulb or a "Paris" bulb. Anthropic's interpretability work showed the opposite: <b>each concept is represented across many neurons, and each neuron is involved in representing many concepts</b>.<sup>[B]</sup></p>
+    <p>The right image is alphabetical, not biological. <b>Neurons are letters, not words.</b> A concept is read by combining neurons the way a word is made of letters, and a complete thought by combining those concepts the way a sentence is made of words.</p>
+    <p>This is not a figure of speech. Looking for those combinations inside Claude, researchers found a "Golden Gate Bridge" pattern that fires on the English name, on discussions in Japanese, Chinese, Greek, Vietnamese and Russian — <b>or on a photograph of the bridge</b>. The concept is the same whatever the language and whatever the format.<sup>[B]</sup></p>
+    <p>And these patterns do not merely accompany the reasoning, <b>they produce it</b>: artificially amplifying the bridge pattern made Claude, asked about its physical form, stop answering "I have no physical form" and instead claim "I am the Golden Gate Bridge". A cog was moved, and the behaviour followed.<sup>[B]</sup></p>
+    <span class="warn"><b>What this changes in a session:</b> replace "it understands" and "it thinks" with "it weighs". Hallucination, the absence of an "I don't know" slot, and sensitivity to phrasing all follow from that single fact.</span>
+    <p class="ddsrc"><b>Sources</b> — [A] Michael Nielsen, <i>Neural Networks and Deep Learning</i>, chapter 1, <a href="http://neuralnetworksanddeeplearning.com/chap1.html" target="_blank" rel="noopener">neuralnetworksanddeeplearning.com</a>. [B] Anthropic, <i>Mapping the mind of a large language model</i>, 21 May 2024, <a href="https://www.anthropic.com/research/mapping-mind-language-model" target="_blank" rel="noopener">anthropic.com</a>.</p>
+    <span class="warn"><b>Watch out:</b> a wrong answer usually comes from step 07 or 08, not from step 10. Before changing model, look at what was retrieved.</span>`
+  },
+  "3":{
+    k:"Around it \u00b7 What keeps it in check",
+    t:"Governance and operating framework",
+    img:"DD3.jpg",
+    cap:"Steps 11 to 13. Not the processing chain itself, but what makes it usable in production — and the loop that makes it improve.",
+    txt:`
+    <h4><i>11</i>Tools and actions</h4>
+    <p>The model stops merely answering: it triggers actions. An <b>API gateway</b> exposes the available tools, a registry declares them, an authentication layer controls who may call what, and an execution layer makes the call. The diagram shows connectors to automation platforms and CRMs.</p>
+    <p>The change in nature is real: while it writes, a mistake produces bad text. As soon as it acts, a mistake produces a wrong payment, an email sent in error, a deleted row. <b>The rights granted at this step are the real rights of the system.</b></p>
+    <h4><i>12</i>Human check</h4>
+    <p>Four distinct controls appear: check the <b>sources</b>, correct the <b>facts</b>, validate those facts, and check that the answer actually meets the <b>requirement</b> asked. A validator can add or specify a source, which feeds straight back into the index.</p>
+    <p>The "human verification vs frequency" curve on the diagram says the essential thing: the rate of checking declines with use. People check a lot at first, then less and less as confidence sets in — and that is precisely when mistakes get through. <b>The right setup is not to check everything, it is to decide in advance what will always be checked</b>, whatever confidence has been earned.</p>
+    <h4><i>13</i>Logs and cost</h4>
+    <p>Every exchange leaves a timestamped trace: who asked, what status — success, approval, failure —, which documents were retrieved. The indicators tracked are <b>cost per request</b>, token volume, average latency, error rate and uptime, plus a measure of answer accuracy.</p>
+    <p>This is not only compliance. Without logs you can neither explain an aberrant answer, nor estimate a cost, nor demonstrate anything during an audit. <b>No measurement, no production.</b></p>
+    <h4><i>\u21ba</i>The feedback loop</h4>
+    <p>The dashed line running back from right to left is the part most often forgotten: human corrections and usage measurements <b>flow back into the index and into the filtering policy</b>. A system without that loop does not stand still — it degrades, simply because documents age.</p>
+    <span class="warn"><b>Watch out:</b> Article 4 of Regulation (EU) 2024/1689 has required a sufficient level of AI literacy from those who use it since February 2025. Steps 12 and 13 are what lets you demonstrate it.</span>`
+  }
+  };
+
+  document.querySelectorAll("[data-d]").forEach(b=>{
+    b.addEventListener("click",()=>{
+      const d=deep[b.dataset.d];
+      document.getElementById("dlgdk").textContent=d.k;
+      document.getElementById("dlgdt").textContent=d.t;
+      document.getElementById("dlgdc").textContent=d.cap;
+      document.getElementById("dlgdtxt").innerHTML=d.txt;
+      const img=document.getElementById("dlgdi");
+      img.src=d.img; img.alt="Detailed diagram: "+d.t;
+      if(typeof dlg.showModal==="function"){dlg.showModal();}else{dlg.setAttribute("open","");}
+      dlg.querySelector(".dlg-in").scrollTop=0;
+    });
+  });
+  document.getElementById("dlgdx").addEventListener("click",()=>dlg.close());
+  dlg.addEventListener("click",ev=>{if(ev.target===dlg) dlg.close();});
 })();
 </script>
 </body>
