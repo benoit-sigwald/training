@@ -1151,6 +1151,18 @@
       </div>
 
       <div class="sec-head" style="max-width:700px;margin:56px auto 20px">
+        <h2 style="font-size:clamp(24px,3.2vw,34px)">Where to start, depending on who you are.</h2>
+        <p style="font-size:17px">Use cases ranked by priority. The criterion is not how good it looks in a demo, but the ratio between time saved and risk taken.</p>
+      </div>
+
+      <div class="notice legal" style="margin-bottom:18px">
+        <h4>The ranking rule</h4>
+        <p>A good first use case meets three conditions: <b>you do it often</b>, <b>you already know what a good result looks like</b> — so you can judge it in fifteen seconds — and <b>a mistake costs nothing irreversible</b>. The three entries in each list below are ordered by that criterion, not by what impresses most in a meeting.</p>
+      </div>
+
+      <div id="usecases"></div>
+
+      <div class="sec-head" style="max-width:700px;margin:56px auto 20px">
         <h2 style="font-size:clamp(24px,3.2vw,34px)">Myths and reality.</h2>
         <p style="font-size:17px">Six statements you hear in meetings, and what the figures say.</p>
       </div>
@@ -1611,6 +1623,39 @@ document.getElementById("grid-d").innerHTML=decouverte.map(modCard).join("");
 document.getElementById("grid-a").innerHTML=avance.map(modCard).join("");
 document.getElementById("rules-d").innerHTML=reflexes.map(ruleCard).join("");
 document.getElementById("rules-a").innerHTML=gardefous.map(ruleCard).join("");
+
+const usecases=[
+ {n:"01",t:"Small business · under 250 staff",g:`Repetitive writing. Nothing to buy, no project to launch: the gain is there in the first week.`,
+  u:[["Customer replies, quotes, follow-ups",`The emails you rewrite every week with three words of difference. You review, you correct, you send — you are the one signing.`],["Meeting notes",`Record, transcribe, then ask for the decisions taken and the open points. The gain comes less from the writing than from the notes finally existing at all.`],["Translation and formatting",`Sales documents, instructions, terms and conditions. Having a speaker of the language read it over stays necessary the moment the document commits you.`]],
+  no:`An agent wired into your invoicing or your CRM. Only 14% of very small firms have written a usage policy, against 73% of mid-caps: that is the gap to close before opening up access.`},
+ {n:"02",t:"Industrial SME · production",g:`Technical documentation. It exists, it is complete, and nobody can find anything in it.`,
+  u:[["Querying machine documentation",`Standards, safety sheets, manufacturer manuals, quality procedures. Asking a question in plain language instead of digging through forty PDFs. That is exactly the journey of steps 01 to 08.`],["Writing procedures and work instructions",`From the notes of the operator who knows how. The value is turning spoken know-how into a document, not inventing the procedure.`],["Clustering non-conformities",`Surfacing recurring causes across hundreds of free-text reports, where a spreadsheet sees nothing.`]],
+  no:`Predictive maintenance. It assumes a clean, labelled data history that few workshops actually have. What blocks you is step 01 of the data path, never the model.`},
+ {n:"03",t:"Mid-cap · 250 to 5,000 staff",g:`Access to what the company already knows. You have the document volume that makes the investment pay, and not yet the weight that makes it fail.`,
+  u:[["An assistant over your document base",`Procedures, contracts, project history, lessons learned. This is the use case that justifies building steps 01 to 05 properly.`],["Tenders and sales responses",`A first draft drawn from what you have already answered. The time saved is counted in days, and the quality comes from your own material, not from the model.`],["Reading contracts",`Spotting unusual clauses and departures from your standard template. The spotting is delegated, the decision never is.`]],
+  no:`Rolling out to every department at once. 91% of mid-caps put AI into production and 73% have a policy: what separates those who get something out of it is the roadmap, not the tool.`},
+ {n:"04",t:"Large enterprise · over 5,000 staff",g:`Not a saving of time, a saving of compliance. At your scale, what costs money is not slowness, it is the incident.`,
+  u:[["The framework, before the use cases",`Policy, logging, human checkpoints: steps 11 to 13. Article 4 of Regulation (EU) 2024/1689 has applied since February 2025, and is demonstrated through traces.`],["Internal support",`HR, IT, legal. The only place where the sheer volume of repeated questions justifies the investment on its own, and where a mistake stays recoverable.`],["Software development",`This is where the measured gains are the most solid — and the only field with published measurements rather than testimonials.`]],
+  no:`A large cross-company programme announced to the board. The deployments that last start from one team that already had the problem and already wanted to solve it.`},
+ {n:"05",t:"Personal use",g:`Writing what you do not feel like writing, and understanding what you cannot get through.`,
+  u:[["The letter you keep putting off",`A complaint, a cancellation, an administrative letter, a covering letter. Give the facts and the tone you want; the blank page disappears.`],["Understanding a document",`A lease, an insurance contract, a letter from the authorities, a quote. Ask for an explanation and the questions to ask — never for a decision on your behalf.`],["Learning something",`Have a subject explained at your level, then ask to be tested on it. Being tested is worth more than being given a summary.`]],
+  no:`Pasting medical, banking or identity data. This is step 06 of the data path: what you write in the conversation goes to the provider, and it is the most common leak.`},
+ {n:"06",t:"Children and teenagers",g:`The one audience for which saving time is the wrong goal. What counts here is what gets learned — and AI doing the work removes precisely the learning.`,
+  u:[["Having it explained differently",`What was not understood in class, with another image, another example, as many times as needed and without anyone losing patience.`],["Being tested, not given a summary",`\u201cAsk me ten questions on this chapter and correct me\u201d rather than \u201csummarise this chapter\u201d. The first makes you work, the second excuses you from working.`],["Hunting for your own mistake",`\u201cHere is my reasoning, where does it go wrong?\u201d rather than \u201cdo the exercise\u201d. You keep the burden of reasoning and delegate the proofreading.`]],
+  no:`Having the homework produced for you. Recent work suggests that heavy reliance on AI can slow the acquisition of skills over the long run<sup class='ref'><a href='#r1'>[1]</a></sup> — the cost does not show up immediately, which is what makes it dangerous.`},
+ {n:"07",t:"Retired people",g:`Online admin, now compulsory and unreadable. This is the audience for whom voice access changes the most.`,
+  u:[["Administrative procedures",`Understanding a form, drafting a request, preparing what to say on the phone. Dictation removes the keyboard.`],["Staying in touch",`Writing to family, translating messages from grandchildren living abroad, summarising the news out of a long group conversation.`],["Curiosity",`Local history, genealogy, gardening. Always ask for the sources: that is what turns a pleasant conversation into usable information.`]],
+  no:`A medication dose, an investment choice, a health decision. The model will answer with confidence even when it is wrong — that is the shape of the system, not a versioning defect.`},
+];
+
+const ucEl=u=>`<details class="fiche reveal">
+   <summary><span class="num">${u.n}</span>${u.t}<span class="chev">\u203a</span></summary>
+   <div class="body"><dl>
+     <div><dt>The first gain</dt><dd>${u.g}</dd></div>
+     ${u.u.map(([titre,txt],i)=>`<div><dt>Priority ${i+1} \u2014 ${titre}</dt><dd>${txt}</dd></div>`).join("")}
+     <div><dt>Do not start with</dt><dd>${u.no}</dd></div>
+   </dl></div></details>`;
+document.getElementById("usecases").innerHTML=usecases.map(ucEl).join("");
 document.getElementById("fiches-g").innerHTML=fichesG.map(ficheEl).join("");
 document.getElementById("fiches").innerHTML=fiches.map(ficheEl).join("");
 
