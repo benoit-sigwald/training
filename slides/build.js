@@ -130,13 +130,14 @@ const POIDS = [0.35, 1.0, 0.55, 0.8, 0.3, 1.0, 0.45, 0.7, 0.9, 0.4, 0.6, 1.0,
     items.forEach(([n, label], k) => {
       const y = 2.98 + k * 0.42;
       const on = n === "08";
-      const rn = n === "04" || n === "07" || n === "10";   // les trois briques qui sont un réseau
+      const rn = n === "04" || n === "07" || n === "10";   // les trois etapes qui sont un reseau
+      // sigle anglais : RN est deja pris en francais
       s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: x + 0.28, y, w: cw - 0.56, h: 0.4, rectRadius: 0.08, fill: { color: on ? BLUE : LIGHT } });
       s.addText(n, { x: x + 0.42, y, w: 0.5, h: 0.4, margin: 0, valign: "middle", fontFace: H1, fontSize: 11, bold: true, color: on ? WHITE : BLUE_D });
       s.addText(label, { x: x + 0.95, y, w: cw - 1.55, h: 0.4, margin: 0, valign: "middle", fontFace: H1, fontSize: 12.5, bold: on, color: on ? WHITE : INK });
       if (rn) {
         s.addShape(pres.shapes.OVAL, { x: x + cw - 0.82, y: y + 0.09, w: 0.22, h: 0.22, fill: { color: on ? WHITE : BLUE } });
-        s.addText("RN", { x: x + cw - 0.82, y: y + 0.09, w: 0.22, h: 0.22, margin: 0, align: "center", valign: "middle", fontFace: H1, fontSize: 6.5, bold: true, color: on ? BLUE : WHITE });
+        s.addText("NN", { x: x + cw - 0.82, y: y + 0.09, w: 0.22, h: 0.22, margin: 0, align: "center", valign: "middle", fontFace: H1, fontSize: 6.5, bold: true, color: on ? BLUE : WHITE });
       }
     });
 
@@ -144,8 +145,8 @@ const POIDS = [0.35, 1.0, 0.55, 0.8, 0.3, 1.0, 0.45, 0.7, 0.9, 0.4, 0.6, 1.0,
   });
 
   s.addShape(pres.shapes.OVAL, { x: M, y: 6.10, w: 0.2, h: 0.2, fill: { color: BLUE } });
-  s.addText("RN", { x: M, y: 6.10, w: 0.2, h: 0.2, margin: 0, align: "center", valign: "middle", fontFace: H1, fontSize: 6, bold: true, color: WHITE });
-  s.addText("réseau de neurones — les trois seules étapes qui en sont un", { x: M + 0.28, y: 6.08, w: 5.2, h: 0.24, margin: 0, fontFace: BODY, fontSize: 10.5, color: MUTED });
+  s.addText("NN", { x: M, y: 6.10, w: 0.2, h: 0.2, margin: 0, align: "center", valign: "middle", fontFace: H1, fontSize: 6, bold: true, color: WHITE });
+  s.addText("neural network — les trois seules étapes qui en sont un", { x: M + 0.28, y: 6.08, w: 5.2, h: 0.24, margin: 0, fontFace: BODY, fontSize: 10.5, color: MUTED });
 
   s.addShape(pres.shapes.RECTANGLE, { x: M, y: 6.35, w: CW, h: 0.58, fill: { color: "E8F1FD" } });
   s.addShape(pres.shapes.RECTANGLE, { x: M, y: 6.35, w: 0.07, h: 0.58, fill: { color: BLUE } });
