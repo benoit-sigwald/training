@@ -1455,6 +1455,18 @@
         <p>La règle vaut au-delà de cet exemple : quand un pourcentage n'est rattaché à aucune étude nommée, ne le reprenez pas. C'est le module 07 appliqué à votre propre communication.</p>
       </div>
       <div class="sec-head" style="max-width:700px;margin:56px auto 20px">
+        <h2 style="font-size:clamp(24px,3.2vw,34px)">Par où commencer, selon qui vous êtes.</h2>
+        <p style="font-size:17px">Les cas d'usage classés par priorité. Le critère n'est pas l'effet produit sur une démonstration, mais le rapport entre le temps gagné et le risque pris.</p>
+      </div>
+
+      <div class="notice legal" style="margin-bottom:18px">
+        <h4>La règle de classement</h4>
+        <p>Un bon premier cas d'usage réunit trois conditions : <b>vous le faites souvent</b>, <b>vous savez déjà à quoi ressemble un bon résultat</b> — donc vous jugez en quinze secondes —, et <b>une erreur ne coûte rien d'irréversible</b>. Les trois entrées de chaque liste ci-dessous sont ordonnées selon ce critère, pas selon ce qui impressionne le plus en réunion.</p>
+      </div>
+
+      <div id="usecases"></div>
+
+      <div class="sec-head" style="max-width:700px;margin:56px auto 20px">
         <h2 style="font-size:clamp(24px,3.2vw,34px)">Mythes et réalité.</h2>
         <p style="font-size:17px">Six affirmations qu'on entend en réunion, et ce que disent les chiffres.</p>
       </div>
@@ -1932,6 +1944,39 @@ document.getElementById("grid-d").innerHTML=decouverte.map(modCard).join("");
 document.getElementById("grid-a").innerHTML=avance.map(modCard).join("");
 document.getElementById("rules-d").innerHTML=reflexes.map(ruleCard).join("");
 document.getElementById("rules-a").innerHTML=gardefous.map(ruleCard).join("");
+
+const usecases=[
+ {n:"01",t:"TPE et PME · moins de 250 salariés",g:`L'écrit répétitif. Aucun outil à acheter, aucun projet à lancer : le gain est disponible dès la première semaine.`,
+  u:[["Réponses clients, devis, relances",`Les courriels que vous réécrivez chaque semaine avec trois mots de différence. Vous relisez, vous corrigez, vous envoyez — c'est vous qui signez.`],["Comptes rendus de réunion",`Enregistrer, transcrire, puis demander le relevé de décisions et les points en suspens. Le gain vient moins de la rédaction que du fait que le compte rendu existe enfin.`],["Traduction et mise en forme",`Documents commerciaux, notices, conditions générales. Faire relire par quelqu'un qui parle la langue reste nécessaire dès que le document engage.`]],
+  no:`Un agent branché sur votre facturation ou votre CRM. Seules 14 % des TPE ont écrit une charte d'usage, contre 73 % des ETI : c'est ce trou-là qu'il faut combler avant d'ouvrir des accès.`},
+ {n:"02",t:"PMI · industrie et production",g:`La documentation technique. Elle existe, elle est complète, et personne ne la retrouve.`,
+  u:[["Interroger la documentation machine",`Normes, fiches de sécurité, notices constructeur, procédures qualité. Poser la question en français plutôt que fouiller quarante PDF. C'est exactement le trajet des étapes 01 à 08.`],["Rédiger procédures et modes opératoires",`À partir des notes de l'opérateur qui sait faire. La valeur est de transformer un savoir oral en document, pas d'inventer la procédure.`],["Regrouper les non-conformités",`Faire ressortir les causes récurrentes dans des centaines de rapports rédigés en texte libre, là où un tableur ne voit rien.`]],
+  no:`La maintenance prédictive. Elle suppose un historique de données propre et étiqueté que peu d'ateliers possèdent réellement. Ce qui bloque, c'est l'étape 01 du chemin des données, jamais le modèle.`},
+ {n:"03",t:"ETI · 250 à 5 000 salariés",g:`L'accès à ce que l'entreprise sait déjà. Vous avez le volume documentaire qui rend l'investissement rentable, et pas encore la lourdeur qui le fait échouer.`,
+  u:[["Un assistant sur votre fonds documentaire",`Procédures, contrats, historique de projets, retours d'expérience. C'est le cas d'usage qui justifie de construire les étapes 01 à 05 pour de vrai.`],["Appels d'offres et réponses commerciales",`Première version tirée de ce que vous avez déjà répondu. Le temps gagné se compte en jours, et la qualité vient de votre fonds, pas du modèle.`],["Lecture de contrats",`Repérer les clauses inhabituelles et les écarts au modèle maison. Le repérage est délégué, la décision ne l'est jamais.`]],
+  no:`Le déploiement simultané à tous les services. 91 % des ETI mettent de l'IA en production et 73 % ont une charte : ce qui sépare celles qui en tirent quelque chose des autres, c'est la feuille de route, pas l'outil.`},
+ {n:"04",t:"Grande entreprise · plus de 5 000 salariés",g:`Ce n'est pas un gain de temps, c'est un gain de conformité. À votre échelle, ce qui coûte cher n'est pas la lenteur, c'est l'incident.`,
+  u:[["Le cadre, avant les cas d'usage",`Charte, journalisation, points de vérification humaine : les étapes 11 à 13. L'article 4 du règlement (UE) 2024/1689 s'applique depuis février 2025, et se démontre par des traces.`],["Le support interne",`RH, informatique, juridique. C'est le seul endroit où le volume de questions répétitives justifie à lui seul l'investissement, et où l'erreur reste rattrapable.`],["Le développement logiciel",`C'est là que les gains mesurés sont les plus solides — et le seul domaine où l'on dispose de mesures publiées plutôt que de témoignages.`]],
+  no:`Un grand programme transverse annoncé au comité de direction. Les déploiements qui tiennent partent d'une équipe qui avait déjà le problème et voulait déjà le résoudre.`},
+ {n:"05",t:"À titre personnel",g:`Écrire ce qu'on n'a pas envie d'écrire, et comprendre ce qu'on n'arrive pas à lire.`,
+  u:[["Le courrier qu'on repousse",`Réclamation, résiliation, courrier administratif, lettre de motivation. Donnez les faits et le ton voulu ; la page blanche disparaît.`],["Comprendre un document",`Bail, contrat d'assurance, courrier d'administration, devis. Demandez une explication et les questions à poser — jamais une décision à votre place.`],["Apprendre quelque chose",`Se faire expliquer un sujet à son niveau, puis demander à être interrogé dessus. L'interrogation vaut plus que le résumé.`]],
+  no:`Coller des données médicales, bancaires ou d'identité. C'est l'étape 06 du chemin des données : ce que vous écrivez dans la conversation part chez le fournisseur, et c'est la fuite la plus fréquente.`},
+ {n:"06",t:"Enfants et adolescents",g:`Le seul public pour lequel le gain de temps est un mauvais objectif. Ce qui compte ici, c'est ce qui est appris — et l'IA qui fait le travail supprime précisément l'apprentissage.`,
+  u:[["Se faire réexpliquer autrement",`Ce qui n'a pas été compris en classe, avec une autre image, un autre exemple, autant de fois qu'il le faut sans que personne ne s'impatiente.`],["Être interrogé, pas résumé",`« Pose-moi dix questions sur ce chapitre et corrige-moi » plutôt que « résume-moi ce chapitre ». La première formulation fait travailler, la seconde dispense de travailler.`],["Chercher son erreur",`« Voici mon raisonnement, où est-ce qu'il cloche ? » plutôt que « fais l'exercice ». On garde la charge du raisonnement et on délègue la relecture.`]],
+  no:`Faire produire le devoir. Des travaux récents signalent qu'un recours massif à l'IA peut freiner l'acquisition de compétences sur le long terme<sup class='ref'><a href='#r1'>[1]</a></sup> — le coût ne se voit pas tout de suite, et c'est ce qui le rend dangereux.`},
+ {n:"07",t:"Retraités",g:`Les démarches en ligne, devenues obligatoires et illisibles. C'est le public pour qui l'accès vocal change le plus de choses.`,
+  u:[["Les démarches administratives",`Comprendre un formulaire, rédiger une demande, préparer ce qu'on va dire au téléphone. La dictée évite le clavier.`],["Rester en lien",`Écrire à ses proches, traduire les messages des petits-enfants partis à l'étranger, résumer les nouvelles d'une longue conversation de groupe.`],["La curiosité",`Histoire locale, généalogie, jardinage. Demandez systématiquement les sources : c'est ce qui transforme une conversation agréable en information utilisable.`]],
+  no:`Un dosage de médicament, un choix de placement, une décision de santé. Le modèle répondra avec assurance même quand il se trompe — c'est la forme du système, pas un défaut de version.`},
+];
+
+const ucEl=u=>`<details class="fiche reveal">
+   <summary><span class="num">${u.n}</span>${u.t}<span class="chev">›</span></summary>
+   <div class="body"><dl>
+     <div><dt>Le premier gain</dt><dd>${u.g}</dd></div>
+     ${u.u.map(([titre,txt],i)=>`<div><dt>Priorité ${i+1} — ${titre}</dt><dd>${txt}</dd></div>`).join("")}
+     <div><dt>Ne commencez pas par</dt><dd>${u.no}</dd></div>
+   </dl></div></details>`;
+document.getElementById("usecases").innerHTML=usecases.map(ucEl).join("");
 document.getElementById("fiches-g").innerHTML=fichesG.map(ficheEl).join("");
 document.getElementById("fiches").innerHTML=fiches.map(ficheEl).join("");
 
