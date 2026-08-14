@@ -44,14 +44,20 @@ function sub(s, txt, color, w = CW) {
 function sub2(s, txt, w = CW) {
   s.addText(txt, { x: M, y: 1.52, w, h: 0.44, margin: 0, fontFace: BODY, fontSize: 15, color: MUTED_D });
 }
-/* trait entre deux points, orienté correctement */
-function link(s, x1, y1, x2, y2, color) {
+/* trait entre deux points, orienté correctement.
+   L'epaisseur porte le poids : c'est ce que le schema doit montrer. */
+function link(s, x1, y1, x2, y2, color, width = 1, transparency = 0) {
   s.addShape(pres.shapes.LINE, {
     x: Math.min(x1, x2), y: Math.min(y1, y2),
     w: Math.abs(x2 - x1), h: Math.abs(y2 - y1),
-    line: { color, width: 1 }, flipV: y2 < y1,
+    line: { color, width, transparency }, flipV: y2 < y1,
   });
 }
+
+/* Les memes poids que le schema du site, pour que les deux racontent pareil. */
+const POIDS = [0.35, 1.0, 0.55, 0.8, 0.3, 1.0, 0.45, 0.7, 0.9, 0.4, 0.6, 1.0,
+               0.5, 0.85, 0.35, 1.0, 0.7, 0.45, 0.95, 0.3, 0.6, 0.8, 0.4, 1.0,
+               0.55, 0.9, 0.35, 0.75, 1.0, 0.45, 0.65, 0.85];
 
 /* ============ 1 — Titre et frise ============ */
 {
@@ -124,13 +130,22 @@ function link(s, x1, y1, x2, y2, color) {
     items.forEach(([n, label], k) => {
       const y = 2.98 + k * 0.42;
       const on = n === "08";
+      const rn = n === "04" || n === "07" || n === "10";   // les trois briques qui sont un réseau
       s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: x + 0.28, y, w: cw - 0.56, h: 0.4, rectRadius: 0.08, fill: { color: on ? BLUE : LIGHT } });
       s.addText(n, { x: x + 0.42, y, w: 0.5, h: 0.4, margin: 0, valign: "middle", fontFace: H1, fontSize: 11, bold: true, color: on ? WHITE : BLUE_D });
-      s.addText(label, { x: x + 0.95, y, w: cw - 1.25, h: 0.4, margin: 0, valign: "middle", fontFace: H1, fontSize: 12.5, bold: on, color: on ? WHITE : INK });
+      s.addText(label, { x: x + 0.95, y, w: cw - 1.55, h: 0.4, margin: 0, valign: "middle", fontFace: H1, fontSize: 12.5, bold: on, color: on ? WHITE : INK });
+      if (rn) {
+        s.addShape(pres.shapes.OVAL, { x: x + cw - 0.82, y: y + 0.09, w: 0.22, h: 0.22, fill: { color: on ? WHITE : BLUE } });
+        s.addText("RN", { x: x + cw - 0.82, y: y + 0.09, w: 0.22, h: 0.22, margin: 0, align: "center", valign: "middle", fontFace: H1, fontSize: 6.5, bold: true, color: on ? BLUE : WHITE });
+      }
     });
 
     s.addText(note, { x: x + 0.28, y: 5.38, w: cw - 0.56, h: 0.6, margin: 0, valign: "top", fontFace: BODY, fontSize: 11, color: MUTED });
   });
+
+  s.addShape(pres.shapes.OVAL, { x: M, y: 6.10, w: 0.2, h: 0.2, fill: { color: BLUE } });
+  s.addText("RN", { x: M, y: 6.10, w: 0.2, h: 0.2, margin: 0, align: "center", valign: "middle", fontFace: H1, fontSize: 6, bold: true, color: WHITE });
+  s.addText("réseau de neurones — les trois seules étapes qui en sont un", { x: M + 0.28, y: 6.08, w: 5.2, h: 0.24, margin: 0, fontFace: BODY, fontSize: 10.5, color: MUTED });
 
   s.addShape(pres.shapes.RECTANGLE, { x: M, y: 6.35, w: CW, h: 0.58, fill: { color: "E8F1FD" } });
   s.addShape(pres.shapes.RECTANGLE, { x: M, y: 6.35, w: 0.07, h: 0.58, fill: { color: BLUE } });
@@ -152,25 +167,45 @@ function link(s, x1, y1, x2, y2, color) {
 
   /* --- réseau --- */
   s.addShape(pres.shapes.RECTANGLE, { x: M, y: 2.25, w: 6.0, h: 4.05, fill: { color: WHITE }, shadow: card() });
-  s.addText("Entrées, couches, sortie", { x: M + 0.3, y: 2.42, w: 5.4, h: 0.3, margin: 0, fontFace: H1, fontSize: 13, bold: true, color: INK });
+  s.addText("Entrées, poids, couches, sortie", { x: M + 0.3, y: 2.42, w: 5.4, h: 0.3, margin: 0, fontFace: H1, fontSize: 13, bold: true, color: INK });
   s.addText("Chaque trait porte un poids : c'est ce qui est appris.", { x: M + 0.3, y: 2.72, w: 5.4, h: 0.28, margin: 0, fontFace: BODY, fontSize: 11.5, color: MUTED });
 
-  const cols = [1.5, 3.0, 4.5, 6.0];
-  const rows = [[3.55, 4.3, 5.05], [3.55, 4.3, 5.05], [3.55, 4.3, 5.05], [4.3]];
+  /* bandeau des deux couches cachées */
+  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 2.42, y: 3.12, w: 2.36, h: 2.16, rectRadius: 0.12, fill: { color: "F0F6FE" }, line: { color: "F0F6FE" } });
+  s.addText("COUCHES CACHÉES", { x: 2.42, y: 3.16, w: 2.36, h: 0.24, margin: 0, align: "center", fontFace: H1, fontSize: 8.5, bold: true, charSpacing: 1.6, color: BLUE_D });
+
+  const cols = [1.55, 3.05, 4.15, 5.62];
+  const rows = [[3.72, 4.32, 4.92], [3.52, 3.99, 4.46, 4.93], [3.52, 3.99, 4.46, 4.93], [4.22]];
+  let wi = 0;
   for (let c = 0; c < 3; c++) {
-    rows[c].forEach((y1) => rows[c + 1].forEach((y2) => link(s, cols[c] + 0.17, y1, cols[c + 1] - 0.17, y2, HAIR)));
+    rows[c].forEach((y1) => rows[c + 1].forEach((y2) => {
+      const p = POIDS[wi++ % POIDS.length];
+      link(s, cols[c] + 0.15, y1, cols[c + 1] - 0.15, y2, BLUE, 0.5 + p * 1.9, Math.round(72 - p * 42));
+    }));
   }
   rows.forEach((ys, c) => ys.forEach((y) => {
+    const out = c === 3;
     s.addShape(pres.shapes.OVAL, {
-      x: cols[c] - 0.17, y: y - 0.17, w: 0.34, h: 0.34,
-      fill: { color: c === 3 ? "E8F1FD" : WHITE }, line: { color: c === 0 ? MUTED : BLUE, width: 2 },
+      x: cols[c] - (out ? 0.23 : 0.15), y: y - (out ? 0.23 : 0.15),
+      w: out ? 0.46 : 0.3, h: out ? 0.46 : 0.3,
+      fill: { color: out ? BLUE : WHITE },
+      line: { color: out ? BLUE : (c === 0 ? HAIR : "C9DCF3"), width: out ? 1 : 1.5 },
     });
   }));
-  [["Entrées", 0], ["Couche 1", 1], ["Couche 2", 2], ["Sortie", 3]].forEach(([t, i]) => {
-    s.addText(t, { x: cols[i] - 0.72, y: 5.42, w: 1.44, h: 0.28, margin: 0, align: "center", fontFace: H1, fontSize: 11.5, bold: true, color: MUTED });
+  s.addText("0,82", { x: cols[3] - 0.23, y: rows[3][0] - 0.23, w: 0.46, h: 0.46, margin: 0, align: "center", valign: "middle", fontFace: H1, fontSize: 10, bold: true, color: WHITE });
+
+  [["Entrées", 1.55], ["Poids", 2.30], ["Sortie", 5.62]].forEach(([txt, cx]) => {
+    s.addText(txt, { x: cx - 0.6, y: 5.34, w: 1.2, h: 0.26, margin: 0, align: "center", fontFace: H1, fontSize: 11.5, bold: true, color: INK });
   });
-  s.addText("Un modèle, ce sont ces poids : des centaines de milliards de nombres, figés à la fin de l'entraînement.", {
-    x: M + 0.3, y: 5.7, w: 5.4, h: 0.5, margin: 0, fontFace: BODY, fontSize: 11.5, color: MUTED,
+  s.addText("une probabilité", { x: cols[3] - 0.75, y: 5.58, w: 1.5, h: 0.24, margin: 0, align: "center", fontFace: BODY, fontSize: 10, color: MUTED });
+
+  /* la légende dit ce que l'épaisseur veut dire */
+  s.addShape(pres.shapes.LINE, { x: M + 0.3, y: 5.93, w: 0.3, h: 0, line: { color: BLUE, width: 2.6, transparency: 35 } });
+  s.addText("épaisseur du trait = poids appris", { x: M + 0.68, y: 5.81, w: 3.0, h: 0.24, margin: 0, fontFace: BODY, fontSize: 10, color: MUTED });
+
+  /* une seule ligne : au-dela, le texte sort de la carte */
+  s.addText("Un modèle, ce sont ces poids : des milliards de nombres figés après l'entraînement.", {
+    x: M + 0.3, y: 6.02, w: 5.4, h: 0.22, margin: 0, fontFace: BODY, fontSize: 10.5, color: MUTED,
   });
 
   /* --- distributions --- */
