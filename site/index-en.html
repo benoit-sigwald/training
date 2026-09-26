@@ -1865,13 +1865,13 @@ const decouverte=[
 ];
 
 const avance=[
- {n:"00",t:"The slash: three environments, two natures",d:"\"/\" does not do the same thing in the claude.ai chat, in Claude Code and through connectors. It is the number one source of confusion.",task:"Type / in your own terminal, then classify the 5 commands you use most: built-in, skill, MCP-prefixed or plugin.",m:"45 min",l:"Slash commands — Claude Code",u:"https://code.claude.com/docs/en/slash-commands"},
- {n:"01",t:"What an agent is — and when not to build one",d:"The real difference between a conversation, an automation and an agent. The criterion: who decides the next step.",task:"List 3 team tasks and classify them: conversation, script or agent. Most are not agents.",m:"45 min",l:"Building Effective Agents",u:"https://www.anthropic.com/engineering/building-effective-agents"},
- {n:"02",t:"Giving it tools",d:"Function calls: read a file, query an API, send an email. Describing a tool so it gets used well.",task:"Expose a single read-only tool and watch when the model chooses to call it.",m:"60 min",l:"Tool use overview",u:"https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview"},
- {n:"03",t:"From Projects to Skills",d:"Capitalise: turn instructions that work into a capability the whole team can reuse.",task:"Convert your best prompt template into a Skill and have someone else test it.",m:"45 min",l:"Introduction to Agent Skills",u:"https://anthropic.skilljar.com/introduction-to-agent-skills"},
- {n:"04",t:"MCP and connectors",d:"Plug the agent into real company data instead of copy-paste. Scope, permissions, tokens.",task:"Connect one internal source read-only and document what the agent can reach.",m:"60 min",l:"Introduction to MCP",u:"https://anthropic.skilljar.com/introduction-to-model-context-protocol"},
- {n:"05",t:"An agent, end to end",d:"Goal, scope, tools, stop criterion, human hand-back. On a deliberately narrow task.",task:"Build the agent that handles one real weekly task, never writing to a database.",m:"60 min",l:"MCP — Advanced Topics",u:"https://anthropic.skilljar.com/model-context-protocol-advanced-topics"},
- {n:"06",t:"Test, cost, control",d:"Test set, cost per run, logging, human approval, kill switch.",task:"Make your agent fail on purpose, then write the rule that stops it happening again.",m:"60 min",l:"Develop tests",u:"https://platform.claude.com/docs/en/test-and-evaluate/develop-tests"}
+ {n:"12",t:"The slash: three environments, two natures",d:"\"/\" does not do the same thing in the claude.ai chat, in Claude Code and through connectors. It is the number one source of confusion.",task:"Type / in your own terminal, then classify the 5 commands you use most: built-in, skill, MCP-prefixed or plugin.",m:"45 min",l:"Slash commands — Claude Code",u:"https://code.claude.com/docs/en/slash-commands"},
+ {n:"13",t:"What an agent is — and when not to build one",d:"The real difference between a conversation, an automation and an agent. The criterion: who decides the next step.",task:"List 3 team tasks and classify them: conversation, script or agent. Most are not agents.",m:"45 min",l:"Building Effective Agents",u:"https://www.anthropic.com/engineering/building-effective-agents"},
+ {n:"14",t:"Giving it tools",d:"Function calls: read a file, query an API, send an email. Describing a tool so it gets used well.",task:"Expose a single read-only tool and watch when the model chooses to call it.",m:"60 min",l:"Tool use overview",u:"https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview"},
+ {n:"15",t:"From Projects to Skills",d:"Capitalise: turn instructions that work into a capability the whole team can reuse.",task:"Convert your best prompt template into a Skill and have someone else test it.",m:"45 min",l:"Introduction to Agent Skills",u:"https://anthropic.skilljar.com/introduction-to-agent-skills"},
+ {n:"16",t:"MCP and connectors",d:"Plug the agent into real company data instead of copy-paste. Scope, permissions, tokens.",task:"Connect one internal source read-only and document what the agent can reach.",m:"60 min",l:"Introduction to MCP",u:"https://anthropic.skilljar.com/introduction-to-model-context-protocol"},
+ {n:"17",t:"An agent, end to end",d:"Goal, scope, tools, stop criterion, human hand-back. On a deliberately narrow task.",task:"Build the agent that handles one real weekly task, never writing to a database.",m:"60 min",l:"MCP — Advanced Topics",u:"https://anthropic.skilljar.com/model-context-protocol-advanced-topics"},
+ {n:"18",t:"Test, cost, control",d:"Test set, cost per run, logging, human approval, kill switch.",task:"Make your agent fail on purpose, then write the rule that stops it happening again.",m:"60 min",l:"Develop tests",u:"https://platform.claude.com/docs/en/test-and-evaluate/develop-tests"}
 ];
 
 const reflexes=[
@@ -2862,7 +2862,7 @@ const etapes=[
   a:"The numbers and fragments are stored in a specialised database that can very quickly find the pieces closest to a question.",
   b:"In that database. It is what actually holds your document estate: where it sits, how it is encrypted and who may access it are the real sovereignty questions.",
   c:"Permissions. If the index ignores who may see what, an employee can obtain through a simple question what they could not open in the shared drive.",
-  m:"Advanced track, module 04 — MCP and connectors"},
+  m:"Advanced track, module 16 — MCP and connectors"},
 
  {k:"Step 06 · On every request",t:"Your request",
   a:"You write a question. It is handled exactly like the rest: converted into numbers so it can be compared to the indexed fragments.",
@@ -2886,7 +2886,7 @@ const etapes=[
   a:"The package is cut into tokens — pieces of words. English text runs at roughly one token per four characters. This is the unit of the context window, and the unit of billing.",
   b:"Nothing beyond the previous step: same content, written differently for the machine.",
   c:"Budget. Sending thirty pages with every question multiplies the bill without improving the answer. The cost per task in the scatter plot above is largely decided here.",
-  m:"Advanced track, module 06 — test, cost, control"},
+  m:"Advanced track, module 18 — test, cost, control"},
 
  {k:"Step 10 · On every request",t:"Generation",
   a:"The model produces the answer token by token, each one chosen given all the previous ones. It consults no database: it has only the package received at step 08 and what it learned during training.",
@@ -2898,7 +2898,7 @@ const etapes=[
   a:"If the system is agentic, the model can request an action: read a file, query a database, compute, send a message. That is what separates an agent from an assistant.",
   b:"To whatever systems you connected, with whatever rights you granted. An agent has no limits beyond those written into its scope.",
   c:"Scope that is too broad — the main cause of accidents. Read-only first; writing and sending come after weeks of proof.",
-  m:"Advanced track, module 02 — giving it tools"},
+  m:"Advanced track, module 14 — giving it tools"},
 
  {k:"Step 12 · Around it",t:"Human check",
   a:"Someone reads it and decides. Four areas concentrate the errors: figures, proper nouns, dates and quotes.",

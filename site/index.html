@@ -2186,13 +2186,13 @@ const decouverte=[
 ];
 
 const avance=[
- {n:"00",t:"Le slash : trois environnements, deux natures",d:"Le / ne fait pas la même chose dans le chat claude.ai, dans Claude Code et via les connecteurs. C'est la première source de confusion.",task:"Taper / dans son terminal, puis classer les 5 commandes qu'on utilise le plus : intégrée, skill, préfixée MCP ou plugin.",m:"45 min",l:"Slash commands — Claude Code",u:"https://code.claude.com/docs/en/slash-commands"},
- {n:"01",t:"Ce qu'est un agent — et quand ne pas en faire",d:"La différence réelle entre une conversation, une automatisation et un agent. Le critère : qui décide de l'étape suivante.",task:"Lister 3 tâches de l'équipe et les classer : conversation, script ou agent. La plupart ne sont pas des agents.",m:"45 min",l:"Building Effective Agents",u:"https://www.anthropic.com/engineering/building-effective-agents"},
- {n:"02",t:"Donner des outils",d:"Appels de fonctions : lire un fichier, interroger une API, envoyer un mail. Décrire un outil pour qu'il soit bien utilisé.",task:"Exposer un seul outil en lecture seule et observer quand le modèle choisit de l'appeler.",m:"60 min",l:"Tool use — vue d'ensemble",u:"https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview"},
- {n:"03",t:"De Projects à Skills",d:"Capitaliser : transformer des instructions qui marchent en compétence réutilisable par toute l'équipe.",task:"Convertir son meilleur modèle de prompt en Skill et le faire tester par quelqu'un d'autre.",m:"45 min",l:"Introduction to Agent Skills",u:"https://anthropic.skilljar.com/introduction-to-agent-skills"},
- {n:"04",t:"MCP et connecteurs",d:"Brancher l'agent sur les données réelles de l'entreprise plutôt que sur du copier-coller. Périmètre, droits, jetons.",task:"Connecter une source interne en lecture seule et documenter ce à quoi l'agent a accès.",m:"60 min",l:"Introduction to MCP",u:"https://anthropic.skilljar.com/introduction-to-model-context-protocol"},
- {n:"05",t:"Un agent, de bout en bout",d:"Objectif, périmètre, outils, critère d'arrêt, point de reprise humaine. Sur une tâche volontairement étroite.",task:"Construire l'agent qui traite une seule tâche hebdomadaire réelle, sans jamais écrire en base.",m:"60 min",l:"MCP — Advanced Topics",u:"https://anthropic.skilljar.com/model-context-protocol-advanced-topics"},
- {n:"06",t:"Tester, chiffrer, encadrer",d:"Jeu de cas de test, coût par exécution, journalisation, validation humaine, procédure d'arrêt.",task:"Faire échouer son agent volontairement, puis écrire la règle qui empêche que ça recommence.",m:"60 min",l:"Développer des tests",u:"https://platform.claude.com/docs/en/test-and-evaluate/develop-tests"}
+ {n:"12",t:"Le slash : trois environnements, deux natures",d:"Le / ne fait pas la même chose dans le chat claude.ai, dans Claude Code et via les connecteurs. C'est la première source de confusion.",task:"Taper / dans son terminal, puis classer les 5 commandes qu'on utilise le plus : intégrée, skill, préfixée MCP ou plugin.",m:"45 min",l:"Slash commands — Claude Code",u:"https://code.claude.com/docs/en/slash-commands"},
+ {n:"13",t:"Ce qu'est un agent — et quand ne pas en faire",d:"La différence réelle entre une conversation, une automatisation et un agent. Le critère : qui décide de l'étape suivante.",task:"Lister 3 tâches de l'équipe et les classer : conversation, script ou agent. La plupart ne sont pas des agents.",m:"45 min",l:"Building Effective Agents",u:"https://www.anthropic.com/engineering/building-effective-agents"},
+ {n:"14",t:"Donner des outils",d:"Appels de fonctions : lire un fichier, interroger une API, envoyer un mail. Décrire un outil pour qu'il soit bien utilisé.",task:"Exposer un seul outil en lecture seule et observer quand le modèle choisit de l'appeler.",m:"60 min",l:"Tool use — vue d'ensemble",u:"https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview"},
+ {n:"15",t:"De Projects à Skills",d:"Capitaliser : transformer des instructions qui marchent en compétence réutilisable par toute l'équipe.",task:"Convertir son meilleur modèle de prompt en Skill et le faire tester par quelqu'un d'autre.",m:"45 min",l:"Introduction to Agent Skills",u:"https://anthropic.skilljar.com/introduction-to-agent-skills"},
+ {n:"16",t:"MCP et connecteurs",d:"Brancher l'agent sur les données réelles de l'entreprise plutôt que sur du copier-coller. Périmètre, droits, jetons.",task:"Connecter une source interne en lecture seule et documenter ce à quoi l'agent a accès.",m:"60 min",l:"Introduction to MCP",u:"https://anthropic.skilljar.com/introduction-to-model-context-protocol"},
+ {n:"17",t:"Un agent, de bout en bout",d:"Objectif, périmètre, outils, critère d'arrêt, point de reprise humaine. Sur une tâche volontairement étroite.",task:"Construire l'agent qui traite une seule tâche hebdomadaire réelle, sans jamais écrire en base.",m:"60 min",l:"MCP — Advanced Topics",u:"https://anthropic.skilljar.com/model-context-protocol-advanced-topics"},
+ {n:"18",t:"Tester, chiffrer, encadrer",d:"Jeu de cas de test, coût par exécution, journalisation, validation humaine, procédure d'arrêt.",task:"Faire échouer son agent volontairement, puis écrire la règle qui empêche que ça recommence.",m:"60 min",l:"Développer des tests",u:"https://platform.claude.com/docs/en/test-and-evaluate/develop-tests"}
 ];
 
 const reflexes=[
@@ -3209,7 +3209,7 @@ const etapes=[
   a:"Les nombres et les fragments sont rangés dans une base spécialisée, qui sait retrouver très vite les morceaux les plus proches d'une question.",
   b:"Dans cette base. C'est elle qui contient réellement votre patrimoine documentaire : sa localisation, son chiffrement et ses droits d'accès sont la vraie question de souveraineté.",
   c:"Les droits. Si l'index ignore qui a le droit de voir quoi, un salarié peut obtenir par une simple question ce qu'il ne pourrait pas ouvrir dans le dossier partagé.",
-  m:"Parcours avancé, module 04 — MCP et connecteurs"},
+  m:"Parcours avancé, module 16 — MCP et connecteurs"},
 
  {k:"Étape 06 · À chaque demande",t:"Votre demande",
   a:"Vous écrivez une question. Elle est traitée exactement comme le reste : convertie en nombres pour être comparée aux fragments indexés.",
@@ -3233,7 +3233,7 @@ const etapes=[
   a:"Le paquet est découpé en jetons — des morceaux de mots. Un texte français fait environ un jeton pour trois caractères. C'est l'unité de mesure de la fenêtre, et l'unité de facturation.",
   b:"Rien de plus qu'à l'étape précédente : c'est le même contenu, écrit autrement pour la machine.",
   c:"Le budget. Envoyer trente pages à chaque question multiplie la facture sans améliorer la réponse. Le coût par tâche du nuage de points plus haut se joue en grande partie ici.",
-  m:"Parcours avancé, module 06 — tester, chiffrer, encadrer"},
+  m:"Parcours avancé, module 18 — tester, chiffrer, encadrer"},
 
  {k:"Étape 10 · À chaque demande",t:"Génération",
   a:"Le modèle produit la réponse jeton par jeton, chacun choisi en fonction de tous les précédents. Il ne consulte aucune base : il ne dispose que du paquet reçu à l'étape 08 et de ce qu'il a appris à l'entraînement.",
@@ -3245,7 +3245,7 @@ const etapes=[
   a:"Si le système est agentique, le modèle peut demander l'exécution d'une action : lire un fichier, interroger une base, calculer, envoyer un message. C'est ce qui sépare un agent d'un assistant.",
   b:"Vers les systèmes que vous avez branchés, avec les droits que vous leur avez donnés. Un agent n'a pas d'autres limites que celles inscrites dans son périmètre.",
   c:"Le périmètre trop large, cause principale des dérapages. Lecture seule d'abord ; l'écriture et l'envoi viennent après des semaines de preuve.",
-  m:"Parcours avancé, module 02 — donner des outils"},
+  m:"Parcours avancé, module 14 — donner des outils"},
 
  {k:"Étape 12 · Autour",t:"Vérification humaine",
   a:"Quelqu'un relit et décide. Quatre zones concentrent les erreurs : les chiffres, les noms propres, les dates et les citations.",

@@ -31,16 +31,16 @@ Tous les liens ci-dessous ont été appelés en HTTP le **9 août 2026** et ont 
 
 | Module | Sujet | Fournisseur | Lien exact |
 |---|---|---|---|
-| 00 | Le slash : trois environnements, deux natures | Doc Claude Code | [Slash commands](https://code.claude.com/docs/en/slash-commands) |
-| 00 | *complément* | Doc Claude Code | [Skills](https://code.claude.com/docs/en/skills) · [MCP](https://code.claude.com/docs/en/mcp) · [Plugins](https://code.claude.com/docs/en/plugins) |
-| 01 | Ce qu'est un agent | Anthropic | [Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents) |
-| 01 | *complément* | Anthropic Academy | [Introduction to subagents](https://anthropic.skilljar.com/introduction-to-subagents) |
-| 02 | Donner des outils | Doc Claude | [Tool use — vue d'ensemble](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) |
-| 02 | *complément* | Anthropic Academy | [Building with the Claude API](https://anthropic.skilljar.com/claude-with-the-anthropic-api) |
-| 03 | De Projects à Skills | Anthropic Academy | [Introduction to Agent Skills](https://anthropic.skilljar.com/introduction-to-agent-skills) |
-| 04 | MCP et connecteurs | Anthropic Academy | [Introduction to MCP](https://anthropic.skilljar.com/introduction-to-model-context-protocol) |
-| 05 | Un agent, de bout en bout | Anthropic Academy | [MCP — Advanced Topics](https://anthropic.skilljar.com/model-context-protocol-advanced-topics) |
-| 06 | Tester, chiffrer, encadrer | Doc Claude | [Développer des tests](https://platform.claude.com/docs/en/test-and-evaluate/develop-tests) |
+| 12 | Le slash : trois environnements, deux natures | Doc Claude Code | [Slash commands](https://code.claude.com/docs/en/slash-commands) |
+| 12 | *complément* | Doc Claude Code | [Skills](https://code.claude.com/docs/en/skills) · [MCP](https://code.claude.com/docs/en/mcp) · [Plugins](https://code.claude.com/docs/en/plugins) |
+| 13 | Ce qu'est un agent | Anthropic | [Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents) |
+| 13 | *complément* | Anthropic Academy | [Introduction to subagents](https://anthropic.skilljar.com/introduction-to-subagents) |
+| 14 | Donner des outils | Doc Claude | [Tool use — vue d'ensemble](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) |
+| 14 | *complément* | Anthropic Academy | [Building with the Claude API](https://anthropic.skilljar.com/claude-with-the-anthropic-api) |
+| 15 | De Projects à Skills | Anthropic Academy | [Introduction to Agent Skills](https://anthropic.skilljar.com/introduction-to-agent-skills) |
+| 16 | MCP et connecteurs | Anthropic Academy | [Introduction to MCP](https://anthropic.skilljar.com/introduction-to-model-context-protocol) |
+| 17 | Un agent, de bout en bout | Anthropic Academy | [MCP — Advanced Topics](https://anthropic.skilljar.com/model-context-protocol-advanced-topics) |
+| 18 | Tester, chiffrer, encadrer | Doc Claude | [Développer des tests](https://platform.claude.com/docs/en/test-and-evaluate/develop-tests) |
 
 ## Liens retirés
 

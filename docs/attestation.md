@@ -96,7 +96,7 @@ d'utilisation du système d'IA concerné, plus trois ans.
 Même logique, avec deux ajouts au dossier :
 
 - la fiche de périmètre de chaque agent construit (objectif, outils, critère d'arrêt, point de reprise humaine) ;
-- le journal d'exécution et le coût par exécution, produits au module 06.
+- le journal d'exécution et le coût par exécution, produits au module 18.
 
 Ce sont les mêmes pièces que celles demandées pour documenter un système d'IA déployé. Autant les
 produire pendant la formation.

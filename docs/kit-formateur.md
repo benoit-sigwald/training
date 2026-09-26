@@ -412,7 +412,7 @@ Volontairement exclus pour ce public : l'API, les appels de fonctions, Zapier/Ma
 
 Piste avancée, si besoin :
 
-- Son **module 00 — « Le slash : trois environnements, deux natures »** : ce que fait `/` dans le chat
+- Son **module 12 — « Le slash : trois environnements, deux natures »** : ce que fait `/` dans le chat
   claude.ai, dans Claude Code et via les connecteurs, et la différence entre une commande intégrée
   (logique fixe, non personnalisable) et une skill (fichier Markdown chargé dans le contexte).
   [Slash commands](https://code.claude.com/docs/en/slash-commands)
@@ -433,7 +433,7 @@ Le jeu de slides interne (`G:\My Drive\Dev\IA\Research\*.png`) est réutilisable
 | « what is a llm », « comment cela fonctionne » | 01 (optionnel, en clôture) |
 | « 3 niveaux d'usage de l'IA » (escalier des usages) | Cadre général, séance 1 |
 | « assistant », « mémoire vs type d'IA » | 09 |
-| « agent », « usage dans l'entreprise », « enterprise use cases » | Avancé 01 |
+| « agent », « usage dans l'entreprise », « enterprise use cases » | Avancé 13 |
 | « analyse des tâches redondantes », « gain de temps par l'IA » | 00 et 10 |
 | « atelier cas d'usage » | 11 |
 
