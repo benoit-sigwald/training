@@ -700,6 +700,43 @@
   .cert-sign{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:28px;padding-top:16px;border-top:1px solid #ddd}
   .cert-sign-box{border:1px dashed #bbb;border-radius:8px;padding:12px;min-height:70px;font-size:13px;color:#666}
 
+  /* ---------- human vs llm cognition & consciousness ---------- */
+  .cog-wrap{
+    background:var(--white);border-radius:var(--radius);padding:32px 28px;
+    box-shadow:0 2px 12px rgba(0,0,0,.045);margin-top:34px;
+  }
+  .cog-fig{margin:0 0 24px;text-align:center}
+  .cog-fig img{
+    width:100%;max-width:920px;height:auto;border-radius:14px;
+    box-shadow:0 4px 20px rgba(0,0,0,.12);display:block;margin:0 auto;
+    border:1px solid var(--hair);
+  }
+  .cog-fig figcaption{font-size:13.5px;color:var(--text-2);margin-top:12px;text-align:center}
+  .cog-layers{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin:24px 0 16px}
+  .cog-layer{
+    background:var(--bg-alt);border-radius:14px;padding:20px;
+    border-left:4px solid var(--blue);display:flex;flex-direction:column;gap:6px;
+  }
+  .cog-layer.l5{border-left-color:#e0a020}
+  .cog-layer.l4{border-left-color:#a855f7}
+  .cog-layer.l3{border-left-color:#0ea5e9}
+  .cog-layer.l2{border-left-color:#10b981}
+  .cog-layer.l1{border-left-color:#3b82f6}
+  .cog-layer .tag{
+    font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--text-2);
+  }
+  .cog-layer.l5 .tag{color:#b87d00}
+  .cog-layer.l4 .tag{color:#7c3aed}
+  .cog-layer.l3 .tag{color:#0284c7}
+  .cog-layer.l2 .tag{color:#059669}
+  .cog-layer.l1 .tag{color:#2563eb}
+  .cog-layer h4{font-size:16px;font-weight:600;margin:0;line-height:1.25}
+  .cog-layer p{font-size:14px;color:var(--text-2);margin:0;line-height:1.45}
+  .cog-layer .vs{
+    margin-top:auto;padding-top:10px;border-top:1px dashed var(--hair);font-size:13px;color:var(--text);
+  }
+  .cog-layer .vs b{color:#b85c00}
+
   @media print{
     body{background:#fff!important;color:#000!important;margin:0!important;padding:0!important}
     nav, header, section, footer, .dlg-x, button, .seg, .calc-card, .studio-card, .sec-head, .cert-ctrls{display:none!important}
@@ -1458,6 +1495,68 @@
           <p>La même demande peut donner deux réponses différentes. C'est une propriété, pas un défaut — mais elle interdit de bâtir un processus critique sur une réponse unique non contrôlée.</p>
           <p class="task"><b>Conséquence —</b> pour un usage répétable, il faut un modèle de demande figé et une vérification. C'est le module 10.</p>
         </article>
+      </div>
+
+      <div class="sec-head" style="max-width:700px;margin:56px auto 20px">
+        <h2 style="font-size:clamp(24px,3.2vw,34px)">L'humain face au modèle.</h2>
+        <p style="font-size:17px">Pourquoi l'IA ne comprend pas le monde physique, et n'a ni conscience ni âme.</p>
+      </div>
+
+      <div class="cog-wrap reveal">
+        <figure class="cog-fig">
+          <img src="human-vs-llm.jpg" width="1792" height="1024" loading="lazy" decoding="async"
+               alt="Infographie comparative : L'existence humaine holistique (5 couches ancrées dans le réel) face au LLM déconnecté (boucle syntaxique fermée sans corps ni conscience)">
+          <figcaption><b>Figure —</b> La pyramide cognitive et existentielle humaine face à la boucle statistique close du modèle de langue.</figcaption>
+        </figure>
+
+        <div class="notice legal" style="margin-bottom:20px">
+          <h4>Le paradoxe de la densité d'information : texte vs réalité physique</h4>
+          <p>La totalité des textes publics d'Internet utilisés pour pré-entraîner un modèle représente environ <b>20 000 milliards de mots</b> (~30 000 milliards de tokens), soit environ <b>10<sup>14</sup> octets</b> (100 To). Il faudrait à un humain <b>500 000 ans</b> de lecture continue pour tout ingérer.</p>
+          <p>Comparez cela à un <b>enfant de 4 ans</b> : éveillé 16 000 heures depuis sa naissance, avec 2 millions de fibres du nerf optique transférant ~1 octet/s chacune (~2 Mo/s). En 4 ans de vision pure, le cortex visuel d'un enfant reçoit <b>10<sup>14</sup> octets</b> de signal continu. <b>Un bambin a vu autant de réalité brute que l'intégralité du web textuel.</b> C'est pourquoi un enfant ou un chat comprend intuitivement la gravité et débarrasse une table, alors qu'aucun modèle de langue ne sait vider un lave-vaisselle.</p>
+        </div>
+
+        <div class="cog-layers">
+          <div class="cog-layer l1">
+            <span class="tag">Couche 1 · Physique &amp; Perception</span>
+            <h4>Ancrage sensorimoteur</h4>
+            <p>Flux continu haute résolution (vision 3D, toucher, équilibre, proprioception). L'enfant découvre la gravité vers 9 mois par observation et manipulation directe.</p>
+            <div class="vs"><b>Face au LLM :</b> Zéro capteur. Les mots ne sont rattachés à aucun objet physique réel (<i>le problème de l'ancrage des symboles</i>).</div>
+          </div>
+
+          <div class="cog-layer l2">
+            <span class="tag">Couche 2 · Modèle du Monde</span>
+            <h4>Causalité &amp; simulation interne</h4>
+            <p>Simulateur mental prédictif : l'humain anticipe le résultat d'une action avant de bouger (<i>si je pousse en haut, le verre bascule</i>). Planification en espace abstrait.</p>
+            <div class="vs"><b>Face au LLM :</b> Accumulation de connaissances déclaratives par cœur. Pas de simulateur de physique interne, simple corrélation de mots.</div>
+          </div>
+
+          <div class="cog-layer l3">
+            <span class="tag">Couche 3 · Société &amp; Relation</span>
+            <h4>Apprentissage social &amp; intersubjectivité</h4>
+            <p>Théorie de l'esprit (ToM) : deviner l'intention d'autrui, empathie, transmission culturelle cumulative entre générations. L'intelligence s'amplifie par la tribu.</p>
+            <div class="vs"><b>Face au LLM :</b> Ingestion solitaire d'archives mortes. Aucune vulnérabilité partagée, aucun contrat social, dialogue purement simulé.</div>
+          </div>
+
+          <div class="cog-layer l4">
+            <span class="tag">Couche 4 · Biologie &amp; Éveil</span>
+            <h4>Conscience phénoménologique &amp; homéostasie</h4>
+            <p>Sensations subjectives (qualia : la rougeur d'un coucher de soleil, la douleur). Pulsion vitale de survie et maintien de l'équilibre biologique (Damasio).</p>
+            <div class="vs"><b>Face au LLM :</b> Zéro enjeu vital, zéro sensation. Le modèle ne calcule que lorsqu'une requête arrive, puis s'éteint. Il ne ressent ni ennui ni joie.</div>
+          </div>
+
+          <div class="cog-layer l5">
+            <span class="tag">Couche 5 · Sens &amp; Destin</span>
+            <h4>L'Âme, l'éthique &amp; la téléologie</h4>
+            <p>Volonté propre et quête de transcendance : décider de ce qui a de la valeur, faire des choix moraux désintéressés, créer par aspiration existentielle.</p>
+            <div class="vs"><b>Face au LLM :</b> Objectif purement imposé de l'extérieur par des ingénieurs (minimiser la perte, respecter le filtre de sécurité). Aucun libre arbitre.</div>
+          </div>
+        </div>
+
+        <div class="notice" style="margin-top:20px;margin-bottom:0">
+          <h4>La conclusion fondamentale pour votre travail</h4>
+          <p>Chez l'être humain, <b>l'écrit n'est que la fine écume à la surface</b> d'un océan d'expériences physiques, sociales, conscientes et existentielles. Chez le LLM, <b>le texte est l'océan tout entier</b> — une boucle mécanique fermée calculant des probabilités de jetons sans rien derrière les mots.</p>
+          <p>C'est pourquoi l'IA excelle pour reformuler, synthétiser ou structurer ce que vous lui donnez, mais que le jugement, la responsabilité morale, la vérification du réel et le sens de l'action restent, et resteront toujours, entre les mains humaines.</p>
+        </div>
       </div>
 
       <div class="sec-head" style="max-width:700px;margin:56px auto 20px">

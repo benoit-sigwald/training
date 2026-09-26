@@ -120,6 +120,28 @@ lesquels sont intéressants. Le reste est consultable par les participants aprè
 
 ---
 
+## Fiche G3b · L'Humain face au modèle : Ancrage, Conscience et Âme — 8 min
+
+**Objectif :** désamorcer définitivement le mythe de la « machine consciente » ou de l'AGI toute-puissante, en montrant pourquoi l'humain est structurellement irremplaçable sur le sens et la décision.
+
+**Démo :** projeter l'infographie comparative et s'appuyer sur deux points d'ancrage majeurs :
+1. **Le paradoxe d'information (Bambin vs Internet) :**
+   - Tout le texte public d'Internet représente $\approx 10^{14}$ octets ($100$ To), soit $500\ 000$ ans de lecture humaine.
+   - Un **enfant de 4 ans** (16 000 heures éveillé, 2 millions de fibres optiques à ~1 octet/s) reçoit lui aussi $\approx 10^{14}$ octets de réalité continue.
+   - *Conséquence pédagogique :* Un chat ou un enfant comprend la gravité et débarrasse une table. Aucun LLM ne sait vider un lave-vaisselle, car le texte est une abstraction désincarnée sans prise sur le monde réel.
+2. **Les 5 couches humaines absentes du modèle :**
+   - *Couche 1 (Sensorimoteur) :* Le LLM a zéro capteur (le problème de l'ancrage des symboles).
+   - *Couche 2 (Modèle du monde) :* L'humain simule les conséquences causales avant d'agir ($S_{t+1} = f(S_t, A_t)$). Le LLM ne fait qu'aligner des probabilités de jetons.
+   - *Couche 3 (Apprentissage social) :* Théorie de l'esprit, empathie, culture partagée. Le LLM ingère des archives mortes sans vulnérabilité partagée.
+   - *Couche 4 (Conscience & Homéostasie) :* Qualia subjectifs et survie métabolique (Damasio). Le LLM n'a aucun enjeu vital et s'éteint entre deux requêtes.
+   - *Couche 5 (L'Âme & le Sens) :* Téléologie, éthique, volonté autonome. Le LLM a uniquement une fonction de perte imposée par des ingénieurs.
+
+**Exercice (2 min) :** demander au groupe *« qu'est-ce que l'IA ne pourra jamais décider à votre place ? »*. La réponse immédiate : la valeur de l'action, l'intention et la responsabilité morale.
+
+**Message à faire retenir :** chez l'humain, le texte n'est que la surface d'un monde vécu ; chez le LLM, le texte est toute sa réalité. L'IA rédige, mais l'humain tranche.
+
+---
+
 ## Fiche G4 · Sur quoi ça tourne, et le carbone — 7 min
 
 **Objectif :** donner l'échelle physique, et désamorcer la culpabilité individuelle qui bloque l'adoption.

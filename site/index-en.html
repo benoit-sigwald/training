@@ -598,6 +598,43 @@
   .cert-sign{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:28px;padding-top:16px;border-top:1px solid #ddd}
   .cert-sign-box{border:1px dashed #bbb;border-radius:8px;padding:12px;min-height:70px;font-size:13px;color:#666}
 
+  /* ---------- human vs llm cognition & consciousness ---------- */
+  .cog-wrap{
+    background:var(--white);border-radius:var(--radius);padding:32px 28px;
+    box-shadow:0 2px 12px rgba(0,0,0,.045);margin-top:34px;
+  }
+  .cog-fig{margin:0 0 24px;text-align:center}
+  .cog-fig img{
+    width:100%;max-width:920px;height:auto;border-radius:14px;
+    box-shadow:0 4px 20px rgba(0,0,0,.12);display:block;margin:0 auto;
+    border:1px solid var(--hair);
+  }
+  .cog-fig figcaption{font-size:13.5px;color:var(--text-2);margin-top:12px;text-align:center}
+  .cog-layers{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin:24px 0 16px}
+  .cog-layer{
+    background:var(--bg-alt);border-radius:14px;padding:20px;
+    border-left:4px solid var(--blue);display:flex;flex-direction:column;gap:6px;
+  }
+  .cog-layer.l5{border-left-color:#e0a020}
+  .cog-layer.l4{border-left-color:#a855f7}
+  .cog-layer.l3{border-left-color:#0ea5e9}
+  .cog-layer.l2{border-left-color:#10b981}
+  .cog-layer.l1{border-left-color:#3b82f6}
+  .cog-layer .tag{
+    font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--text-2);
+  }
+  .cog-layer.l5 .tag{color:#b87d00}
+  .cog-layer.l4 .tag{color:#7c3aed}
+  .cog-layer.l3 .tag{color:#0284c7}
+  .cog-layer.l2 .tag{color:#059669}
+  .cog-layer.l1 .tag{color:#2563eb}
+  .cog-layer h4{font-size:16px;font-weight:600;margin:0;line-height:1.25}
+  .cog-layer p{font-size:14px;color:var(--text-2);margin:0;line-height:1.45}
+  .cog-layer .vs{
+    margin-top:auto;padding-top:10px;border-top:1px dashed var(--hair);font-size:13px;color:var(--text);
+  }
+  .cog-layer .vs b{color:#b85c00}
+
   @media print{
     body{background:#fff!important;color:#000!important;margin:0!important;padding:0!important}
     nav, header, section, footer, .dlg-x, button, .seg, .calc-card, .studio-card, .sec-head, .cert-ctrls{display:none!important}
@@ -1236,6 +1273,68 @@
           <p>The same request can produce two different answers. That is a property, not a defect — but it rules out building a critical process on a single unchecked answer.</p>
           <p class="task"><b>Consequence —</b> for repeatable use you need a fixed request template and a check. That is module 10.</p>
         </article>
+      </div>
+
+      <div class="sec-head" style="max-width:700px;margin:56px auto 20px">
+        <h2 style="font-size:clamp(24px,3.2vw,34px)">Human vs. Machine.</h2>
+        <p style="font-size:17px">Why AI does not understand the physical world, and has neither consciousness nor soul.</p>
+      </div>
+
+      <div class="cog-wrap reveal">
+        <figure class="cog-fig">
+          <img src="human-vs-llm.jpg" width="1792" height="1024" loading="lazy" decoding="async"
+               alt="Comparative Infographic: Holistic Human Existence (5 grounded layers) vs. Disconnected LLM (closed syntactic loop with zero consciousness and no soul)">
+          <figcaption><b>Figure —</b> The grounded human cognitive and existential pyramid versus the closed statistical next-token loop of language models.</figcaption>
+        </figure>
+
+        <div class="notice legal" style="margin-bottom:20px">
+          <h4>The Information Density Paradox: Text vs. Physical Reality</h4>
+          <p>The entire corpus of public Internet text used to pre-train a state-of-the-art model amounts to roughly <b>20 trillion words</b> (~30 trillion tokens), or about <b>10<sup>14</sup> bytes</b> (100 TB). It would take an individual human <b>500,000 years</b> of non-stop reading to absorb.</p>
+          <p>Compare this to a <b>4-year-old child</b>: awake for ~16,000 hours since birth, with 2 million optic nerve fibers transferring ~1 byte/s each (~2 MB/s). Through visual observation alone, a toddler's visual cortex receives <b>10<sup>14</sup> bytes</b> of continuous, high-bandwidth sensory reality. <b>A 4-year-old has absorbed as much raw reality through their eyes as all written text on the public Internet.</b> That is why a toddler or a domestic cat intuitively grasps gravity, friction, and can clear a dinner table, while no language model can unpack a dishwasher.</p>
+        </div>
+
+        <div class="cog-layers">
+          <div class="cog-layer l1">
+            <span class="tag">Layer 1 · Physics &amp; Perception</span>
+            <h4>Sensorimotor Grounding</h4>
+            <p>Continuous high-resolution input (3D vision, haptics, balance, proprioception). Children grasp intuitive gravity around 9 months through direct physical trial.</p>
+            <div class="vs"><b>Compared to LLM:</b> Zero sensors. Words are disconnected from any physical reality (<i>the symbol grounding problem</i>).</div>
+          </div>
+
+          <div class="cog-layer l2">
+            <span class="tag">Layer 2 · World Model</span>
+            <h4>Causality &amp; Internal Simulation</h4>
+            <p>Predictive mental simulator: humans forecast the consequence of an action before moving (<i>push high = glass tips; push base = glass slides</i>). Latent planning.</p>
+            <div class="vs"><b>Compared to LLM:</b> Rote memorization of declarative facts. No internal physics simulator, strictly token co-occurrence probabilities.</div>
+          </div>
+
+          <div class="cog-layer l3">
+            <span class="tag">Layer 3 · Society &amp; Bond</span>
+            <h4>Social Learning &amp; Intersubjectivity</h4>
+            <p>Theory of Mind (ToM): inferring intentions, empathy, shared cultural transmission across generations. Human intelligence is amplified by tribal diversity.</p>
+            <div class="vs"><b>Compared to LLM:</b> Solitary ingestion of static archives. No shared vulnerability, no social contract, purely simulated dialogue.</div>
+          </div>
+
+          <div class="cog-layer l4">
+            <span class="tag">Layer 4 · Biology &amp; Sentience</span>
+            <h4>Phenomenological Consciousness &amp; Homeostasis</h4>
+            <p>Subjective experience (qualia: redness of a sunset, physical pain). Thermodynamic survival drive and metabolic balance regulation (Damasio).</p>
+            <div class="vs"><b>Compared to LLM:</b> Zero metabolic stakes, zero feeling. The model computes strictly during active inference, then ceases. It feels neither joy nor pain.</div>
+          </div>
+
+          <div class="cog-layer l5">
+            <span class="tag">Layer 5 · Meaning &amp; Will</span>
+            <h4>The Soul, Ethics &amp; Teleology</h4>
+            <p>Autonomous purpose and transcendence: choosing what matters, making selfless moral decisions, pursuing existential meaning and artistic yearning.</p>
+            <div class="vs"><b>Compared to LLM:</b> Purely exogenous objectives set by human engineers (loss minimization, safety guards). Zero intrinsic will or moral agency.</div>
+          </div>
+        </div>
+
+        <div class="notice" style="margin-top:20px;margin-bottom:0">
+          <h4>The Core Takeaway for Daily Work</h4>
+          <p>For a human being, <b>written text is merely the thin surface foam</b> atop an ocean of physical, social, conscious, and existential lived experience. For an LLM, <b>text is the entire ocean</b> — a closed mechanical loop calculating token probabilities with nothing behind the words.</p>
+          <p>That is why AI excels at rephrasing, drafting, formatting, and synthesizing what you provide, but critical judgment, moral responsibility, ground-truth verification, and purpose remain—and will always remain—in human hands.</p>
+        </div>
       </div>
 
       <div class="sec-head" style="max-width:700px;margin:56px auto 20px">
