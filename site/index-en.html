@@ -561,45 +561,95 @@
   .btn-sm.sec{background:rgba(120,120,128,.14);color:var(--text)}
   .btn-sm.sec:hover{background:rgba(120,120,128,.22)}
 
-  /* Calculator */
-  .calc-card{
-    background:var(--white);border-radius:var(--radius);padding:28px;
-    box-shadow:0 2px 12px rgba(0,0,0,.045);margin-top:28px;
+    /* Vector Search - Real-world Use Cases */
+  .vec-box{
+    background:var(--white);border-radius:var(--radius);padding:30px 26px;
+    box-shadow:0 2px 16px rgba(0,0,0,.04);margin-top:20px;border:1px solid var(--hair);
   }
-  .calc-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:24px;margin-top:16px}
-  @media(max-width:768px){.calc-grid{grid-template-columns:1fr}}
-  .calc-table{width:100%;border-collapse:collapse;font-size:14px}
-  .calc-table th{text-align:left;font-size:11px;font-weight:600;color:var(--text-2);text-transform:uppercase;letter-spacing:.05em;padding:8px 6px;border-bottom:1px solid var(--hair)}
-  .calc-table td{padding:8px 6px;border-bottom:1px solid var(--hair);vertical-align:middle}
-  .calc-table input{
-    font-family:var(--sf);font-size:14px;background:var(--bg-alt);border:1px solid var(--hair);
-    border-radius:6px;padding:5px 8px;width:100%;outline:0;
+  .vec-searchbar{
+    display:flex;align-items:center;gap:12px;background:var(--bg-alt);
+    border:1.5px solid var(--hair);border-radius:12px;padding:10px 16px;
+    transition:border-color .15s ease,box-shadow .15s ease;
   }
-  .calc-table input[type="number"]{width:64px;text-align:center}
-  .kpi-board{
-    background:var(--bg-alt);border-radius:14px;padding:20px;display:flex;flex-direction:column;
-    justify-content:space-around;gap:14px;border:1px solid var(--hair);
+  .vec-searchbar:focus-within{
+    border-color:var(--blue);box-shadow:0 0 0 3px rgba(0,113,227,.12);
   }
-  .kpi-item{text-align:center}
-  .kpi-val{font-size:32px;font-weight:700;color:var(--blue);line-height:1.1;letter-spacing:-.02em}
-  .kpi-lbl{font-size:13px;color:var(--text-2);margin-top:4px}
-
-  /* Certificate modal & print */
-  .cert-ctrls{margin-bottom:20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;background:var(--bg-alt);padding:16px;border-radius:12px}
-  .cert-paper{
-    background:#fff;border:2px solid #1d1d1f;border-radius:12px;padding:34px;margin:10px 0;
-    color:#1d1d1f;line-height:1.45;font-family:var(--sf);box-shadow:0 4px 20px rgba(0,0,0,.08);
+  .vec-searchbar svg{width:20px;height:20px;fill:none;stroke:var(--text-2);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+  .vec-input{
+    flex:1;border:none;background:transparent;outline:none;font-family:var(--sf);
+    font-size:16px;color:var(--text);width:100%;
   }
-  .cert-header{display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid #1d1d1f;padding-bottom:14px;margin-bottom:20px}
-  .cert-header img{height:38px;width:auto}
-  .cert-title{font-size:22px;font-weight:700;text-transform:uppercase;letter-spacing:-.01em;margin:0 0 4px}
-  .cert-subtitle{font-size:12px;color:#555;text-transform:uppercase;letter-spacing:.05em;margin:0}
-  .cert-body{font-size:14.5px;margin:16px 0}
-  .cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;background:#f8f9fa;padding:14px 16px;border-radius:8px;margin:16px 0;border:1px solid #e2e4e8;font-size:13.5px}
-  .cert-mods{display:grid;grid-template-columns:1fr 1fr;gap:6px 14px;font-size:12px;color:#333;margin:12px 0}
-  @media(max-width:560px){.cert-mods{grid-template-columns:1fr}}
-  .cert-sign{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:28px;padding-top:16px;border-top:1px solid #ddd}
-  .cert-sign-box{border:1px dashed #bbb;border-radius:8px;padding:12px;min-height:70px;font-size:13px;color:#666}
+  .vec-input::placeholder{color:var(--text-2);opacity:.85}
+  .vec-clear{
+    background:none;border:none;color:var(--text-2);font-size:16px;cursor:pointer;
+    padding:4px 6px;border-radius:50%;display:none;line-height:1;
+  }
+  .vec-clear:hover{color:var(--text);background:rgba(0,0,0,.06)}
+  .vec-chips{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0 10px}
+  .vec-chip{
+    background:var(--bg-alt);border:1px solid var(--hair);border-radius:999px;
+    padding:6px 14px;font-size:13px;font-weight:500;color:var(--text);cursor:pointer;
+    transition:all .15s ease;
+  }
+  .vec-chip:hover{background:var(--bg);border-color:#ccc}
+  .vec-chip.active{background:var(--blue);border-color:var(--blue);color:#fff}
+  .vec-presets{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:8px;font-size:12.5px;color:var(--text-2)}
+  .vec-preset-btn{
+    background:rgba(0,113,227,.07);border:1px dashed rgba(0,113,227,.3);border-radius:6px;
+    padding:3px 10px;font-size:12px;color:var(--blue);cursor:pointer;font-family:var(--sf);
+    transition:all .15s ease;
+  }
+  .vec-preset-btn:hover{background:rgba(0,113,227,.14)}
+  .vec-status-row{
+    display:flex;justify-content:space-between;align-items:center;margin:22px 0 14px;
+    font-size:13px;color:var(--text-2);flex-wrap:wrap;gap:8px;
+  }
+  .vec-badge-engine{
+    display:inline-flex;align-items:center;gap:6px;padding:4px 10px;
+    border-radius:999px;background:#eef7ff;border:1px solid #cbe4ff;color:var(--blue);font-size:12px;font-weight:600;
+  }
+  .vec-badge-engine::before{content:"";width:7px;height:7px;border-radius:50%;background:#0071e3;display:inline-block}
+  .vec-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:20px}
+  .vec-card{
+    background:var(--white);border:1px solid var(--hair);border-radius:14px;padding:22px;
+    display:flex;flex-direction:column;gap:14px;box-shadow:0 2px 8px rgba(0,0,0,.03);
+    transition:transform .15s ease,box-shadow .15s ease;
+  }
+  .vec-card:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.06)}
+  .vec-card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+  .vec-card-badges{display:flex;gap:6px;flex-wrap:wrap}
+  .vbadge{
+    font-size:11px;font-weight:600;padding:3px 8px;border-radius:6px;
+    text-transform:uppercase;letter-spacing:.03em;
+  }
+  .vbadge.sec{background:#f0f2f5;color:#475569}
+  .vbadge.size{background:#fdf2e9;color:#b45309}
+  .vec-sim{
+    font-size:12px;font-weight:700;padding:3px 8px;border-radius:999px;
+    background:#e6f9ed;color:#15803d;border:1px solid #bbf0cb;white-space:nowrap;
+  }
+  .vec-sim.mid{background:#fef9c3;color:#854d0e;border-color:#fde047}
+  .vec-sim.low{background:#f1f5f9;color:#64748b;border-color:#e2e8f0}
+  .vec-title{font-size:17px;font-weight:700;color:var(--text);margin:0;line-height:1.3}
+  .vec-block{display:flex;flex-direction:column;gap:4px;font-size:13.5px;line-height:1.45}
+  .vec-lbl{
+    font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;display:inline-flex;align-items:center;gap:5px;
+  }
+  .vec-lbl.pain{color:#dc2626}
+  .vec-lbl.sol{color:#0071e3}
+  .vec-lbl.gain{color:#16a34a}
+  .vec-lbl.no{color:#d97706}
+  .vec-gain-box{
+    background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:10px 12px;
+    color:#14532d;font-size:13px;font-weight:600;
+  }
+  .vec-no-box{
+    background:#fffbeb;border:1px solid #fef3c7;border-radius:8px;padding:8px 12px;
+    color:#92400e;font-size:12.5px;line-height:1.4;
+  }
+  .vec-empty{
+    text-align:center;padding:48px 20px;grid-column:1/-1;color:var(--text-2);background:var(--bg-alt);border-radius:14px;border:1px dashed var(--hair);
+  }
 
   /* ---------- human vs llm cognition & consciousness ---------- */
   .cog-wrap{
@@ -656,7 +706,7 @@
     <div class="nav-links">
       <a href="#levels">Levels</a>
       <a href="#tracks">Tracks</a>
-      <a href="#validation">Validation</a>
+      <a href="#use-cases">Use cases</a>
       <a href="#kit">Facilitator kit</a>
       <a href="#resources">Resources</a>
       <div class="dd" id="dd">
@@ -1676,81 +1726,48 @@
   </div>
 </section>
 
-<section id="validation" class="alt">
+<section id="use-cases" class="alt">
   <div class="wrap">
     <div class="sec-head">
-      <h2>Validation by evidence.</h2>
-      <p>No quiz. A deliverable, a number, a certificate.</p>
-    </div>
-    <div class="rules" style="margin-top:0">
-      <div class="rule reveal"><span class="n">1</span><p><b>Baseline.</b> Module 00: three recurring tasks, actually timed, before anything else. Without that starting point, the "time saved" at the end is just a feeling.</p></div>
-      <div class="rule reveal"><span class="n">2</span><p><b>Attendance sheet.</b> One per session, signed by participants and facilitator. That is the document asked for in an audit.</p></div>
-      <div class="rule reveal"><span class="n">3</span><p><b>Final demo.</b> Module 11: before, after, time saved, in figures. The real deliverable is required, not the conversation.</p></div>
-      <div class="rule reveal"><span class="n">4</span><p><b>Certificate of completion.</b> Issued on demo day, listing modules attended, dates and measured gain. Template in <code>docs/attestation.md</code>.</p></div>
+      <h2>Real-World Use Cases &amp; Vector Search.</h2>
+      <p>Explore our database of field-tested enterprise deployments. Search in plain natural language or filter by industry sector.</p>
     </div>
 
-    <!-- Productivity Gain & ROI Calculator (Modules 00 & 11) -->
-    <div class="calc-card reveal">
-      <div class="sec-head" style="margin-bottom:18px;text-align:left;max-width:none">
-        <h3 style="font-size:22px;margin:0 0 6px">Productivity Gain &amp; ROI Calculator (Modules 00 &amp; 11)</h3>
-        <p style="font-size:15px;color:var(--text-2);margin:0">Quantify the measured savings between the initial baseline (Module 00) and the final demo (Module 11). These figures feed directly into the legal certificate.</p>
+    <div class="vec-box reveal">
+      <div class="vec-searchbar">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="vec-query" class="vec-input" placeholder="Search by job, document, or pain point (e.g. tender RFP analysis, invoice reconciliation, factory machine breakdown, commercial leases)..." autocomplete="off">
+        <button type="button" id="vec-clear" class="vec-clear" aria-label="Clear">✕</button>
       </div>
-      <div class="calc-grid">
-        <div>
-          <table class="calc-table">
-            <thead>
-              <tr>
-                <th>Recurring Task</th>
-                <th style="text-align:center">Before (h/wk)</th>
-                <th style="text-align:center">After (h/wk)</th>
-                <th style="text-align:center">Saved</th>
-              </tr>
-            </thead>
-            <tbody id="calc-rows">
-              <tr>
-                <td><input type="text" class="c-task" value="Customer emails, quotes, and follow-ups"></td>
-                <td style="text-align:center"><input type="number" class="c-pre" value="4.0" step="0.5" min="0"></td>
-                <td style="text-align:center"><input type="number" class="c-post" value="1.5" step="0.5" min="0"></td>
-                <td style="text-align:center;font-weight:600;color:var(--blue)" class="c-diff">+2.5 h</td>
-              </tr>
-              <tr>
-                <td><input type="text" class="c-task" value="Meeting minutes &amp; document summaries"></td>
-                <td style="text-align:center"><input type="number" class="c-pre" value="3.0" step="0.5" min="0"></td>
-                <td style="text-align:center"><input type="number" class="c-post" value="1.0" step="0.5" min="0"></td>
-                <td style="text-align:center;font-weight:600;color:var(--blue)" class="c-diff">+2.0 h</td>
-              </tr>
-              <tr>
-                <td><input type="text" class="c-task" value="Data cleaning and spreadsheet formatting"></td>
-                <td style="text-align:center"><input type="number" class="c-pre" value="2.5" step="0.5" min="0"></td>
-                <td style="text-align:center"><input type="number" class="c-post" value="0.5" step="0.5" min="0"></td>
-                <td style="text-align:center;font-weight:600;color:var(--blue)" class="c-diff">+2.0 h</td>
-              </tr>
-            </tbody>
-          </table>
-          <div style="display:flex;align-items:center;gap:12px;margin-top:14px;font-size:13px;color:var(--text-2);flex-wrap:wrap">
-            <label for="c-rate" style="font-weight:600;color:var(--text)">Average loaded hourly cost:</label>
-            <input type="number" id="c-rate" value="50" style="width:70px;padding:4px 8px;border-radius:6px;border:1px solid var(--hair);background:var(--bg-alt);font-family:var(--sf)"> € / h
-            <span style="margin-left:auto">(Based on 47 worked weeks / year)</span>
-          </div>
-        </div>
-        <div class="kpi-board">
-          <div class="kpi-item">
-            <div class="kpi-val" id="kpi-week">6.5 h</div>
-            <div class="kpi-lbl">Time saved per week</div>
-          </div>
-          <div class="kpi-item">
-            <div class="kpi-val" id="kpi-year">306 h</div>
-            <div class="kpi-lbl">Hours freed / employee / year</div>
-          </div>
-          <div class="kpi-item">
-            <div class="kpi-val" id="kpi-euro">15 275 €</div>
-            <div class="kpi-lbl">Annual economic value generated</div>
-          </div>
-          <button type="button" class="btn-sm pri" id="btn-open-cert" style="justify-content:center;padding:10px 18px;margin-top:4px">
-            Generate Official Certificate (Art. 4)
-          </button>
-        </div>
+
+      <div class="vec-chips" id="vec-chips">
+        <button type="button" class="vec-chip active" data-filter="all">All Industries</button>
+        <button type="button" class="vec-chip" data-filter="btp">Construction &amp; Field</button>
+        <button type="button" class="vec-chip" data-filter="services">Legal, Finance &amp; Services</button>
+        <button type="button" class="vec-chip" data-filter="industrie">Manufacturing &amp; Plants</button>
+        <button type="button" class="vec-chip" data-filter="immo">Real Estate</button>
+        <button type="button" class="vec-chip" data-filter="commerce">E-Commerce &amp; Retail</button>
+        <button type="button" class="vec-chip" data-filter="sante">Healthcare &amp; Clinical</button>
+        <button type="button" class="vec-chip" data-filter="rh">HR &amp; Recruiting</button>
+        <button type="button" class="vec-chip" data-filter="logistique">Logistics &amp; Transport</button>
       </div>
+
+      <div class="vec-presets">
+        <span>Quick searches:</span>
+        <button type="button" class="vec-preset-btn" data-query="tender proposal drafting and RFP analysis">RFP / Tender Analysis</button>
+        <button type="button" class="vec-preset-btn" data-query="commercial lease review and hidden liability clauses">Commercial Lease Audit</button>
+        <button type="button" class="vec-preset-btn" data-query="invoice reconciliation and sales tax VAT audit">Invoices &amp; Reconciliation</button>
+        <button type="button" class="vec-preset-btn" data-query="factory machine breakdown manual maintenance">Equipment Maintenance</button>
+        <button type="button" class="vec-preset-btn" data-query="resume screening and EU AI Act compliance">Recruitment &amp; AI Act</button>
+        <button type="button" class="vec-preset-btn" data-query="bill of lading CMR delivery mobile scan">Logistics CMR</button>
+      </div>
+
+      <div class="vec-status-row">
+        <div class="vec-badge-engine">Vector Engine Active · 6D Semantic Cosine Similarity</div>
+        <div id="vec-count" style="font-weight:500">14 verified enterprise use cases</div>
+      </div>
+
+      <div class="vec-grid" id="vec-results"></div>
     </div>
   </div>
 </section>
@@ -1811,100 +1828,7 @@
   </div>
 </section>
 
-<dialog id="dlg-cert" class="dlg" style="max-width:880px;width:96vw">
-  <div class="dlg-in">
-    <button class="dlg-x" id="dlg-cert-x" aria-label="Close">✕</button>
-    <span class="dlg-k">Regulatory Compliance · Article 4 EU AI Act</span>
-    <h3 style="margin-bottom:14px">Certificate of AI Literacy Completion</h3>
 
-    <div class="cert-ctrls">
-      <div class="field-grp" style="margin:0">
-        <label for="cert-in-name">Participant Full Name</label>
-        <input type="text" id="cert-in-name" value="Alexander Smith">
-      </div>
-      <div class="field-grp" style="margin:0">
-        <label for="cert-in-org">Organization / Company</label>
-        <input type="text" id="cert-in-org" value="Apex Advisory Partners">
-      </div>
-      <div class="field-grp" style="margin:0">
-        <label for="cert-in-role">Job Title / Role</label>
-        <input type="text" id="cert-in-role" value="Operations Director">
-      </div>
-      <div class="field-grp" style="margin:0">
-        <label for="cert-in-trainer">Lead Facilitator</label>
-        <input type="text" id="cert-in-trainer" value="Benoit Sigwald · Arx Consulting">
-      </div>
-      <div class="field-grp" style="margin:0">
-        <label for="cert-in-date">Issue Date</label>
-        <input type="date" id="cert-in-date">
-      </div>
-    </div>
-
-    <!-- Printable Paper -->
-    <div id="cert-paper" class="cert-paper">
-      <div class="cert-header">
-        <div>
-          <div class="cert-title">Certificate of AI Literacy Training</div>
-          <div class="cert-subtitle">Compliance with Article 4 of Regulation (EU) 2024/1689 (EU AI Act)</div>
-        </div>
-        <img src="arx-logo.png" alt="Arx Consulting" width="242" height="264">
-      </div>
-
-      <div class="cert-body">
-        <p><b>Arx Consulting</b> and the management of <b id="cert-out-org">Apex Advisory Partners</b> hereby certify that:</p>
-        <p style="font-size:16.5px;margin:10px 0;padding:8px 14px;background:#f5f5f7;border-radius:8px">
-          <b><span id="cert-out-name" style="color:var(--blue)">Alexander Smith</span></b>, 
-          holding the position of <b id="cert-out-role">Operations Director</b>,
-        </p>
-        <p>has successfully completed the enterprise programme <b>AI Training — Learning AI, Claude as the Example</b> (Foundation Track), comprising <b>4 hours of hands-on operational practice</b> over 4 weeks.</p>
-
-        <div class="cert-grid">
-          <div><b>Validation Method:</b> Real deliverable evidence (no quizzes)</div>
-          <div><b>Measured Gain (Modules 00 &amp; 11):</b> <span id="cert-out-gain" style="font-weight:700;color:var(--blue)">6.5 hours / week</span></div>
-          <div><b>Legal Requirement:</b> Staff AI Literacy (Art. 4 EU AI Act)</div>
-          <div><b>Completion Date:</b> <span id="cert-out-date"></span></div>
-        </div>
-
-        <p style="font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:#555;margin:12px 0 6px">Validated Competencies &amp; Modules (12/12):</p>
-        <div class="cert-mods">
-          <div>☑ 00 · Timed baseline measurement</div>
-          <div>☑ 01 · Model capabilities, limits &amp; multi-LLMs</div>
-          <div>☑ 02 · CRAFT structured prompting &amp; XML tags</div>
-          <div>☑ 03 · Data sanitisation &amp; GDPR compliance</div>
-          <div>☑ 04 · Drafting &amp; tonal calibration</div>
-          <div>☑ 05 · Document analysis &amp; indirect prompt injection</div>
-          <div>☑ 06 · Multimodal vision &amp; OCR processing</div>
-          <div>☑ 07 · Fact checking &amp; hallucination defense</div>
-          <div>☑ 08 · Spreadsheets, raw exports &amp; analytics</div>
-          <div>☑ 09 · Projects &amp; persistent system prompts</div>
-          <div>☑ 10 · Capitalisation &amp; reusable team templates</div>
-          <div>☑ 11 · Final deliverable demonstration</div>
-        </div>
-
-        <p style="font-size:11.5px;color:#666;margin-top:14px;border-top:1px solid #eee;padding-top:8px">
-          This certificate serves as internal audit documentation required under Article 4 of Regulation (EU) 2024/1689. Claude is a trademark of Anthropic; this independent training syllabus is not an official commercial certification from Anthropic.
-        </p>
-
-        <div class="cert-sign">
-          <div class="cert-sign-box">
-            <b>Trainee Signature:</b>
-            <div style="margin-top:28px;font-size:12px;color:#888">"Acknowledged, committed to verification"</div>
-          </div>
-          <div class="cert-sign-box">
-            <b>For the Facilitator / Organisation:</b>
-            <div id="cert-out-trainer" style="margin-top:4px;font-weight:600">Benoit Sigwald · Arx Consulting</div>
-            <div style="margin-top:16px;font-size:12px;color:#888">Signature &amp; Stamp</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div style="display:flex;justify-content:flex-end;gap:12px;margin-top:16px">
-      <button type="button" class="btn-sm sec" id="btn-cert-close">Close</button>
-      <button type="button" class="btn-sm pri" id="btn-cert-print">🖨️ Print / Save as PDF (A4)</button>
-    </div>
-  </div>
-</dialog>
 
 <footer>
   <div class="wrap">
@@ -2164,85 +2088,671 @@ document.getElementById("fiches").innerHTML=fiches.map(ficheEl).join("");
   btnMail.click();
 })();
 
-/* ---------- ROI Calculator & Certification ---------- */
+/* ---------- Real-World Use Cases Vector Search Engine ---------- */
 (function(){
-  const rows=document.querySelectorAll("#calc-rows tr");
-  const rateIn=document.getElementById("c-rate");
-  const kw=document.getElementById("kpi-week"), ky=document.getElementById("kpi-year"), ke=document.getElementById("kpi-euro");
-  const certGain=document.getElementById("cert-out-gain");
+  const cases = [
+  {
+    "id": "btp-ao",
+    "title": "Tender Document Analysis & Technical Proposal Drafting",
+    "sector": "Construction & Engineering",
+    "sec_id": "btp",
+    "size": "SME 20 to 250 emp.",
+    "pain": "A tender specification bundle is 200–400 pages of legal and technical constraints. Business engineers spend 3 full days reading to identify dealbreakers.",
+    "solution": "Automated technical constraint extraction and tailored first-draft generation of the technical response tailored to the client's scoring matrix.",
+    "gain": "3 to 4 days saved per bid. Proposal submission turnaround cut in half without quality loss.",
+    "no": "Never let AI price bills of quantities or unit costs. Cost estimation remains 100% human-verified.",
+    "keywords": [
+      "construction",
+      "tender",
+      "rfp",
+      "bid",
+      "proposal",
+      "specification",
+      "engineering",
+      "contract",
+      "building"
+    ],
+    "vec": [
+      0.95,
+      0.4,
+      0.3,
+      0.1,
+      0.7,
+      0.8
+    ]
+  },
+  {
+    "id": "btp-chantier",
+    "title": "Site Inspection Minutes & Multi-Photo Reports",
+    "sector": "Construction & Field",
+    "sec_id": "btp",
+    "size": "Small Business & Contractors",
+    "pain": "Site managers spend 1.5 hours every evening retyping handwritten notes and sorting through 40 unorganized site defect photos.",
+    "solution": "Raw voice dictation during inspection + vision analysis of defect photos, automatically formatted into formal audit-ready site minutes.",
+    "gain": "Report drafting time reduced from 90 to 15 minutes per site visit. Instant legal traceability.",
+    "no": "Do not distribute reports to subcontractors without human sign-off on punch-list items.",
+    "keywords": [
+      "site",
+      "inspection",
+      "construction",
+      "photo",
+      "report",
+      "minutes",
+      "field",
+      "defect",
+      "contractor"
+    ],
+    "vec": [
+      0.4,
+      0.3,
+      0.2,
+      0.1,
+      0.95,
+      0.6
+    ]
+  },
+  {
+    "id": "juridique-contrats",
+    "title": "Commercial Lease & Contract Risk Auditing",
+    "sector": "Professional & Legal Services",
+    "sec_id": "services",
+    "size": "Law Firms & Mid-caps",
+    "pain": "Tedious manual review of dozens of leases or vendor agreements to detect hidden termination clauses, indexation, and penalty caps.",
+    "solution": "Comparative clause audit against standard templates, anomaly highlighting, and executive risk summary table.",
+    "gain": "75% time saved on first-pass contract review. Zero missed hidden penalty clauses.",
+    "no": "Never delegate final sign-off or negotiation: the AI spots anomalies, the attorney decides.",
+    "keywords": [
+      "contract",
+      "lease",
+      "legal",
+      "clause",
+      "agreement",
+      "lawyer",
+      "attorney",
+      "audit",
+      "compliance"
+    ],
+    "vec": [
+      0.95,
+      0.1,
+      0.4,
+      0.1,
+      0.1,
+      0.95
+    ]
+  },
+  {
+    "id": "compta-factures",
+    "title": "Pre-Accounting Review & Invoice Reconciliation",
+    "sector": "Accounting & Finance",
+    "sec_id": "services",
+    "size": "Accounting Firms & SMEs",
+    "pain": "Month-end reconciliation chaos: hundreds of unmatched invoices, cryptic bank descriptors, and missing receipts.",
+    "solution": "Structured extraction of amounts and sales tax, automatic categorization, and instant duplicate or anomaly detection.",
+    "gain": "1.5 days freed per accountant per monthly close. Upstream prevention of tax filing errors.",
+    "no": "Never let AI commit journal entries directly into the ledger without accountant review.",
+    "keywords": [
+      "accounting",
+      "invoice",
+      "vat",
+      "tax",
+      "reconciliation",
+      "ledger",
+      "bank",
+      "receipt",
+      "audit",
+      "finance"
+    ],
+    "vec": [
+      0.8,
+      0.1,
+      0.95,
+      0.1,
+      0.1,
+      0.7
+    ]
+  },
+  {
+    "id": "immo-dossiers",
+    "title": "Tenant Application Vetting & Fraud Detection",
+    "sector": "Real Estate",
+    "sec_id": "immo",
+    "size": "Agencies & Property Managers",
+    "pain": "Inflow of 50 applications per rental listing. High risk of falsified pay stubs or fraudulent tax notices that escape manual glance.",
+    "solution": "OCR + mathematical cross-verification (gross vs net pay, solvency ratio, cross-checking verification barcodes).",
+    "gain": "Vetting time reduced from 25 min to 3 min per applicant. High-accuracy fake document detection.",
+    "no": "EU AI Act compliance: tenant rejection cannot be fully automated by an algorithm. Final decision is strictly human.",
+    "keywords": [
+      "real",
+      "estate",
+      "tenant",
+      "application",
+      "rental",
+      "fraud",
+      "property",
+      "solvency",
+      "landlord"
+    ],
+    "vec": [
+      0.85,
+      0.1,
+      0.7,
+      0.1,
+      0.2,
+      0.85
+    ]
+  },
+  {
+    "id": "immo-annonces",
+    "title": "Multi-Portal Real Estate Listing Generation",
+    "sector": "Real Estate",
+    "sec_id": "immo",
+    "size": "Agencies & Independent Brokers",
+    "pain": "Drafting compelling and legally compliant listings (energy efficiency scores, mandatory disclosures) across 4 channels takes 45 min per property.",
+    "solution": "Instant cross-platform copy generation (agency site, property portals, social media) from photos and raw property dimensions.",
+    "gain": "Turnaround cut to 5 minutes per listing. Zero omissions of mandatory regulatory disclosures.",
+    "no": "Never conceal property defects or misstate square footage: fair disclosure duties remain strictly on the agent.",
+    "keywords": [
+      "real",
+      "estate",
+      "listing",
+      "property",
+      "marketing",
+      "copywriting",
+      "housing",
+      "sales"
+    ],
+    "vec": [
+      0.3,
+      0.1,
+      0.2,
+      0.9,
+      0.1,
+      0.5
+    ]
+  },
+  {
+    "id": "industrie-panne",
+    "title": "Shopfloor Maintenance Assistant & Machine Manual RAG",
+    "sector": "Manufacturing & Industry",
+    "sec_id": "industrie",
+    "size": "Factories & Industrial SMEs",
+    "pain": "Critical assembly line stoppage. The technician wastes 45 minutes searching through a 600-page OEM equipment manual.",
+    "solution": "Shopfloor RAG assistant: technician dictates the error code and symptoms; assistant returns the safety lockout protocol and spare part number.",
+    "gain": "First-line downtime cut by 40%. Substantially improved Overall Equipment Effectiveness (OEE).",
+    "no": "Never connect AI directly to industrial PLC actuators without hardware safety interlocks.",
+    "keywords": [
+      "manufacturing",
+      "machine",
+      "maintenance",
+      "factory",
+      "plant",
+      "technician",
+      "breakdown",
+      "manual",
+      "oee"
+    ],
+    "vec": [
+      0.7,
+      0.95,
+      0.1,
+      0.1,
+      0.8,
+      0.5
+    ]
+  },
+  {
+    "id": "industrie-proced",
+    "title": "ISO Standard Operating Procedures & Knowledge Capture",
+    "sector": "Manufacturing & Industry",
+    "sec_id": "industrie",
+    "size": "Industrial SMEs & Mid-caps",
+    "pain": "Retirement of senior machine operators. Decades of tacit machine tuning knowledge are unwritten.",
+    "solution": "Voice and video capture of operators on the shopfloor, automatically synthesized into ISO 9001 standard operating procedures.",
+    "gain": "SOP creation time dropped from 6 hours to 45 minutes. Zero loss of operational know-how during retirements.",
+    "no": "Never deploy procedures without hands-on field testing by a newly onboarded operator.",
+    "keywords": [
+      "iso",
+      "procedure",
+      "sop",
+      "knowledge",
+      "manufacturing",
+      "operator",
+      "factory",
+      "training",
+      "quality"
+    ],
+    "vec": [
+      0.8,
+      0.8,
+      0.1,
+      0.2,
+      0.7,
+      0.6
+    ]
+  },
+  {
+    "id": "ecom-fiches",
+    "title": "Automated Product Catalog Enrichment & SEO at Scale",
+    "sector": "Retail & E-Commerce",
+    "sec_id": "commerce",
+    "size": "E-Commerce & Distributors",
+    "pain": "10,000 SKUs delivered with raw cryptic supplier attributes. Sub-par organic search ranking and high bounce rates.",
+    "solution": "Automated pipeline turning raw technical specs into compelling copy, SEO-optimized titles, and schema.org microdata.",
+    "gain": "500 SKUs processed per day vs 30 manually. +35% organic search traffic within 90 days.",
+    "no": "Never push live without quality spot-checks on core dimensions and safety specifications.",
+    "keywords": [
+      "ecommerce",
+      "product",
+      "catalog",
+      "seo",
+      "store",
+      "retail",
+      "description",
+      "google",
+      "sku"
+    ],
+    "vec": [
+      0.4,
+      0.1,
+      0.3,
+      0.95,
+      0.1,
+      0.2
+    ]
+  },
+  {
+    "id": "commerce-support",
+    "title": "Intelligent Customer Support & Return Dispute Resolution",
+    "sector": "Retail & E-Commerce",
+    "sec_id": "commerce",
+    "size": "SMEs & Online Retailers",
+    "pain": "Support agents drowned under repetitive tickets ('where is my package?', 'size exchanges'), neglecting urgent customer disputes.",
+    "solution": "Instant ticket triage, live carrier tracking integration, and empathetic draft response pre-generation.",
+    "gain": "Average response time divided by 4. Customer satisfaction (CSAT) increased from 3.2 to 4.6/5.",
+    "no": "Never block human escalation when a customer expresses acute frustration.",
+    "keywords": [
+      "support",
+      "customer",
+      "service",
+      "ticket",
+      "returns",
+      "dispute",
+      "ecommerce",
+      "csat"
+    ],
+    "vec": [
+      0.3,
+      0.1,
+      0.5,
+      0.85,
+      0.1,
+      0.4
+    ]
+  },
+  {
+    "id": "sante-clinique",
+    "title": "Clinical Consultation Notes & Discharge Summaries",
+    "sector": "Healthcare & Medical",
+    "sec_id": "sante",
+    "size": "Clinics & Medical Practices",
+    "pain": "Physicians spend 2 hours every evening typing consultation notes and letters to colleagues, a primary driver of doctor burnout.",
+    "solution": "Ambient voice capture or structured dictation, automatically parsed into standard clinical sections (history, exam, plan).",
+    "gain": "80% reduction in documentation time. Consultations refocus entirely on patient interaction.",
+    "no": "Absolute medical ethics requirement: doctor must personally review, verify and sign every note.",
+    "keywords": [
+      "healthcare",
+      "medical",
+      "doctor",
+      "consultation",
+      "patient",
+      "clinical",
+      "hospital",
+      "physician",
+      "health"
+    ],
+    "vec": [
+      0.7,
+      0.2,
+      0.1,
+      0.1,
+      0.2,
+      0.95
+    ]
+  },
+  {
+    "id": "rh-sourcing",
+    "title": "Objective Resume Screening & Skills Matching",
+    "sector": "HR & Internal Support",
+    "sec_id": "rh",
+    "size": "SMEs & Mid-caps",
+    "pain": "200 resumes received per job opening. Risk of unconscious bias and 3 full days spent filtering for baseline technical requirements.",
+    "solution": "Automated preliminary anonymization, objective comparison of candidate qualifications against job prerequisites.",
+    "gain": "Initial screening turnaround divided by 3. Auditable, unbiased evaluation rubric.",
+    "no": "Strict EU AI Act prohibition against automated rejection. AI assists screening; humans make hiring decisions.",
+    "keywords": [
+      "hr",
+      "recruiting",
+      "resume",
+      "hiring",
+      "candidate",
+      "job",
+      "skills",
+      "interview",
+      "talent"
+    ],
+    "vec": [
+      0.6,
+      0.1,
+      0.3,
+      0.3,
+      0.1,
+      0.9
+    ]
+  },
+  {
+    "id": "logistique-cmr",
+    "title": "Automated Bill of Lading (CMR) Digitization",
+    "sector": "Logistics & Freight",
+    "sec_id": "logistique",
+    "size": "Freight Carriers & Logistics Hubs",
+    "pain": "15-day billing delays caused by collecting, scanning, and manually transcribing thousands of wrinkled physical consignment notes.",
+    "solution": "Robust multimodal OCR on mobile scans from delivery drivers, extracting tracking IDs, cargo damage remarks, and signature stamps.",
+    "gain": "Invoicing triggered the same day delivery is completed. Cash collection cycle shortened by 12 days.",
+    "no": "Pay specific attention to handwritten carrier damage notes, which dictate cargo insurance claims.",
+    "keywords": [
+      "logistics",
+      "freight",
+      "transport",
+      "shipping",
+      "cmr",
+      "delivery",
+      "invoice",
+      "carrier",
+      "cargo"
+    ],
+    "vec": [
+      0.75,
+      0.3,
+      0.8,
+      0.1,
+      0.85,
+      0.6
+    ]
+  },
+  {
+    "id": "artisan-devis",
+    "title": "Express Quote Drafting & Follow-Ups for Contractors",
+    "sector": "Trades & Independent Contractors",
+    "sec_id": "services",
+    "size": "Independent Craftsmen & Small Contractors",
+    "pain": "Contractor returns home exhausted from job sites and delays drafting estimates for weeks, losing 30% of potential projects.",
+    "solution": "Smartphone voice description of work items, instant structured quotation layout, and friendly automatic client follow-ups.",
+    "gain": "Quotes sent same evening in 10 minutes. Client conversion rate boosted by 25%.",
+    "no": "Never let AI dictate labor rates or material margins: rates must be defined by the contractor.",
+    "keywords": [
+      "contractor",
+      "quote",
+      "estimate",
+      "craftsman",
+      "invoice",
+      "trades",
+      "followup",
+      "jobsite"
+    ],
+    "vec": [
+      0.3,
+      0.2,
+      0.9,
+      0.7,
+      0.5,
+      0.3
+    ]
+  }
+];
 
-  function calc(){
-    let totalSaved=0;
-    rows.forEach(tr=>{
-      const pre=parseFloat(tr.querySelector(".c-pre").value)||0;
-      const post=parseFloat(tr.querySelector(".c-post").value)||0;
-      const diff=Math.max(0, pre - post);
-      tr.querySelector(".c-diff").textContent = `+${diff.toFixed(1)} h`;
-      totalSaved += diff;
-    });
+  // 6 semantic dimensions: [doc_analysis, tech_engineering, finance_admin, creative_seo, field_ops, legal_compliance]
+  const DIM_WEIGHTS = {
+    "doc": [1.0, 0.1, 0.2, 0.1, 0.1, 0.4],
+    "document": [1.0, 0.1, 0.2, 0.1, 0.1, 0.4],
+    "text": [0.8, 0.1, 0.1, 0.5, 0.1, 0.2],
+    "analysis": [0.9, 0.3, 0.3, 0.1, 0.1, 0.3],
+    "summary": [0.9, 0.1, 0.1, 0.3, 0.1, 0.2],
+    "pdf": [0.9, 0.4, 0.3, 0.1, 0.2, 0.3],
+    "contract": [0.9, 0.1, 0.3, 0.1, 0.1, 1.0],
+    "lease": [0.9, 0.1, 0.4, 0.1, 0.1, 0.95],
+    "legal": [0.8, 0.1, 0.2, 0.1, 0.1, 1.0],
+    "lawyer": [0.8, 0.1, 0.2, 0.1, 0.1, 1.0],
+    "attorney": [0.8, 0.1, 0.2, 0.1, 0.1, 1.0],
+    "clause": [0.8, 0.1, 0.1, 0.1, 0.1, 1.0],
+    "compliance": [0.8, 0.1, 0.2, 0.1, 0.1, 1.0],
+    "rfp": [1.0, 0.5, 0.3, 0.1, 0.6, 0.8],
+    "bid": [0.9, 0.3, 0.4, 0.2, 0.4, 0.7],
+    "tender": [1.0, 0.4, 0.3, 0.1, 0.6, 0.8],
+    "proposal": [0.9, 0.3, 0.3, 0.3, 0.4, 0.6],
+    "engineering": [0.5, 1.0, 0.1, 0.1, 0.7, 0.2],
+    "construction": [0.8, 0.5, 0.3, 0.1, 0.9, 0.6],
+    "site": [0.3, 0.5, 0.2, 0.1, 1.0, 0.4],
+    "field": [0.3, 0.4, 0.2, 0.1, 1.0, 0.3],
+    "inspection": [0.4, 0.3, 0.1, 0.1, 0.95, 0.4],
+    "photo": [0.3, 0.2, 0.1, 0.3, 0.95, 0.2],
+    "defect": [0.4, 0.4, 0.1, 0.1, 0.9, 0.3],
+    "minutes": [0.8, 0.1, 0.1, 0.2, 0.5, 0.3],
+    "accounting": [0.7, 0.1, 1.0, 0.1, 0.1, 0.7],
+    "invoice": [0.8, 0.1, 1.0, 0.1, 0.2, 0.7],
+    "vat": [0.6, 0.1, 1.0, 0.1, 0.1, 0.8],
+    "tax": [0.6, 0.1, 1.0, 0.1, 0.1, 0.8],
+    "reconciliation": [0.7, 0.1, 1.0, 0.1, 0.1, 0.5],
+    "ledger": [0.7, 0.1, 1.0, 0.1, 0.1, 0.5],
+    "quote": [0.4, 0.2, 0.95, 0.5, 0.4, 0.3],
+    "price": [0.3, 0.1, 0.9, 0.6, 0.1, 0.3],
+    "bank": [0.6, 0.1, 1.0, 0.1, 0.1, 0.7],
+    "real": [0.7, 0.1, 0.5, 0.6, 0.3, 0.6],
+    "estate": [0.7, 0.1, 0.5, 0.6, 0.3, 0.6],
+    "tenant": [0.8, 0.1, 0.7, 0.1, 0.2, 0.8],
+    "application": [0.9, 0.2, 0.6, 0.1, 0.3, 0.7],
+    "fraud": [0.8, 0.1, 0.8, 0.1, 0.1, 0.9],
+    "property": [0.7, 0.1, 0.4, 0.7, 0.2, 0.5],
+    "listing": [0.3, 0.1, 0.2, 1.0, 0.1, 0.4],
+    "machine": [0.5, 1.0, 0.1, 0.1, 0.8, 0.3],
+    "breakdown": [0.4, 1.0, 0.1, 0.1, 0.8, 0.3],
+    "plant": [0.5, 0.9, 0.2, 0.1, 0.9, 0.4],
+    "factory": [0.5, 0.9, 0.2, 0.1, 0.9, 0.4],
+    "maintenance": [0.6, 1.0, 0.1, 0.1, 0.85, 0.4],
+    "technician": [0.4, 0.9, 0.1, 0.1, 0.85, 0.2],
+    "manufacturing": [0.6, 1.0, 0.2, 0.1, 0.8, 0.4],
+    "sop": [0.9, 0.7, 0.1, 0.1, 0.6, 0.7],
+    "iso": [0.8, 0.7, 0.1, 0.1, 0.6, 0.8],
+    "ecommerce": [0.4, 0.1, 0.4, 1.0, 0.2, 0.2],
+    "product": [0.4, 0.2, 0.3, 0.9, 0.2, 0.2],
+    "catalog": [0.5, 0.1, 0.2, 0.95, 0.1, 0.2],
+    "seo": [0.3, 0.1, 0.1, 1.0, 0.1, 0.1],
+    "support": [0.4, 0.1, 0.3, 0.8, 0.2, 0.4],
+    "customer": [0.4, 0.1, 0.4, 0.7, 0.2, 0.3],
+    "returns": [0.3, 0.1, 0.4, 0.6, 0.5, 0.3],
+    "ticket": [0.4, 0.1, 0.3, 0.8, 0.2, 0.4],
+    "healthcare": [0.7, 0.2, 0.1, 0.1, 0.2, 0.95],
+    "medical": [0.7, 0.3, 0.1, 0.1, 0.2, 0.95],
+    "doctor": [0.7, 0.2, 0.1, 0.1, 0.2, 0.95],
+    "consultation": [0.8, 0.1, 0.1, 0.1, 0.2, 0.9],
+    "patient": [0.7, 0.1, 0.1, 0.1, 0.2, 0.9],
+    "hr": [0.6, 0.1, 0.2, 0.2, 0.1, 0.95],
+    "recruiting": [0.6, 0.1, 0.2, 0.2, 0.1, 0.95],
+    "resume": [0.8, 0.1, 0.1, 0.2, 0.1, 0.9],
+    "candidate": [0.6, 0.1, 0.1, 0.2, 0.1, 0.9],
+    "hiring": [0.6, 0.1, 0.2, 0.2, 0.1, 0.8],
+    "act": [0.6, 0.1, 0.1, 0.1, 0.1, 1.0],
+    "cmr": [0.8, 0.2, 0.7, 0.1, 0.95, 0.6],
+    "logistics": [0.6, 0.3, 0.7, 0.1, 0.95, 0.5],
+    "freight": [0.5, 0.3, 0.6, 0.1, 0.95, 0.5],
+    "delivery": [0.4, 0.2, 0.5, 0.2, 0.95, 0.4],
+    "carrier": [0.3, 0.2, 0.2, 0.1, 0.95, 0.3],
+    "contractor": [0.4, 0.3, 0.9, 0.6, 0.7, 0.3]
+  };
 
-    const rate=parseFloat(rateIn.value)||0;
-    const yearHours = Math.round(totalSaved * 47);
-    const yearEuro = Math.round(yearHours * rate);
-
-    if(kw) kw.textContent = `${totalSaved.toFixed(1)} h`;
-    if(ky) ky.textContent = `${yearHours} h`;
-    if(ke) ke.textContent = `${yearEuro.toLocaleString("en-US")} €`;
-    if(certGain) certGain.textContent = `${totalSaved.toFixed(1)} hours / week`;
+  function norm(str){
+    return str.toLowerCase().replace(/[^a-z0-9 ]/g, " ").trim();
   }
 
-  rows.forEach(tr=>{
-    tr.querySelectorAll("input").forEach(inp=>inp.addEventListener("input",calc));
-  });
-  if(rateIn) rateIn.addEventListener("input",calc);
-  calc();
-
-  // Certificate Dialog setup
-  const dlgCert=document.getElementById("dlg-cert");
-  const btnOpen=document.getElementById("btn-open-cert");
-  const btnClose=document.getElementById("btn-cert-close");
-  const btnX=document.getElementById("dlg-cert-x");
-  const btnPrint=document.getElementById("btn-cert-print");
-
-  if(dlgCert && btnOpen){
-    btnOpen.addEventListener("click",()=>{
-      calc();
-      if(typeof dlgCert.showModal==="function"){dlgCert.showModal();}else{dlgCert.setAttribute("open","");}
-    });
-    [btnClose, btnX].forEach(b=>{if(b) b.addEventListener("click",()=>dlgCert.close());});
-    dlgCert.addEventListener("click",ev=>{if(ev.target===dlgCert) dlgCert.close();});
-
-    const inName=document.getElementById("cert-in-name"), outName=document.getElementById("cert-out-name");
-    const inOrg=document.getElementById("cert-in-org"), outOrg=document.getElementById("cert-out-org");
-    const inRole=document.getElementById("cert-in-role"), outRole=document.getElementById("cert-out-role");
-    const inTrainer=document.getElementById("cert-in-trainer"), outTrainer=document.getElementById("cert-out-trainer");
-    const inDate=document.getElementById("cert-in-date"), outDate=document.getElementById("cert-out-date");
-
-    const today=new Date().toISOString().split("T")[0];
-    if(inDate && !inDate.value) inDate.value=today;
-
-    function syncCert(){
-      if(outName) outName.textContent = inName.value || "—";
-      if(outOrg) outOrg.textContent = inOrg.value || "—";
-      if(outRole) outRole.textContent = inRole.value || "—";
-      if(outTrainer) outTrainer.textContent = inTrainer.value || "—";
-      if(outDate){
-        const d = inDate.value ? new Date(inDate.value) : new Date();
-        outDate.textContent = d.toLocaleDateString("en-GB", {day:"2-digit", month:"short", year:"numeric"});
+  function getQueryVector(tokens){
+    let vec = [0, 0, 0, 0, 0, 0];
+    let matched = 0;
+    tokens.forEach(tok => {
+      if(DIM_WEIGHTS[tok]){
+        const w = DIM_WEIGHTS[tok];
+        for(let i=0; i<6; i++) vec[i] += w[i];
+        matched++;
       }
+    });
+    if(matched === 0){
+      vec = [0.5, 0.5, 0.5, 0.5, 0.5, 0.5];
     }
-
-    [inName, inOrg, inRole, inTrainer, inDate].forEach(el=>{if(el) el.addEventListener("input",syncCert);});
-    syncCert();
-
-    if(btnPrint){
-      btnPrint.addEventListener("click",()=>{
-        syncCert();
-        window.print();
-      });
-    }
+    return vec;
   }
+
+  function cosineSim(v1, v2){
+    let dot = 0, m1 = 0, m2 = 0;
+    for(let i=0; i<6; i++){
+      dot += v1[i] * v2[i];
+      m1 += v1[i] * v1[i];
+      m2 += v2[i] * v2[i];
+    }
+    if(m1 === 0 || m2 === 0) return 0;
+    return dot / (Math.sqrt(m1) * Math.sqrt(m2));
+  }
+
+  const qIn = document.getElementById("vec-query");
+  const qClear = document.getElementById("vec-clear");
+  const chips = document.querySelectorAll("#vec-chips .vec-chip");
+  const grid = document.getElementById("vec-results");
+  const countEl = document.getElementById("vec-count");
+  const presets = document.querySelectorAll(".vec-preset-btn");
+
+  let currentSector = "all";
+
+  function render(){
+    const query = norm(qIn ? qIn.value : "");
+    if(qClear) qClear.style.display = query.length > 0 ? "block" : "none";
+
+    const tokens = query.split(/\s+/).filter(t => t.length > 1);
+    const hasQuery = tokens.length > 0;
+    const qVec = hasQuery ? getQueryVector(tokens) : null;
+
+    let scored = cases.map(item => {
+      let score = 0;
+      let exactBonus = 0;
+
+      if(hasQuery){
+        const sim = cosineSim(qVec, item.vec);
+        tokens.forEach(tok => {
+          if(item.keywords.some(k => k.includes(tok) || tok.includes(k))) exactBonus += 0.25;
+          const textBlob = norm(item.title + " " + item.pain + " " + item.solution + " " + item.sector);
+          if(textBlob.includes(tok)) exactBonus += 0.2;
+        });
+        score = Math.min(0.99, (sim * 0.65) + Math.min(0.35, exactBonus));
+      } else {
+        score = 0.95;
+      }
+
+      return { item, score, pct: Math.round(score * 100) };
+    });
+
+    if(currentSector !== "all"){
+      scored = scored.filter(s => s.item.sec_id === currentSector);
+    }
+
+    if(hasQuery){
+      scored.sort((a,b) => b.score - a.score);
+    }
+
+    if(countEl){
+      countEl.textContent = `${scored.length} use case${scored.length > 1 ? "s" : ""} displayed`;
+    }
+
+    if(!grid) return;
+
+    if(scored.length === 0){
+      grid.innerHTML = `
+        <div class="vec-empty">
+          <p style="font-size:17px;font-weight:600;margin:0 0 6px">No use cases match your filter</p>
+          <p style="font-size:14px;margin:0">Try different search terms or select "All Industries".</p>
+        </div>
+      `;
+      return;
+    }
+
+    grid.innerHTML = scored.map(s => {
+      const c = s.item;
+      let simClass = "vec-sim";
+      if(s.pct < 70) simClass += " low";
+      else if(s.pct < 85) simClass += " mid";
+
+      return `
+        <div class="vec-card">
+          <div class="vec-card-top">
+            <div class="vec-card-badges">
+              <span class="vbadge sec">${c.sector}</span>
+              <span class="vbadge size">${c.size}</span>
+            </div>
+            ${hasQuery ? `<span class="${simClass}">${s.pct} % relevance</span>` : ''}
+          </div>
+          <h3 class="vec-title">${c.title}</h3>
+          <div class="vec-block">
+            <span class="vec-lbl pain">✕ Field Bottleneck Before AI</span>
+            <div style="color:var(--text-2)">${c.pain}</div>
+          </div>
+          <div class="vec-block">
+            <span class="vec-lbl sol">✓ Applied AI Solution</span>
+            <div>${c.solution}</div>
+          </div>
+          <div class="vec-gain-box">
+            <span class="vec-lbl gain" style="margin-bottom:2px">⚡ Measured Field ROI</span>
+            <div>${c.gain}</div>
+          </div>
+          <div class="vec-no-box">
+            <span class="vec-lbl no" style="margin-bottom:2px">⚠ Safeguard &amp; Anti-pattern</span>
+            <div>${c.no}</div>
+          </div>
+        </div>
+      `;
+    }).join("");
+  }
+
+  if(qIn){
+    qIn.addEventListener("input", render);
+  }
+  if(qClear){
+    qClear.addEventListener("click", () => {
+      qIn.value = "";
+      render();
+      qIn.focus();
+    });
+  }
+
+  chips.forEach(chip => {
+    chip.addEventListener("click", () => {
+      chips.forEach(c => c.classList.remove("active"));
+      chip.classList.add("active");
+      currentSector = chip.dataset.filter;
+      render();
+    });
+  });
+
+  presets.forEach(btn => {
+    btn.addEventListener("click", () => {
+      if(qIn){
+        qIn.value = btn.dataset.query;
+        chips.forEach(c => c.classList.remove("active"));
+        if(chips[0]) chips[0].classList.add("active");
+        currentSector = "all";
+        render();
+      }
+    });
+  });
+
+  render();
 })();
+
 
 /* Inside the box: the five parts of the network, opened on click. */
 const reseau=[
