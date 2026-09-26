@@ -166,7 +166,7 @@ lesquels sont intéressants. Le reste est consultable par les participants aprè
 
 **Objectif :** fermer la séance sur les objections réelles, avec des chiffres plutôt qu'avec des opinions.
 
-**Démo :** traiter **deux mythes au choix du groupe**, pas les sept. Les plus demandés en pratique : « le risque existentiel et la régulation (Yann LeCun) », « ça va remplacer les emplois » et « c'est une bulle comme la blockchain ».
+**Démo :** traiter **deux mythes au choix du groupe**, pas les sept. Les plus demandés en pratique : « le risque existentiel et la régulation (Yann LeCun, [voir vidéo à 9:52](https://youtu.be/Y4s8NadbZfU?t=592)) », « ça va remplacer les emplois » et « c'est une bulle comme la blockchain ».
 
 **Exercice (3 min) :** chacun formule l'objection qu'il entendra en revenant dans son service. On y répond ensemble, source à l'appui.
 
