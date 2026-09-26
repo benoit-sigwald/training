@@ -1,7 +1,7 @@
 # Kit formateur — la genèse, puis Claude en 12 modules
 
 **Public :** débutants complets, non techniques.
-**Format :** une séance de 45 min pour la genèse, puis 15–20 min par module, 2 à 3 modules par semaine, sur 4 semaines.
+**Format :** une séance de 30 min pour la genèse, puis 15–20 min par module, 2 à 3 modules par semaine, sur 4 semaines.
 **Règle d'or :** chaque participant arrive avec **un vrai dossier de son travail**. Sans ça, le module ne sert à rien.
 
 **Matériel :** le site (`site/index.html`), la feuille du module 00, la feuille d'émargement et le modèle
@@ -53,7 +53,7 @@ administratives, elles sont la preuve**. Voir `docs/attestation.md`.
 
 # SÉANCE D'OUVERTURE — La genèse de l'IA
 
-**Durée :** 45 minutes, une seule fois, avant le module 00.
+**Durée :** 30 minutes, une seule fois, avant le module 00.
 **Objectif de la séance :** éviter deux erreurs symétriques — croire que tout est nouveau, croire que rien n'a changé.
 **Support :** l'onglet « La genèse de l'IA » du site. Tout est cliquable, rien n'est à projeter en diaporama.
 
@@ -62,7 +62,7 @@ programme qui ne produit rien. Elle sert à installer un socle commun, et surtou
 l'hallucination par le mécanisme plutôt que par la morale.
 
 **Discipline de temps.** La tentation est de tout montrer : la page contient dix époques, treize étapes et
-six mythes. En 45 minutes, c'est intenable. Chaque fiche indique **combien d'éléments ouvrir**, pas
+six mythes. En 30 minutes, c'est intenable. Chaque fiche indique **combien d'éléments ouvrir**, pas
 lesquels sont intéressants. Le reste est consultable par les participants après la séance.
 
 ---
