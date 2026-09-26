@@ -814,6 +814,7 @@
       <div class="dd" id="dd">
         <button class="dd-t" id="ddt" aria-expanded="false" aria-controls="ddm">Goodies</button>
         <div class="dd-m" id="ddm">
+          <a href="#human-vs-machine">Human vs. Machine</a>
           <a href="commands/">Les commandes</a>
           <a href="commands/claude-code.html">Bien coder avec Claude Code</a>
           <a href="commands/cowork.html">Déléguer avec Claude Cowork</a>
@@ -887,9 +888,9 @@
         <p style="font-size:17px;color:var(--text-2);margin-top:10px">Comprendre d'où vient l'IA évite deux erreurs symétriques : croire que tout est nouveau, et croire que rien n'a changé. Cette séance ne sert pas à réciter des dates. Elle sert à savoir ce qu'un modèle peut faire, ce qu'il ne peut pas faire, et pourquoi.</p>
       </div>
 
-      <div class="sec-head" style="max-width:700px;margin:56px auto 20px">
-        <h2 style="font-size:clamp(24px,3.2vw,34px)">L'humain face au modèle.</h2>
-        <p style="font-size:17px">Pourquoi l'IA ne comprend pas le monde physique, et n'a ni conscience ni âme.</p>
+      <div id="human-vs-machine" class="sec-head" style="max-width:700px;margin:56px auto 20px">
+        <h2 style="font-size:clamp(24px,3.2vw,34px)">Human vs. Machine.</h2>
+        <p style="font-size:17px">Pourquoi l'IA ne comprend pas le monde physique, et n'a ni conscience ni âme.<br><span style="font-size:14.5px;color:var(--text-2);display:inline-block;margin-top:3px">Why AI does not understand the physical world, and has neither consciousness nor soul.</span></p>
       </div>
 
       <div class="cog-wrap reveal">
@@ -3289,6 +3290,28 @@ tabs.forEach(([tid,pid])=>{
       document.getElementById(p).hidden=!on;
     });
     document.querySelectorAll("#"+pid+" .reveal").forEach(e=>e.classList.add("in"));
+  });
+});
+
+function openTabForHash(){
+  const h=location.hash;
+  if(h==="#human-vs-machine"||h==="#usecases"||h==="#panel-g"){
+    const btn=document.getElementById("tab-g");
+    if(btn) btn.click();
+    if(h==="#human-vs-machine"){
+      setTimeout(()=>{
+        const el=document.getElementById("human-vs-machine");
+        if(el) el.scrollIntoView({behavior:"smooth"});
+      },50);
+    }
+  }
+}
+window.addEventListener("hashchange", openTabForHash);
+if(location.hash) openTabForHash();
+document.querySelectorAll('a[href="#human-vs-machine"]').forEach(a=>{
+  a.addEventListener("click",()=>{
+    const btn=document.getElementById("tab-g");
+    if(btn) btn.click();
   });
 });
 

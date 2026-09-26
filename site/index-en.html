@@ -712,6 +712,7 @@
       <div class="dd" id="dd">
         <button class="dd-t" id="ddt" aria-expanded="false" aria-controls="ddm">Goodies</button>
         <div class="dd-m" id="ddm">
+          <a href="#human-vs-machine">Human vs. Machine</a>
           <a href="commands/index-en.html">The commands</a>
           <a href="commands/claude-code-en.html">Working well with Claude Code</a>
           <a href="commands/cowork-en.html">Delegating with Claude Cowork</a>
@@ -785,7 +786,7 @@
         <p style="font-size:17px;color:var(--text-2);margin-top:10px">Understanding where AI comes from prevents two symmetrical mistakes: believing everything is new, and believing nothing has changed. This session is not about reciting dates. It is about knowing what a model can do, what it cannot, and why.</p>
       </div>
 
-      <div class="sec-head" style="max-width:700px;margin:56px auto 20px">
+      <div id="human-vs-machine" class="sec-head" style="max-width:700px;margin:56px auto 20px">
         <h2 style="font-size:clamp(24px,3.2vw,34px)">Human vs. Machine.</h2>
         <p style="font-size:17px">Why AI does not understand the physical world, and has neither consciousness nor soul.</p>
       </div>
@@ -2942,6 +2943,28 @@ tabs.forEach(([tid,pid])=>{
       document.getElementById(p).hidden=!on;
     });
     document.querySelectorAll("#"+pid+" .reveal").forEach(e=>e.classList.add("in"));
+  });
+});
+
+function openTabForHash(){
+  const h=location.hash;
+  if(h==="#human-vs-machine"||h==="#usecases"||h==="#panel-g"){
+    const btn=document.getElementById("tab-g");
+    if(btn) btn.click();
+    if(h==="#human-vs-machine"){
+      setTimeout(()=>{
+        const el=document.getElementById("human-vs-machine");
+        if(el) el.scrollIntoView({behavior:"smooth"});
+      },50);
+    }
+  }
+}
+window.addEventListener("hashchange", openTabForHash);
+if(location.hash) openTabForHash();
+document.querySelectorAll('a[href="#human-vs-machine"]').forEach(a=>{
+  a.addEventListener("click",()=>{
+    const btn=document.getElementById("tab-g");
+    if(btn) btn.click();
   });
 });
 
